@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+
+<!-- 술 리스트 -->
+
+<div id="container">
+    <div class="inner">
+        <h2 class="title">전체</h2>
+
+        <!-- 주종별 분류-->
+        <div class="tab-wrap1">
+            <div class="tab-scroll">
+                <ul class="tab tab-depth">
+                    <li class="tab-menu selected"><a href="">전체</a></li>
+                    <li><a href="">탁주</a></li>
+                    <li><a href="">약주·청주</a></li>
+                    <li><a href="">과실주</a></li>
+                    <li><a href="">증류주</a></li>
+                    <li><a href="">리큐르/기타주류</a></li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div id="tab1">
+                    <div class="product-list">
+                        <ul>
+                            <li class="item">
+                                <div class="thumb"> <!--배상면주가 홍시-->
+                                    <div class="img">
+                                       <!-- <span> 본 사이트에는 있지만 필요없어보여 지웠음-->
+                                            <img src="/assets/img/hongsi.jpg" onclick="move(/*술 넘버*/)">
+                                        <<!--/span>-->
+                                    </div>
+                                </div> <!-- 술 썸네일 및 술 상세페이지로 넘어가도록 링크 걸어주기-->
+                                <dl class-="detail">
+                                    <dt>
+                                        <div class="title-area">
+                                            <div class="name" onclick="move(/*술 넘버*/)">홍시</div>
+                                        </div>
+
+                                    </dt>
+                                    <dd>
+                                        <ul>
+                                            <li>
+                                                <div class="subject">제조사</div>
+                                                <div class="info">배상면주가</div>
+                                            </li>
+                                            <li>
+                                                <div class="subject">주원료</div>
+                                                <div class="info"></div>
+                                            </li>
+                                            <li>
+                                                <div class="subject">규격/도수</div>
+                                                <div class="info"></div>
+                                            </li>
+                                            <li>
+                                                <div class="subject">제품특징</div>
+                                                <div class="info no-line">
+                                                    <span class="el-3line">
+                                                        "홍시 술에 대한 설명 이렇고 저렇고"
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </dd> <!-- 술 간단설명: 제조사, 주원료, 규격/도수, 제품특징-->
+                                </dl> <!-- 설명란(제목, 설명) -->
+                            </li> <!--술 1종류 사진 및 설명-->
+                            <li class="item"></li>
+                            <li class="item"></li>
+                            <li class="item"></li>
+                            <li class="item"></li>
+                        </ul>
+                    </div>
+
+                    <div class="paging">
+                        <ul>
+                            <li><a href="#" class="page-link">처음</a></li>
+                            <li><a href="#" class="page-link">이전</a></li>
+                            <li><a href="#" class="page-link">1</a></li>
+                            <li><a href="#" class="page-link">2</a></li>
+                            <li><a href="#" class="page-link">3</a></li>
+                            <li><a href="#" class="page-link">다음</a></li>
+                            <li><a href="#" class="page-link">끝</a></li>
+                        </ul>
+                    </div> <!-- 술 리스트 페이지번호-->
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+</html>
