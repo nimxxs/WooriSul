@@ -5,14 +5,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.13</version>
+        <version>2.7.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>hanjan.yeji.boot</groupId>
-    <artifactId>WooriSul</artifactId>
+    <groupId>hi1237.hello.boot</groupId>
+    <artifactId>Spring5Boot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>WooriSul</name>
-    <description>WooriSul</description>
+    <name>Spring5Boot</name>
+    <description>Spring5Boot</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -58,6 +58,21 @@
             <version>2.3.1</version>
             <scope>test</scope>
         </dependency>
+
+
+        <!-- thymeleaf layout       -->
+        <dependency>
+            <groupId>nz.net.ultraq.thymeleaf</groupId>
+            <artifactId>thymeleaf-layout-dialect</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+
+
+
+        <!-- junit 지움 -->
+
+
+
     </dependencies>
 
     <build>
