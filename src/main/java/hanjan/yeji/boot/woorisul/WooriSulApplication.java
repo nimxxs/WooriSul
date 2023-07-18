@@ -1,0 +1,13 @@
+package hanjan.yeji.boot.woorisul;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class WooriSulApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(WooriSulApplication.class, args);
+    }
+
+}
