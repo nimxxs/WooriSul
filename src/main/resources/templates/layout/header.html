@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org">
+<th:block th:fragment="header">
+    <header class="row">
+        <link rel="stylesheet" href="/assets/css/project/header.css"/>
+    </header>
+
+        <nav id="gnb" class="gnb">
+            <ul class="list">
+
+                <div>
+                    <img src="/assets/image/logo_black.png"
+                    style="width: 350px; overflow: hidden;"/>
+                </div>
+
+                <li>
+                    <a href="" class="depth01">우리술 소개</a>
+                </li>
+                <li>
+                    <a href="" class="depth01">우리술 종류</a>
+                </li>
+                <li>
+                    <a href="" class="depth01">우리술 구매처</a>
+                    <ul class="depth02">
+                        <li><a href="#">온라인/오프라인 판매처</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="depth01">찾아가는 양조장</a>
+                    <ul class="depth02">
+                        <li><a href="#">양조장 둘러보기</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="depth01">우리들의 추천</a>
+                    <ul class="depth02">
+                        <li><a href="">해시태그로 알아보기</a></li>
+                        <li><a href="">안주와 함께하기</a></li>
+                        <li><a href="">우아한 한잔</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+</th:block>
+</html>

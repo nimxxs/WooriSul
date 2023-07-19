@@ -1,18 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>index</title>
-    <link rel="stylesheet" href="/assets/css/bs5/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/eb07c6eb8a.js" crossorigin="anonymous"></script>
-</head>
-<body>
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+layout:decorate="~{layout/template}">
 
-  <h2>Hello</h2>
-  <button type="button" class="btn btn-danger">테스트</button>
+<th:block layout:fragment="content">
 
-  <script src="/assets/js/bs5/bootstrap.bundle.min.js"></script>
-</body>
+</th:block>
 </html>
