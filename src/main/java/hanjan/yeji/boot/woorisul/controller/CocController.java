@@ -19,6 +19,13 @@ public class CocController {
 
         return "coc/list";
     }
+    @GetMapping("/view")
+    public String view(){
+        logger.info("coc/view 호출!!");
+
+        return "coc/view";
+    }
+
 
 
 }
