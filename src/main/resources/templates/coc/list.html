@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+
+
+
+<th:block layout:fragment="content">
+    <style>
+        .badge-pink {
+            background-color: #ff0099;
+            color: white;
+        }
+    </style>
+
+    <div id="main">
+        <div class="mt-5">
+            <i class="fa-solid fa-martini-glass-citrus fa-2xl">칵테일</i>
+            <hr>
+        </div>
+
+        <div class="row mt-5 mb-3 ">
+            <div class="row offset-5 col-9">
+                <div class="col-3">
+                    <select class="form-select" id="findtype">
+                        <option>전</option>
+                        <option>통</option>
+                        <option>주</option>
+                        <option>칵</option>
+                        <option>테</option>
+                        <option>일</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control col-2" id="findkey">
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-light" id="findbtn">
+                        <i class="fa-solid fa-magnifying-glass"></i> 술 검색하기</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="offset-1 col-10">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                             <th class="text-center">전통주 칵테일</th>
+                        </tr>
+                    </thead>
+                </table>
+                    <tbody>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                <div class="card">
+                                    <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지1">
+                                    <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                    <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                <div class="card">
+                                    <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지2">
+                                    <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                    <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                <div class="card">
+                                    <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지3">
+                                    <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                    <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                <div class="card">
+                                    <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지4">
+                                    <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                    <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                <div class="card">
+                                    <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지5">
+                                    <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                    <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                    <div class="card">
+                                        <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지6">
+                                        <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                        <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                    <div class="card">
+                                        <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지1">
+                                        <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                        <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                    <div class="card">
+                                        <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지2">
+                                        <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                        <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                    <div class="card">
+                                        <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지3">
+                                        <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                        <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                    <div class="card">
+                                        <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지4">
+                                        <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                        <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                    <div class="card">
+                                        <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지5">
+                                        <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                        <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                    <div class="card">
+                                        <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지6">
+                                        <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                        <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                    <div class="card">
+                                        <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지1">
+                                        <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                        <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                    <div class="card">
+                                        <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지2">
+                                        <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                        <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                    <div class="card">
+                                        <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지3">
+                                        <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                        <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                    <div class="card">
+                                        <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지4">
+                                        <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                        <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                    <div class="card">
+                                        <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지5">
+                                        <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                        <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/assets/coc/view">
+                                    <div class="card">
+                                        <img src="/assets/image/s3_1.jpg" class="card-img-top" alt="이미지6">
+                                        <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
+                                        <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    </tbody>
+                <!--<li>
+                    <div class='data_box_100_25_title1'>
+                        <a href="/food_story/cocktail_story_view.php?idx_no=3-1" title="고진감래"><img src='/wi_files/food_story/cocktail_story/story3_1_1.jpg' onerror="this.src='/wi_imgs/no_140.gif';" alt="" /></a>
+                        <div><span class='main_span_txt4'>칵테일</span> <span class='span_bold'>고진감래</span></div>
+                        <div><span class='main_span_txt1'>베이스</span> 감홍로 베이스</div>
+                        <div class='tbl_blank'></div>
+                    </div>
+                </li>-->
+
+            </div>
+        </div><!-- 칵테일 리스트 -->
+
+        <div class="paging">
+            <ul>
+                <li><a href="#" class="page-link">처음</a></li>
+                <li><a href="#" class="page-link">이전</a></li>
+                <li><a href="#" class="page-link">1</a></li>
+                <li><a href="#" class="page-link">2</a></li>
+                <li><a href="#" class="page-link">3</a></li>
+                <li><a href="#" class="page-link">다음</a></li>
+                <li><a href="#" class="page-link">끝</a></li>
+            </ul>
+        </div>
+    </div>
+</th:block>
+</html>
