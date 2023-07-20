@@ -2,8 +2,125 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/template}">
-
+<th:block layout:fragment="content">
 <!-- 술 상세페이지 -->
+<div id="content">
+    <div class="inner">
+        <h2 class="title">전체</h2>
+        <!-- tab-wrap -->
+        <div class="tab-wrap2">
+            <div class="tab-scroll">
+                <ul class="tab tab-depth">
+
+                    <li class="tab-menu selected"><a href="/front/find/M000000082/list.do" target="_self">전체</a></li>
+
+                    <li class="tab-menu "><a href="/front/find/M000000083/list.do?kind=CD00000141" target="_self">탁주</a></li>
+
+                    <li class="tab-menu "><a href="/front/find/M000000084/list.do?kind=CD00000142" target="_self">약주·청주</a></li>
+
+                    <li class="tab-menu "><a href="/front/find/M000000085/list.do?kind=CD00000143" target="_self">과실주</a></li>
+
+                    <li class="tab-menu "><a href="/front/find/M000000086/list.do?kind=CD00000144" target="_self">증류주</a></li>
+
+                    <li class="tab-menu "><a href="/front/find/M000000087/list.do?kind=CD00000145" target="_self">리큐르/기타주류</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="product-view">
+            <dl>
+                <dt class="subject">삼해주</dt>
+                <dd class="detail">
+                    <div class="thumb">
+                        <div class="img">
+                            <span>
+                                <img src="https://thesool.com/common/imageView.do?targetId=PR00001067&targetNm=PRODUCT"/>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <div class="title">
+                            <span>상세 정보</span>
+                        </div>
+                        <ul class="info-list">
+                            <li><strong>종류</strong>
+                                <span>
+                        탁주
+
+                    </span>
+                            </li>
+                            <li><strong>원재료</strong>
+                                <span>
+                        양주쌀, 누룩, 정제수
+                    </span>
+                            </li>
+                            <li><strong>알콜도수</strong>
+                                <span>
+
+                            15% &nbsp;
+
+                    </span>
+                            </li>
+                            <li><strong>용량</strong>
+                                <span>500ml</span>
+                            </li>
+                            <li><strong>수상내역</strong>
+                                <span></span>
+                            </li>
+                            <li><strong>기타</strong>
+                                <span></span>
+                            </li>
+                        </ul>
+                        <div class="tag">
 
 
+
+
+
+
+                        </div>
+                    </div>
+                </dd>
+                <dd class="intro">
+                    <div class="title">
+                        <span>제품 소개</span>
+                    </div>
+                    <div class="text">
+                        삼해 주는 고려 시대부터 이어져 온 서울지역의 전통주입니다. 원래 궁중에서 의식이나 행사 사용하거나 사대부 집안의 가양주로 애용되다가 조선시대에 큰 사랑을 받았습니다. 15도 도수가 느껴지지 않을 만큼 부드러우며 단맛, 신맛 등이 적당히 잘 어우러지고 뒷맛도 깔끔합니다.
+                    </div>
+                </dd>
+                <dd class="food">
+                    <div class="title">
+                        <span>어울리는 음식</span>
+                    </div>
+                    <div class="text">
+
+                    </div>
+                </dd>
+                <dd class="place">
+                    <div class="title">
+                        <span>양조장</span>
+                    </div>
+                    <div class="text">
+                        <ul>
+                            <li><strong>양조장명</strong> <span>선인양조</span></li>
+                            <li><strong>주소</strong> <span>경기도 양주시 가래비9길 12-29</span></li>
+                            <li><strong>홈페이지</strong>
+                                <span><a href="https://smartstore.naver.com/suninbrew" target="_blank">
+                    https://smartstore.naver.com/suninbrew</a>
+                    </span>
+                            </li>
+                            <li><strong>문의</strong>0318267080</li>
+                        </ul>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        <div class="btn-area">
+            <button type="button" class="btn-primary" onclick="move();">목록</button>
+        </div>
+    </div>
+</div>
+
+</th:block>
 </html>
