@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="https://www.thymeleaf.org">
 <th:block th:fragment="header">
-    <header class="row">
-        <link rel="stylesheet" href="/assets/css/project/header.css"/>
-    </header>
 
-        <nav id="gnb" class="gnb">
-            <ul class="list">
 
-                <div>
-                    <img src="/assets/image/logo_black.png"
-                    style="width: 350px; overflow: hidden;"/>
-                </div>
+    <!-- 메뉴 부분 -->
+    <div id="header">
+        <div class="inner">
+            <div class="logo">
+                <img src="/assets/image/logo_black.png" alt="우리술 로고" style="width:300px;">
+            </div><!-- 로고 -->
+            <div class="gnb desktop">
+                <ul class="gnb-list mt-5 ">
+                    <li class="gnb-menu1"><a href="" target="_self">우리술 소개</a></li>
+                    <li class="gnb-menu2"><a href="" target="_self">우리술 종류</a></li>
+                    <li class="gnb-menu3"><a href="" target="_self">우리술 구매처</a></li>
+                    <li class="gnb-menu4"><a href="" target="_self">찾아가는 양조장</a></li>
+                    <li class="gnb-menu5"><a href="" target="_self">우리들의 추천</a></li>
+                </ul><!-- 메뉴 상위 항목 -->
 
-                <li>
-                    <a href="" class="depth01">우리술 소개</a>
-                </li>
-                <li>
-                    <a href="" class="depth01">우리술 종류</a>
-                </li>
-                <li>
-                    <a href="" class="depth01">우리술 구매처</a>
-                    <ul class="depth02">
-                        <li><a href="#">온라인/오프라인 판매처</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="" class="depth01">찾아가는 양조장</a>
-                    <ul class="depth02">
-                        <li><a href="#">양조장 둘러보기</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="" class="depth01">우리들의 추천</a>
-                    <ul class="depth02">
-                        <li><a href="">해시태그로 알아보기</a></li>
-                        <li><a href="">안주와 함께하기</a></li>
-                        <li><a href="">우아한 한잔</a></li>
-                    </ul>
-                </li>
+                <div class="snb-list">
+                    <div class="inner">
+                        <ul class="snb-menu3">
+                            <li><a href="" target="_self">온라인/오프라인 판매처</a></li>
+                        </ul>
+                        <ul class="snb-menu4">
+                            <li><a href="" target="_self">양조장 둘러보기</a></li>
+                        </ul>
+                        <ul class="snb-menu5">
+                            <li><a href="" target="_blank">해시태그로 알아보기</a></li>
+                            <li><a href="" target="_self">안주와 함께하기</a></li>
+                            <li><a href="" target="_self">우아한 한잔</a></li>
+                        </ul>
+                    </div>
+                </div><!-- 메뉴 하위 항목 -->
+            </div>
+        </div>
+    </div>
 
-            </ul>
-        </nav>
+    <!-- 바디 부분 -->
+    <div id="body">
+        <div class="inner">
+            <img src="/assets/image/body.jpg" style="width: 1200px; height: 500px; ">
+        </div>
+    </div>
+
 </th:block>
 </html>

@@ -3,20 +3,40 @@
       xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>index</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2"/>
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+    <meta name="description" content="전통주 관련 종합정보 사이트. 전통주 뉴스, 브랜드, 양조장, 온라인 및 오프라인 판매처 안내. 한국농수산식품유통공사 운영."/>
+    <meta name="keywords" content="" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+
+    <link rel="shortcut icon" href="https://thumb.silhouette-ac.com/t/db/db35083c72ebb3f4dbdd0350d068afc6_t.jpeg" type="image/x-icon"/>
+    <title>우리 Sul</title>
+    <script src="https://thesool.com/js/front/jquery.min.js"></script>
+
+
+
+    <link rel="stylesheet" type="text/css" href="https://thesool.com/css/front/common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://thesool.com/css/front/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="https://thesool.com/css/front/respond.css"/>
+    <script src="https://thesool.com/js/front/swiper.js" async></script>
+    <script src="https://thesool.com/js/front/global.js" async></script>
+
+    <link rel="stylesheet" href="/assets/css/woorisul/header.css">
     <link rel="stylesheet" href="/assets/css/bs5/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/eb07c6eb8a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/assets/css/project.css">
 </head>
 <body>
 <div class="container">
     <th:block th:replace="layout/header :: header"></th:block>
-    <!--     layout에 있는 header.html 안에 있는 fragment 중에서 header를 넣어라..   -->
 
     <th:block layout:fragment="content"></th:block>
 
-    <!-- <th:block th:replace="layout/footer :: footer"></th:block>-->
+    <th:block th:replace="layout/footer :: footer"></th:block>
 
  </div>
 
