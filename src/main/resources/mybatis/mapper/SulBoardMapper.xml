@@ -8,6 +8,11 @@
         values (#{sname},#{kind},#{base},#{tag});
     </insert>
 
+    <select id="selectSulBoard" resultType="SulBoard">
+        select sno, sname, kind, base, ptg, intro, bno, tag from sul
+        order by sno desc limit #{stnum}, 25
+    </select>
+
 <!--    <select id="selectBoard" resultType="Board">-->
 <!--        select bno, title, userid, regdate, thumbs, views from board2-->
 <!--        order by bno desc limit #{stnum}, 25-->
