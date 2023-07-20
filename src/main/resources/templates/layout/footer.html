@@ -1,10 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org">
+<th:block th:fragment="footer">
 
-</body>
+    <div id="footer" class="index">
+        <div class="inner">
+            <div class="footer-top p">
+                <div class="ft-left">
+                    <div class="text">
+                        우리술은 전통주의 가치를 알리기 위해 운영하는 종합 정보 사이트입니다.
+                    </div>
+                </div>
+                <div class="ft-right">
+                    <div class="sns">
+                        <ul class="sns-list">
+                            <li><a href="https://blog.naver.com/the_sool" target="_blank" class="blog">네이버 블로그</a></li>
+                            <li><a href="https://www.facebook.com/thesool.page/" target="_blank"
+                                   class="facebook">페이스북</a></li>
+                            <li><a href="https://www.instagram.com/thesoolofficial/" class="instar" target="_blank">인스타그램</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- SNS -->
+            </div>
+            <div class="footer-btm">
+                <ul class="info">
+                    <li>한국농수산식품유통공사</li>
+                    <li>[08787] 서울특별시 관악구 남부순환로 1820</li>
+                    <li>이용문의 : 02-6020-0052 / 팩스 : 061-804-4540</li>
+                    <li><a href="https://www.at.or.kr/html/member/at_acount_2.html"
+                           style="color:#DE6B35;font-weight:bold;">개인정보처리방침</a></li>
+                    <li><a href="" style="color: #1a1e21; text-underline: #1a1e21; font-weight: bold;">관리자 페이지</a></li>
+                </ul>
+                <ul class="copy">
+                    <li>Copyright &copy; 2023 by woorisul</li>
+                </ul>
+            </div><!-- 맨 하단 부분 -->
+        </div>
+        <body>
+        <div class="aside">
+            <ul class="sns-list">
+                <li><a href="https://blog.naver.com/the_sool" class="blog" target="_blank">네이버 블로그</a></li>
+                <li><a href="https://www.facebook.com/thesool.page/" class="facebook" target="_blank">페이스북</a></li>
+                <li><a href="https://www.instagram.com/thesoolofficial/" class="instar" target="_blank">인스타그램</a></li>
+            </ul>
+            <div class="top">
+                <a href="#">TOP</a>
+            </div>
+        </div><!-- 옆 사이드 바 -->
+        </body>
+    </div>
+    </footer>
+</th:block>
 </html>
