@@ -25,19 +25,20 @@ public class SulBoardControllerUnitTest {
     @Autowired
     private MockMvc mvc;
 
-//    @Test
-//    @DisplayName("SulBoardController read Test")
-//    @Transactional
-//
-//    void readSulBoard() throws Exception {
-//
-//
-//        mvc.perform(get("/drink/list/1"))
-//
-//                .andExpect(status().isOk())
-//                .andDo(print());
-//
-//    }
+    @Test
+    @DisplayName("SulBoardController read Test")
+    @Transactional
+
+    void readSulBoard() throws Exception {
+
+
+        mvc.perform(get("/drink/list/1")
+                        .param("cpg", "1"))
+
+                .andExpect(status().isOk())
+                .andDo(print());
+
+    }
 
 
 

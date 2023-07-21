@@ -4,15 +4,20 @@
 
 <mapper namespace="hanjan.yeji.boot.woorisul.mybatis.SulBoardMapper">
     <insert id="insertSulBoard" parameterType="SulBoard">
-        insert into sul(sname, kind, base, tag)
-        values (#{sname},#{kind},#{base},#{tag});
+        insert into sul(sname, kind, base, ptg, intro, tag)
+        values (#{sname},#{kind},#{base}, #{ptg}, #{intro}, #{tag});
     </insert>
 
     <select id="selectSulBoard" resultType="SulBoard">
         select sno, sname, kind, base, ptg, intro, bno, tag from sul
-        order by sno desc limit #{stnum}, 25
+        order by sno desc limit #{stnum}, 5
     </select>
-// 수정완료(문선 삭제/ 마스터 삽입)
+
+    <select id="selectOneSulBoard" resultType="SulBoard">
+        select * from sul where sno = #{sno}
+    </select>
+
+
 
 <!--    <select id="selectOneBoard" resultType="Board">-->
 <!--        select * from board2 where bno = #{bno}-->
