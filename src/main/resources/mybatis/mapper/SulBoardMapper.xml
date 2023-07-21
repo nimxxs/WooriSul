@@ -12,6 +12,7 @@
         select sno, sname, kind, base, ptg, intro, bno, tag from sul
         order by sno desc limit #{stnum}, 25
     </select>
+// 수정완료(문선 삭제/ 마스터 삽입)
 
 <!--    <select id="selectOneBoard" resultType="Board">-->
 <!--        select * from board2 where bno = #{bno}-->

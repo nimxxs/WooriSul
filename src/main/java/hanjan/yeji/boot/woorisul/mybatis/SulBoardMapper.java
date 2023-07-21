@@ -13,4 +13,5 @@ public interface SulBoardMapper {
   List<SulBoard> selectSulBoard(int stnum);
 
   int selectCountSulBoard();
+  //충돌수정
 }
