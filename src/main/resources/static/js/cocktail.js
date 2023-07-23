@@ -33,6 +33,8 @@ wrtcocbtn?.addEventListener('click', () => {
     if (frm.cname.value === '') alert('이름을 작성하세요!!');
     else if (frm.mix.value === '') alert('믹스을 작성하세요!!');
     else if (frm.comment.value === '') alert('코멘트을 작성하세요!!');
+    else if (frm.recipe.value === '') alert('레시피을 작성하세요!!');
+    else if (frm.base.value === '') alert('레시피을 작성하세요!!');
     else {
         frm.method = 'post';
         frm.enctype = 'multipart/form-data'; // 첨부기능을 위해 추가

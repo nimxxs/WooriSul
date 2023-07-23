@@ -47,8 +47,8 @@
                     <label for="comment"
                            class="col-3 col-form-label text-danger text-end">소개</label>
                     <div class="col-6">
-                        <textarea rows="15" name="comment" id="comment"
-                                  class="form-control border-danger"></textarea>
+                        <input type="text" name="comment" id="comment"
+                               class="form-control border-danger bg-light">
                     </div>
                 </div>
 
@@ -56,7 +56,25 @@
                     <label for="recipe"
                            class="col-3 col-form-label text-danger text-end">레시피</label>
                     <div class="col-6">
-                        <input type="file" name="recipe" id="recipe" multiple="multiple"
+                        <input type="text" name="recipe" id="recipe"
+                               class="form-control border-danger bg-light">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <label for="base"
+                           class="col-3 col-form-label text-danger text-end">베이스</label>
+                    <div class="col-6">
+                        <input type="text" name="base" id="base"
+                               class="form-control border-danger bg-light">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <label for="attachs"
+                           class="col-3 col-form-label text-danger text-end">칵테일 사진</label>
+                    <div class="col-6">
+                        <input type="file" name="attachs" id="attachs" multiple="multiple"
                            class="form-control border-danger bg-light">
                     </div>
                 </div>
