@@ -22,8 +22,8 @@
     </resultMap>
 
     <insert id="insertCocktail" parameterType="Cocktail">
-        insert into cocktail (cname,mix,comment,recipe)
-        value (#{cname},#{mix},#{comment},#{recipe})
+        insert into cocktail (cname,mix,comment,recipe,base)
+        value (#{cname},#{mix},#{comment},#{recipe},#{base})
     </insert>
 
     <select id="lastCocCno">

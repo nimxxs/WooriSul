@@ -64,15 +64,14 @@
                     <div th:each="coc : ${cocs}"
                          class="col-10 card" style="width: 18rem">
                         <a th:href="|/cocktail/view/${coc.cno}|">
-                            <img th:src="|http://localhost/cdn/_thumbs/small_|"
+                            <img th:src="|http://localhost/cdn|"
                                  class="card-img-top" alt="..."></a>
 
                         <div class="card-body">
-                            <h5 class="card-title" th:text="${coc.cname}">술이름</h5>
-                            <p><span th:text="${coc.mix}">조합</span>
-                                <span style="float: right" th:text="${coc.comment}">칵테일 소개</span></p>
-                            <p><span th:text="${coc.recipe}">레시피</span>
-                                <span style="float: right" th:text="${coc.base}">베이스</span></p>
+                            <p class="card-title">
+                                <span th:text="${coc.cname}">베이스</span></p>
+                              <p><span th:text="${coc.base}">레시피</span></p>
+
                         </div>
                     </div>
 

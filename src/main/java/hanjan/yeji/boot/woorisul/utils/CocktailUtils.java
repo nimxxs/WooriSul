@@ -36,7 +36,7 @@ public class CocktailUtils {
             String fname = makeUUID() + attach.getOriginalFilename();
 
             // 업로드할 파일 정보 알아내기 - 파일 크기
-            String fsize = attach.getSize() / 1024 + "";
+            String fsize = attach.getSize() / 2048 + "";
 
             // 첨부파일을 지정한 위치에 저장
             String savepath = saveImgDir + fname;
@@ -81,7 +81,7 @@ public class CocktailUtils {
         // 썸내일 이미지 경로 설정
         // 원본 : abc123.jpg
         // 썸내일 : small_abc123.jpg
-        String thumbname = saveImgDir + "_thumbs/small_" + basename;
+        String thumbname = saveImgDir + basename;
 
         // 썸내일 작업 진행
         try {

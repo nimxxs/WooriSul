@@ -93,5 +93,5 @@ select * from cca0;
 create view cca0
 as
 
-select cno, cname, mix, comment,recipe,fname
+select cno, cname, mix, comment,recipe,base,fname
 from cocktail c join cocattach ca using (cno);
