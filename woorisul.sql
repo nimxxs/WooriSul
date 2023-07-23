@@ -82,3 +82,16 @@ create table cocktail(
 );
 
 insert into cocktail values ('2','백의민족','감홍로+프란젤리코+우유','조선 3대 명주인 감홍로를 사용하여 조선시대 선비의 청렴함과 흰옷을 즐겨 입은 우리 민족을 표현하였다.','❶셰이커에 재료와 적당량의 얼음을 넣은 후 잘 흔든다. ❷ 셰이커의 캡만 열고 얼음을 걸리 내용물만 미리 차게 준비한 칵테일 글라스에 따른다. ❸계피가루로 장식한다.');
+
+-- view (가상테이블)
+create view cca
+as
+select * from cocktail c join cocattach ca using(cno);
+
+select * from cca0;
+
+create view cca0
+as
+
+select cno, cname, mix, comment,recipe,fname
+from cocktail c join cocattach ca using (cno);

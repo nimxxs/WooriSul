@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hanjan.yeji.boot.woorisul.mybatis.CocktailMapper">
+
+    <resultMap id="ca" type="CocAttach">
+        <result column="fname" property="fname" />
+        <result column="fsize" property="fsize" />
+    </resultMap>
+
+    <resultMap id="cca" type="Cocktail">
+        <result column="cno" property="cno"/>
+        <result column="cname" property="cname"/>
+        <result column="mix" property="mix"/>
+        <result column="comment" property="comment"/>
+        <result column="recipe" property="recipe"/>
+        <result column="base" property="base"/>
+
+
+        <collection property="ca" resultMap="ca"/>
+    </resultMap>
+
+    <insert id="insertCocktail" parameterType="Cocktail">
+        insert into cocktail (cname,mix,comment,recipe)
+        value (#{cname},#{mix},#{comment},#{recipe})
+    </insert>
+
+    <select id="lastCocCno">
+        select AUTO_INCREMENT -1 cno
+        from information_schema.TABLES where TABLE_NAME = 'cocktail'
+    </select>
+
+    <insert id="insertCocAttach" parameterType="CocAttach">
+        insert into cocattach (cno,fname,fsize)
+        value (#{cno},#{fname},#{fsize})
+    </insert>
+
+    <select id="selectCocktail" resultMap="cca">
+        select * from cca0
+        order by cno desc limit #{stnum}, 8
+    </select>
+
+    <select id="selectOneCocktail" resultMap="cca"> <!-- rsultMap을 만들어-->
+        select * from cca where cno = #{cno}
+    </select>
+
+    <select id="selectCountCocktail">
+        select ceil(count(cno) / 8) cntpg from Cocktail
+    </select>
+
+
+</mapper>
