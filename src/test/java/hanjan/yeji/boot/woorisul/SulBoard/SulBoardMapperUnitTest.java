@@ -41,6 +41,29 @@ public class SulBoardMapperUnitTest {
 
 
     }
+    @Test
+    @DisplayName("sulboardMapper update Test")
+    void countPage(){
+
+
+        int result = sulBoardMapper.selectCountSulBoard();
+
+        assertNotNull(result);
+    }
+
+    @Test
+    @DisplayName("sulBoardMapper select Test")
+    void selectSulBoard() {
+
+        int cpg =1;
+        int stnum = (cpg - 1) * 5;
+
+        List<SulBoard> results = sulBoardMapper.selectSulBoard(stnum);
+        System.out.println(results);
+        assertNotNull(results);
+
+
+    }
 
 
 }
