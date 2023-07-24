@@ -11,4 +11,8 @@ public interface SulBoardDAO {
   List<SulBoard> selectSulBoard(int stnum);
 
   int selectCountSulBoard();
+
+  SulBoard selectOneSulBoard(String sno);
+
+
 }

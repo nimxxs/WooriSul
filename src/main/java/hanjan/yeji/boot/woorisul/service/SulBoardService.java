@@ -11,4 +11,7 @@ public interface SulBoardService {
     List<SulBoard> readSulBoard(Integer cpg);
 
     int countSulBoard();
+
+
+    SulBoard readOneSulBoard(String sno);
 }
