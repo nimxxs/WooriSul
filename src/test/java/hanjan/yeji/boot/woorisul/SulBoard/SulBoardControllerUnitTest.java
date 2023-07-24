@@ -9,7 +9,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.transaction.annotation.Transactional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -27,19 +26,29 @@ public class SulBoardControllerUnitTest {
 
     @Test
     @DisplayName("SulBoardController read Test")
-    @Transactional
 
     void readSulBoard() throws Exception {
 
 
-        mvc.perform(get("/drink/list/1")
-                        .param("cpg", "1"))
+        mvc.perform(get("/drink/list/1"))
 
                 .andExpect(status().isOk())
                 .andDo(print());
 
     }
 
+    @Test
+    @DisplayName("SulBoardController detail Test")
+
+    void detail() throws Exception {
+
+
+        mvc.perform(get("/drink/detail/1"))
+
+                .andExpect(status().isOk())
+                .andDo(print());
+
+    }
 
 
 

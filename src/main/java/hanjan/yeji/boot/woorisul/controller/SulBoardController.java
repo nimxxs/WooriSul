@@ -37,7 +37,6 @@ public class SulBoardController {
 
         m.addAttribute("sbd", sbsrv.readOneSulBoard(sno));
 
-
         return "drink/detail";
 
     }

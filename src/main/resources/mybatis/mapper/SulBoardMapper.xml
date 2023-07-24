@@ -18,10 +18,10 @@
     </select>
 
 
+    <select id="selectCountSulBoard">
+        select ceil(count(bno) / 5) cntpg from sul
+    </select>
 
-<!--    <select id="selectOneBoard" resultType="Board">-->
-<!--        select * from board2 where bno = #{bno}-->
-<!--    </select>-->
 
 
 </mapper>

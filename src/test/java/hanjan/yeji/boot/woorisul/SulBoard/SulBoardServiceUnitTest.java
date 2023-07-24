@@ -63,4 +63,15 @@ public class SulBoardServiceUnitTest {
 
     }
 
+    @Test
+    @DisplayName("SulBoardService readOne Test")
+    void readOneSulBoard() {
+        String sno= "12";
+        SulBoard result = sbsrv.readOneSulBoard(sno);
+        //System.out.println(results);
+        assertNotNull(result);
+
+
+    }
+
 }

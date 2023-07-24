@@ -27,14 +27,15 @@
                 </ul>
             </div>
         </div>
+
         <div class="product-view">
             <dl>
-                <dt class="subject">삼해주</dt>
+                <dt class="subject" th:text="${sbd.sname}">삼해주</dt>
                 <dd class="detail">
                     <div class="thumb">
                         <div class="img">
                             <span>
-                                <img src="https://thesool.com/common/imageView.do?targetId=PR00001067&targetNm=PRODUCT"/>
+                                <img src=""/>
                             </span>
                         </div>
                     </div>
@@ -44,39 +45,16 @@
                         </div>
                         <ul class="info-list">
                             <li><strong>종류</strong>
-                                <span>
-                        탁주
-
-                    </span>
+                                <span>[[${sbd.kind}]]</span>
                             </li>
                             <li><strong>원재료</strong>
-                                <span>
-                        양주쌀, 누룩, 정제수
-                    </span>
+                                <span>[[${sbd.base}]]</span>
                             </li>
                             <li><strong>알콜도수</strong>
-                                <span>
-
-                            15% &nbsp;
-
-                    </span>
-                            </li>
-                            <li><strong>용량</strong>
-                                <span>500ml</span>
-                            </li>
-                            <li><strong>수상내역</strong>
-                                <span></span>
-                            </li>
-                            <li><strong>기타</strong>
-                                <span></span>
+                                <span>[[${sbd.ptg}]]</span>
                             </li>
                         </ul>
                         <div class="tag">
-
-
-
-
-
 
                         </div>
                     </div>
@@ -85,7 +63,7 @@
                     <div class="title">
                         <span>제품 소개</span>
                     </div>
-                    <div class="text">
+                    <div class="text" th:text="${sbd.intro}">
                         삼해 주는 고려 시대부터 이어져 온 서울지역의 전통주입니다. 원래 궁중에서 의식이나 행사 사용하거나 사대부 집안의 가양주로 애용되다가 조선시대에 큰 사랑을 받았습니다. 15도 도수가 느껴지지 않을 만큼 부드러우며 단맛, 신맛 등이 적당히 잘 어우러지고 뒷맛도 깔끔합니다.
                     </div>
                 </dd>
@@ -97,25 +75,26 @@
 
                     </div>
                 </dd>
-                <dd class="place">
-                    <div class="title">
-                        <span>양조장</span>
-                    </div>
-                    <div class="text">
-                        <ul>
-                            <li><strong>양조장명</strong> <span>선인양조</span></li>
-                            <li><strong>주소</strong> <span>경기도 양주시 가래비9길 12-29</span></li>
-                            <li><strong>홈페이지</strong>
-                                <span><a href="https://smartstore.naver.com/suninbrew" target="_blank">
-                    https://smartstore.naver.com/suninbrew</a>
-                    </span>
-                            </li>
-                            <li><strong>문의</strong>0318267080</li>
-                        </ul>
-                    </div>
-                </dd>
+<!--                <dd class="place">-->
+<!--                    <div class="title">-->
+<!--                        <span>양조장</span>-->
+<!--                    </div>-->
+<!--                    <div class="text">-->
+<!--                        <ul>-->
+<!--                            <li><strong>양조장명</strong> <span th:text="${br.brname}">선인양조</span></li>-->
+<!--                            <li><strong>주소</strong> <span th:text="${br.addr}">경기도 양주시 가래비9길 12-29</span></li>-->
+<!--                            <li><strong>홈페이지</strong>-->
+<!--                                <span><a th:href="${br.waddr}" target="_blank" th:text="${br.waddr}"></a>-->
+<!--                    </span>-->
+<!--                            </li>-->
+<!--                            <li><strong>문의</strong></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </dd>-->
             </dl>
+
         </div>
+
         <div class="btn-area">
             <button type="button" class="btn-primary" onclick="move();">목록</button>
         </div>

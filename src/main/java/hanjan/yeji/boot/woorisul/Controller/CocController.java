@@ -1,4 +1,4 @@
-package hanjan.yeji.boot.woorisul.Controller;
+package hanjan.yeji.boot.woorisul.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

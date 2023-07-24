@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 @MybatisTest
@@ -44,5 +45,20 @@ public class SulBoardDAOUnitTest {
 
 
     }
+
+    @Test
+    @DisplayName("SulBoardDAO selectOne Test")
+    void selectOneSulBoard() {
+        String sno = "12";
+
+        SulBoard result = sbdao.selectOneSulBoard(sno);
+
+        // System.out.println(results);
+        assertNotNull(result);
+
+
+    }
+
+
 
 }

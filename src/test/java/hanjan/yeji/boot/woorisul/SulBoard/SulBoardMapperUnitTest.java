@@ -56,5 +56,18 @@ public class SulBoardMapperUnitTest {
 
     }
 
+    @Test
+    @DisplayName("sulBoardMapper selectOne Test")
+    void selectOneSulBoard() {
+
+        String sno="15";
+
+        SulBoard result = sulBoardMapper.selectOneSulBoard(sno);
+        //System.out.println(results);
+        assertNotNull(result);
+
+
+    }
+
 
 }
