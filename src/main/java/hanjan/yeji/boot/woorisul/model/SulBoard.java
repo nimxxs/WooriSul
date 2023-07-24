@@ -17,4 +17,6 @@ public class SulBoard {
   private String intro;
   private String bno;
   private String tag;
+
+//  private brewery br;
 }

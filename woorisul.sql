@@ -80,3 +80,6 @@ create table cocktail(
                          recipe          varchar(50)      not null,
                          primary key (cno)
 );
+
+
+SHOW PROCESSLIST;
