@@ -26,13 +26,19 @@ public class SulBoardServiceImpl implements SulBoardService {
     @Override
     public List<SulBoard> readSulBoard(Integer cpg) {
 
-        int stnum= (cpg -1) * 25;
+        int stnum= (cpg -1) * 5;
         return sbdao.selectSulBoard(stnum);
     }
 
     @Override
     public int countSulBoard() {
         return sbdao.selectCountSulBoard();
+    }
+
+    @Override
+    public SulBoard readOneSulBoard(String sno) {
+
+        return sbdao.selectOneSulBoard(sno);
     }
 
 
