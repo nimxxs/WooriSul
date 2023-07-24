@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class brewery {
+public class Brewery {
     private String bno;
     private String brname;
     private String addr;
@@ -16,4 +16,7 @@ public class brewery {
     private String waddr;
     private String swo;
     private String pno;
+    private String photo;
+
+    private Program pr;
 }
