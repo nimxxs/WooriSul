@@ -51,9 +51,9 @@ alter table anju
     add constraint fkasno
         foreign key (sno) references sul (sno);
 --  프로그램명 외래키
-alter table brewery
+alter table program
     add constraint fkpno
-        foreign key (pno) references program (pno);
+        foreign key (bno) references brewery (bno);
 
 create table program(
                         pno                 int                 auto_increment,
@@ -80,3 +80,9 @@ create table cocktail(
                          recipe          varchar(50)      not null,
                          primary key (cno)
 );
+
+select * from brewery br join program pr using(pno) where pr.pno = '1';
+
+create view bpr
+as
+    select * from brewery br join program pr using(bno);
