@@ -1,10 +1,9 @@
-package hanjan.yeji.boot.woorisul.SulBoard;
+package hanjan.yeji.boot.woorisul.sulBoard;
 
 
+import hanjan.yeji.boot.woorisul.dao.SulBoardDAO;
 import hanjan.yeji.boot.woorisul.dao.SulBoardDAOImpl;
 import hanjan.yeji.boot.woorisul.model.SulBoard;
-import hanjan.yeji.boot.woorisul.service.SulBoardService;
-import hanjan.yeji.boot.woorisul.service.SulBoardServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
@@ -13,8 +12,6 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.context.annotation.Import;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -22,56 +19,45 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @MybatisTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
         // 여기 내용이랑 아래 오류가 연관: 내가 쓰는 DB 시스템을 대입시켜라!
-@Import({SulBoardServiceImpl.class, SulBoardDAOImpl.class})
+@Import(SulBoardDAOImpl.class)
 // 아래 Autowired로 MemberDAO 내용을 데려와야하는데 못데려와서 위 import를 다시 해줌
 
-public class SulBoardServiceUnitTest {
+public class SulBoardDAOUnitTest {
 
     @Autowired
-    private SulBoardService sbsrv;
-
+    private SulBoardDAO sbdao;
 
     @Test
-    @DisplayName("sulboardService save Test")
+    @DisplayName("sulBoardDAO insert Test")
     @Transactional
-    void saveSulBoard() {
+    void insertSulBoard() {
         SulBoard sb= new SulBoard();
 
-        sb.setSname("옥수수톡톡");
+        sb.setSname("옥수수톡탁");
         sb.setKind("홍주");
         sb.setBase("감[홍시] 30.8%");
         sb.setTag("선물용");
 
-
-        boolean result = sbsrv.saveSulBoard(sb);
+        int result = sbdao.insertSulBoard(sb);
         //System.out.println(results);
-        assertEquals(result, true);
+        assertEquals(result, 1);
 
 
     }
 
     @Test
-    @DisplayName("SulBoardService read Test")
-    void readSulBoard() {
+    @DisplayName("SulBoardDAO selectOne Test")
+    void selectOneSulBoard() {
+        String sno = "12";
 
-        int cpg=1;
+        SulBoard result = sbdao.selectOneSulBoard(sno);
 
-        List<SulBoard> results = sbsrv.readSulBoard(cpg);
-        //System.out.println(results);
-        assertNotNull(results);
-
-
-    }
-
-    @Test
-    @DisplayName("SulBoardService readOne Test")
-    void readOneSulBoard() {
-        String sno= "12";
-        SulBoard result = sbsrv.readOneSulBoard(sno);
-        //System.out.println(results);
+        // System.out.println(results);
         assertNotNull(result);
 
 
     }
+
+
 
 }

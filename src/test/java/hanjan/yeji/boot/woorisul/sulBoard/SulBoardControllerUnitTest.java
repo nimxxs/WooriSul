@@ -1,4 +1,4 @@
-package hanjan.yeji.boot.woorisul.SulBoard;
+package hanjan.yeji.boot.woorisul.sulBoard;
 
 
 import org.junit.jupiter.api.DisplayName;

@@ -1,4 +1,4 @@
-package hanjan.yeji.boot.woorisul.SulBoard;
+package hanjan.yeji.boot.woorisul.sulBoard;
 
 import hanjan.yeji.boot.woorisul.model.SulBoard;
 import hanjan.yeji.boot.woorisul.mybatis.SulBoardMapper;
