@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hanjan.yeji.boot.woorisul.mybatis.SulBoardMapper">
+    <insert id="insertSulBoard" parameterType="SulBoard">
+        insert into sul(sname, kind, base, ptg, intro, tag)
+        values (#{sname},#{kind},#{base}, #{ptg}, #{intro}, #{tag});
+    </insert>
+
+    <select id="selectSulBoard" resultType="SulBoard">
+        select sno, sname, kind, base, ptg, intro, bno, tag from sul
+        order by sno desc limit #{stnum}, 5
+    </select>
+
+    <select id="selectOneSulBoard" resultType="SulBoard">
+        select * from sul where sno = #{sno}
+    </select>
+
+
+    <select id="selectCountSulBoard">
+        select ceil(count(bno) / 5) cntpg from sul
+    </select>
+
+
+
+</mapper>

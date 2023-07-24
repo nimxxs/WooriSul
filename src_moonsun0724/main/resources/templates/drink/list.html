@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+<th:block layout:fragment="content">
+<!-- 술 리스트 -->
+
+    <div id="content">
+        <div class="inner">
+            <h2 class="title">전체</h2>
+
+            <!-- tab-wrap -->
+            <div class="tab-wrap2">
+                <div class="tab-scroll">
+                    <ul class="tab tab-depth"> <!-- 주종별 카테고리-->
+
+                        <li class="tab-menu selected"><a href="" target="_self">전체</a></li>
+
+                        <li class="tab-menu "><a href="" target="_self">탁주</a></li>
+
+                        <li class="tab-menu "><a href="" target="_self">약주·청주</a></li>
+
+                        <li class="tab-menu "><a href="" target="_self">과실주</a></li>
+
+                        <li class="tab-menu "><a href="" target="_self">증류주</a></li>
+
+                        <li class="tab-menu "><a href="" target="_self">리큐르/기타주류</a></li>
+
+                    </ul>
+                </div>
+
+                <form method="get" id="pagingForm" name="pagingForm">
+                    <div class="board-top">
+                        <div class="board-btn">
+                            <a href="https://terms.naver.com/list.nhn?cid=58636&categoryId=58636" class="btn-wiki" target="_blank">네이버 전통주 지식백과</a>
+                            <a href="#none" class="btn-keywords">키워드 사전</a>
+                        </div> <!-- 네이버백과 연결, 키워드 사전 -->
+                        <div class="board-search info-search">
+                            <div class="total">Total <span>24</span></div> <!-- 전체 글 개수-->
+                            <div class="radio-area">
+                                <label for="radio-type1" class="radio-box">
+                                    <input id="radio-type1" name="searchType" type="radio" value="1">
+                                    <span>키워드 검색</span>
+                                </label>
+                                <label for="radio-type2" class="radio-box">
+                                    <input id="radio-type2" name="searchType" type="radio" value="2">
+                                    <span>명칭 검색</span>
+                                </label>
+                            </div> <!-- 검색 항목(라디오) -->
+                            <div class="search-wrap">
+                                <div class="search-area1">
+                                    <div class="search-input">
+                                        <input type="text" id="searchKey" name="searchKey" value=""/>
+                                        <button id="btnKeyword" onclick="javascript:search('keyword');">검색</button>
+                                    </div>
+                                </div>
+                                <div class="search-area2">
+                                    <div class="option">
+                                        <div class="search-select">
+
+                                            <select id="searchKind" name="searchKind">
+                                                <option value="">시/도</option>
+                                                <option value="CD00000094">서울특별시</option>
+                                                <option value="CD00000095">부산광역시</option>
+                                                <option value="CD00000096">대구광역시</option>
+                                                <option value="CD00000097">인천광역시</option>
+                                                <option value="CD00000098">광주광역시</option>
+                                                <option value="CD00000099">대전광역시</option>
+                                                <option value="CD00000100">울산광역시</option>
+                                                <option value="CD00000101">세종특별자치시</option>
+                                                <option value="CD00000102">경기도</option>
+                                                <option value="CD00000103">강원도</option>
+                                                <option value="CD00000104">충청북도</option>
+                                                <option value="CD00000105">충청남도</option>
+                                                <option value="CD00000106">전라북도</option>
+                                                <option value="CD00000107">전라남도</option>
+                                                <option value="CD00000108">경상북도</option>
+                                                <option value="CD00000109">경상남도</option>
+                                                <option value="CD00000110">제주특별자치도</option>
+                                            </select>
+
+
+                                        </div>
+                                        <div class="search-select">
+                                            <select id="levelType" name="levelType">
+                                                <option value="">전체</option>
+                                                <option value="10">10도미만</option>
+                                                <option value="20">10~20도</option>
+                                                <option value="30">20~30도</option>
+                                                <option value="40">30~40도</option>
+                                                <option value="50">40~50도</option>
+                                                <option value="60">50도 이상</option>
+                                            </select>
+                                        </div>
+                                        <div class="search-input">
+                                            <input type="text" id ="searchString" name="searchString" value=""/>
+                                            <button id="btnSearchString" onclick="javascript:search('searchString');">검색</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>  <!-- 도수별, 지역별 select -->
+                        </div>
+                        <input type="hidden" id="productId" name="productId" value=""/>
+                        <input type="hidden" name="pageIndex" value="1"/>
+                        <input type="hidden" name="categoryNm"/>
+                        <input type="hidden" name="kind" value=""/>
+                    </div>
+                </form>
+
+                <div class="tab-content">
+                    <div id="tab1">
+                        <div class="product-list">
+
+                            <ul>
+                                <!-- li 하나가 술 항목 하나 -->
+                                <li class="item">
+                                    <div class="thumb">
+                                        <div class="img">
+                                            <span>
+                                                <img src="" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <th:block th:each="sbd: ${sbds}">
+                                    <dl class="detail">
+                                        <dt>
+                                            <div class="title-area">
+                                                <div class="name" th:text="${sbd.sname}">삼해주</div>
+                                            </div>
+                                            <div class="label-list">
+                                                <ul>
+                                                </ul>
+                                            </div> <!-- 해당페이지에 회색 부분으로 만들어짐..-->
+                                        </dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    <div class="subject">양조장</div>
+                                                    <div class="info">선인양조</div>
+                                                </li>
+                                                <li>
+                                                    <div class="subject">주원료</div>
+                                                    <div class="info" th:text="${sbd.base}">양주쌀, 누룩, 정제수</div>
+                                                </li>
+                                                <li>
+                                                    <div class="subject">도수</div>
+                                                    <div class="info" th:text="${sbd.ptg}">15% &nbsp;
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="subject">제품특징</div>
+                                                    <div class="info no-line">
+										<span class="el-3line" th:text="${sbd.intro}">
+											삼해 주는 고려 시대부터 이어져 온 서울지역의 전통주입니다. 원래 궁중에서 의식이나 행사 사용하거나 사대부 집안의 가양주로 애용되다가 조선시대에 큰 사랑을 받았습니다. 15도 도수가 느껴지지 않을 만큼 부드러우며 단맛, 신맛 등이 적당히 잘 어우러지고 뒷맛도 깔끔합니다.
+										</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                    </th:block>
+                                </li>
+
+                                <!-- 첫번째 술 항목 끝-->
+                            </ul>
+
+
+
+
+                        </div>
+                        <!-- paging -->
+                        <div class="paging">
+                            <ul class="paging-list">
+                                <li class="prev"><a href="#" onclick="fn_egov_link_page(1); return false;">이전</a></li>&#160;<li class="selected"><a href="#" onclick="1({1}); return false;">1</a></li>&#160;<li><a href="#" onclick="fn_egov_link_page(2); return false;">2</a></li>&#160;<li><a href="#" onclick="fn_egov_link_page(3); return false;">3</a></li>&#160;<li><a href="#" onclick="fn_egov_link_page(4); return false;">4</a></li>&#160;<li><a href="#" onclick="fn_egov_link_page(5); return false;">5</a></li>&#160;<li class="next"><a href="#" onclick="fn_egov_link_page(6); return false;">다음</a></li>&#160;
+
+                            </ul>
+                        </div>
+                        <!--//paging -->
+                    </div>
+                </div>
+                <div id="layer">
+                    <div class="layer-content layer-keywords">
+                        <div class="layer-header">
+                            <div class="layer-title"><i class="i-keyword"></i>키워드 사전</div>
+                            <button type="button" class="layer-close">닫기</button>
+                        </div>
+                        <div class="layer-body">
+                            <div class="tag">
+
+                                <span onclick="keywordClick('가성비','');">가성비</span>
+
+                                <span onclick="keywordClick('가을','');">가을</span>
+
+                                <span onclick="keywordClick('겨울','');">겨울</span>
+
+                                <span onclick="keywordClick('고문헌','');">고문헌</span>
+
+                                <span onclick="keywordClick('과일류','');">과일류</span>
+
+                                <span onclick="keywordClick('기념일','');">기념일</span>
+
+                                <span onclick="keywordClick('달콤','');">달콤</span>
+
+                                <span onclick="keywordClick('드라이','');">드라이</span>
+
+                                <span onclick="keywordClick('명절','');">명절</span>
+
+                                <span onclick="keywordClick('무감미료','');">무감미료</span>
+
+                                <span onclick="keywordClick('베리류','');">베리류</span>
+
+                                <span onclick="keywordClick('봄','');">봄</span>
+
+                                <span onclick="keywordClick('삼(蔘)류','');">삼(蔘)류</span>
+
+                                <span onclick="keywordClick('선물','');">선물</span>
+
+                                <span onclick="keywordClick('소용량','');">소용량</span>
+
+                                <span onclick="keywordClick('여름','');">여름</span>
+
+                                <span onclick="keywordClick('예쁜술','');">예쁜술</span>
+
+                                <span onclick="keywordClick('이색전통주','');">이색전통주</span>
+
+                                <span onclick="keywordClick('저도수','');">저도수</span>
+
+                                <span onclick="keywordClick('저용량','');">저용량</span>
+
+                                <span onclick="keywordClick('진한맛','');">진한맛</span>
+
+                                <span onclick="keywordClick('집들이','');">집들이</span>
+
+                                <span onclick="keywordClick('칵테일','');">칵테일</span>
+
+                                <span onclick="keywordClick('커플','');">커플</span>
+
+                                <span onclick="keywordClick('키워드선택','');">키워드선택</span>
+
+                                <span onclick="keywordClick('탄산','');">탄산</span>
+
+                                <span onclick="keywordClick('파티','');">파티</span>
+
+                                <span onclick="keywordClick('혼술','');">혼술</span>
+
+                                <span onclick="keywordClick('홈술','');">홈술</span>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+    </div>
+    <!-- //container -->
+</th:block>
+</html>
