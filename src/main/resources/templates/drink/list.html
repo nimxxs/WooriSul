@@ -12,19 +12,19 @@
             <!-- tab-wrap -->
             <div class="tab-wrap2">
                 <div class="tab-scroll">
-                    <ul class="tab tab-depth">
+                    <ul class="tab tab-depth"> <!-- 주종별 카테고리-->
 
-                        <li class="tab-menu selected"><a href="/front/find/M000000082/list.do" target="_self">전체</a></li>
+                        <li class="tab-menu selected"><a href="" target="_self">전체</a></li>
 
-                        <li class="tab-menu "><a href="/front/find/M000000083/list.do?kind=CD00000141" target="_self">탁주</a></li>
+                        <li class="tab-menu "><a href="" target="_self">탁주</a></li>
 
-                        <li class="tab-menu "><a href="/front/find/M000000084/list.do?kind=CD00000142" target="_self">약주·청주</a></li>
+                        <li class="tab-menu "><a href="" target="_self">약주·청주</a></li>
 
-                        <li class="tab-menu "><a href="/front/find/M000000085/list.do?kind=CD00000143" target="_self">과실주</a></li>
+                        <li class="tab-menu "><a href="" target="_self">과실주</a></li>
 
-                        <li class="tab-menu "><a href="/front/find/M000000086/list.do?kind=CD00000144" target="_self">증류주</a></li>
+                        <li class="tab-menu "><a href="" target="_self">증류주</a></li>
 
-                        <li class="tab-menu "><a href="/front/find/M000000087/list.do?kind=CD00000145" target="_self">리큐르/기타주류</a></li>
+                        <li class="tab-menu "><a href="" target="_self">리큐르/기타주류</a></li>
 
                     </ul>
                 </div>
@@ -36,7 +36,7 @@
                             <a href="#none" class="btn-keywords">키워드 사전</a>
                         </div> <!-- 네이버백과 연결, 키워드 사전 -->
                         <div class="board-search info-search">
-                            <div class="total">Total <span>910</span></div> <!-- 전체 글 개수-->
+                            <div class="total">Total <span>24</span></div> <!-- 전체 글 개수-->
                             <div class="radio-area">
                                 <label for="radio-type1" class="radio-box">
                                     <input id="radio-type1" name="searchType" type="radio" value="1">
@@ -111,52 +111,47 @@
                 <div class="tab-content">
                     <div id="tab1">
                         <div class="product-list">
+
                             <ul>
                                 <!-- li 하나가 술 항목 하나 -->
                                 <li class="item">
                                     <div class="thumb">
                                         <div class="img">
                                             <span>
-                                                <img src="/common/imageView.do?targetId=PR00001067&targetNm=PRODUCT" onclick="move('PR00001067');"/>
+                                                <img src="" />
                                             </span>
                                         </div>
                                     </div>
-
+                                    <th:block th:each="sbd: ${sbds}">
                                     <dl class="detail">
                                         <dt>
                                             <div class="title-area">
-
-                                                <div class="name" onclick="move('PR00001067');">삼해주</div>
+                                                <div class="name" th:text="${sbd.sname}">삼해주</div>
                                             </div>
                                             <div class="label-list">
                                                 <ul>
-
-
                                                 </ul>
-                                            </div>
+                                            </div> <!-- 해당페이지에 회색 부분으로 만들어짐..-->
                                         </dt>
                                         <dd>
                                             <ul>
                                                 <li>
-                                                    <div class="subject">제조사</div>
+                                                    <div class="subject">양조장</div>
                                                     <div class="info">선인양조</div>
                                                 </li>
                                                 <li>
                                                     <div class="subject">주원료</div>
-                                                    <div class="info">양주쌀, 누룩, 정제수</div>
+                                                    <div class="info" th:text="${sbd.base}">양주쌀, 누룩, 정제수</div>
                                                 </li>
                                                 <li>
-                                                    <div class="subject">규격/도수</div>
-                                                    <div class="info">500ml /
-
-                                                        15% &nbsp;
-
+                                                    <div class="subject">도수</div>
+                                                    <div class="info" th:text="${sbd.ptg}">15% &nbsp;
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="subject">제품특징</div>
                                                     <div class="info no-line">
-										<span class="el-3line">
+										<span class="el-3line" th:text="${sbd.intro}">
 											삼해 주는 고려 시대부터 이어져 온 서울지역의 전통주입니다. 원래 궁중에서 의식이나 행사 사용하거나 사대부 집안의 가양주로 애용되다가 조선시대에 큰 사랑을 받았습니다. 15도 도수가 느껴지지 않을 만큼 부드러우며 단맛, 신맛 등이 적당히 잘 어우러지고 뒷맛도 깔끔합니다.
 										</span>
                                                     </div>
@@ -164,528 +159,14 @@
                                             </ul>
                                         </dd>
                                     </dl>
+                                    </th:block>
                                 </li>
+
                                 <!-- 첫번째 술 항목 끝-->
-
-
-
-                                <li class="item">
-                                    <div class="thumb">
-                                        <div class="img">
-							<span>
-								<img src="/common/imageView.do?targetId=PR00001066&targetNm=PRODUCT" onclick="move('PR00001066');"/>
-							</span>
-                                        </div>
-                                    </div>
-
-                                    <dl class="detail">
-                                        <dt>
-                                            <div class="title-area">
-
-                                                <div class="name" onclick="move('PR00001066');">온지오</div>
-                                            </div>
-                                            <div class="label-list">
-                                                <ul>
-
-
-
-
-                                                </ul>
-                                            </div>
-                                        </dt>
-                                        <dd>
-                                            <ul>
-                                                <li>
-                                                    <div class="subject">제조사</div>
-                                                    <div class="info">(주)농업회사법인 온지술도가</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">주원료</div>
-                                                    <div class="info">정제수, 찹쌀(국내산), 건오미자, 고구마, 감자,누룩(밀 함유)</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">규격/도수</div>
-                                                    <div class="info">500ml /
-
-                                                        10% &nbsp;
-
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">제품특징</div>
-                                                    <div class="info no-line">
-										<span class="el-3line">
-											손으로 직접 짜내어 주질이 부드러운 서촌 막걸리의 특징 그대로 목 넘김이 깔끔해서 가벼운 느낌으로 즐길 수 있습니다.
-										</span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </dd>
-                                    </dl>
-                                </li>
-
-
-
-                                <li class="item">
-                                    <div class="thumb">
-                                        <div class="img">
-							<span>
-								<img src="/common/imageView.do?targetId=PR00001065&targetNm=PRODUCT" onclick="move('PR00001065');"/>
-							</span>
-                                        </div>
-                                    </div>
-
-                                    <dl class="detail">
-                                        <dt>
-                                            <div class="title-area">
-
-                                                <div class="name" onclick="move('PR00001065');">벼리</div>
-                                            </div>
-                                            <div class="label-list">
-                                                <ul>
-
-
-
-
-                                                </ul>
-                                            </div>
-                                        </dt>
-                                        <dd>
-                                            <ul>
-                                                <li>
-                                                    <div class="subject">제조사</div>
-                                                    <div class="info">백년주조</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">주원료</div>
-                                                    <div class="info">국내산 쌀13%</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">규격/도수</div>
-                                                    <div class="info">935ml /
-
-                                                        6% &nbsp;
-
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">제품특징</div>
-                                                    <div class="info no-line">
-										<span class="el-3line">
-											저온 숙성과정에 알코올을 일부 증발시켜 풍미를 가득 담았습니다.부드러운 목넘김과 깊고 상쾌한 맛을 느낄 수 있습니다.
-										</span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </dd>
-                                    </dl>
-                                </li>
-
-
-
-                                <li class="item">
-                                    <div class="thumb">
-                                        <div class="img">
-							<span>
-								<img src="/common/imageView.do?targetId=PR00001064&targetNm=PRODUCT" onclick="move('PR00001064');"/>
-							</span>
-                                        </div>
-                                    </div>
-
-                                    <dl class="detail">
-                                        <dt>
-                                            <div class="title-area">
-
-                                                <div class="name" onclick="move('PR00001064');">월탁</div>
-                                            </div>
-                                            <div class="label-list">
-                                                <ul>
-
-
-
-
-                                                </ul>
-                                            </div>
-                                        </dt>
-                                        <dd>
-                                            <ul>
-                                                <li>
-                                                    <div class="subject">제조사</div>
-                                                    <div class="info">한국술도가</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">주원료</div>
-                                                    <div class="info">쌀(국내산), 정제수, 누룩</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">규격/도수</div>
-                                                    <div class="info">500ml /
-
-                                                        13.1% &nbsp;
-
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">제품특징</div>
-                                                    <div class="info no-line">
-										<span class="el-3line">
-											월탁은 막걸리 제조 과정 중 인공 첨가제나 과일을 넣지 않았음에도 과일향을 느끼실 수 있습니다.마시는 사람이 어떤 과일을 생각하는지에 따라 잔 안에 가득히 퍼지는 과일향이 다르게 느껴지며,달콤한 과일향이 후각을 자극합니다.
-										</span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </dd>
-                                    </dl>
-                                </li>
-
-
-
-                                <li class="item">
-                                    <div class="thumb">
-                                        <div class="img">
-							<span>
-								<img src="/common/imageView.do?targetId=PR00001063&targetNm=PRODUCT" onclick="move('PR00001063');"/>
-							</span>
-                                        </div>
-                                    </div>
-
-                                    <dl class="detail">
-                                        <dt>
-                                            <div class="title-area">
-
-                                                <div class="name" onclick="move('PR00001063');">경기 쌀 막걸리</div>
-                                            </div>
-                                            <div class="label-list">
-                                                <ul>
-
-
-
-
-                                                    <li><img src="/images/front/label/yangjo.png" alt="찾아가는양조장 마크"></li>
-
-                                                </ul>
-                                            </div>
-                                        </dt>
-                                        <dd>
-                                            <ul>
-                                                <li>
-                                                    <div class="subject">제조사</div>
-                                                    <div class="info">오산양조</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">주원료</div>
-                                                    <div class="info">물,쌀(경기미 세마쌀26.67%),국,효모,밀함유</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">규격/도수</div>
-                                                    <div class="info">600ml /
-
-                                                        7.7% &nbsp;
-
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">제품특징</div>
-                                                    <div class="info no-line">
-										<span class="el-3line">
-											국내산 세마쌀을 100%원료로 합성 첨가물 없이 순수 재료로 깨끗하고 정직하게 만들어 깔끔하고 깊은 맛을 느끼실 수 있습니다.
-										</span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </dd>
-                                    </dl>
-                                </li>
-
-
-
-                                <li class="item">
-                                    <div class="thumb">
-                                        <div class="img">
-							<span>
-								<img src="/common/imageView.do?targetId=PR00001062&targetNm=PRODUCT" onclick="move('PR00001062');"/>
-							</span>
-                                        </div>
-                                    </div>
-
-                                    <dl class="detail">
-                                        <dt>
-                                            <div class="title-area">
-
-                                                <div class="name" onclick="move('PR00001062');">희양산 생막걸리 9도</div>
-                                            </div>
-                                            <div class="label-list">
-                                                <ul>
-
-
-
-
-                                                </ul>
-                                            </div>
-                                        </dt>
-                                        <dd>
-                                            <ul>
-                                                <li>
-                                                    <div class="subject">제조사</div>
-                                                    <div class="info">두술도가</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">주원료</div>
-                                                    <div class="info">쌀(국내산/무농약),효모,누록(밀/국내산),정제수</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">규격/도수</div>
-                                                    <div class="info">650ml /
-
-                                                        9% &nbsp;
-
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">제품특징</div>
-                                                    <div class="info no-line">
-										<span class="el-3line">
-											담백하고 깔끔한 맛이 특징으로,단맛과 신맛,알코올이 균형을 갖춘 술입니다.
-										</span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </dd>
-                                    </dl>
-                                </li>
-
-
-
-                                <li class="item">
-                                    <div class="thumb">
-                                        <div class="img">
-							<span>
-								<img src="/common/imageView.do?targetId=PR00001061&targetNm=PRODUCT" onclick="move('PR00001061');"/>
-							</span>
-                                        </div>
-                                    </div>
-
-                                    <dl class="detail">
-                                        <dt>
-                                            <div class="title-area">
-
-                                                <div class="name" onclick="move('PR00001061');">하늘담6 생막걸리</div>
-                                            </div>
-                                            <div class="label-list">
-                                                <ul>
-
-
-
-
-                                                </ul>
-                                            </div>
-                                        </dt>
-                                        <dd>
-                                            <ul>
-                                                <li>
-                                                    <div class="subject">제조사</div>
-                                                    <div class="info">순천주조</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">주원료</div>
-                                                    <div class="info">국내산 햅쌀</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">규격/도수</div>
-                                                    <div class="info">750ml /
-
-                                                        6% &nbsp;
-
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">제품특징</div>
-                                                    <div class="info no-line">
-										<span class="el-3line">
-											구수하고 달달한 맛에 살짝 쏘는 탄산감이 좋은, 전통 생막걸리의 진수입니다.
-										</span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </dd>
-                                    </dl>
-                                </li>
-
-
-
-                                <li class="item">
-                                    <div class="thumb">
-                                        <div class="img">
-							<span>
-								<img src="/common/imageView.do?targetId=PR00001060&targetNm=PRODUCT" onclick="move('PR00001060');"/>
-							</span>
-                                        </div>
-                                    </div>
-
-                                    <dl class="detail">
-                                        <dt>
-                                            <div class="title-area">
-
-                                                <div class="name" onclick="move('PR00001060');">만세 보령주</div>
-                                            </div>
-                                            <div class="label-list">
-                                                <ul>
-
-
-
-
-                                                </ul>
-                                            </div>
-                                        </dt>
-                                        <dd>
-                                            <ul>
-                                                <li>
-                                                    <div class="subject">제조사</div>
-                                                    <div class="info">영농조합법인 보령전통주</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">주원료</div>
-                                                    <div class="info">정제수,백미(국내산)12%,찹쌀(국내산)37%,누록(밀)</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">규격/도수</div>
-                                                    <div class="info">750ml /
-
-                                                        15% &nbsp;
-
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">제품특징</div>
-                                                    <div class="info no-line">
-										<span class="el-3line">
-											저온에서 충분히 발효 숙성되어 부드러운 맛과 깔끔한 청량감을 느낄 수 있는 전통주 고유의 맛과 향을 느낄 수 있습니다.
-										</span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </dd>
-                                    </dl>
-                                </li>
-
-
-
-                                <li class="item">
-                                    <div class="thumb">
-                                        <div class="img">
-							<span>
-								<img src="/common/imageView.do?targetId=PR00001059&targetNm=PRODUCT" onclick="move('PR00001059');"/>
-							</span>
-                                        </div>
-                                    </div>
-
-                                    <dl class="detail">
-                                        <dt>
-                                            <div class="title-area">
-
-                                                <div class="name" onclick="move('PR00001059');">레인보우</div>
-                                            </div>
-                                            <div class="label-list">
-                                                <ul>
-
-
-
-
-                                                    <li><img src="/images/front/label/yangjo.png" alt="찾아가는양조장 마크"></li>
-
-                                                </ul>
-                                            </div>
-                                        </dt>
-                                        <dd>
-                                            <ul>
-                                                <li>
-                                                    <div class="subject">제조사</div>
-                                                    <div class="info">도란원</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">주원료</div>
-                                                    <div class="info">포도,복숭아,블루베리,아로니아,메타중아황산칼륨(산화방지제),사과,자두,머루(국내산100%)효모,아황산함유</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">규격/도수</div>
-                                                    <div class="info">375ml /
-
-                                                        12% &nbsp;
-
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">제품특징</div>
-                                                    <div class="info no-line">
-										<span class="el-3line">
-											국내산 포도,복숭아,블루베리,아로니아,사과,자두,머루를 도란원만의 특별한 제조법으로 빚어 새콤달콤한 과일 향의 풍미와 은은한 단 맛과 산미,부드러운 목 넘김이 좋습니다.
-										</span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </dd>
-                                    </dl>
-                                </li>
-
-
-
-                                <li class="item">
-                                    <div class="thumb">
-                                        <div class="img">
-							<span>
-								<img src="/common/imageView.do?targetId=PR00001058&targetNm=PRODUCT" onclick="move('PR00001058');"/>
-							</span>
-                                        </div>
-                                    </div>
-
-                                    <dl class="detail">
-                                        <dt>
-                                            <div class="title-area">
-
-                                                <div class="name" onclick="move('PR00001058');">복숭아와인</div>
-                                            </div>
-                                            <div class="label-list">
-                                                <ul>
-
-
-
-
-                                                </ul>
-                                            </div>
-                                        </dt>
-                                        <dd>
-                                            <ul>
-                                                <li>
-                                                    <div class="subject">제조사</div>
-                                                    <div class="info">솔티마을</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">주원료</div>
-                                                    <div class="info">복숭아원액89.92%[국내산100%],설탕,효소</div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">규격/도수</div>
-                                                    <div class="info">500ml /
-
-                                                        12% &nbsp;
-
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="subject">제품특징</div>
-                                                    <div class="info no-line">
-										<span class="el-3line">
-											투명하고 은은한 복숭아 향이 살아있는 산뜻한 바디감의 화이트 와인입니다.
-										</span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </dd>
-                                    </dl>
-                                </li>
-
-
                             </ul>
+
+
+
 
                         </div>
                         <!-- paging -->

@@ -28,4 +28,14 @@ public class SulBoardDAOImpl implements SulBoardDAO{
   public int selectCountSulBoard() {
     return sulBoardMapper.selectCountSulBoard();
   }
+
+  @Override
+  public SulBoard selectOneSulBoard(String sno) {
+
+
+
+    return sulBoardMapper.selectOneSulBoard(sno);
+  }
+
+
 }

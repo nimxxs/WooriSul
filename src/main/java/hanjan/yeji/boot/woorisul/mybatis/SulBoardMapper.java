@@ -13,4 +13,10 @@ public interface SulBoardMapper {
   List<SulBoard> selectSulBoard(int stnum);
 
   int selectCountSulBoard();
+
+//  int updateViewSulBoard(String sno);
+
+  SulBoard selectOneSulBoard(String sno);
+
+
 }
