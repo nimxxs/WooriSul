@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hanjan.yeji.boot.woorisul.mybatis.BreweryMapper"> <!--패키지이름.인터페이스이름-->
+    <insert id="insertProgram" parameterType="Program">
+        insert into program(pname, place, contents, time, cost)
+        values (#{pname}, #{place}, #{contents}, #{time}, #{cost})
+    </insert>
+
+    <select id="selectProgram" resultType="Program">
+        select pname, place, contents, time, cost from program where pno = #{pno}
+    </select>
+
+
+
+</mapper>
