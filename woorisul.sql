@@ -73,13 +73,42 @@ create table anju(
 );
 drop table anju;
 create table cocktail(
-                         cno            int                 auto_increment,
-                         cname       varchar(18)      not null,
-                         mix            varchar(20)      not null,
-                         comment     text               not null,
-                         recipe          varchar(50)      not null,
+                         cno            int              auto_increment,
+                         cname          varchar(18)      not null,
+                         mix            text             not null,
+                         comment        text             not null,
+                         recipe         text             not null,
+                         base           varchar(10)      not null,
                          primary key (cno)
 );
 
 
+create table cocattach(
+                         cocno          int              auto_increment,
+                         cno            int              not null ,
+                         fname          varchar(1024)    not null,
+                         fsize          varchar(256)     not null,
+                         primary key (cocno)
+);
+
+--  칵테일 외래키
+alter table cocattach
+    add constraint fkcno
+        foreign key (cno) references cocktail (cno);
+
+-- view (가상테이블)
+create view cca
+as
+select * from cocktail c join cocattach ca using(cno);
+
+select * from cca0;
+
+create view cca0
+as
+
+select cno, cname, mix, comment,recipe,base,fname
+from cocktail c join cocattach ca using (cno);
+
+
 SHOW PROCESSLIST;
+

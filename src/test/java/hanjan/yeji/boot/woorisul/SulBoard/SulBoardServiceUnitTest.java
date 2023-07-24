@@ -1,12 +1,16 @@
-package hanjan.yeji.boot.woorisul.sulBoard;
+package hanjan.yeji.boot.woorisul.SulBoard;
 
+
+import hanjan.yeji.boot.woorisul.dao.SulBoardDAOImpl;
 import hanjan.yeji.boot.woorisul.model.SulBoard;
-import hanjan.yeji.boot.woorisul.mybatis.SulBoardMapper;
+import hanjan.yeji.boot.woorisul.service.SulBoardService;
+import hanjan.yeji.boot.woorisul.service.SulBoardServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.context.annotation.Import;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -18,16 +22,19 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @MybatisTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
         // 여기 내용이랑 아래 오류가 연관: 내가 쓰는 DB 시스템을 대입시켜라!
+@Import({SulBoardServiceImpl.class, SulBoardDAOImpl.class})
+// 아래 Autowired로 MemberDAO 내용을 데려와야하는데 못데려와서 위 import를 다시 해줌
 
-public class SulBoardMapperUnitTest {
+public class SulBoardServiceUnitTest {
 
     @Autowired
-    private SulBoardMapper sulBoardMapper;
+    private SulBoardService sbsrv;
+
 
     @Test
-    @DisplayName("sulBoardMapper insert Test")
+    @DisplayName("sulboardService save Test")
     @Transactional
-    void insertSulBoard() {
+    void saveSulBoard() {
         SulBoard sb= new SulBoard();
 
         sb.setSname("옥수수톡톡");
@@ -35,39 +42,25 @@ public class SulBoardMapperUnitTest {
         sb.setBase("감[홍시] 30.8%");
         sb.setTag("선물용");
 
-        int result = sulBoardMapper.insertSulBoard(sb);
+
+        boolean result = sbsrv.saveSulBoard(sb);
         //System.out.println(results);
-        assertEquals(result, 1);
+        assertEquals(result, true);
 
 
     }
 
     @Test
-    @DisplayName("sulBoardMapper select Test")
-    void selectSulBoard() {
+    @DisplayName("SulBoardService read Test")
+    void readSulBoard() {
 
-        int cpg =1;
-        int stnum = (cpg - 1) * 5;
+        int cpg=1;
 
-        List<SulBoard> results = sulBoardMapper.selectSulBoard(stnum);
-        System.out.println(results);
+        List<SulBoard> results = sbsrv.readSulBoard(cpg);
+        //System.out.println(results);
         assertNotNull(results);
 
 
     }
-
-    @Test
-    @DisplayName("sulBoardMapper selectOne Test")
-    void selectOneSulBoard() {
-
-        String sno="15";
-
-        SulBoard result = sulBoardMapper.selectOneSulBoard(sno);
-        //System.out.println(results);
-        assertNotNull(result);
-
-
-    }
-
 
 }

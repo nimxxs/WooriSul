@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+
+<th:block layout:fragment="content">
+    <div id="main">
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+
+        <div class="mt-5">
+            <i class="fa-regular fa-image fa-2xl"> 술 등록</i>
+            <hr>
+        </div>
+
+        <div class="row mb-3 mt-5">
+            <div class="row offset-1 col-5">
+                <h4> <i class="fa fa-plus-circle"></i> 술 등록</h4>
+            </div>
+            <div class="col-5 text-end">
+                <button type="button" class="btn btn-light col-3" id="lstcocbtn">
+                    <i class="fa fa-list"></i> 목록으로</button>
+            </div>
+        </div> <!-- 버튼들 -->
+
+        <div class="row offset-1 col-10 mb-5">
+            <form name="cocfrm" id="cocfrm"
+                  class="card card-body bg-light">
+                <div class="row mt-3">
+                    <label for="cname"
+                           class="col-3 col-form-label text-danger text-end">술 이름</label>
+                    <div class="col-6">
+                        <input type="text" name="cname" id="cname"
+                               class="form-control border-danger">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <label for="mix"
+                           class="col-3 col-form-label text-danger text-end">조합</label>
+                    <div class="col-6">
+                        <input type="text" name="mix" id="mix"
+                               class="form-control border-danger bg-light">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <label for="comment"
+                           class="col-3 col-form-label text-danger text-end">소개</label>
+                    <div class="col-6">
+                        <input type="text" name="comment" id="comment"
+                               class="form-control border-danger bg-light">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <label for="recipe"
+                           class="col-3 col-form-label text-danger text-end">레시피</label>
+                    <div class="col-6">
+                        <input type="text" name="recipe" id="recipe"
+                               class="form-control border-danger bg-light">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <label for="base"
+                           class="col-3 col-form-label text-danger text-end">베이스</label>
+                    <div class="col-6">
+                        <input type="text" name="base" id="base"
+                               class="form-control border-danger bg-light">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <label for="attachs"
+                           class="col-3 col-form-label text-danger text-end">칵테일 사진</label>
+                    <div class="col-6">
+                        <input type="file" name="attachs" id="attachs" multiple="multiple"
+                           class="form-control border-danger bg-light">
+                    </div>
+                </div>
+
+
+                <div class="row mt-4 mb-3">
+                    <hr class="w-75 mx-auto">
+                    <div class="text-center">
+                        <button type="button" id="wrtcocbtn" class="btn btn-primary">
+                            <i class="fa-regular fa-circle-check"></i> 입력완료</button>
+                        <button type="button" id="cancelbtn2" class="btn btn-danger">
+                            <i class="fa-regular fa-circle-xmark"></i> 취소하기</button>
+                    </div>
+                </div> <!-- 버튼들 -->
+
+            </form>
+        </div> <!-- 새글쓰기 폼 -->
+
+    </div>
+
+    <script src="/assets/js/cocktail.js" charset="utf-8"></script>
+</th:block>
+
+</html>

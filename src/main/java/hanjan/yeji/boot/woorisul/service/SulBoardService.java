@@ -13,5 +13,5 @@ public interface SulBoardService {
     int countSulBoard();
 
 
-    SulBoard readOneSulBoard(String sno);
+    Object readOneSulBoard(String sno);
 }

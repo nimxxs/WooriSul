@@ -36,8 +36,7 @@ public class SulBoardServiceImpl implements SulBoardService {
     }
 
     @Override
-    public SulBoard readOneSulBoard(String sno) {
-
+    public Object readOneSulBoard(String sno) {
         return sbdao.selectOneSulBoard(sno);
     }
 
