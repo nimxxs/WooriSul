@@ -10,7 +10,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service("cocsrv")
 @RequiredArgsConstructor
@@ -55,5 +57,20 @@ public class CocktailServiceImpl implements CocktailService {
     @Override
     public Cocktail readOneCocktail(String cno) {
         return cdao.selectOneCocktail(cno);
+    }
+
+    @Override
+    public List<Cocktail> readFindCocktail(Integer cpg, String ftype, String fkey) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("findtype",ftype);
+        params.put("findkey",fkey);
+        params.put("stnum",(cpg - 1) * 9);
+
+        return cdao.selectFindCocktail(params);
+    }
+
+    @Override
+    public int countFindCocktail(String ftype, String fkey) {
+        return 0;
     }
 }

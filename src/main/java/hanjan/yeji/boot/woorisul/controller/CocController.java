@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 
+
 @Controller
 @RequestMapping("/coc")
 @RequiredArgsConstructor
@@ -26,20 +27,20 @@ public class CocController {
     Logger logger = LogManager.getLogger(CocController.class);
 
     @GetMapping("/list/{cpg}")
-    public String list(Model m, @PathVariable Integer cpg){
+    public String list(Model m, @PathVariable Integer cpg) {
         logger.info("coc/list 호출!!");
 
-        m.addAttribute("cocs",cocsrv.readCocktail(cpg));
-        m.addAttribute("cpg",cpg);
-        m.addAttribute("cntpg",cocsrv.countCocktail());
-        m.addAttribute("stpg", ((cpg -1) /10 ) * 10 +1);
+        m.addAttribute("cocs", cocsrv.readCocktail(cpg));
+        m.addAttribute("cpg", cpg);
+        m.addAttribute("cntpg", cocsrv.countCocktail());
+        m.addAttribute("stpg", ((cpg - 1) / 10) * 10 + 1);
 
         return "coc/list";
     }
 
 
     @GetMapping("/write")
-    public String write(){
+    public String write() {
         logger.info("coc/write 호출!!");
 
 
@@ -47,7 +48,7 @@ public class CocController {
     }
 
     @PostMapping("/write")
-    public String writeok(Cocktail c, List<MultipartFile> attachs){ /* 이름명칭이 같아야함 */
+    public String writeok(Cocktail c, List<MultipartFile> attachs) { /* 이름명칭이 같아야함 */
         logger.info("coc/writeok 호출!!");
 
         String returnPage = "redirect:/coc/fail";
@@ -64,13 +65,35 @@ public class CocController {
 
         return returnPage;
     }
+
     @GetMapping("/view/{cno}")
-    public String view(Model m, @PathVariable String cno){
+    public String view(Model m, @PathVariable String cno) {
         logger.info("coc/view 호출!!");
 
-        m.addAttribute("c",cocsrv.readOneCocktail(cno));
+        m.addAttribute("c", cocsrv.readOneCocktail(cno));
 
         return "coc/view";
     }
+
+    @GetMapping("/find/{findtype}/{findkey}/{cpg}") /*순서 바꿈*/
+    public String find(Model m, @PathVariable Integer cpg,
+                       @PathVariable String findtype, @PathVariable String findkey) {
+        logger.info("board/find 호출!!");
+
+        m.addAttribute("bds", cocsrv.readFindCocktail(cpg, findtype, findkey));
+        m.addAttribute("cpg", cpg);
+        m.addAttribute("stpg", ((cpg - 1) / 10) * 10 + 1);
+        m.addAttribute("fkey", findkey);
+        m.addAttribute("ftype", findtype);
+
+        // 만일 , 현재페이지가 총페이지수 보다 크면
+        // 1페이지로 강제 이동
+        if (cpg > (int) m.getAttribute("cntpg"))
+            return "redirect:/board/list/1";
+
+        return "board/list";
+    }
+
+
 
 }

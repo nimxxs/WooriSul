@@ -64,9 +64,8 @@
         <dependency>
             <groupId>nz.net.ultraq.thymeleaf</groupId>
             <artifactId>thymeleaf-layout-dialect</artifactId>
-            <version>3.2.0</version>
+            <version>3.2.1</version>
         </dependency>
-
 
         <!-- image thumbnail -->
         <dependency>
@@ -74,6 +73,7 @@
             <artifactId>imgscalr-lib</artifactId>
             <version>4.2</version>
         </dependency>
+
 
 
     </dependencies>

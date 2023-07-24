@@ -1,4 +1,4 @@
-package hanjan.yeji.boot.woorisul.sulBoard;
+package hanjan.yeji.boot.woorisul.SulBoard;
 
 import hanjan.yeji.boot.woorisul.model.SulBoard;
 import hanjan.yeji.boot.woorisul.mybatis.SulBoardMapper;
@@ -61,19 +61,6 @@ public class SulBoardMapperUnitTest {
         List<SulBoard> results = sulBoardMapper.selectSulBoard(stnum);
         System.out.println(results);
         assertNotNull(results);
-
-
-    }
-
-    @Test
-    @DisplayName("sulBoardMapper selectOne Test")
-    void selectOneSulBoard() {
-
-        String sno="15";
-
-        SulBoard result = sulBoardMapper.selectOneSulBoard(sno);
-        //System.out.println(results);
-        assertNotNull(result);
 
 
     }

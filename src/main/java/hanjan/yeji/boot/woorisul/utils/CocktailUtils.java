@@ -36,7 +36,7 @@ public class CocktailUtils {
             String fname = makeUUID() + attach.getOriginalFilename();
 
             // 업로드할 파일 정보 알아내기 - 파일 크기
-            String fsize = attach.getSize() / 2048 + "";
+            String fsize = attach.getSize() / 1024 + "";
 
             // 첨부파일을 지정한 위치에 저장
             String savepath = saveImgDir + fname;
@@ -81,36 +81,10 @@ public class CocktailUtils {
         // 썸내일 이미지 경로 설정
         // 원본 : abc123.jpg
         // 썸내일 : small_abc123.jpg
-        String thumbname = saveImgDir + basename;
+       /* String thumbname = saveImgDir + basename;*/
 
         // 썸내일 작업 진행
-        try {
-            // 원본이미지를 읽어서 메모리에 이미지객체(캔버스)를 생성
-            BufferedImage img = ImageIO.read(new File(refname));
 
-            // 이미지 크기와 crop 좌표 설정
-            int imgW = Math.min(img.getHeight(), img.getWidth()) / 2;
-            int imgH = imgW;
-
-            // 지정한 위치를 기준으로 잘라냄
-            // crop(대상, x좌표, y좌표, 잘라낼너비, 잘라낼높이, 투명도)
-            BufferedImage scaleImg = Scalr.crop(img,
-                    (img.getWidth() - imgW) / 2,
-                    (img.getHeight() - imgH) / 2,  // crop할 좌표
-                    imgW, imgH,   // crop할 이미지 크기
-                    null);
-
-            // 잘라낸 이미지를 330x350 크기로 재조정
-            BufferedImage resizeImg = Scalr.resize(
-                    scaleImg, 330, 350, null);
-
-            // 재조정한 이미지를 실제 경로에 저장
-            ImageIO.write(resizeImg, "png", new File(thumbname));
-
-        } catch (Exception ex) {
-            logger.error("이미지 썸내일 작업중 오류발생!!!");
-            ex.printStackTrace();
-        }
 
 
 

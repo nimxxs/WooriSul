@@ -38,7 +38,7 @@
 
     <select id="selectCocktail" resultMap="cca">
         select * from cca0
-        order by cno desc limit #{stnum}, 8
+        order by cno desc limit #{stnum}, 9
     </select>
 
     <select id="selectOneCocktail" resultMap="cca"> <!-- rsultMap을 만들어-->
@@ -46,7 +46,22 @@
     </select>
 
     <select id="selectCountCocktail">
-        select ceil(count(cno) / 8) cntpg from Cocktail
+        select ceil(count(cno) / 9) cntpg from Cocktail
+    </select>
+
+    <!-- 페이지 -->
+    <select id="selectFindCocktail" parameterType="map" resultType="Cocktail">
+    select cno, cname, mix, comment, recipe, base from cocktail
+
+        <if test="findtype != 'cname1'">
+            where ${findtype} like concat('%', #{findkey}, '%')
+        </if>
+
+        <if test="findtype == 'cname1'">
+            where cname like concat('%', #{findkey}, '%')
+            or base like concat('%', #{findkey}, '%')
+        </if>
+        order by bno desc limit #{stnum}, 9
     </select>
 
 

@@ -67,21 +67,34 @@ create table program(
 
 create table anju(
                      ano            int                 auto_increment,
-                     aname       varchar(18)      not null,
-                     sno           int                   not null,
+                     aname       varchar(18)            not null,
+                     sno           int                   ,
                      primary key (ano)
 );
-
+drop table anju;
 create table cocktail(
-                         cno            int             auto_increment,
-                         cname          varchar(18)     not null,
-                         mix            text            not null,
-                         comment        text            not null,
-                         recipe         text            not null,
+                         cno            int              auto_increment,
+                         cname          varchar(18)      not null,
+                         mix            text             not null,
+                         comment        text             not null,
+                         recipe         text             not null,
+                         base           varchar(10)      not null,
                          primary key (cno)
 );
 
-insert into cocktail values ('2','백의민족','감홍로+프란젤리코+우유','조선 3대 명주인 감홍로를 사용하여 조선시대 선비의 청렴함과 흰옷을 즐겨 입은 우리 민족을 표현하였다.','❶셰이커에 재료와 적당량의 얼음을 넣은 후 잘 흔든다. ❷ 셰이커의 캡만 열고 얼음을 걸리 내용물만 미리 차게 준비한 칵테일 글라스에 따른다. ❸계피가루로 장식한다.');
+
+create table cocattach(
+                         cocno          int              auto_increment,
+                         cno            int              not null ,
+                         fname          varchar(1024)    not null,
+                         fsize          varchar(256)     not null,
+                         primary key (cocno)
+);
+
+--  칵테일 외래키
+alter table cocattach
+    add constraint fkcno
+        foreign key (cno) references cocktail (cno);
 
 -- view (가상테이블)
 create view cca
@@ -95,3 +108,7 @@ as
 
 select cno, cname, mix, comment,recipe,base,fname
 from cocktail c join cocattach ca using (cno);
+
+
+SHOW PROCESSLIST;
+

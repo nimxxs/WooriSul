@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository("cdao")
 public class CocktailDAOImpl implements CocktailDAO{
@@ -38,5 +39,10 @@ public class CocktailDAOImpl implements CocktailDAO{
     public Cocktail selectOneCocktail(String cno) {
 
         return cocktailMapper.selectOneCocktail(cno);
+    }
+
+    @Override
+    public List<Cocktail> selectFindCocktail(Map<String, Object> params) {
+        return cocktailMapper.selectFindCocktail(params);
     }
 }

@@ -5,6 +5,7 @@ import hanjan.yeji.boot.woorisul.model.Cocktail;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface CocktailMapper {
@@ -21,6 +22,8 @@ public interface CocktailMapper {
     CocAttach selectOneGalleryAttach(String cno);
 
     int lastCocCno();
+
+    List<Cocktail> selectFindCocktail(Map<String, Object> params);
 
 //    int insertPdsComment(PdsComment pc);
 //
