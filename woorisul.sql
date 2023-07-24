@@ -67,11 +67,11 @@ create table program(
 
 create table anju(
                      ano            int                 auto_increment,
-                     aname       varchar(18)      not null,
-                     sno           int                   not null,
+                     aname       varchar(18)            not null,
+                     sno           int                   ,
                      primary key (ano)
 );
-
+drop table anju;
 create table cocktail(
                          cno            int                 auto_increment,
                          cname       varchar(18)      not null,
