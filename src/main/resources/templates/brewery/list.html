@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}"><!-- header/footer와 달리 content는 layout/template에 있는게 여기 들어옴 -->
+<th:block layout:fragment="content">
+<body>
+<div id="wrap">
+
+    <div id="container">
+
+        <div id="content">
+            <div class="inner">
+                <h2 class="title">양조장 둘러보기</h2>
+
+                <div class="tab-wrap2">
+
+                    <script src="/js/front/jquery.rwdImageMaps.min.js"></script>
+                    <script type="text/javascript">
+                        $(document).ready(function(e) {
+                            //$('.place-wrap img[usemap]').rwdImageMaps();
+                        });
+                        /* pagination 페이지 링크 function */
+                        function fn_egov_link_page(pageNo){
+                            document.pagingForm.pageIndex.value=pageNo;
+                            document.pagingForm.action="mapList.do";
+                            document.pagingForm.submit();
+                        }
+                        function move(brewId){
+                            document.pagingForm.brewId.value=brewId;
+                            document.pagingForm.action="view.do";
+                            document.pagingForm.submit();
+                        }
+                    </script>
+                    <form id="pagingForm" name="pagingForm" method="get">
+
+                        <input type="hidden" name="pageIndex" value="1"/>
+
+
+                        <input type="hidden" name="brewId" value=""/>
+                        <input type="hidden" name="areaName" value=""/>
+                        <input type="hidden" name="searchKey" value=""/>
+                        <input type="hidden" name="searchArea" value=""/>
+                        <input type="hidden" name="searchString" value=""/>
+                        <input type="hidden" name="mapList" value="check"/>
+                    </form>
+                    <div class="tab-content">
+                        <!-- tab cont1 -->
+                        <div id="place">
+                            <ul class="guide-list right">
+                                <li><strong>상시방문가능</strong> <i class="state visit">상</i></li>
+                                <li><strong>예약방문가능</strong> <i class="state reservation">예</i></li>
+                                <li><strong>외국어가이드</strong>
+                                    <span class="lang-label">
+					<i class="guide ch">중국</i>
+					<i class="guide jp">일본</i>
+					<i class="guide en">영어</i>
+				</span>
+                                </li>
+                            </ul>
+                            <div class="place-wrap">
+                                <div class="img">
+				<span>
+<!--					<img src="/common/imageView.do?targetId=MAPIMG0001&targetNm=BREWERYMAP" alt="" usemap="#Map"/>-->
+                    <img src="https://thesool.com/common/imageView.do?targetId=MAPIMG0001&targetNm=BREWERYMAP" alt="" usemap="#Map">
+				</span>
+                                    <map name="Map">
+                                        <area shape="poly" border="1" coords="210,105,163,120, 160,154,137,156,132,172,115,190,89,195,88,216,103,225,118,227,129,240,131,250,137,296,142,310,151,324,155,334,174,344,233,349,301,301,307,248,278,230,270,194,279,184,279,167"
+                                              href="javascript:location.href='mapList.do?areaName=gyeonggi';"><!-- 경기도 -->
+                                        <area shape="poly" coords="72,400,78,435,92,427,92,407,113,399,113,475,149,508,176,504,182,489,241,494,251,512,317,508,350,469,318,460,316,445,313,421,318,402,322,391,355,368,403,364,403,349,435,319,393,295,302,299,233,351,175,346,156,338,113,322,70,337,47,383"
+                                              href="javascript:location.href='mapList.do?areaName=chungcheong';"><!-- 충청도 -->
+                                        <area shape="poly" coords="119,513,121,530,140,553
+					,106,575,80,643,75,669
+					,50,666,53,679,84,689
+					,86,718,79,762,279,733,272,706
+					,298,692,278,659,279,585
+					,317,509,253,514,240,495
+					,184,489,176,506"
+                                              href="javascript:location.href='mapList.do?areaName=jeolla';"><!-- 전라도 -->
+                                        <area shape="poly" coords="211,103,248,97,279,105,301,99,343,96,422,100,541,305,435,319,394,296,301,299,310,247,281,233,271,191,282,185,279,166"
+                                              href="javascript:location.href='mapList.do?areaName=gangwon';"><!-- 강원도 -->
+                                        <area shape="poly" coords="541,306,558,337,551,482,551,497,567,494,580,504,553,542,556,608,501,667,405,667,396,682,416,696,432,696,425,729,394,729,341,693,331,693,330,705,339,710,346,702,351,715,342,729,320,729,312,708,322,692,300,694,279,655,281,588,317,512,351,471,322,459,314,422,324,393,354,369,404,365,404,347,436,321"
+                                              href="javascript:location.href='mapList.do?areaName=gyeongsang';"><!-- 경상도 -->
+                                        <area shape="poly" coords="125,755,180,775,210,775,220,830,140,840,100,830,120,755"
+                                              href="javascript:location.href='mapList.do?areaName=jeju';"><!-- 제주도 -->
+                                        <!-- <area shape="poly" coords="93,883,65,927,81,943,94,929,124,934,171,924,184,897,167,873"
+                                        href="javascript:location.href='mapList.do?areaName=jeju';"> -->
+                                    </map>
+                                </div>
+                                <div class="place-list">
+                                    <ul>
+                                        <!-- 전체 스타일 샘플 -->
+                                        <li>
+                                            <div class="p-top">
+                                                <div class="num gyeonggi">1</div>
+                                                <div class="subject">산머루농원</div>
+                                                <div class="guide-list">
+                                                </div>
+                                            </div>
+                                            <div class="p-body">
+                                                <div class="info">
+                                                    <dl>
+                                                        <dt>주소</dt>
+                                                        <dd>경기 파주시 적성면 객현리 67-1</dd>
+                                                    </dl>
+                                                    <dl>
+                                                        <dt>주종</dt>
+                                                        <dd>
+                                                            과실주
+                                                        </dd>
+                                                    </dl>
+                                                    <dl>
+                                                        <dt>연락처</dt>
+                                                        <dd>031-958-4558</dd>
+                                                    </dl>
+                                                </div>
+                                                <a href="javascript:void(0);" onclick="move('BR00000033');" class="link">상세보기</a>
+                                            </div>
+                                        </li>
+
+                                        <!-- 전체 스타일 샘플 -->
+                                        <li>
+                                            <div class="p-top">
+
+                                                <div class="num gyeonggi">2</div>
+                                                <div class="subject">배상면주가</div>
+                                                <div class="guide-list">
+                                                    <i class="state visit">상</i>
+                                                </div>
+                                            </div>
+                                            <div class="p-body">
+                                                <div class="info">
+                                                    <dl>
+                                                        <dt>주소</dt>
+                                                        <dd>경기도 포천시 화현면 화현리 512</dd>
+                                                    </dl>
+                                                    <dl>
+                                                        <dt>주종</dt>
+                                                        <dd>
+                                                            탁주,약주, 청주,증류주
+                                                        </dd>
+                                                    </dl>
+                                                    <dl>
+                                                        <dt>연락처</dt>
+                                                        <dd>031-531-9300</dd>
+                                                    </dl>
+                                                </div>
+                                                <a href="javascript:void(0);" onclick="move('BR00000034');" class="link">상세보기</a>
+                                            </div>
+                                        </li>
+
+                                        <!-- 전체 스타일 샘플 -->
+                                        <li>
+                                            <div class="p-top">
+                                                <div class="num gyeonggi">3</div>
+                                                <div class="subject">우리술</div>
+                                                <div class="guide-list">
+                                                    <i class="state visit">상</i>
+                                                    <i class="guide ch">중국</i>
+                                                    <i class="guide en">영어</i>
+                                                </div>
+                                            </div>
+                                            <div class="p-body">
+                                                <div class="info">
+                                                    <dl>
+                                                        <dt>주소</dt>
+                                                        <dd>경기 가평군 하면 대보간선로 26, 29</dd>
+                                                    </dl>
+                                                    <dl>
+                                                        <dt>주종</dt>
+                                                        <dd>
+                                                            탁주,약주, 청주
+                                                        </dd>
+                                                    </dl>
+                                                    <dl>
+                                                        <dt>연락처</dt>
+                                                        <dd>031-585-8525</dd>
+                                                    </dl>
+                                                </div>
+                                                <a href="javascript:void(0);" onclick="move('BR00000035');" class="link">상세보기</a>
+                                            </div>
+                                        </li>
+
+                                        <!-- 전체 스타일 샘플 -->
+                                        <li>
+                                            <div class="p-top">
+                                                <div class="num gyeonggi">4</div>
+                                                <div class="subject">그린영농조합</div>
+                                                <div class="guide-list">
+                                                    <i class="state visit">상</i>
+                                                    <i class="guide en">영어</i>
+                                                </div>
+                                            </div>
+                                            <div class="p-body">
+                                                <div class="info">
+                                                    <dl>
+                                                        <dt>주소</dt>
+                                                        <dd>경기도 안산시 단원구 뻐꾹산길 107</dd>
+                                                    </dl>
+                                                    <dl>
+                                                        <dt>주종</dt>
+                                                        <dd>
+                                                            과실주
+                                                        </dd>
+                                                    </dl>
+                                                    <dl>
+                                                        <dt>연락처</dt>
+                                                        <dd>032-886-9873</dd>
+                                                    </dl>
+                                                </div>
+                                                <a href="javascript:void(0);" onclick="move('BR00000036');" class="link">상세보기</a>
+                                            </div>
+                                        </li>
+
+                                        <!-- 전체 스타일 샘플 -->
+                                        <li>
+                                            <div class="p-top">
+                                                <div class="num gyeonggi">5</div>
+                                                <div class="subject">배혜정도가</div>
+                                                <div class="guide-list">
+                                                    <i class="guide en">영어</i>
+                                                </div>
+                                            </div>
+                                            <div class="p-body">
+                                                <div class="info">
+                                                    <dl>
+                                                        <dt>주소</dt>
+                                                        <dd>경기도 화성시 정남면 서봉로 835</dd>
+                                                    </dl>
+                                                    <dl>
+                                                        <dt>주종</dt>
+                                                        <dd>
+                                                            탁주,증류주
+                                                        </dd>
+                                                    </dl>
+                                                    <dl>
+                                                        <dt>연락처</dt>
+                                                        <dd>031-354-9376</dd>
+                                                    </dl>
+                                                </div>
+                                                <a href="javascript:void(0);" onclick="move('BR00000037');" class="link">상세보기</a>
+                                            </div>
+                                        </li>
+
+                                        <!-- //전체 스타일 샘플 -->
+                                    </ul>
+                                    <!-- paging -->
+                                    <div class="paging">
+                                        <ul class="paging-list">
+                                            <li class="prev"><a href="#" onclick="fn_egov_link_page(1); return false;">이전</a></li>&#160;
+                                            <li class="selected"><a href="#" onclick="1({1}); return false;">1</a></li>&#160;
+                                            <li><a href="#" onclick="fn_egov_link_page(2); return false;">2</a></li>&#160;
+                                            <li><a href="#" onclick="fn_egov_link_page(3); return false;">3</a></li>&#160;
+                                            <li><a href="#" onclick="fn_egov_link_page(4); return false;">4</a></li>&#160;
+                                            <li><a href="#" onclick="fn_egov_link_page(5); return false;">5</a></li>&#160;
+                                            <li class="next"><a href="#" onclick="fn_egov_link_page(6); return false;">다음</a></li>&#160;
+                                        </ul>
+                                    </div>
+                                    <!--//paging -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //container -->
+
+</div>
+</body>
+</th:block>
+</html>

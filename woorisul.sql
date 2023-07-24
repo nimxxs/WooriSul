@@ -51,9 +51,9 @@ alter table anju
     add constraint fkasno
         foreign key (sno) references sul (sno);
 --  프로그램명 외래키
-alter table brewery
+alter table program
     add constraint fkpno
-        foreign key (pno) references program (pno);
+        foreign key (bno) references brewery (bno);
 
 create table program(
                         pno                 int                 auto_increment,
@@ -67,48 +67,22 @@ create table program(
 
 create table anju(
                      ano            int                 auto_increment,
-                     aname       varchar(18)            not null,
-                     sno           int                   ,
+                     aname       varchar(18)      not null,
+                     sno           int                   not null,
                      primary key (ano)
 );
-drop table anju;
+
 create table cocktail(
-                         cno            int              auto_increment,
-                         cname          varchar(18)      not null,
-                         mix            text             not null,
-                         comment        text             not null,
-                         recipe         text             not null,
-                         base           varchar(10)      not null,
+                         cno            int                 auto_increment,
+                         cname       varchar(18)      not null,
+                         mix            varchar(20)      not null,
+                         comment     text               not null,
+                         recipe          varchar(50)      not null,
                          primary key (cno)
 );
 
+select * from brewery br join program pr using(pno) where pr.pno = '1';
 
-create table cocattach(
-                         cocno          int              auto_increment,
-                         cno            int              not null ,
-                         fname          varchar(1024)    not null,
-                         fsize          varchar(256)     not null,
-                         primary key (cocno)
-);
-
---  칵테일 외래키
-alter table cocattach
-    add constraint fkcno
-        foreign key (cno) references cocktail (cno);
-
--- view (가상테이블)
-create view cca
+create view bpr
 as
-select * from cocktail c join cocattach ca using(cno);
-
-select * from cca0;
-
-create view cca0
-as
-
-select cno, cname, mix, comment,recipe,base,fname
-from cocktail c join cocattach ca using (cno);
-
-
-SHOW PROCESSLIST;
-
+    select * from brewery br join program pr using(bno);
