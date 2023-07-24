@@ -67,11 +67,11 @@ create table program(
 
 create table anju(
                      ano            int                 auto_increment,
-                     aname       varchar(18)      not null,
-                     sno           int                   not null,
+                     aname       varchar(18)            not null,
+                     sno           int                   ,
                      primary key (ano)
 );
-
+drop table anju;
 create table cocktail(
                          cno            int              auto_increment,
                          cname          varchar(18)      not null,
@@ -81,6 +81,7 @@ create table cocktail(
                          base           varchar(10)      not null,
                          primary key (cno)
 );
+
 
 create table cocattach(
                          cocno          int              auto_increment,
@@ -107,3 +108,7 @@ as
 
 select cno, cname, mix, comment,recipe,base,fname
 from cocktail c join cocattach ca using (cno);
+
+
+SHOW PROCESSLIST;
+
