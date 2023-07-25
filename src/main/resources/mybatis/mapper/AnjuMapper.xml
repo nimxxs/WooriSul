@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hanjan.yeji.boot.woorisul.mybatis.AnjuMapper">
+
+    <insert id="insertAnju" parameterType="Anju">
+        insert into Anju (ano, aname, sno, photo)
+        values (#{ano}, #{aname}, #{sno}, #{photo})
+    </insert>
+    <select id="selectAnju" resultType="Anju">
+        select ano, aname, sno, photo from anju
+    </select>
+</mapper>
