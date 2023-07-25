@@ -3,21 +3,54 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="hanjan.yeji.boot.woorisul.mybatis.SulBoardMapper">
+
+    <resultMap id="br" type="Brewery">
+        <result column="brname" property="brname"/>
+        <result column="addr" property="addr"/>
+        <result column="bkind" property="bkind"/>
+        <result column="tel" property="tel"/>
+        <result column="waddr" property="waddr"/>
+    </resultMap>
+
+    <resultMap id="sbj" type="SulBoard">
+        <result column="sno" property="sno"/>
+        <result column="sname" property="sname"/>
+        <result column="kind" property="kind"/>
+        <result column="base" property="base"/>
+        <result column="ptg" property="ptg"/>
+        <result column="intro" property="intro"/>
+        <result column="bno" property="bno"/>
+        <result column="tag" property="tag"/>
+        <result column="sphoto" property="sphoto"/>
+
+        <collection property="br" resultMap="br"/>
+    </resultMap>
+
+
     <insert id="insertSulBoard" parameterType="SulBoard">
         insert into sul(sname, kind, base, ptg, intro, tag)
         values (#{sname},#{kind},#{base}, #{ptg}, #{intro}, #{tag});
     </insert>
 
-    <select id="selectSulBoard" resultType="SulBoard">
-        select sno, sname, kind, base, ptg, intro, bno, tag from sul
+<!--    <select id="selectSulBoard" resultType="SulBoard">-->
+<!--        select sno, sname, kind, base, ptg, intro, bno, tag from sul-->
+<!--        order by sno desc limit #{stnum}, 5-->
+<!--    </select>-->
+
+    <select id="selectOneSulBoard" resultMap="sbj">
+        select * from sbj where sno = #{sno}
+    </select>
+
+    <select id="selectSulBoard" resultMap="sbj">
+        select * from sbj
         order by sno desc limit #{stnum}, 5
     </select>
 
-    <select id="selectOneSulBoard" resultType="SulBoard">
-        select * from sul where sno = #{sno}
+    <select id="selectCountSulBoard">
+        select ceil(count(sno) / 5) cntpg from sul
     </select>
 
-
+<!--   -->
 
 <!--    <select id="selectOneBoard" resultType="Board">-->
 <!--        select * from board2 where bno = #{bno}-->
@@ -28,9 +61,7 @@
 <!--        where sno = #{sno}-->
 <!--    </update>-->
 
-<!--    <select id="selectCountSulBoard">-->
-<!--        select ceil(count(sno) / 25) cntpg from sul-->
-<!--    </select>-->
+
 
 
 </mapper>

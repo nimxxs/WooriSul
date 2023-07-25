@@ -1,5 +1,6 @@
 package hanjan.yeji.boot.woorisul.controller;
 
+import hanjan.yeji.boot.woorisul.model.SulBoard;
 import hanjan.yeji.boot.woorisul.service.SulBoardService;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
@@ -27,6 +28,15 @@ public class SulBoardController {
         m.addAttribute("cpg", cpg);
         m.addAttribute("sbds", sbsrv.readSulBoard(cpg));
 
+        int cntpg = sbsrv.countSulBoard();
+        m.addAttribute("cntpg", sbsrv.countSulBoard());
+        m.addAttribute("stpg", ((cpg-1) / 5) * 5 +1);
+
+        if ( cpg > cntpg ) {
+            return "redirect:/drink/list/1";
+        }
+
+
         return "drink/list";
 
     }
@@ -38,6 +48,15 @@ public class SulBoardController {
         m.addAttribute("sbd", sbsrv.readOneSulBoard(sno));
 
         return "drink/detail";
+
+    }
+
+    @GetMapping("/tag")
+    public String tag(){
+        logger.info("drink/tag 호출!");
+
+
+        return "drink/tag";
 
     }
 
