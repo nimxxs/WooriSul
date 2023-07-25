@@ -32,7 +32,7 @@ public class SulBoardDAOImpl implements SulBoardDAO{
   @Override
   public SulBoard selectOneSulBoard(String sno) {
 
-    sulBoardMapper.updateViewSulBoard(sno);
+
 
     return sulBoardMapper.selectOneSulBoard(sno);
   }

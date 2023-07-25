@@ -7,40 +7,46 @@
     <div id="header">
         <div class="inner">
             <div class="logo">
-                <img src="/assets/image/logo_black.png" alt="우리술 로고" style="width:300px;">
+                <a href="/"><img src="/assets/image/layout/logo_black.png" alt="우리술 로고" style="width:300px;"></a>
             </div><!-- 로고 -->
-            <div class="gnb desktop">
-                <ul class="gnb-list mt-5 ">
-                    <li class="gnb-menu1"><a href="" target="_self">우리술 소개</a></li>
-                    <li class="gnb-menu2"><a href="" target="_self">우리술 종류</a></li>
-                    <li class="gnb-menu3"><a href="" target="_self">우리술 구매처</a></li>
-                    <li class="gnb-menu4"><a href="" target="_self">찾아가는 양조장</a></li>
-                    <li class="gnb-menu5"><a href="" target="_self">우리들의 추천</a></li>
+            <div class="gnb desktop" onmouseenter="hideSubMenu()">
+                <ul class="gnb-list" onmouseenter="hideSubMenu()">
+                    <li class="gnb-menu1" onmouseenter="hideSubMenu()" onmouseleave="hideSubMenu()">
+                        <a href="/intro" target="_self">우리술 소개</a></li>
+                    <li class="gnb-menu2" onmouseenter="hideSubMenu()" onmouseleave="hideSubMenu()">
+                        <a href="" target="_self">우리술 종류</a></li>
+                    <li class="gnb-menu3" onmouseenter="showSubMenu('snb-menu3')">
+                        <a href="" target="_self" >우리술 구매처</a></li>
+                    <li class="gnb-menu4" onmouseenter="showSubMenu('snb-menu4')">
+                        <a href="" target="_self">찾아가는 양조장</a></li>
+                    <li class="gnb-menu5" onmouseenter="showSubMenu('snb-menu5')">
+                        <a href="" target="_self">우리들의 추천</a></li>
                 </ul><!-- 메뉴 상위 항목 -->
 
-                <div class="snb-list">
+                <div class="snb-list" id="snb-menu3" onmouseenter="showSubMenu('snb-menu3')">
                     <div class="inner">
                         <ul class="snb-menu3">
-                            <li><a href="" target="_self">온라인/오프라인 판매처</a></li>
+                            <li><a href="/intro" target="_self">온라인/오프라인<p>판매처</p></a></li>
                         </ul>
+                    </div>
+                </div><!-- 메뉴 하위 항목 3 -->
+                <div class="snb-list" id="snb-menu4"  onmouseenter="showSubMenu('snb-menu4')">
+                    <div class="inner">
                         <ul class="snb-menu4">
                             <li><a href="" target="_self">양조장 둘러보기</a></li>
                         </ul>
+                    </div>
+                </div><!-- 메뉴 하위 항목 4 -->
+                <div class="snb-list" id="snb-menu5"  onmouseenter="showSubMenu('snb-menu5')">
+                    <div class="inner">
                         <ul class="snb-menu5">
                             <li><a href="" target="_blank">해시태그로 알아보기</a></li>
-                            <li><a href="" target="_self">안주와 함께하기</a></li>
-                            <li><a href="/coc/list/1" target="_self">우아한 한잔</a></li>
+                            <li><a href="/anju" target="_self">안주와 함께하기</a></li>
+                            <li><a href="" target="_self">우아한 한잔</a></li>
                         </ul>
                     </div>
-                </div><!-- 메뉴 하위 항목 -->
+                </div><!-- 메뉴 하위 항목 5 -->
             </div>
-        </div>
-    </div>
-
-    <!-- 바디 부분 -->
-    <div id="body">
-        <div class="inner">
-            <img src="/assets/image/body.jpg" style="width: 1200px; height: 500px; ">
         </div>
     </div>
 

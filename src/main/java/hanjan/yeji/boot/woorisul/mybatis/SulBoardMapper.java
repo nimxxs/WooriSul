@@ -14,7 +14,7 @@ public interface SulBoardMapper {
 
   int selectCountSulBoard();
 
-  int updateViewSulBoard(String sno);
+//  int updateViewSulBoard(String sno);
 
   SulBoard selectOneSulBoard(String sno);
 

@@ -23,14 +23,14 @@
 <!--        select * from board2 where bno = #{bno}-->
 <!--    </select>-->
 
-    <update id="updateViewSulBoard">
-        update sul set views = views + 1
-        where sno = #{sno}
-    </update>
+<!--    <update id="updateViewSulBoard">-->
+<!--        update sul set views = views + 1-->
+<!--        where sno = #{sno}-->
+<!--    </update>-->
 
-    <select id="selectCountSulBoard">
-        select ceil(count(sno) / 25) cntpg from sul
-    </select>
+<!--    <select id="selectCountSulBoard">-->
+<!--        select ceil(count(sno) / 25) cntpg from sul-->
+<!--    </select>-->
 
 
 </mapper>
