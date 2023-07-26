@@ -12,12 +12,13 @@ public interface CocktailService {
 
     int newCocktail(Cocktail c);
 
-    boolean newCocAttach(List<MultipartFile> attachs, int cno) ;
+    /*boolean newCocAttach(List<MultipartFile> attachs, int cno) ;*/
 
     Cocktail readOneCocktail(String cno);
 
     List<Cocktail> readFindCocktail(Integer cpg, String ftype, String fkey);
 
     int countFindCocktail(String ftype, String fkey);
+
 
 }

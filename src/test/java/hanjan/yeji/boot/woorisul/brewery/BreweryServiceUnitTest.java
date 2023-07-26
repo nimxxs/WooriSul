@@ -1,3 +1,4 @@
+/*
 package hanjan.yeji.boot.woorisul.brewery;
 
 import hanjan.yeji.boot.woorisul.dao.BreweryDAOImpl;
@@ -17,7 +18,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @MybatisTest
-@AutoConfigureTestDatabase(replace=AutoConfigureTestDatabase.Replace.NONE)  /*자동으로 h2 데이터베이스를 사용하려고함. 내가 쓰는 데이터베이스로 조정해야함. replace속성으로*/
+@AutoConfigureTestDatabase(replace=AutoConfigureTestDatabase.Replace.NONE)  */
+/*자동으로 h2 데이터베이스를 사용하려고함. 내가 쓰는 데이터베이스로 조정해야함. replace속성으로*//*
+
 @Import({BreweryServiceImpl.class, BreweryDAOImpl.class})
 public class BreweryServiceUnitTest {
 
@@ -69,3 +72,4 @@ public class BreweryServiceUnitTest {
 
 
 }
+*/

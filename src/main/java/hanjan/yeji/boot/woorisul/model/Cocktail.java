@@ -14,6 +14,8 @@ public class Cocktail {
     private String thumbs;
     private String recipe;
     private String base;
+    private String cphoto;
+
 
     private CocAttach ca;
 }

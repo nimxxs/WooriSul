@@ -18,6 +18,7 @@ public class CocktailDAOImpl implements CocktailDAO{
 
     @Override
     public List<Cocktail> selectCocktail(int stnum) {
+
         return cocktailMapper.selectCocktail(stnum);
     }
 
@@ -45,4 +46,11 @@ public class CocktailDAOImpl implements CocktailDAO{
     public List<Cocktail> selectFindCocktail(Map<String, Object> params) {
         return cocktailMapper.selectFindCocktail(params);
     }
+
+    @Override
+    public int selectCountCocktail() {
+        return cocktailMapper.selectCountCocktail();
+    }
+
+
 }

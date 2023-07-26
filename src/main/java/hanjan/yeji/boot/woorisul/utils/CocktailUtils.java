@@ -1,3 +1,4 @@
+/*
 package hanjan.yeji.boot.woorisul.utils;
 
 import hanjan.yeji.boot.woorisul.model.CocAttach;
@@ -81,7 +82,9 @@ public class CocktailUtils {
         // 썸내일 이미지 경로 설정
         // 원본 : abc123.jpg
         // 썸내일 : small_abc123.jpg
-       /* String thumbname = saveImgDir + basename;*/
+       */
+/* String thumbname = saveImgDir + basename;*//*
+
 
         // 썸내일 작업 진행
 
@@ -92,3 +95,4 @@ public class CocktailUtils {
 
     }
 }
+*/

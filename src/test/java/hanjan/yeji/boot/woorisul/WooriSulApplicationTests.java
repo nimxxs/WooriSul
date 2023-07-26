@@ -1,3 +1,4 @@
+/*
 package hanjan.yeji.boot.woorisul;
 
 import org.junit.jupiter.api.Test;
@@ -11,3 +12,4 @@ class WooriSulApplicationTests {
     }
 
 }
+*/

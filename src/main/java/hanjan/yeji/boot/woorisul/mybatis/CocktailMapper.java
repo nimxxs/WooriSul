@@ -19,11 +19,12 @@ public interface CocktailMapper {
 
     int selectCountCocktail();
 
-    CocAttach selectOneGalleryAttach(String cno);
+    CocAttach selectOneCocAttach(String cno);
 
     int lastCocCno();
 
     List<Cocktail> selectFindCocktail(Map<String, Object> params);
+
 
 //    int insertPdsComment(PdsComment pc);
 //
