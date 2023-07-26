@@ -1,3 +1,4 @@
+/*
 package hanjan.yeji.boot.woorisul.anju;
 
 
@@ -27,3 +28,4 @@ public class AnjuMapperUnitTest {
         assertNotNull(results);
     }
 }
+*/

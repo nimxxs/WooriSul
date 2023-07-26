@@ -83,6 +83,12 @@ create table cocktail(
 
 select * from brewery br join program pr using(pno) where pr.pno = '1';
 
+
 create view bpr
 as
     select * from brewery br join program pr using(bno);
+
+create view bspr
+as
+    select * from bpr join sul s using(bno);
+

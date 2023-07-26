@@ -1,0 +1,29 @@
+.paging li.first {padding-right:15px;}
+.paging li.last {padding-left:15px;}
+
+.form-control {
+    display: none; /* 초기값으로 되돌립니다. */
+    width: auto; /* 초기값으로 되돌립니다. */
+    padding: 0; /* 초기값으로 되돌립니다. */
+    font-size: initial; /* 초기값으로 되돌립니다. */
+    /* 이 외에 필요한 스타일을 지정할 수 있습니다. */
+}
+.info-search .radio-area {
+    display: inline-block;
+}
+
+.radio-box {
+    position: relative;
+}
+
+.radio-box label {
+    margin-right: 30px;
+}
+
+
+.board-search button {
+    width: 30px;
+    background: url(https://thesool.com/images/front/common/board-search.png) no-repeat center;
+    text-indent: -9999px;
+    font-size: 0;
+}

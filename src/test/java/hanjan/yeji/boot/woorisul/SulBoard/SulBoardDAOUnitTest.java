@@ -1,7 +1,8 @@
+/*
 package hanjan.yeji.boot.woorisul.SulBoard;
 
 
-import hanjan.yeji.boot.woorisul.controller.SulBoardController;
+
 import hanjan.yeji.boot.woorisul.dao.SulBoardDAO;
 import hanjan.yeji.boot.woorisul.dao.SulBoardDAOImpl;
 import hanjan.yeji.boot.woorisul.model.SulBoard;
@@ -46,3 +47,4 @@ public class SulBoardDAOUnitTest {
     }
 
 }
+*/

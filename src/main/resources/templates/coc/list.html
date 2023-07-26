@@ -51,29 +51,26 @@
                             <div>전통주 칵테일</div>
                         </div>
                 </table>
-               <!--         <div class="row">
-                            <div class="col-md-4 mb-3">
-                                <div class="card">
-                                    <a href="/coc/view">
-                                        <img src="http://localhost/cdn/%EA%B3%A0%EC%A7%84%EA%B0%90%EB%9E%98.jpg" class="card-img-top" alt="이미지1"></a>
-                                    <div class="p-2"><span class="badge badge-pink">칵테일</span> <span>고진감래</span></div>
-                                    <div class="p-2"><span class="badge bg-secondary">베이스</span> 감홍로 베이스</div>
-                                    <div class="p-2"></div>
-                                </div>
-                            </div>
-                        </div>-->
+
                 <div class="row"> <!-- 사진 가운데 정렬 아래 4 띄움 -->
                     <div th:each="coc : ${cocs}"
                          class="col-md-4 mb-3">
                         <div class="card">
                              <a th:href="|/coc/view/${coc.cno}|">
-                               <img th:src="|http://localhost/cdn/${#strings.arraySplit(coc.ca.fname,';')[0]}|"
-                                 class="card-img-top" alt="..."></a>
+                                 <th:block th:each="img : ${#strings.arraySplit(coc.ca.fname,';')}">
+                               <img th:src="|http://localhost/cdn/${img}|" class="card-img-top" alt="...">
+                                 </th:block>
+                             </a>
 
                         <div class="card-body">
                             <p class="card-title">
-                                <span class="badge badge-pink p-2">칵테일</span><span th:text="${coc.cname}">베이스</span></p>
-                              <p><span class="badge bg-secondary p-2">베이스</span><span th:text="${coc.base}">레시피</span></p>
+                                <span class="badge badge-pink p-2">칵테일</span>
+                                <span th:text="${coc.cname}">베이스</span>
+                            </p>
+                              <p>
+                                  <span class="badge bg-secondary p-2">베이스</span>
+                                  <span th:text="${coc.base}">레시피</span>
+                              </p>
                         </div>
                     </div>
                     </div>
@@ -81,27 +78,26 @@
             </div>
         </div>
 
-    <div class="row mt-3 mb-5">
-        <div class="offset-1 col-10">
-            <nav>
-                <ul class="pagination justify-content-center">
-                    <li th:class="${(cpg - 1 gt 0) ? 'page-item' : 'page-item disbled'}">
-                        <a  th:href="|${pglink}${cpg - 1}|" class="page-link">이전</a></li>
+        <div class="row mt-3 mb-5">
+            <div class="offset-1 col-10">
+                <nav>
+                    <ul class="pagination justify-content-center">
+                        <li th:class="${(cpg -1 gt 0) ? 'page-item' : 'page-item disabled'}">
+                            <a th:href="|${pglink}${cpg - 1}|" class="page-link">이전</a></li>
 
-                    <th:block th:each="i :${#numbers.sequence(stpg, stpg + 3)}">
-                        <th:block th:if="${(i le cntpg)}">
-                            <li th:class="${(i ne cpg) ? 'page-item' : 'page-item active'}">
-                                <a th:href="|${pglink}${i}|"class="page-link"
-                                   th:text="${i}">1</a></li>
+                        <th:block th:each="i :${#numbers.sequence(stpg, stpg + 9)}">
+                            <th:block th:if="${(i le cntpg)}">
+                                <li th:class="${(i ne cpg) ? 'page-item' : 'page-item active'}">
+                                    <a th:href="|${pglink}${i}|"class="page-link"
+                                       th:text="${i}">1</a></li>
+                            </th:block>
                         </th:block>
-                    </th:block>
-
-                    <li th:class="${(cpg + 1 le cntpg) ? 'page-item' : 'page-item disabled'}">
-                        <a th:href="|${pglink}${cpg + 1}|" class="page-link">다음</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+                        <li th:class="${(cpg + 1 le cntpg) ? 'page-item' : 'page-item disabled'}">
+                            <a th:href="|${pglink}${cpg + 1}|" class="page-link">다음</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div><!-- 게시판 페이지네이션 -->
 
     </div>
     <script src="/assets/js/cocktail.js" charset="utf-8"></script>

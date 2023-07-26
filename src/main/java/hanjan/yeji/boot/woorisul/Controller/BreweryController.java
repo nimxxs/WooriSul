@@ -26,7 +26,9 @@ public class BreweryController {
 
         m.addAttribute("brs", bsrv.readBrewery(cpg));
         m.addAttribute("cpg", cpg);
-        m.addAttribute("cntpg", bsrv.countBrewery());
+        m.addAttribute("cntpg", bsrv.countPageBrewery());
+        m.addAttribute("cntbr", bsrv.countAllBrewery());
+        m.addAttribute("stpg", ((cpg-1)/10)*10+1);
 
         if(cpg > (int)m.getAttribute("cntpg"))  {
             return "redirect:/brewery/list/1";

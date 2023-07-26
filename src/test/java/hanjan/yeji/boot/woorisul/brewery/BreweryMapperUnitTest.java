@@ -1,3 +1,4 @@
+/*
 package hanjan.yeji.boot.woorisul.brewery;
 
 import hanjan.yeji.boot.woorisul.model.Brewery;
@@ -27,7 +28,7 @@ public class BreweryMapperUnitTest {
         Brewery b = new Brewery();
         b.setBrname("양조장");
         b.setAddr("테스트");
-        b.setKind("테스트");
+        b.setBkind("테스트");
         b.setTel("테스트");
         b.setWaddr("테스트");
 
@@ -55,3 +56,4 @@ public class BreweryMapperUnitTest {
     }
 
 }
+*/

@@ -11,12 +11,14 @@ public class Brewery {
     private String bno;
     private String brname;
     private String addr;
-    private String kind;
+    private String bkind;
     private String tel;
     private String waddr;
     private String swo;
     private String pno;
-    private String photo;
+    private String bphoto;
+    private String district;
 
     private Program pr;
+    private SulBoard sul;
 }

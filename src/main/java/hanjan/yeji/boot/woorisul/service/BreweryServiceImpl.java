@@ -23,7 +23,7 @@ public class BreweryServiceImpl implements BreweryService{
 
     @Override
     public List<Brewery> readBrewery(Integer cpg) {
-        int stnum = (cpg - 1) * 5;
+        int stnum = (cpg - 1) * 4;
         return bdao.selectBrewery(stnum);
     }
 
@@ -33,7 +33,11 @@ public class BreweryServiceImpl implements BreweryService{
     }
 
     @Override
-    public int countBrewery() {
-        return bdao.selectCountBrewery();
+    public int countPageBrewery() {
+        return bdao.countPageBrewery();
+    }
+    @Override
+    public int countAllBrewery() {
+        return bdao.countAllBrewery();
     }
 }

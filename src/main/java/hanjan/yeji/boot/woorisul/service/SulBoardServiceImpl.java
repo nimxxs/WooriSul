@@ -5,7 +5,9 @@ import hanjan.yeji.boot.woorisul.model.SulBoard;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service("sbsrv")
 @RequiredArgsConstructor
@@ -36,8 +38,28 @@ public class SulBoardServiceImpl implements SulBoardService {
     }
 
     @Override
-    public Object readOneSulBoard(String sno) {
+    public SulBoard readOneSulBoard(String sno) {
         return sbdao.selectOneSulBoard(sno);
+    }
+
+    @Override
+    public List<SulBoard> readFindSulBoard(Integer cpg, String sname, String skey) {
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("searchKind", sname);    // list.html에서 가져온 select의 id?
+        params.put("findkey", skey);
+        params.put("stnum", (cpg - 1) * 5);
+
+        return sbdao.selectFindSulBoard(params);
+    }
+
+    @Override
+    public int countFindSulBoard(String sname, String skey) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("searchKind", sname);    // list.html에서 가져온 select의 id?
+        params.put("findkey", skey);
+
+        return sbdao.countFindSulBoard(params);
     }
 
 

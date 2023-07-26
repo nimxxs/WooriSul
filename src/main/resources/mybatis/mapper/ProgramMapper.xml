@@ -5,8 +5,8 @@
 
 <mapper namespace="hanjan.yeji.boot.woorisul.mybatis.BreweryMapper"> <!--패키지이름.인터페이스이름-->
     <insert id="insertProgram" parameterType="Program">
-        insert into program(pname, place, contents, time, cost)
-        values (#{pname}, #{place}, #{contents}, #{time}, #{cost})
+        insert into program(pname, place, contents, time, cost, photo)
+        values (#{pname}, #{place}, #{contents}, #{time}, #{cost}, #{photo})
     </insert>
 
     <select id="selectProgram" resultType="Program">

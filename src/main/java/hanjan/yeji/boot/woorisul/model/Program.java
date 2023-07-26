@@ -14,5 +14,6 @@ public class Program {
     private String contents;
     private String time;
     private String cost;
+    private String photo;
 
 }

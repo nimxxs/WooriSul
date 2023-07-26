@@ -4,41 +4,58 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="hanjan.yeji.boot.woorisul.mybatis.BreweryMapper"> <!--패키지이름.인터페이스이름-->
+
     <resultMap id="pr" type="Program">
         <result column="pname" property="pname"/>
         <result column="place" property="place"/>
         <result column="contents" property="contents"/>
         <result column="time" property="time"/>
         <result column="cost" property="cost"/>
+        <result column="photo" property="photo"/>
     </resultMap>
-    <resultMap id="bpr" type="Brewery">
+
+    <resultMap id="sul" type="SulBoard">
+        <result column="sno" property="sno"/>
+        <result column="sname" property="sname"/>
+        <result column="ptg" property="ptg"/>
+        <result column="sphoto" property="sphoto"/>
+    </resultMap>
+
+    <resultMap id="bspr" type="Brewery">
         <result column="bno" property="bno"/>
         <result column="brname" property="brname"/>
         <result column="addr" property="addr"/>
-        <result column="kind" property="kind"/>
+        <result column="bkind" property="bkind"/>
         <result column="tel" property="tel"/>
         <result column="waddr" property="waddr"/>
-        <result column="photo" property="photo"/>
+        <result column="bphoto" property="bphoto"/>
 
         <collection property="pr" resultMap="pr"/>
+        <collection property="sul" resultMap="sul"/>
     </resultMap>
 
 
+
     <insert id="insertBrewery" parameterType="Brewery">
-        insert into brewery(brname, addr, kind, tel, waddr, photo)
-        values (#{brname}, #{addr}, #{kind}, #{tel}, #{waddr}, #{photo})
+        insert into brewery(brname, addr, bkind, tel, waddr, bphoto, district)
+        values (#{brname}, #{addr}, #{bkind}, #{tel}, #{waddr}, #{bphoto}, #{district})
     </insert>
 
     <select id="selectBrewery" resultType="Brewery">
-        select brname, addr, kind, tel, waddr from brewery limit ${stnum}, 5
+        select bno, brname, addr, bkind, tel, waddr, district from brewery limit ${stnum}, 4
     </select>
 
-    <select id="selectOneBrewery" resultMap="bpr">
-        select * from bpr where bno = #{bno}
+    <select id="selectOneBrewery" resultMap="bspr">
+        select * from bspr where bno = #{bno}
     </select>
 
-    <select id="selectCountBrewery">
-        select ceil(count(bno)/5) cntpg from brewery
+
+    <select id="countPageBrewery">
+        select ceil(count(bno)/4) cntpg from brewery
+    </select>
+
+    <select id="countAllBrewery">
+        select count(bno) cntbr from brewery
     </select>
 
 

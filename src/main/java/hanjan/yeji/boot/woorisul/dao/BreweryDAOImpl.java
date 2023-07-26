@@ -28,8 +28,14 @@ public class BreweryDAOImpl implements BreweryDAO{
     }
 
     @Override
-    public int selectCountBrewery() {
-        return breweryMapper.selectCountBrewery();
+    public int countPageBrewery() {
+        return breweryMapper.countPageBrewery();
     }
+
+    @Override
+    public int countAllBrewery() {
+        return breweryMapper.countAllBrewery();
+    }
+
 
 }

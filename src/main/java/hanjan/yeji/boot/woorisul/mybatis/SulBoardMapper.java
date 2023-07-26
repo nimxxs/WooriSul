@@ -1,9 +1,11 @@
 package hanjan.yeji.boot.woorisul.mybatis;
 
+import hanjan.yeji.boot.woorisul.model.Brewery;
 import hanjan.yeji.boot.woorisul.model.SulBoard;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface SulBoardMapper {
@@ -14,8 +16,9 @@ public interface SulBoardMapper {
 
   int selectCountSulBoard();
 
-//  int updateViewSulBoard(String sno);
+  SulBoard selectOneSulBoard(String bno);
 
-  SulBoard selectOneSulBoard(String sno);
+  List<SulBoard> selectFindSulBoard(Map<String, Object> params);
 
+  int countFindSulBoard(Map<String, Object> params);
 }
