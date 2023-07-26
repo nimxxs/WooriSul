@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Arrays;
+import java.util.List;
+
 @Controller
 @RequestMapping("/drink")
 @RequiredArgsConstructor
@@ -27,6 +30,15 @@ public class SulBoardController {
         m.addAttribute("cpg", cpg);
         m.addAttribute("sbds", sbsrv.readSulBoard(cpg));
 
+        int cntpg = sbsrv.countSulBoard();
+        m.addAttribute("cntpg", sbsrv.countSulBoard());
+        m.addAttribute("stpg", ((cpg-1) / 3) * 3 +1);
+
+        if ( cpg > cntpg ) {
+            return "redirect:/drink/list/1";
+        }
+
+
         return "drink/list";
 
     }
@@ -37,7 +49,17 @@ public class SulBoardController {
 
         m.addAttribute("sbd", sbsrv.readOneSulBoard(sno));
 
+
         return "drink/detail";
+
+    }
+
+    @GetMapping("/tag")
+    public String tag(){
+        logger.info("drink/tag 호출!");
+
+
+        return "drink/tag";
 
     }
 

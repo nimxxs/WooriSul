@@ -86,3 +86,12 @@ select * from brewery br join program pr using(pno) where pr.pno = '1';
 create view bpr
 as
     select * from brewery br join program pr using(bno);
+
+-- join
+select * from sul s join brewery br
+                         using (sno) where s.sno = '11';
+
+select * from sbj where sno = '1';
+
+create view sbj as
+select * from sul s join brewery br using(bno);

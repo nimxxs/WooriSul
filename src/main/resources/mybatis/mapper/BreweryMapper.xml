@@ -25,17 +25,17 @@
 
 
     <insert id="insertBrewery" parameterType="Brewery">
-        insert into brewery(brname, addr, kind, tel, waddr, photo)
-        values (#{brname}, #{addr}, #{kind}, #{tel}, #{waddr}, #{photo})
+        insert into brewery(brname, addr, bkind, tel, waddr, bphoto)
+        values (#{brname}, #{addr}, #{bkind}, #{tel}, #{waddr}, #{bphoto})
     </insert>
 
     <select id="selectBrewery" resultType="Brewery">
-        select brname, addr, kind, tel, waddr from brewery limit ${stnum}, 5
+        select brname, addr, bkind, tel, waddr from brewery limit ${stnum}, 5
     </select>
 
-    <select id="selectOneBrewery" resultMap="bpr">
-        select * from bpr where bno = #{bno}
-    </select>
+<!--    <select id="selectOneBrewery" resultMap="bpr">-->
+<!--        select * from bpr where bno = #{bno}-->
+<!--    </select>-->
 
     <select id="selectCountBrewery">
         select ceil(count(bno)/5) cntpg from brewery

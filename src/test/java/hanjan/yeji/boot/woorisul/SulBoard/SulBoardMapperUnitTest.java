@@ -1,5 +1,6 @@
 package hanjan.yeji.boot.woorisul.SulBoard;
 
+import hanjan.yeji.boot.woorisul.model.Brewery;
 import hanjan.yeji.boot.woorisul.model.SulBoard;
 import hanjan.yeji.boot.woorisul.mybatis.SulBoardMapper;
 import org.junit.jupiter.api.DisplayName;
@@ -64,6 +65,22 @@ public class SulBoardMapperUnitTest {
 
 
     }
+
+    @Test
+    @DisplayName("sulBoardMapper selectOneSulBoard Test")
+
+    void selectOneSulBoard() {
+
+        String sno = "2";
+
+        SulBoard result = sulBoardMapper.selectOneSulBoard(sno);
+
+        assertNotNull(result);
+
+
+    }
+
+
 
 
 }

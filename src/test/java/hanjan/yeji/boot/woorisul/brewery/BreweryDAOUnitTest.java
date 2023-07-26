@@ -30,7 +30,7 @@ public class BreweryDAOUnitTest {
         Brewery b = new Brewery();
         b.setBrname("양조장");
         b.setAddr("테스트");
-        b.setKind("테스트");
+        b.setBkind("테스트");
         b.setTel("테스트");
         b.setWaddr("테스트");
 
