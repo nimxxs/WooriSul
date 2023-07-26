@@ -725,8 +725,8 @@ h4.title:after {position:absolute;left:4px;top:12px;content:"";display:block;wid
 .paging li.selected a {background-color:#981a4a;border:0;font-weight:500;color:#fff;}
 .paging li.prev {padding-right:15px;}
 .paging li.next {padding-left:15px;}
-.paging li.prev a,.paging li.next a {font-size:0;text-indent:-9999px;background:url(/images/front/common/paging-prev.png) center no-repeat;}
-.paging li.next a {background-image:url(/images/front/common/paging-next.png);}
+/*.paging li.prev a,.paging li.next a {font-size:0;text-indent:-9999px;background:url(/images/front/common/paging-prev.png) center no-repeat;}*/
+/*.paging li.next a {background-image:url(/images/front/common/paging-next.png);}*/
 
 /* 동의 */
 .agree-wrap {border-bottom:2px solid #222;;}

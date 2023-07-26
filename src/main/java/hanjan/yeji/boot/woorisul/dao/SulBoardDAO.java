@@ -3,6 +3,7 @@ package hanjan.yeji.boot.woorisul.dao;
 import hanjan.yeji.boot.woorisul.model.SulBoard;
 
 import java.util.List;
+import java.util.Map;
 
 public interface SulBoardDAO {
 
@@ -13,4 +14,8 @@ public interface SulBoardDAO {
   int selectCountSulBoard();
 
   SulBoard selectOneSulBoard(String sno);
+
+   List<SulBoard> selectFindSulBoard(Map<String, Object> params);
+
+  int countFindSulBoard(Map<String, Object> params);
 }

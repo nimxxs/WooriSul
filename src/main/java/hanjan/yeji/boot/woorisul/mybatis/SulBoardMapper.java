@@ -5,6 +5,7 @@ import hanjan.yeji.boot.woorisul.model.SulBoard;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface SulBoardMapper {
@@ -17,4 +18,7 @@ public interface SulBoardMapper {
 
   SulBoard selectOneSulBoard(String bno);
 
+  List<SulBoard> selectFindSulBoard(Map<String, Object> params);
+
+  int countFindSulBoard(Map<String, Object> params);
 }

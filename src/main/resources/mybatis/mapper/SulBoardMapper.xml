@@ -50,17 +50,14 @@
         select ceil(count(sno) / 5) cntpg from sul
     </select>
 
-<!--   -->
+    <select id="selectFindSulBoard" parameterType="map" resultType="SulBoard">
+        <!-- 보내야 하는 변수가 1개가 아닌 3개이상이라 parameterType=Map으로 바꿔줌-->
+        select sno, sname, kind, base, ptg, bno, tag from sul
 
-<!--    <select id="selectOneBoard" resultType="Board">-->
-<!--        select * from board2 where bno = #{bno}-->
-<!--    </select>-->
+        order by bno desc limit #{stnum}, 5
 
-<!--    <update id="updateViewSulBoard">-->
-<!--        update sul set views = views + 1-->
-<!--        where sno = #{sno}-->
-<!--    </update>-->
 
+    </select>
 
 
 

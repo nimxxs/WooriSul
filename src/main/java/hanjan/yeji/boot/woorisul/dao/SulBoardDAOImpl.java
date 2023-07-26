@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository("sbdao")
 @RequiredArgsConstructor
@@ -33,5 +34,15 @@ public class SulBoardDAOImpl implements SulBoardDAO{
   public SulBoard selectOneSulBoard(String sno) {
 
     return sulBoardMapper.selectOneSulBoard(sno);
+  }
+
+  @Override
+  public List<SulBoard> selectFindSulBoard(Map<String, Object> params) {
+      return sulBoardMapper.selectFindSulBoard(params);
+  }
+
+  @Override
+  public int countFindSulBoard(Map<String, Object> params) {
+    return sulBoardMapper.countFindSulBoard(params);
   }
 }

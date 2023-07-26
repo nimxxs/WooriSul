@@ -1,6 +1,5 @@
 package hanjan.yeji.boot.woorisul.controller;
 
-import hanjan.yeji.boot.woorisul.model.SulBoard;
 import hanjan.yeji.boot.woorisul.service.SulBoardService;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
@@ -10,6 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Controller
 @RequestMapping("/drink")
@@ -30,7 +32,7 @@ public class SulBoardController {
 
         int cntpg = sbsrv.countSulBoard();
         m.addAttribute("cntpg", sbsrv.countSulBoard());
-        m.addAttribute("stpg", ((cpg-1) / 5) * 5 +1);
+        m.addAttribute("stpg", ((cpg-1) / 3) * 3 +1);
 
         if ( cpg > cntpg ) {
             return "redirect:/drink/list/1";
@@ -46,6 +48,7 @@ public class SulBoardController {
         logger.info("drink/detail 호출!");
 
         m.addAttribute("sbd", sbsrv.readOneSulBoard(sno));
+
 
         return "drink/detail";
 

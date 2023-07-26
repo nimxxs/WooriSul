@@ -15,5 +15,9 @@ public interface SulBoardService {
 
     SulBoard readOneSulBoard(String sno);
 
+    List<SulBoard> readFindSulBoard(Integer cpg, String sname, String skey);
+
+    int countFindSulBoard(String sname, String skey);
+
 
 }
