@@ -13,5 +13,7 @@ public interface BreweryMapper {
 
     Brewery selectOneBrewery(String bno);
 
-    int selectCountBrewery();
+    int countPageBrewery();
+
+    int countAllBrewery();
 }

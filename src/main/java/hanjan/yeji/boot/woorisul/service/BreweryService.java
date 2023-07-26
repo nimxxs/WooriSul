@@ -12,5 +12,7 @@ public interface BreweryService {
 
     Brewery readOneBrewery(String bno);
 
-    int countBrewery();
+    int countPageBrewery();
+
+    int countAllBrewery();
 }
