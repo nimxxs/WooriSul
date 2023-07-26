@@ -63,8 +63,8 @@ public class BreweryServiceUnitTest {
 
     @Test
     @DisplayName("BreweryService count Test")
-    void countBrewery(){
-        int result = bsrv.countBrewery();
+    void countPageBrewery(){
+        int result = bsrv.countPageBrewery();
 
         assertNotNull(result);
     }

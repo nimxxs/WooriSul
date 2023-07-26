@@ -12,5 +12,7 @@ public interface BreweryDAO {
 
     Brewery selectOneBrewery(String bno);
 
-    int selectCountBrewery();
+    int countPageBrewery();
+
+    int countAllBrewery();
 }
