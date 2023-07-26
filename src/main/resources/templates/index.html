@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
-layout:decorate="~{layout/template}">
+      layout:decorate="~{layout/template}">
 
 <th:block layout:fragment="content">
-    <div id="body">
-        <div class="inner mt-5">
-            <img src="/assets/image/layout/index_05.png" style="width: 1240px; height: 650px; ">
+    <div id="body" class="inner">
+        <div class="slider-container">
+            <div class="slider">
+                <img th:src="@{/assets/image/layout/index_01.png}" alt="Image 1">
+                <img th:src="@{/assets/image/layout/index_02.jpg}" alt="Image 2">
+                <img th:src="@{/assets/image/layout/index_03.jpg}" alt="Image 3">
+                <img th:src="@{/assets/image/layout/index_04.jpg}" alt="Image 3">
+                <img th:src="@{/assets/image/layout/index_05.jpg}" alt="Image 3">
+            </div>
         </div>
     </div>
 </th:block>

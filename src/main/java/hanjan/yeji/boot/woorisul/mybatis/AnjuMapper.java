@@ -7,5 +7,7 @@ import java.util.List;
 @Mapper
 public interface AnjuMapper {
     int insertAnju(Anju a);
-    List<Anju> selectAnju();
+    List<Anju> selectAnju(String kind);
+
+    List<Anju> getAllAnju();
 }

@@ -14,7 +14,17 @@ public class AnjuDAOImpl implements AnjuDAO{
     private AnjuMapper anjuMapper;
 
     @Override
-    public List<Anju> selectAnju() {
-        return anjuMapper.selectAnju();
+    public int insertAnju(Anju a) {
+        return anjuMapper.insertAnju(a);
+    }
+
+    @Override
+    public List<Anju> selectAnju(String kind) {
+        return anjuMapper.selectAnju(kind);
+    }
+
+    @Override
+    public List<Anju> getAllAnju() {
+        return anjuMapper.getAllAnju();
     }
 }

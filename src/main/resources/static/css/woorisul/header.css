@@ -14,6 +14,24 @@ body {
     overflow-x: hidden;
 }
 
+/* 이미지 슬라이더 */
+.slider-container {
+    width: 1000px;
+    height: 700px;
+    overflow: hidden;
+    margin: 50px 0 -110px 115px;
+}
+.slider {
+    display: flex; /* 이미지들을 가로로 배치합니다. */
+    transition: transform 0.3s ease; /* 슬라이드 애니메이션을 부드럽게 만듭니다. */
+    width: 100%;
+}
+.slider img {
+    width: 1000px;
+    height: 700px;
+}
+
+
 /* header.css - 상위항목 */
 .gnb {
     margin-top: 30px;
