@@ -100,7 +100,7 @@ select * from sbj where sno = '1';
 
 create view sbj as
 select * from sul s join brewery br using(bno);
-=======
+
 -- view (가상테이블)
 create view cca
 as
