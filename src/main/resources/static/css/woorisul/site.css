@@ -593,7 +593,8 @@ h4.title:after {position:absolute;left:4px;top:12px;content:"";display:block;wid
 .product-view dd.detail:after {content:"";position:absolute;left:50%;margin-left:-10px;bottom:-5px;display:block;width:20px;height:10px;background:#fff url(/images/front/cont/detail-arrow.svg) no-repeat center;}
 .product-view dd.detail .thumb .img {padding-top:78.4%;position:relative;overflow:hidden;}
 .product-view dd.detail .thumb .img span {position:absolute;top:0;left:0;right:0;bottom:0;-webkit-transform:translate(50%,50%);-ms-transform:translate(50%,50%);transform:translate(50%,50%);}
-.product-view dd.detail .thumb .img img {position:absolute;top:0;left:0;right:0;bottom:0;width:auto;height:100%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}
+.product-view dd.detail .thumb .img img {position:absolute;top:0;left:0;right:0;bottom:0;width:auto;height:100%;}
+/*.product-view dd.detail .thumb .img img {position:absolute;top:0;left:0;right:0;bottom:0;width:auto;height:100%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}*/
 .product-view dd.detail .info {box-sizing:border-box;}
 .product-view dd.detail .info-list {margin-top:30px;}
 .product-view dd.detail .info-list li {position:relative;padding-left:120px;min-height:27px;font-size:18px;}

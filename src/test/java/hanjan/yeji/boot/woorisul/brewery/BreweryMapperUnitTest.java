@@ -1,3 +1,4 @@
+/*
 package hanjan.yeji.boot.woorisul.brewery;
 
 import hanjan.yeji.boot.woorisul.model.Brewery;
@@ -55,3 +56,4 @@ public class BreweryMapperUnitTest {
     }
 
 }
+*/

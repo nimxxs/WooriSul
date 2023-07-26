@@ -5,7 +5,7 @@ import hanjan.yeji.boot.woorisul.dao.SulBoardDAO;
 import hanjan.yeji.boot.woorisul.model.CocAttach;
 import hanjan.yeji.boot.woorisul.model.Cocktail;
 import hanjan.yeji.boot.woorisul.model.SulBoard;
-import hanjan.yeji.boot.woorisul.utils.CocktailUtils;
+//import hanjan.yeji.boot.woorisul.utils.CocktailUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,17 +20,20 @@ import java.util.Map;
 public class CocktailServiceImpl implements CocktailService {
 
     final CocktailDAO cdao;
-    final CocktailUtils cocUtils;
+    /*final CocktailUtils cocUtils;*/
 
 
     @Override
     public List<Cocktail> readCocktail(Integer cpg) {
-        return cdao.selectCocktail(cpg - 1);
+        int stnum = (cpg - 1 ) * 6;
+
+        return cdao.selectCocktail(stnum);
     }
 
     @Override
     public int countCocktail() {
-        return 0;
+
+        return cdao.selectCountCocktail();
     }
 
     @Override
@@ -38,7 +41,7 @@ public class CocktailServiceImpl implements CocktailService {
         return cdao.insertCocktail(c);
     }
 
-    @Override
+    /*@Override
     public boolean newCocAttach(List<MultipartFile> attachs, int cno) {
         // 이미지 파일 저장후 파일 정보 (들) 받아오기
         CocAttach ca = cocUtils.processUpload(attachs);
@@ -52,10 +55,11 @@ public class CocktailServiceImpl implements CocktailService {
         return (cdao.insertCocAttach(ca) > 0) ? true : false;
 
         // 업로드한 뒤에 pno를 집어 넣었는데 gal를 썸네일이 들어간후
-    }
+    }*/
 
     @Override
     public Cocktail readOneCocktail(String cno) {
+
         return cdao.selectOneCocktail(cno);
     }
 
@@ -64,7 +68,7 @@ public class CocktailServiceImpl implements CocktailService {
         Map<String, Object> params = new HashMap<>();
         params.put("findtype",ftype);
         params.put("findkey",fkey);
-        params.put("stnum",(cpg - 1) * 9);
+        params.put("stnum",(cpg - 1) * 5);
 
         return cdao.selectFindCocktail(params);
     }
@@ -73,4 +77,7 @@ public class CocktailServiceImpl implements CocktailService {
     public int countFindCocktail(String ftype, String fkey) {
         return 0;
     }
+
+
+
 }

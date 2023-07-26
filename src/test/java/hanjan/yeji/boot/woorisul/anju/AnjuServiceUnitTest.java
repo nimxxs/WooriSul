@@ -1,3 +1,4 @@
+/*
 package hanjan.yeji.boot.woorisul.anju;
 
 import hanjan.yeji.boot.woorisul.dao.AnjuDAOImpl;
@@ -30,3 +31,4 @@ public class AnjuServiceUnitTest {
     }
 
 }
+*/

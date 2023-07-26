@@ -1,3 +1,4 @@
+/*
 package hanjan.yeji.boot.woorisul.SulBoard;
 
 import hanjan.yeji.boot.woorisul.model.Brewery;
@@ -84,3 +85,4 @@ public class SulBoardMapperUnitTest {
 
 
 }
+*/

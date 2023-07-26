@@ -32,8 +32,12 @@ public class CocController {
 
         m.addAttribute("cocs", cocsrv.readCocktail(cpg));
         m.addAttribute("cpg", cpg);
-        m.addAttribute("cntpg", cocsrv.countCocktail());
+        int cntpg = cocsrv.countCocktail();
+        m.addAttribute("cntpg", cntpg);
         m.addAttribute("stpg", ((cpg - 1) / 10) * 10 + 1);
+
+        if (cpg  > cntpg)
+            return "redirect:/coc/list/1";
 
         return "coc/list";
     }
@@ -57,11 +61,11 @@ public class CocController {
         int cno = cocsrv.newCocktail(c);
 
         // 알아낸 글번호를 이용해 첨부파일 처리 (디비저장, 업로드)
-        if (!attachs.isEmpty()) {  // 첨부파일이 존재한다면
+      /*  if (!attachs.isEmpty()) {  // 첨부파일이 존재한다면
             cocsrv.newCocAttach(attachs, cno);
 
             returnPage = "redirect:/coc/list/1";
-        }
+        }*/
 
         return returnPage;
     }
@@ -76,15 +80,14 @@ public class CocController {
     }
 
     @GetMapping("/find/{findtype}/{findkey}/{cpg}") /*순서 바꿈*/
-    public String find(Model m, @PathVariable Integer cpg,
-                       @PathVariable String findtype, @PathVariable String findkey) {
+    public String find(Model m, @PathVariable Integer cpg
+                   ) {
         logger.info("board/find 호출!!");
 
-        m.addAttribute("bds", cocsrv.readFindCocktail(cpg, findtype, findkey));
         m.addAttribute("cpg", cpg);
         m.addAttribute("stpg", ((cpg - 1) / 10) * 10 + 1);
-        m.addAttribute("fkey", findkey);
-        m.addAttribute("ftype", findtype);
+
+
 
         // 만일 , 현재페이지가 총페이지수 보다 크면
         // 1페이지로 강제 이동
