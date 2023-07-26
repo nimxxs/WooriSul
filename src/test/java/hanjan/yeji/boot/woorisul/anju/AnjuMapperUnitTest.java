@@ -22,7 +22,7 @@ public class AnjuMapperUnitTest {
     @Test
     @DisplayName("AnjuMapper select Test")
     void selectAnju() {
-        List<Anju> results = anjuMapper.selectAnju();
+        List<Anju> results = anjuMapper.selectAnju("aname");
 
         System.out.println(results);
         assertNotNull(results);

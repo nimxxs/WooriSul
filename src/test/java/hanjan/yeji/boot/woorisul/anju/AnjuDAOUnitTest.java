@@ -25,7 +25,7 @@ public class AnjuDAOUnitTest {
     @Test
     @DisplayName("AnjuDAO insert Test")
     void selectAnju() {
-        List<Anju> results = adao.selectAnju();
+        List<Anju> results = adao.selectAnju("kind");
         assertNotNull(results);
     }
 

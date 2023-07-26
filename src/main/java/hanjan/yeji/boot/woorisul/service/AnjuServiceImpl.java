@@ -10,8 +10,19 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AnjuServiceImpl implements AnjuService{
     final AnjuDAO adao;
+
     @Override
-    public List<Anju> readAnju() {
-        return adao.selectAnju();
+    public int insertAnju(Anju a) {
+        return adao.insertAnju(a);
+    }
+
+    @Override
+    public List<Anju> selectAnju(String kind) {
+        return adao.selectAnju(kind);
+    }
+
+    @Override
+    public List<Anju> getAllAnju() {
+        return adao.getAllAnju();
     }
 }

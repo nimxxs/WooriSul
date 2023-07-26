@@ -5,5 +5,8 @@ import hanjan.yeji.boot.woorisul.model.Anju;
 import java.util.List;
 
 public interface AnjuService {
-    List<Anju> readAnju();
+    int insertAnju(Anju a);
+    List<Anju> selectAnju(String kind);
+
+    List<Anju> getAllAnju();
 }

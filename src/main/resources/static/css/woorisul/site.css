@@ -302,8 +302,8 @@ h4.title:after {position:absolute;left:4px;top:12px;content:"";display:block;wid
 .tab-depth li {padding:0 10px;position:relative;height:70px;display:inline-block;}
 .tab-depth li:before {position:absolute;left:0;top:25px;content:"";display:block;width:2px;height:20px;background-color:#222;}
 .tab-depth li:first-child:before {display:none;}
-.tab-depth li a {position:relative;padding:20px 10px;display:block;color:#666;font-size:20px;font-weight:300;}
-.tab-depth li.selected a {color:#333;font-weight:400;}
+.tab-depth li a {position:relative;padding:20px 10px;display:block;color:#666;font-size:20px;font-weight:500;}
+.tab-depth li.selected a {color:#FF9F00FF;font-weight:600;}
 .tab-depth li.selected a:after {position:absolute;bottom:0;left:0;content:"";display:block;width:100%;height:4px;background-color:#FF9F00FF;z-index:1;}
 
 /* 컨텐츠 이미지 */

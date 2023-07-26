@@ -4,10 +4,13 @@
 <mapper namespace="hanjan.yeji.boot.woorisul.mybatis.AnjuMapper">
 
     <insert id="insertAnju" parameterType="Anju">
-        insert into Anju (ano, aname, sno, photo)
-        values (#{ano}, #{aname}, #{sno}, #{photo})
+        insert into Anju (ano, aname, sno, photo, kind)
+        values (#{ano}, #{aname}, #{sno}, #{photo}, #{kind})
     </insert>
     <select id="selectAnju" resultType="Anju">
-        select ano, aname, sno, photo from anju
+        select ano, aname, sno, photo, kind from anju where kind = #{kind}
+    </select>
+    <select id="getAllAnju" resultType="Anju">
+        select ano, aname, sno, photo, kind from anju
     </select>
 </mapper>
