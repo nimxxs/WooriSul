@@ -1,5 +1,7 @@
 package hanjan.yeji.boot.woorisul.controller;
 
+import hanjan.yeji.boot.woorisul.model.Anju;
+import hanjan.yeji.boot.woorisul.model.SulBoard;
 import hanjan.yeji.boot.woorisul.service.SulBoardService;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
@@ -23,25 +25,28 @@ public class SulBoardController {
 
     Logger logger = LogManager.getLogger(SulBoardController.class);
 
-    @GetMapping("/list/{cpg}")
-    public String list(Model m, @PathVariable Integer cpg){
+    @GetMapping("/list/{kind}/{cpg}")
+    public String list(Model m, @PathVariable String kind, @PathVariable Integer cpg){
         logger.info("drink/list 호출!");
 
         m.addAttribute("cpg", cpg);
-        m.addAttribute("sbds", sbsrv.readSulBoard(cpg));
+        m.addAttribute("sbds", sbsrv.readSulBoard(kind, cpg));
 
-        int cntpg = sbsrv.countSulBoard();
-        m.addAttribute("cntpg", sbsrv.countSulBoard());
+        int cntpg = sbsrv.selectCountSulBoard();
+        m.addAttribute("cntpg", sbsrv.selectCountSulBoard());
         m.addAttribute("stpg", ((cpg-1) / 3) * 3 +1);
 
-        if ( cpg > cntpg ) {
+       if ( cpg > cntpg ) {
             return "redirect:/drink/list/1";
         }
 
+        m.addAttribute("kind", kind);
 
         return "drink/list";
 
     }
+
+
 
     @GetMapping("/detail/{sno}")
     public String detail(Model m, @PathVariable String sno){

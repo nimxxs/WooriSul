@@ -101,6 +101,11 @@ body {
 .contents {
     justify-content: space-between;
 }
+.inner > h2 {
+    font-family: 'SangSangRock';
+    font-weight: bold;
+    font-size: 60px;
+}
 .column {
     max-width: 600px;
     margin: 10px;

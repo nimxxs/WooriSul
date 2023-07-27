@@ -12,26 +12,19 @@
     <div id="content">
         <div class="inner"
              th:with="pglink=${ (#strings.isEmpty(skey)) ?
-         '/drink/list/' : '/drink/find/' + sname + '/' + skey + '/'}">
-            <h2 class="title">전체</h2>
+         '/drink/list/' + kind + '/' : '/drink/find/' + sname + '/' + skey + '/'}">
+            <h2 class="title">우리술 종류</h2>
 
             <!-- tab-wrap -->
             <div class="tab-wrap2">
                 <div class="tab-scroll">
                     <ul class="tab tab-depth"> <!-- 주종별 카테고리-->
-
-                        <li class="tab-menu selected"><a href="" target="_self">전체</a></li>
-
-                        <li class="tab-menu "><a href="" target="_self">탁주</a></li>
-
-                        <li class="tab-menu "><a href="" target="_self">약주·청주</a></li>
-
-                        <li class="tab-menu "><a href="" target="_self">과실주</a></li>
-
-                        <li class="tab-menu "><a href="" target="_self">증류주</a></li>
-
-                        <li class="tab-menu "><a href="" target="_self">리큐르/기타주류</a></li>
-
+                        <li th:class="${(kind eq 'All') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/All/1" target="_self">전체</a></li>
+                        <li th:class="${(kind eq '탁주') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/탁주/1" target="_self">탁주</a></li>
+                        <li th:class="${(kind eq '약주·청주') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/약주·청주/1" target="_self">약주·청주</a></li>
+                        <li th:class="${(kind eq '과실주') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/과실주/1" target="_self">과실주</a></li>
+                        <li th:class="${(kind eq '증류주') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/증류주/1" target="_self">증류주</a></li>
+                        <li th:class="${(kind eq '기타주류') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/기타주류/1" target="_self">리큐르/기타주류</a></li>
                     </ul>
                 </div>
 

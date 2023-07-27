@@ -15,7 +15,7 @@
 
 /* button */
 .btn-area {margin-top:30px;text-align:center;}
-.btn-primary {border:0;background:#981a4a;border-radius:5px;width:160px;height:50px;color:#fff;font-size:16px;}
+.btn-primary {border:0;background:#ff9f00;border-radius:5px;width:160px;height:50px;color:#fff;font-size:16px;}
 .btn-list-primary {border:0;background: #ff9f00;border-radius:5px;width:160px;height:50px;color: #ffffff;font-size:16px; font-weight: bold;}
 .btn-blk {border:0;background:#313a46;border-radius:5px;width:160px;height:50px;color:#fff;font-size:16px;}
 .btn-area button {margin:0 4px;}
@@ -31,7 +31,7 @@
 .input-base:disabled {background:#eeeeee;}
 textarea.input-base {padding:10px;height:100px;resize:none;}
 label {margin-right:30px;}
-.chk-box span, .radio-box span {display:inline-block;font-size:16px;color:#222;}
+.chk-box span, .radio-box span {display:inline-block;font-size:medium;color:#666;font-weight:500px;}
 .chk-box {position:relative;}
 .chk-box input[type="checkbox"] {border:0;width:0;height:0;overflow:hidden;padding:0;}
 .chk-box span {position:relative;padding-left:25px;}
@@ -379,7 +379,7 @@ h4.title:after {position:absolute;left:4px;top:12px;content:"";display:block;wid
 
 /* 공통 - 바로가기링크 */
 .board-top {position:relative;/*margin-bottom:16px;*/}
-.board-btn a {padding:6px 45px;position:relative;display:inline-block;border:2px solid #981a4a;width:auto;height:40px;border-radius:20px;box-sizing:border-box;font-size:16px;font-weight:500;color:#222;}
+.board-btn a {padding:6px 45px;position:relative;display:inline-block;border:2px solid #FF9F00FF;width:auto;height:40px;border-radius:20px;box-sizing:border-box;font-size:16px;font-weight:500;color:#FF9F00FF;}
 .board-btn a:before {content:"";display:block;position:absolute;}
 .board-btn .btn-wiki:before {left:20px;top:8px;width:20px;height:21px;background:url(/images/front/icon/link-wiki.svg) center no-repeat;}
 .board-btn .btn-keywords:before {left:20px;top:11px;width:20px;height:16px;background:url(/images/front/icon/link-keywords.svg) center no-repeat;}
@@ -551,7 +551,7 @@ h4.title:after {position:absolute;left:4px;top:12px;content:"";display:block;wid
 .form-info dd.col2 ol {float:left;width:50%;}
 
 /* 제품 리스트 */
-.product-list {padding-top:30px;border-top:2px solid #222;}
+.product-list {padding-top:30px;border-top:2px solid #FF9F00FF;}
 .product-list li.item {margin-top:30px;overflow:hidden;}
 .product-list li.item:first-child {margin-top:0;}
 .product-list .thumb {float:left;width:378px;vertical-align:top;border:1px solid #eaeaea;cursor:pointer;box-sizing:border-box;}
@@ -560,7 +560,7 @@ h4.title:after {position:absolute;left:4px;top:12px;content:"";display:block;wid
 .product-list .thumb span img {position:absolute;top:0;left:0;right:0;bottom:0;width:auto;height:100%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}
 
 .product-list .detail {display:inline-block;width:calc(100% - 390px);vertical-align:top;float:right;}
-.product-list .detail dt {padding:20px;border-top:1px solid #222;background:#f5f5f5;}
+.product-list .detail dt {padding:20px;border-top:1px solid #bfbfbf;}
 .product-list .detail dt {position:relative;}
 .product-list .detail dt .title-area {}
 .product-list .detail dt .label-list {}
@@ -608,7 +608,7 @@ h4.title:after {position:absolute;left:4px;top:12px;content:"";display:block;wid
 .product-view dd.place {background:none;}
 .product-view dd.detail .tag span {margin:5px 8px 0 0;}
 
-.product-view dd .title span {padding:9px 0;display:block;height:40px;font-size:16px;font-weight:500;color:#fff;text-align:center;background:#313a46;border-radius:20px;box-sizing:border-box;}
+.product-view dd .title span {padding:9px 0;display:block;height:40px;font-size:16px;font-weight:500;color:#fff;text-align:center;background:gray;border-radius:20px;box-sizing:border-box;}
 .product-view dd .text {font-size:16px;}
 .product-view dd .text li {position:relative;padding-left:110px;min-height:18px;font-size:16px;}
 .product-view dd .text li + li {margin-top:12px;}

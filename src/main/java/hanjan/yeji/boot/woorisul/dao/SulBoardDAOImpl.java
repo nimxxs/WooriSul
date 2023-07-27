@@ -21,8 +21,8 @@ public class SulBoardDAOImpl implements SulBoardDAO{
   }
 
   @Override
-  public List<SulBoard> selectSulBoard(int stnum) {
-    return sulBoardMapper.selectSulBoard(stnum);
+  public List<SulBoard> selectSulBoard(String kind, int stnum) {
+    return sulBoardMapper.selectSulBoard(kind, stnum);
   }
 
   @Override
@@ -45,4 +45,10 @@ public class SulBoardDAOImpl implements SulBoardDAO{
   public int countFindSulBoard(Map<String, Object> params) {
     return sulBoardMapper.countFindSulBoard(params);
   }
+
+  @Override
+  public List<SulBoard> selectSul(String kind) {
+    return sulBoardMapper.selectSul(kind);
+  }
+
 }

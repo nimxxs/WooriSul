@@ -25,15 +25,16 @@ public class SulBoardServiceImpl implements SulBoardService {
         return isSaved;
     }
 
+
     @Override
-    public List<SulBoard> readSulBoard(Integer cpg) {
+    public List<SulBoard> readSulBoard(String kind, Integer cpg) {
 
         int stnum= (cpg -1) * 5;
-        return sbdao.selectSulBoard(stnum);
+        return sbdao.selectSulBoard(kind, stnum);
     }
 
     @Override
-    public int countSulBoard() {
+    public int selectCountSulBoard() {
         return sbdao.selectCountSulBoard();
     }
 
@@ -62,5 +63,9 @@ public class SulBoardServiceImpl implements SulBoardService {
         return sbdao.countFindSulBoard(params);
     }
 
+    @Override
+    public List<SulBoard> selectSul(String kind) {
+        return sbdao.selectSul(kind);
+    }
 
 }
