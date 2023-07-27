@@ -4,13 +4,43 @@
       layout:decorate="~{layout/template}"><!-- header/footer와 달리 content는 layout/template에 있는게 여기 들어옴 -->
 <th:block layout:fragment="content">
 
-    <div id="container" th:with="pglink=${'/brewery/list/'}">
+    <div id="container" th:with="pglink=${(#strings.isEmpty(fkey)) ? '/brewery/list/' : '/brewery/find' + ftype + '/' + fkey + '/'}">
 
         <div id="content">
             <div class="inner">
                 <h2 class="title">양조장 둘러보기</h2>
 
                 <div class="tab-wrap2">
+
+<!--                    <form method="get" id="pagingForm" name="pagingForm">-->
+                        <div class="board-top justify-content-">
+                            <div class="board-btn">
+                                <div class="board-search info-search">
+                                    <div class="total fs-4">Total <span th:text="${cntbr}">0</span></div> <!-- 전체 글 개수-->
+                                    <div class="radio-area">
+                                        <!-- 검색 항목(라디오) -지움-->
+                                        <div class="search-wrap">
+                                            <div class="option" style="display: flex; justify-content: flex-end; align-items: flex-start ;">
+                                                <div class="search-select col-4">
+                                                    <select class="form-select fs-5" id="findtype">
+                                                        <option value="brname">양조장명</option>
+                                                    </select>
+                                                </div>
+                                                <div class="search-input-br col-5">
+                                                    <input type="text" class="form-control" id="findkey" value="" onkeyup="return submitName(event);"/>
+                                                    <button type="button" class="btn btn-light" id="findbtn"></button>
+                                                </div>
+                                            </div>
+                                        </div>  <!-- 도수별, 지역별 select -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<input type="hidden" id="productId" name="productId" value=""/>
+                            <input type="hidden" name="pageIndex" th:value="${cpg}"/>
+                            <input type="hidden" name="categoryNm"/>
+                            <input type="hidden" name="kind" value=""/>-->
+                        </div>
+<!--                    </form> &lt;!&ndash; 검색 기능 &ndash;&gt;-->
 
                     <div class="tab-content">
                         <!-- tab cont1 -->
@@ -78,6 +108,8 @@
         </div>
     </div>
     <!-- //container -->
+
+    <script src="/assets/js/brewery.js" charset="utf-8"></script>
 
 </th:block>
 </html>

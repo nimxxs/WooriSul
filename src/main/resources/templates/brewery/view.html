@@ -86,49 +86,56 @@
                                     </div>
                                     <div class="more">
                                         <ul class="main-product">
-                                            <li th:each="i : ${#numbers.sequence(__${br.sul.sno}__, __${br.sul.sno}__+1)}">
+                                            <li th:each="s : ${#strings.arraySplit(br.sul.suls, ',')}">
                                                 <div class="item-wrap">
                                                     <div class="img">
                                                         <span>
-                                                            <img th:src="${br.sul.sphoto}" alt=""/>
+                                                            <img th:src="${#strings.arraySplit(s, ';')[2]}" alt=""/>
                                                         </span>
                                                     </div>
                                                     <div class="product-info">
-                                                        <div class="name" th:text="${br.sul.sname}">심술 7</div>
+                                                        <div class="name" th:text="${#strings.arraySplit(s, ';')[0]}">심술 7</div>
                                                         <div class="num">
-                                                            <span th:text="${br.sul.ptg}">7%</span>
+                                                            <span th:text="${#strings.arraySplit(s, ';')[1]}">7%</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </li>
-                                            <!--
-                                            <li>
-                                                <div class="item-wrap">
-                                                    <div class="img">
-                                                        <span>
-                                                            <img th:src="${br.sul.sphoto[__${i}__]}" alt=""/>
-                                                        </span>
-                                                    </div>
-                                                    <div class="product-info">
-                                                        <div class="name" th:text="${br.sul.sname[__${i}__]}">심술 7</div>
-                                                        <div class="num">
-                                                            <span th:text="${br.sul.ptg[__${i}__]}">7%</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            -->
 
                                         </ul>
                                     </div>
 
                                 </dd>   <!-- 양조장 대표 술 -->
+
                                 <dd class="item">
                                     <div class="title w100">
                                         <span>체험프로그램</span>
                                     </div>
                                     <div class="more">
                                         <ul class="program-wrap">
+                                            <!--<li>
+                                                <div class="thumb">
+                                                    <div class="img">
+                                                        <span>
+                                                            <img th:src="${br.pr.photo}" alt=""/>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="program">
+                                                    <dl>
+                                                        <dt class="name" th:text="${br.pr.pname}">가양주 심화과정</dt>
+                                                        <dd>
+                                                            <ul class="text">
+                                                                <li><strong>장소</strong>[[${br.pr.place}]]</li>
+                                                                <li><strong>내용</strong>[[${br.pr.contents}]]</li>
+                                                                <li><strong>소요시간</strong>[[${br.pr.cost}]]</li>
+                                                                <li><strong>투어비용</strong>[[${br.pr.cost}]]</li>
+                                                            </ul>
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                            </li>-->
+
                                             <li>
                                                 <div class="thumb">
                                                     <div class="img">
@@ -154,7 +161,8 @@
 
                                         </ul>
                                     </div>
-                                </dd>   <!-- 양조장 체험 프로그램 -->
+                                </dd>
+                                <!-- 양조장 체험 프로그램 -->
                             </dl>
                         </div>
                         <!-- btn -->

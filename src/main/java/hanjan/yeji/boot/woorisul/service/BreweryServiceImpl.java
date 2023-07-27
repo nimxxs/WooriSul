@@ -5,7 +5,9 @@ import hanjan.yeji.boot.woorisul.model.Brewery;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service("bsrv")
 @RequiredArgsConstructor
@@ -39,5 +41,32 @@ public class BreweryServiceImpl implements BreweryService{
     @Override
     public int countAllBrewery() {
         return bdao.countAllBrewery();
+    }
+
+    @Override
+    public List<Brewery> readFindBrewery(String ftype, String fkey, Integer cpg) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("findtype", ftype);
+        params.put("findkey", fkey);
+        params.put("stnum", (cpg - 1) * 4);
+        return bdao.selectFindBrewery(params);
+    }
+
+    @Override
+    public int countPageFindBrewery(String ftype, String fkey) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("findtype", ftype);
+        params.put("findkey", fkey);
+
+        return bdao.countPageFindBrewery(params);
+    }
+
+    @Override
+    public int countFindBrewery(String ftype, String fkey) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("findtype", ftype);
+        params.put("findkey", fkey);
+
+        return bdao.countFindBrewery(params);
     }
 }
