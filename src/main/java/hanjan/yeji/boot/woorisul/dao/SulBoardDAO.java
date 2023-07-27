@@ -9,7 +9,7 @@ public interface SulBoardDAO {
 
   int insertSulBoard(SulBoard sb);
 
-  List<SulBoard> selectSulBoard(int stnum);
+  List<SulBoard> selectSulBoard(String kind, int stnum);
 
   int selectCountSulBoard();
 
@@ -18,4 +18,6 @@ public interface SulBoardDAO {
    List<SulBoard> selectFindSulBoard(Map<String, Object> params);
 
   int countFindSulBoard(Map<String, Object> params);
+
+  List<SulBoard> selectSul(String kind);
 }

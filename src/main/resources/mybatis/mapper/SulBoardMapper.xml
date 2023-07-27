@@ -43,6 +43,11 @@
 
     <select id="selectSulBoard" resultMap="sbj">
         select * from sbj
+
+        <if test="kind != 'All'">
+            where kind = #{kind}
+        </if>
+
         order by sno desc limit #{stnum}, 5
     </select>
 
@@ -52,11 +57,12 @@
 
     <select id="selectFindSulBoard" parameterType="map" resultType="SulBoard">
         <!-- 보내야 하는 변수가 1개가 아닌 3개이상이라 parameterType=Map으로 바꿔줌-->
-        select sno, sname, kind, base, ptg, bno, tag from sul
-
+        select sno, sname, kind, base, ptg, bno, tag from sul where kind = #{kind}
         order by bno desc limit #{stnum}, 5
+    </select>
 
-
+    <select id="selectSul" resultType="SulBoard">
+        select sno, sname, kind, base, ptg, bno, tag from sul where kind = #{kind}
     </select>
 
 
