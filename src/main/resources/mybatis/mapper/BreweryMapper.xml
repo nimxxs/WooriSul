@@ -18,6 +18,7 @@
         <result column="sno" property="sno"/>
         <result column="sname" property="sname"/>
         <result column="ptg" property="ptg"/>
+        <result column="suls" property="suls"/>
         <result column="sphoto" property="sphoto"/>
     </resultMap>
 
@@ -41,22 +42,68 @@
         values (#{brname}, #{addr}, #{bkind}, #{tel}, #{waddr}, #{bphoto}, #{district})
     </insert>
 
+    <!-- 양조장 모두 불러오기 -->
     <select id="selectBrewery" resultType="Brewery">
         select bno, brname, addr, bkind, tel, waddr, district from brewery limit ${stnum}, 4
     </select>
 
-    <select id="selectOneBrewery" resultMap="bspr">
+    <!-- 양조장 하나 불러오기 -->
+<!--    <select id="selectOneBrewery" resultMap="bspr">
         select * from bspr where bno = #{bno}
     </select>
 
+    bno, brname, addr, bkind, tel, waddr, bphoto,
+               pname, place, contents, time, cost, photo,
 
+
+    -->
+    <select id="selectOneBrewery" resultMap="bspr">
+        select *,
+               (select group_concat(sname, ';', ptg, ';', sphoto)
+                from bspr where bno = #{bno}) suls
+        from bspr where bno = #{bno} limit 0,1
+    </select>
+
+    <!-- 양조장 리스트 페이지 수 -->
     <select id="countPageBrewery">
         select ceil(count(bno)/4) cntpg from brewery
     </select>
 
+    <!-- 양조장 총개수 -->
     <select id="countAllBrewery">
         select count(bno) cntbr from brewery
     </select>
+
+<!-- 검색 기능 구현 -->
+    <!-- 검색한 양조장 불러오기 -->
+    <select id="selectFindBrewery" parameterType="map" resultType="Brewery">
+        select bno, brname, addr, bkind, tel, district from brewery
+
+        <if test="findtype == 'brname'">
+            where ${findtype} like concat('%', #{findkey}, '%')
+        </if>
+
+        limit #{stnum}, 4
+    </select>
+
+    <!-- 검색한 양조장 리스트 페이지 수 -->
+    <select id="countPageFindBrewery" parameterType="map">
+        select ceil(count(bno) / 4) cntfpg from brewery
+
+        <if test="findtype == 'brname'">
+            where ${findtype} like concat('%', #{findkey}, '%')
+        </if>
+    </select>
+
+    <!-- 검색한 양조장 개수 -->
+    <select id="countFindBrewery" parameterType="map">
+        select count(bno) cntbr from brewery
+
+        <if test="findtype == 'brname'">
+            where ${findtype} like concat('%', #{findkey}, '%')
+        </if>
+    </select>
+<!-- //검색 기능 구현 -->
 
 
 </mapper>

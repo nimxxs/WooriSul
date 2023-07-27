@@ -1,0 +1,19 @@
+.board-search .search-input-br {
+    min-width: 175px;
+    display:flex;
+    border-bottom:1px solid #b2b2b2;
+    vertical-align:middle;
+    margin-left:6px;
+    position: relative;
+}
+.board-search #findkey {
+    min-width: 145px;
+}
+
+.board-search .search-input-br .form-control{
+    display: inline-block;
+}
+
+.place-list .p-body a {
+    color: rgba(155,155,155,0.98);
+}
