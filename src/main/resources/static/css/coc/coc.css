@@ -1,0 +1,62 @@
+.product-view dd.detail .thumb .img img {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none; /* 표준 'transform' 속성 비활성화 */
+    left: 20%;
+}
+
+#photo{
+    display: table-cell;
+    width: 160px;
+    vertical-align: initial;
+}
+
+#recipe{
+    padding: 64px 0px;
+}
+
+#comment {
+    padding: 0px 0px;
+}
+
+#miximg{
+    margin-left: -133px;
+}
+
+.product-view dd.detail .info-list li {
+    position: relative;
+    padding-left: 120px;
+    min-height: 27px;
+    font-size: 22px;
+}
+
+
+/*.product-view dd .title {*/
+/*    display: table-cell;*/
+/*    width: 160px;*/
+/*    vertical-align: initial;*/
+/*}*/
+
+.img-container {
+    display: flex;
+    justify-content: center;
+}
+
+.img-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.product-view dd .text {
+    font-size: 22px;
+}
+#subname {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#mainname {
+    font-weight: bold;
+    font-size: 30px;
+}

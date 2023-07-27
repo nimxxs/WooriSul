@@ -51,9 +51,11 @@ alter table anju
     add constraint fkasno
         foreign key (sno) references sul (sno);
 --  프로그램명 외래키
-alter table program
-    add constraint fkpno
-        foreign key (bno) references brewery (bno);
+alter table cocattach
+    add constraint fkcno
+        foreign key (cno) references cocktail (cno);
+
+
 
 create table program(
                         pno                 int                 auto_increment,
