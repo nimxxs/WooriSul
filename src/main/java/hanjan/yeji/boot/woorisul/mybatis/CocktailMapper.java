@@ -25,6 +25,12 @@ public interface CocktailMapper {
 
     List<Cocktail> selectFindCocktail(Map<String, Object> params);
 
+    int countPageFindCocktail(Map<String, Object> params);
+
+    int countFindCocktail(Map<String, Object> params);
+
+    int countAllCocktail();
+
 
 //    int insertPdsComment(PdsComment pc);
 //

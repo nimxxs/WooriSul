@@ -60,3 +60,39 @@
     font-weight: bold;
     font-size: 30px;
 }
+
+/* 내비게이션 바의 높이 설정 */
+
+/*  */
+
+.footer-top .link .select {
+    padding: 7px 35px 7px 15px;
+    position: relative;
+    border: 1px solid #c9c9c9;
+    border-radius: 20px;
+    width: 260px;
+    height: 40px;
+    background: #313131 url(https://thesool.com/images/front/common/link-arrow.png) right 15px center no-repeat;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 24px;
+    color: #bfbfbf;
+    cursor: pointer;
+    z-index: 50;
+}
+
+.footer-top .link ul.list {
+    padding: 10px 0 30px;
+    display: none;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 20px;
+    background-color: #313131;
+    border: 1px solid #c9c9c9;
+    border-bottom: 0;
+    z-index: 10;
+}
+
+
+

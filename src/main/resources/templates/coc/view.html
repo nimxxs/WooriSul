@@ -4,173 +4,187 @@
       layout:decorate="~{layout/template}">
 
 <th:block layout:fragment="content">
-  <link rel="stylesheet" href="/assets/css/coc/coc.css">
-  <div id="main">
-    <div class="mt-5">
-
-    </div>
-    <div class="product-view">
-      <dl>
-        <dt class="subject" id="mainname" th:text="${c.cname}">백의민족</dt>
-        <dd class="detail">
-          <div class="thumb">
-            <div class="img justify-content-center">
-              <th:block th:each="img : ${#strings.arraySplit(c.ca.fname,';')}">
-						<img th:src="|http://localhost/cdn/${img}|"
-
-                        />
-              </th:block>
-            </div>
-          </div>
-
-
-          <div class="info">
-            <div class="title">
-              <span>상세 정보</span>
-            </div>
-            <ul class="info-list">
-              <li><strong>조합 </strong>
-                <span th:text="${c.mix}"> 감흥로 + 프란젤리코 + 우유 </span>
-              </li>
-              <li><strong>글라스 </strong>
-                <span th:text="${c.glass}">CocktaiI Glass</span>
-              </li>
-              <li><strong>기법 </strong>
-                <span th:text="${c.method}">shake</span>
-              </li>
-              <li><strong>장식 </strong>
-                <span th:text="${c.decoration}">Cinnamon powder</span>
-              </li>
-              <li><strong>기타</strong>
-                <span></span>
-              </li>
-            </ul>
-            <div class="tag">
-
-
-            </div>
-          </div>
-        </dd>
-
-        <dd class="intro">
-          <div class="title" id="comment">
-            <span>제품 소개</span>
-          </div>
-          <div class="text" th:text="${c.comment}">
-            조선 3대 명주인 감홍로를 사용하여 조선시대 선비의 청렴함과 흰옷을 즐겨 입은 우리 민족을 표현하였다.
-          </div>
-        </dd>
-        <hr>
-        <dd class="food">
-          <div class="title" id="recipe">
-            <span>레시피</span>
-          </div>
-          <div class="text" th:utext="${c.recipe}">
-            ❶ 셰이커에 재료와 적당량의 얼음을 넣은 후 잘 흔든다.<br>
-
-            ❷ 셰이커의 캡만 열고 얼음을 걸리 내용물만 미리 차게 준비한 칵테일 글라스에 따른다.<br>
-
-            ❸ 계피가루로 장식한다.<br>
-
-          </div>
-        </dd>
-
-        <style>
-          .title    {
-            vertical-align: baseline; /* 가운데로 안감 */
-          }
-          .img {
-            display: flex;
-            justify-content: center;
-          }
-
-        </style>
-<hr>
-        <dd class="place">
-          <div class="title" id="photo">
-            <span>조합 사진</span>
-          </div>
-          <div class="img" id="miximg">
-					<div>
-						<img th:src="${c.cphoto}" width="500" height="300" class="img-thumbnail"/>
-					</div>
-          </div>
-        </dd>
-
-        <div class="sulbase">
-
-        <dt class="subject" id="subname" th:text="| Base : ${c.base}|">백의민족</dt>
-
-          <div class="mt-5">
-
-          </div>
-          <div class="img-container">
-            <img th:src="${c.cbphoto}"
-                 width="1000vh" height="1000vh" class="img-fluid img-thumbnail"/>
-          </div>
+    <link rel="stylesheet" href="/assets/css/coc/coc.css">
+    <div id="main">
+        <div class="mt-5">
 
         </div>
-        <div class="mb-5">
+        <div class="product-view">
+            <dl>
+                <dt class="subject" id="mainname" th:text="${c.cname}">백의민족</dt>
+                <dd class="detail">
+                    <div class="thumb">
+                        <div class="img justify-content-center">
+                            <th:block th:each="img : ${#strings.arraySplit(c.ca.fname,';')}">
+                                <img th:src="|http://localhost/cdn/${img}|"
 
-        </div><!-- base 이미지 -->
-
-        <hr>
-
-        <nav>
-          <ul class="pagination justify-content-center">
-            <li>
-              <a th:href="@{|/coc/view/${prevCno}|}" class="justify-content-between"><img src="/assets/image/layout/glo_prev.png" alt="이전페이지"></a>
-            </li>
-            <li>
-            <span class="span_font_num1">목차</span>
-            <select onchange="window.location=this.options[this.selectedIndex].value; return false;" class="top_select_q_full">
-              <option value="" disabled="disabled" style="background: #000; color: #fff; font-weight: bold;">▣ 우아한 한잔</option>
-              <option value="/coc/view/1">고진감래</option>
-              <option value="/coc/view/2">백의민족</option>
-              <option value="/coc/view/3">스위트 듀</option>
-              <option value="/coc/view/4">시나몬 키스</option>
-              <option value="/coc/view/5">고소리 콕</option>
-              <option value="/coc/view/6">설도</option>
-              <option value="/coc/view/7">성산 일출봉</option>
-              <option value="/coc/view/8">유채꽃</option>
-              <option value="/coc/view/9">골든에이지</option>
-              <option value="/coc/view/10">문배술 모히토</option>
-              <option value="/coc/view/11">문배술 칵테일</option>
-              <option value="/coc/view/12">제이제이</option>
-              <option value="/coc/view/13">백일몽</option>
-              <option value="/coc/view/14">선비</option>
-              <option value="/coc/view/15">안동</option>
-              <option value="/coc/view/16">풍류랑</option>
-              <option value="/coc/view/17">마리아주</option>
-              <option value="/coc/view/18">조선 플라워</option>
-              <option value="/coc/view/19">광복</option>
-              <option value="/coc/view/20">그린나래</option>
-              <option value="/coc/view/21">카페루이</option>
-              <option value="/coc/view/22">화요</option>
-              <option value="/coc/view/23">화요 마티니</option>
-            </select>
-          </li>
-            <li>
-              <a th:href="@{|/coc/view/${nextCno}|}" class="justify-content-end"><img src="/assets/image/layout/glo_next.png" alt="다음페이지"></a>
-            </li>
+                                />
+                            </th:block>
+                        </div>
+                    </div>
 
 
+                    <div class="info">
+                        <div class="title">
+                            <span>상세 정보</span>
+                        </div>
+                        <ul class="info-list">
+                            <li><strong>조합 </strong>
+                                <span th:text="${c.mix}"> 감흥로 + 프란젤리코 + 우유 </span>
+                            </li>
+                            <li><strong>글라스 </strong>
+                                <span th:text="${c.glass}">CocktaiI Glass</span>
+                            </li>
+                            <li><strong>기법 </strong>
+                                <span th:text="${c.method}">shake</span>
+                            </li>
+                            <li><strong>장식 </strong>
+                                <span th:text="${c.decoration}">Cinnamon powder</span>
+                            </li>
+                            <li><strong>기타</strong>
+                                <span></span>
+                            </li>
+                        </ul>
+                        <div class="tag">
 
-        </nav>
-      </dl>
+
+                        </div>
+                    </div>
+                </dd>
+
+                <dd class="intro">
+                    <div class="title" id="comment">
+                        <span>제품 소개</span>
+                    </div>
+                    <div class="text" th:text="${c.comment}">
+                        조선 3대 명주인 감홍로를 사용하여 조선시대 선비의 청렴함과 흰옷을 즐겨 입은 우리 민족을 표현하였다.
+                    </div>
+                </dd>
+                <hr>
+                <dd class="food">
+                    <div class="title" id="recipe">
+                        <span>레시피</span>
+                    </div>
+                    <div class="text" th:utext="${c.recipe}">
+                        ❶ 셰이커에 재료와 적당량의 얼음을 넣은 후 잘 흔든다.<br>
+
+                        ❷ 셰이커의 캡만 열고 얼음을 걸리 내용물만 미리 차게 준비한 칵테일 글라스에 따른다.<br>
+
+                        ❸ 계피가루로 장식한다.<br>
+
+                    </div>
+                </dd>
+
+                <style>
+                    .title {
+                        vertical-align: baseline; /* 가운데로 안감 */
+                    }
+
+                    .img {
+                        display: flex;
+                        justify-content: center;
+                    }
+
+                </style>
+                <hr>
+                <dd class="place">
+                    <div class="title" id="photo">
+                        <span>조합 사진</span>
+                    </div>
+                    <div class="img" id="miximg">
+                        <div>
+                            <img th:src="${c.cphoto}" width="500" height="300" class="img-thumbnail"/>
+                        </div>
+                    </div>
+                </dd>
+
+                <div class="sulbase">
+
+                    <dt class="subject" id="subname" th:text="| Base : ${c.base}|">백의민족</dt>
+
+                    <div class="mt-5">
+
+                    </div>
+                    <div class="img-container">
+                        <img th:src="${c.cbphoto}"
+                             width="1000vh" height="1000vh" class="img-fluid img-thumbnail"/>
+                    </div>
+
+                </div>
+                <div class="mb-5">
+
+                </div><!-- base 이미지 -->
+
+                <hr>
+
+
+                <div class="custom-navbar justify-content-center">
+                    <div class="nav-item">
+                        <a th:href="@{|/coc/view/${prevCno}|}" class="nav-link"><img
+                                src="/assets/image/layout/glo_prev.png" alt="이전페이지"></a>
+                    </div>
+                    <div class="footer-top">
+                        <div class="link">
+                            <div class="select" onclick="toggleList()">클릭해주세요</div>
+                            <ul class="list">
+                                <li><a href="/coc/view/1">1.고진감래</a></li>
+                                <li><a href="/coc/view/2">2.백의민족</a></li>
+                                <li><a href="/coc/view/3">3.스위트 듀</a></li>
+                                <li><a href="/coc/view/4">4.시나몬 키스</a></li>
+                                <li><a href="/coc/view/5">5.고소리 콕</a></li>
+                                <li><a href="/coc/view/6">6.설도</a></li>
+                                <li><a href="/coc/view/7">7.성산 일출봉</a></li>
+                                <li><a href="/coc/view/8">8.유채꽃</a></li>
+                                <li><a href="/coc/view/9">9.골든에이지</a></li>
+                                <li><a href="/coc/view/10">10.문배술 모히토</a></li>
+                                <li><a href="/coc/view/11">11.문배술 칵테일</a></li>
+                                <li><a href="/coc/view/12">12.제이제이</a></li>
+                                <li><a href="/coc/view/13">13.백일몽</a></li>
+                                <li><a href="/coc/view/14">14.선비</a></li>
+                                <li><a href="/coc/view/15">15.안동</a></li>
+                                <li><a href="/coc/view/16">16.풍류랑</a></li>
+                                <li><a href="/coc/view/17">17.마리아주</a></li>
+                                <li><a href="/coc/view/18">18.조선 플라워</a></li>
+                                <li><a href="/coc/view/19">19.광복</a></li>
+                                <li><a href="/coc/view/20">20.그린나래</a></li>
+                                <li><a href="/coc/view/21">21.카페루이</a></li>
+                                <li><a href="/coc/view/22">22.화요</a></li>
+                                <li><a href="/coc/view/23">23.화요 마티니</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="nav-item justify-content-end">
+                        <a th:href="@{|/coc/view/${nextCno}|}" class="nav-link"><img
+                                src="/assets/image/layout/glo_next.png" alt="다음페이지"></a>
+                    </div>
+                </div>
+
+
+                <script>
+                    function toggleList() {
+                        var myList = document.querySelector(".link .list");
+                        if (myList.style.display === "none") {
+                            myList.style.display = "block";
+                        } else {
+                            myList.style.display = "none";
+                        }
+                    }
+
+                    // 페이지 로드 시 링크 목록 숨기기
+                    document.addEventListener("DOMContentLoaded", function() {
+                        var myList = document.querySelector(".link .list");
+                        myList.style.display = "none";
+                    });
+                </script>
+
+            </dl>
+        </div>
+                <div class="btn-area">
+                    <button type="button" class="btn-primary" id="backbtn" onclick="move();">목록</button>
+                </div>
+
+
     </div>
-
-
-
-
-
-    <!-- btn -->
-    <div class="btn-area">
-      <button type="button" class="btn-primary" onclick="move();">목록</button>
-    </div>
-
-  </div>
-  </div>
-  <script src="/assets/js/cocktail.js" charset="UTF-8"></script>
+    <script src="/assets/js/cocktail.js" charset="UTF-8"></script>
 </th:block>
 </html>

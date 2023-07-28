@@ -64,20 +64,34 @@ public class CocktailServiceImpl implements CocktailService {
     }
 
     @Override
-    public List<Cocktail> readFindCocktail(Integer cpg, String ftype, String fkey) {
+    public List<Cocktail> readFindCocktail(String ftype, String fkey,Integer cpg) {
         Map<String, Object> params = new HashMap<>();
         params.put("findtype",ftype);
         params.put("findkey",fkey);
-        params.put("stnum",(cpg - 1) * 5);
-
+        params.put("stnum",(cpg - 1) * 6);
         return cdao.selectFindCocktail(params);
     }
 
     @Override
-    public int countFindCocktail(String ftype, String fkey) {
-        return 0;
+    public int countPageFindCocktail(String ftype, String fkey) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("findtype",ftype);
+        params.put("findkey",fkey);
+
+        return cdao.countPageFindCocktail(params);
     }
 
+    @Override
+    public int countAllCocktail() {
+        return cdao.countAllBrewery();
+    }
 
+    @Override
+    public int countFindCocktail(String ftype, String fkey) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("findtype", ftype);
+        params.put("findkey", fkey);
 
+        return cdao.countFindCocktail(params);
+    }
 }

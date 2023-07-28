@@ -35,6 +35,7 @@ public class CocController {
         int cntpg = cocsrv.countCocktail();
         m.addAttribute("cntpg", cntpg);
         m.addAttribute("stpg", ((cpg - 1) / 10) * 10 + 1);
+        m.addAttribute("cntcoc", cocsrv.countAllCocktail());
 
         if (cpg  > cntpg)
             return "redirect:/coc/list/1";
@@ -65,8 +66,18 @@ public class CocController {
         logger.info("coc/view 호출!!");
 
         // cno를 정수로 변환하여 prevCno 계산
+        int cnoValue = Integer.parseInt(cno);
         int prevCno = Integer.parseInt(cno) - 1;
         int nextCno = Integer.parseInt(cno) + 1;
+
+        if (prevCno < 1) {
+            prevCno = 1;
+        }
+        int cntpg = 23;
+
+        if (nextCno > cntpg) {
+            nextCno = cntpg;
+        }
 
         m.addAttribute("c", cocsrv.readOneCocktail(cno));
         m.addAttribute("prevCno", prevCno);
@@ -75,21 +86,24 @@ public class CocController {
         return "coc/view";
     }
 
-/*
-
-    @GetMapping("/find/{findtype}/{findkey}/{cpg}") */
-/*순서 바꿈*//*
-
-    public String find(Model m, @PathVariable Integer cpg
-                   ) {
-        logger.info("board/find 호출!!");
+    @GetMapping("/find/{findtype}/{findkey}/{cpg}") /*순서 바꿈*/
+    public String find(Model m, @PathVariable Integer cpg, @PathVariable String findtype, @PathVariable String findkey
+    ) {
+        logger.info("coc/find 호출!!");
 
         m.addAttribute("cpg", cpg);
+        m.addAttribute("ftype", findtype);
+        m.addAttribute("fkey", findkey);
+        m.addAttribute("csrv", cocsrv.readFindCocktail(findtype, findkey,cpg));
         m.addAttribute("stpg", ((cpg - 1) / 10) * 10 + 1);
+        m.addAttribute("cntpg", cocsrv.countPageFindCocktail(findtype, findkey));
+        m.addAttribute("cntcoc", cocsrv.countFindCocktail(findtype, findkey));
+
+        if (cpg > (int) m.getAttribute("cntpg"))
+            return "redirect:/coc/list/1";
 
         return "coc/list";
     }
-*/
 
 
 

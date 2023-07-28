@@ -3,6 +3,7 @@ package hanjan.yeji.boot.woorisul.dao;
 import hanjan.yeji.boot.woorisul.model.CocAttach;
 import hanjan.yeji.boot.woorisul.model.Cocktail;
 import hanjan.yeji.boot.woorisul.mybatis.CocktailMapper;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -10,12 +11,10 @@ import java.util.List;
 import java.util.Map;
 
 @Repository("cdao")
+@RequiredArgsConstructor
 public class CocktailDAOImpl implements CocktailDAO{
 
-    @Autowired
-    private CocktailMapper cocktailMapper;
-
-
+    final CocktailMapper cocktailMapper;
     @Override
     public List<Cocktail> selectCocktail(int stnum) {
 
@@ -50,6 +49,21 @@ public class CocktailDAOImpl implements CocktailDAO{
     @Override
     public int selectCountCocktail() {
         return cocktailMapper.selectCountCocktail();
+    }
+
+    @Override
+    public int countPageFindCocktail(Map<String, Object> params) {
+        return cocktailMapper.countPageFindCocktail(params);
+    }
+
+    @Override
+    public int countFindCocktail(Map<String, Object> params) {
+        return cocktailMapper.countFindCocktail(params);
+    }
+
+    @Override
+    public int countAllBrewery() {
+        return cocktailMapper.countAllCocktail();
     }
 
 
