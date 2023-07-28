@@ -59,18 +59,35 @@
 
     <!-- 페이지 검색-->
     <select id="selectFindCocktail" parameterType="map" resultType="Cocktail">
-    select cno, cname, mix, comment, recipe, base from cocktail
-
-        <if test="findtype != 'cname1'">
+        select cno, cname, mix, comment, recipe, base from cocktail
+        <if test="findtype == 'cname'">
             where ${findtype} like concat('%', #{findkey}, '%')
         </if>
 
-        <if test="findtype == 'cname1'">
-            where cname like concat('%', #{findkey}, '%')
-            or base like concat('%', #{findkey}, '%')
-        </if>
-        order by cno desc limit #{stnum}, 6
+        limit #{stnum}, 6
     </select>
+
+    <select id="countPageFindCocktail" parameterType="map">
+        select ceil(count(cno) / 6)  cntpg from cocktail
+
+        <if test="findtype == 'cname'">
+            where ${findtype} like concat('%', #{findkey}, '%')
+        </if>
+    </select>
+
+    <select id="countFindCocktail" parameterType="map">
+        select count(cno) cntcoc from cocktail
+
+        <if test="findtype == 'cname'">
+            where ${findtype} like concat('%', #{findkey}, '%')
+        </if>
+    </select>
+
+    <!-- 칵테일 총개수 -->
+    <select id="countAllCocktail">
+        select count(cno) cntcoc from cocktail
+    </select>
+
 
 
 </mapper>

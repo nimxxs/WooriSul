@@ -18,6 +18,13 @@
     color: rgba(155,155,155,0.98);
 }
 
+.num.gyeonggi {background-color: rgb(124, 199, 158);}
+.num.gangwon {background-color: #82c0d7;}
+.num.chungcheong {background-color: #c6e093;}
+.num.gyeongsang {background-color: #9fc578;}
+.num.jeolla {background-color: #eea459;}
+.num.jeju {background-color: #e09787;}
+
 /* 폰트 변경 */
 .place-list .subject {
     font-size: 28px;

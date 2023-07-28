@@ -5,7 +5,7 @@ let findbtn=document.querySelector('#findbtn');
 findbtn?.addEventListener('click', ()=>{
     if(findkey.value ==='') alert('검색어를 입력하세요!');
     else{
-        location.href=`/brewery/find/${findtype.value}/${findkey.value}/1`;
+        location.href=`/store/offline/find/${findtype.value}/${findkey.value}/1`;
     }
 });
 
@@ -14,7 +14,6 @@ function submitName(e) {
         document.getElementById('findbtn').click();
     }
 };
-
 
 function goBack() {
     window.history.back();

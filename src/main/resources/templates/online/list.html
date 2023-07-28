@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}"><!-- header/footer와 달리 content는 layout/template에 있는게 여기 들어옴 -->
+<th:block layout:fragment="content">
+
+  <!-- container -->
+  <div id="container" th:with="pglink=${(#strings.isEmpty(fkey)) ? '/store/online/list/' : '/store/online/find' + ftype + '/' + fkey + '/'}">
+    <div id="content">
+      <div class="inner">
+        <h2 class="title">우리술 구매처</h2>
+        <!-- tab-wrap -->
+        <div class="tab-wrap2">
+          <div class="tab-scroll">
+            <ul class="tab tab-depth">
+              <li class="tab-menu selected"><a href="/store/online/list/1" target="_self">온라인 판매처</a></li>
+              <li class="tab-menu "><a href="/store/offline/list/1" target="_self">오프라인 판매처</a></li>
+            </ul>
+          </div>
+
+          <p class="etc-text">※ 대용량 구입 시 각 양조장에 별도 문의</p>
+
+          <div class="board-top justify-content-">
+            <div class="board-btn">
+              <div class="board-search info-search">
+                <div class="total fs-4">Total <span th:text="${cnton}">0</span></div> <!-- 전체 글 개수-->
+<!--                <div class="radio-area">-->
+                  <div class="search-wrap">
+                    <div class="" style="display: flex; justify-content: flex-end; align-items: flex-start ;">
+                      <div class="search-select col-4">
+                        <select class="form-select fs-5" id="findtype">
+                          <option value="store">판매처명</option>
+                        </select>
+                      </div>
+                      <div class="search-input-br col-5">
+                        <input type="text" class="form-control" id="findkey" value="" onkeyup="return submitName(event);"/>
+                        <button type="button" class="btn btn-light" id="findbtn"></button>
+                      </div>
+                    </div>
+                  </div>  <!-- 도수별, 지역별 select -->
+<!--                </div>-->
+              </div>
+            </div>
+          </div>
+
+          <!-- board A-list -->
+          <div class="photo-list notice-list">
+            <ul>
+              <!-- 온라인 판매처 정보  -->
+              <li th:each="on:${ons}">
+                <div class="thumb">
+                  <a th:href="${on.waddr}" target="_blank" class="el">
+                        <span>
+                          <img th:src="${on.onphoto}" alt="thumbnail" />
+                        </span>
+                  </a>
+                </div>
+
+                <div class="text-wrap">
+                  <div class="subject">
+                    <a href="#none">
+                      <span class="el" th:text="${on.store}"> 제주수울 </span>
+                    </a>
+                  </div>
+
+                  <ul class="sell">
+                    <li class="site">
+                          <span class="el">
+                            <a th:href="${on.waddr}" target="_blank">[[${on.waddr}]]</a>
+                          </span>
+                    </li>
+
+                    <li class="tel"><span class="el" th:text="${on.tel}"> 0507-1419-3023 </span></li>
+                  </ul>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+          <!-- //board-list -->
+          <!-- paging -->
+          <div class="paging">
+            <ul class="pagination justify-content-center">
+              <li th:class="${(cpg - 1 gt 0) ? 'prev' : 'prev disabled'}">
+                <a th:href="|${pglink}${cpg - 1}|" class="page-link"><i class="fa-solid fa-chevron-left" style="color: #ff9f00;"></i></a></li>
+              <th:block th:each="i : ${#numbers.sequence(stpg, cntpg)}">
+                <th:block th:if="${i le cntpg}">
+                  <li th:class="${(i ne cpg) ? '' : 'selected active'}">
+                    <a th:href="|${pglink}${i}|" class="page-link" th:text="${i}">1</a></li>
+                </th:block>
+              </th:block>
+              <li th:class="${(cpg lt cntpg) ? 'next': 'next disabled'}">
+                <a th:href="|${pglink}${cpg + 1}|" class="page-link"><i class="fa-solid fa-chevron-right" style="color: #ff9f00;"></i></a></li>
+            </ul>
+          </div>
+          <!--//paging -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //container -->
+
+  <script src="/assets/js/onstore.js" charset="utf-8"></script>
+
+</th:block>
+</html>

@@ -18,4 +18,10 @@ public interface CocktailDAO {
     List<Cocktail> selectFindCocktail(Map<String, Object> params);
 
     int selectCountCocktail();
+
+    int countPageFindCocktail(Map<String, Object> params);
+
+    int countFindCocktail(Map<String, Object> params);
+
+    int countAllBrewery();
 }
