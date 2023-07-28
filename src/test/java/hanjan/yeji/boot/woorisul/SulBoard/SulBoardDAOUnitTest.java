@@ -1,4 +1,7 @@
-package hanjan.yeji.boot.woorisul.SulBoard;
+
+
+package hanjan.yeji.boot.woorisul.sulBoard;
+
 
 
 import hanjan.yeji.boot.woorisul.controller.SulBoardController;
@@ -13,8 +16,9 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.context.annotation.Import;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @MybatisTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -44,5 +48,18 @@ public class SulBoardDAOUnitTest {
 
 
     }
+
+//    @Test
+//    @DisplayName("sulBoardDAO select category test")
+//    @Transactional
+//    void selectDrinkListByCategory(){
+//        String kind= "탁주";
+//
+//        List<SulBoard> results = sbdao.selectDrinkListByCategory(kind);
+//
+//        assertNotNull(results);
+//
+//    }
+
 
 }

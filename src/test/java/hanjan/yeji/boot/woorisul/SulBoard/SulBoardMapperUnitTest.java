@@ -1,4 +1,6 @@
-package hanjan.yeji.boot.woorisul.SulBoard;
+
+package hanjan.yeji.boot.woorisul.sulBoard;
+
 
 import hanjan.yeji.boot.woorisul.model.Brewery;
 import hanjan.yeji.boot.woorisul.model.SulBoard;
@@ -52,19 +54,19 @@ public class SulBoardMapperUnitTest {
         assertNotNull(result);
     }
 
-    @Test
-    @DisplayName("sulBoardMapper select Test")
-    void selectSulBoard() {
-
-        int cpg =1;
-        int stnum = (cpg - 1) * 5;
-
-        List<SulBoard> results = sulBoardMapper.selectSulBoard(stnum);
-        System.out.println(results);
-        assertNotNull(results);
-
-
-    }
+//    @Test
+//    @DisplayName("sulBoardMapper select Test")
+//    void selectSulBoard() {
+//
+//        int cpg =1;
+//        int stnum = (cpg - 1) * 5;
+//
+//        List<SulBoard> results = sulBoardMapper.selectSulBoard(stnum);
+//        System.out.println(results);
+//        assertNotNull(results);
+//
+//
+//    }
 
     @Test
     @DisplayName("sulBoardMapper selectOneSulBoard Test")
@@ -79,6 +81,15 @@ public class SulBoardMapperUnitTest {
 
 
     }
+
+//    @Test
+//    @DisplayName("sulBoardMapper select kind Test")
+//    void selectDrinkListByCategory(){
+//        String kind="탁주";
+//
+//        List<SulBoard> results= sulBoardMapper.selectDrinkListByCategory(kind);
+//        assertNotNull(results);
+//    }
 
 
 

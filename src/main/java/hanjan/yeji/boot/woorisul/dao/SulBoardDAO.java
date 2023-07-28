@@ -9,13 +9,15 @@ public interface SulBoardDAO {
 
   int insertSulBoard(SulBoard sb);
 
-  List<SulBoard> selectSulBoard(int stnum);
+  List<SulBoard> selectSulBoard(String kind, int stnum);
 
   int selectCountSulBoard();
 
   SulBoard selectOneSulBoard(String sno);
 
-   List<SulBoard> selectFindSulBoard(Map<String, Object> params);
+  List<SulBoard> selectFindSulBoard(Map<String, Object> params);
 
   int countFindSulBoard(Map<String, Object> params);
+
+  List<SulBoard> selectSul(String kind);
 }

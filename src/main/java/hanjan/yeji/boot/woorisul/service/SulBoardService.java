@@ -8,9 +8,9 @@ public interface SulBoardService {
 
     boolean saveSulBoard(SulBoard sb);
 
-    List<SulBoard> readSulBoard(Integer cpg);
+    List<SulBoard> readSulBoard(String kind, Integer cpg);
 
-    int countSulBoard();
+    int selectCountSulBoard();
 
 
     SulBoard readOneSulBoard(String sno);
@@ -19,5 +19,7 @@ public interface SulBoardService {
 
     int countFindSulBoard(String sname, String skey);
 
+
+    List<SulBoard> selectSul(String kind);
 
 }
