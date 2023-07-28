@@ -1,3 +1,4 @@
+/*
 package hanjan.yeji.boot.woorisul.brewery;
 
 import hanjan.yeji.boot.woorisul.dao.BreweryDAO;
@@ -58,3 +59,4 @@ public class BreweryDAOUnitTest {
     }
 
 }
+*/

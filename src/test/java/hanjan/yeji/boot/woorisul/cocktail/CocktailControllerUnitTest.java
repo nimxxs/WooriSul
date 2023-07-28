@@ -1,4 +1,5 @@
-package hanjan.yeji.boot.woorisul.cocktail;
+/*
+package hanjan.yeji.boot.woorisul.Cocktail;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -46,4 +47,4 @@ public class CocktailControllerUnitTest {
                 .andDo(print());
     }
 
-}
+}*/

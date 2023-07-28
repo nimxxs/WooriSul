@@ -4,6 +4,7 @@ import hanjan.yeji.boot.woorisul.model.Brewery;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface BreweryMapper {
@@ -13,5 +14,13 @@ public interface BreweryMapper {
 
     Brewery selectOneBrewery(String bno);
 
-    int selectCountBrewery();
+    int countPageBrewery();
+
+    int countAllBrewery();
+
+    List<Brewery> selectFindBrewery(Map<String, Object> params);
+
+    int countPageFindBrewery(Map<String, Object> params);
+    int countFindBrewery(Map<String, Object> params);
+
 }

@@ -36,7 +36,7 @@ public class SulBoardController {
         m.addAttribute("cntpg", sbsrv.selectCountSulBoard());
         m.addAttribute("stpg", ((cpg-1) / 3) * 3 +1);
 
-        if ( cpg > cntpg ) {
+       if ( cpg > cntpg ) {
             return "redirect:/drink/list/1";
         }
 

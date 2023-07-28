@@ -7,8 +7,9 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class Anju {
-    private String ano;
+    private int ano;
     private String aname;
-    private String sno;
+    private int sno;
     private String photo;
-};
+    private String kind;
+}

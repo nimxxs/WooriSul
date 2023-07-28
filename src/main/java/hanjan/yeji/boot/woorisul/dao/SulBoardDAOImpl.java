@@ -38,7 +38,7 @@ public class SulBoardDAOImpl implements SulBoardDAO{
 
   @Override
   public List<SulBoard> selectFindSulBoard(Map<String, Object> params) {
-    return sulBoardMapper.selectFindSulBoard(params);
+      return sulBoardMapper.selectFindSulBoard(params);
   }
 
   @Override

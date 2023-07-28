@@ -1,6 +1,8 @@
 .paging li.first {padding-right:15px;}
 .paging li.last {padding-left:15px;}
 
+
+
 .form-control {
     display: none; /* 초기값으로 되돌립니다. */
     width: auto; /* 초기값으로 되돌립니다. */
@@ -14,11 +16,10 @@
 
 .radio-box {
     position: relative;
+    margin-right: 0px;
+    margin-bottom: 5px;
 }
 
-.radio-box label {
-    margin-right: 30px;
-}
 
 
 .board-search button {
@@ -27,3 +28,35 @@
     text-indent: -9999px;
     font-size: 0;
 }
+
+/* 페이지네이션 */
+.paging li a {
+    display: block;
+    width: 46px;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 13px;
+    color: #666;
+    padding: 9px 7px 0 7px;
+}
+
+/* 폰트 적용 */
+.inner h2 {
+    font-family: 'SangSangRock';
+    font-weight: bold;
+    font-size: 60px;
+}
+.product-list .detail dt .title-area .name {
+    font-family: 'SangSangRock';
+    font-size: 27px;
+}
+.product-view dt {
+    font-family: 'SangSangRock';
+    font-size: 30px;
+    border-bottom: 1px solid gray;
+    background-color: white;
+}
+.product-view {
+    border-top: 1px solid gray;
+}
+

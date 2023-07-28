@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository("bdao")
 @RequiredArgsConstructor
@@ -28,8 +29,29 @@ public class BreweryDAOImpl implements BreweryDAO{
     }
 
     @Override
-    public int selectCountBrewery() {
-        return breweryMapper.selectCountBrewery();
+    public int countPageBrewery() {
+        return breweryMapper.countPageBrewery();
     }
+
+    @Override
+    public int countAllBrewery() {
+        return breweryMapper.countAllBrewery();
+    }
+
+    @Override
+    public List<Brewery> selectFindBrewery(Map<String, Object> params) {
+        return breweryMapper.selectFindBrewery(params);
+    }
+
+    @Override
+    public int countPageFindBrewery(Map<String, Object> params) {
+        return breweryMapper.countPageFindBrewery(params);
+    }
+
+    @Override
+    public int countFindBrewery(Map<String, Object> params) {
+        return breweryMapper.countFindBrewery(params);
+    }
+
 
 }

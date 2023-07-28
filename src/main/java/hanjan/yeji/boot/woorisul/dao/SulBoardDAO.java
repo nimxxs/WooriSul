@@ -15,7 +15,7 @@ public interface SulBoardDAO {
 
   SulBoard selectOneSulBoard(String sno);
 
-  List<SulBoard> selectFindSulBoard(Map<String, Object> params);
+   List<SulBoard> selectFindSulBoard(Map<String, Object> params);
 
   int countFindSulBoard(Map<String, Object> params);
 

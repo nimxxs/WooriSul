@@ -32,18 +32,19 @@ public class CocController {
 
         m.addAttribute("cocs", cocsrv.readCocktail(cpg));
         m.addAttribute("cpg", cpg);
-        m.addAttribute("cntpg", cocsrv.countCocktail());
+        int cntpg = cocsrv.countCocktail();
+        m.addAttribute("cntpg", cntpg);
         m.addAttribute("stpg", ((cpg - 1) / 10) * 10 + 1);
+
+        if (cpg  > cntpg)
+            return "redirect:/coc/list/1";
 
         return "coc/list";
     }
 
-
     @GetMapping("/write")
     public String write() {
         logger.info("coc/write 호출!!");
-
-
         return "coc/write";
     }
 
@@ -53,15 +54,8 @@ public class CocController {
 
         String returnPage = "redirect:/coc/fail";
 
-        // 작성한 게시글을 먼저 디비에 저장하고 글번호를 알아냄
         int cno = cocsrv.newCocktail(c);
 
-        // 알아낸 글번호를 이용해 첨부파일 처리 (디비저장, 업로드)
-        if (!attachs.isEmpty()) {  // 첨부파일이 존재한다면
-            cocsrv.newCocAttach(attachs, cno);
-
-            returnPage = "redirect:/coc/list/1";
-        }
 
         return returnPage;
     }
@@ -70,29 +64,32 @@ public class CocController {
     public String view(Model m, @PathVariable String cno) {
         logger.info("coc/view 호출!!");
 
+        // cno를 정수로 변환하여 prevCno 계산
+        int prevCno = Integer.parseInt(cno) - 1;
+        int nextCno = Integer.parseInt(cno) + 1;
+
         m.addAttribute("c", cocsrv.readOneCocktail(cno));
+        m.addAttribute("prevCno", prevCno);
+        m.addAttribute("nextCno", nextCno);
 
         return "coc/view";
     }
 
-    @GetMapping("/find/{findtype}/{findkey}/{cpg}") /*순서 바꿈*/
-    public String find(Model m, @PathVariable Integer cpg,
-                       @PathVariable String findtype, @PathVariable String findkey) {
+/*
+
+    @GetMapping("/find/{findtype}/{findkey}/{cpg}") */
+/*순서 바꿈*//*
+
+    public String find(Model m, @PathVariable Integer cpg
+                   ) {
         logger.info("board/find 호출!!");
 
-        m.addAttribute("bds", cocsrv.readFindCocktail(cpg, findtype, findkey));
         m.addAttribute("cpg", cpg);
         m.addAttribute("stpg", ((cpg - 1) / 10) * 10 + 1);
-        m.addAttribute("fkey", findkey);
-        m.addAttribute("ftype", findtype);
 
-        // 만일 , 현재페이지가 총페이지수 보다 크면
-        // 1페이지로 강제 이동
-        if (cpg > (int) m.getAttribute("cntpg"))
-            return "redirect:/board/list/1";
-
-        return "board/list";
+        return "coc/list";
     }
+*/
 
 
 

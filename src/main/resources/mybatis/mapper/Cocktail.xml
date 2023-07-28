@@ -16,14 +16,22 @@
         <result column="comment" property="comment"/>
         <result column="recipe" property="recipe"/>
         <result column="base" property="base"/>
+        <result column="cphoto" property="cphoto"/>
+        <result column="glass" property="glass"/>
+        <result column="method" property="method"/>
+        <result column="decoration" property="decoration"/>
+        <result column="cbphoto" property="cbphoto"/>
 
 
         <collection property="ca" resultMap="ca"/>
     </resultMap>
 
     <insert id="insertCocktail" parameterType="Cocktail">
-        insert into cocktail (cname,mix,comment,recipe,base)
-        value (#{cname},#{mix},#{comment},#{recipe},#{base})
+        insert into cocktail (cname,mix,comment,recipe,base,
+        cphoto,glass,method,decoration,cbphoto)
+
+        value (#{cname},#{mix},#{comment},#{recipe},#{base},
+        #{cphoto},#{glass},#{method},#{decoration},#{cbphoto})
     </insert>
 
     <select id="lastCocCno">
@@ -38,7 +46,7 @@
 
     <select id="selectCocktail" resultMap="cca">
         select * from cca0
-        order by cno desc limit #{stnum}, 9
+        order by cno ASC limit #{stnum}, 6
     </select>
 
     <select id="selectOneCocktail" resultMap="cca"> <!-- rsultMap을 만들어-->
@@ -46,10 +54,10 @@
     </select>
 
     <select id="selectCountCocktail">
-        select ceil(count(cno) / 9) cntpg from Cocktail
+        select ceil(count(cno) / 6) cntpg from cocktail
     </select>
 
-    <!-- 페이지 -->
+    <!-- 페이지 검색-->
     <select id="selectFindCocktail" parameterType="map" resultType="Cocktail">
     select cno, cname, mix, comment, recipe, base from cocktail
 
@@ -61,7 +69,7 @@
             where cname like concat('%', #{findkey}, '%')
             or base like concat('%', #{findkey}, '%')
         </if>
-        order by bno desc limit #{stnum}, 9
+        order by cno desc limit #{stnum}, 6
     </select>
 
 

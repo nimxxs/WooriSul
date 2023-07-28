@@ -3,180 +3,182 @@
       xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/template}"><!-- header/footer와 달리 content는 layout/template에 있는게 여기 들어옴 -->
 <th:block layout:fragment="content">
-    <body>
-    <div id="wrap">
-        <!-- container -->
-        <div id="container">
 
-            <div id="content">
-                <div class="inner">
-                    <h2 class="title">양조장 둘러보기</h2>
-                    <!-- tab-wrap -->
-                    <div class="tab-wrap2">
+    <!-- container -->
+    <div id="container">
 
-                        <script type="text/javascript">
-                            function move(link){
-                                document.pagingForm.action=""+ link + ".do";
-                                document.pagingForm.submit();
-                            }
-                        </script>
-                        <form id="pagingForm" name="pagingForm" method="get">
+        <div id="content">
+            <div class="inner">
+                <h2 class="title">양조장 둘러보기</h2>
+                <!-- tab-wrap -->
+                <div class="tab-wrap2">
 
-                            <input type="hidden" name="pageIndex" value="1"/>
+                    <script type="text/javascript">
+                        function move(link){
+                            document.pagingForm.action=""+ link + ".do";
+                            document.pagingForm.submit();
+                        }
+                    </script>
+                    <form id="pagingForm" name="pagingForm" method="get">
+
+                        <input type="hidden" name="pageIndex" value="1"/>
 
 
-                            <input type="hidden" name="brewId" value="BR00000034"/>
-                            <input type="hidden" name="areaName" value=""/>
-                            <input type="hidden" name="searchKey" value=""/>
-                            <input type="hidden" name="searchArea" value=""/>
-                            <input type="hidden" name="searchString" value=""/>
-                        </form>
-                        <div id="brewery">
-                            <!-- board-view -->
-                            <div class="board-view place-view">
-                                <dl>
-                                    <dt class="subject" th:text="${br.brname}">배상면주가</dt>
-                                    <dd class="info">
-                                        <ul>
-                                            <li><strong>작성자</strong>관리자</li>
-                                            <li><strong>작성일</strong>2021-01-05</li>
-                                            <li class="desktop"><strong>조회수</strong>2607</li>
-                                        </ul>
-                                    </dd>
-                                    <dd class="main">
-                                        <div class="img">
-                                        <span>
-                                            <img th:src="${br.photo}"/>
-                                        </span>
-                                        </div>
-                                    </dd>
-                                    <dd class="no-line">
-                                        <div class="place-table">
-                                            <table>
-                                                <colgroup>
-                                                    <col width="160px">
-                                                    <col width="*">
-                                                </colgroup>
-                                                <tbody>
-                                                <tr>
-                                                    <th>주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;소</th>
-                                                    <td><div class="text" th:text="${br.addr}">경기도 포천시 화현면 화현리 512</div></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종</th>
-                                                    <td><div class="text" th:text="${br.kind}">탁주,약주, 청주,증류주
-                                                    </div></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>연&nbsp;&nbsp;&nbsp;&nbsp;락&nbsp;&nbsp;&nbsp;&nbsp;처</th>
-                                                    <td><div class="text" th:text="${br.tel}">031-531-9300</div></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>홈페이지</th>
-                                                    <td><div class="text">
-                                                        <a th:href="${br.waddr}" target="_blank" th:text="${br.waddr}">홈페이지주소</a>
+                        <input type="hidden" name="brewId" value="BR00000034"/>
+                        <input type="hidden" name="areaName" value=""/>
+                        <input type="hidden" name="searchKey" value=""/>
+                        <input type="hidden" name="searchArea" value=""/>
+                        <input type="hidden" name="searchString" value=""/>
+                    </form>
+                    <div id="brewery">
+                        <!-- board-view -->
+                        <div class="board-view place-view">
+                            <dl>
+                                <dt class="subject" th:text="${br.brname}">배상면주가</dt>
+                                <dd class="info">
+                                    <ul>
+                                        <li><strong>작성자</strong>관리자</li>
+                                        <li><strong>작성일</strong>2021-01-05</li>
+                                        <li class="desktop"><strong>조회수</strong>2607</li>
+                                    </ul>
+                                </dd>
+                                <dd class="main">
+                                    <div class="img">
+                                    <span>
+                                        <img th:src="${br.bphoto}"/>
+                                    </span>
+                                    </div>
+                                </dd>
+                                <dd class="no-line">
+                                    <div class="place-table">
+                                        <table>
+                                            <colgroup>
+                                                <col width="160px">
+                                                <col width="*">
+                                            </colgroup>
+                                            <tbody>
+                                            <tr>
+                                                <th>주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;소</th>
+                                                <td><div class="text" th:text="${br.addr}">경기도 포천시 화현면 화현리 512</div></td>
+                                            </tr>
+                                            <tr>
+                                                <th>주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종</th>
+                                                <td><div class="text" th:text="${br.bkind}">탁주,약주, 청주,증류주
                                                 </div></td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </dd>
-                                    <dd class="item">
-                                        <div class="title w100">
-                                            <span>주요제품</span>
-                                        </div>
-                                        <div class="more">
-                                            <ul class="main-product">
-                                                <li>
-                                                    <div class="item-wrap">
-                                                        <div class="img">
-                                                            <span>
-                                                                <img src="https://thesool.com/common/imageView.do?targetId=PR00000286&targetNm=PRODUCT" alt="">
-                                                            </span>
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <div class="name">심술 7</div>
-                                                            <div class="num">
-                                                                <span>330ml</span>
-                                                                <span>7%</span>
-                                                            </div>
+                                            </tr>
+                                            <tr>
+                                                <th>연&nbsp;&nbsp;&nbsp;&nbsp;락&nbsp;&nbsp;&nbsp;&nbsp;처</th>
+                                                <td><div class="text" th:text="${br.tel}">031-531-9300</div></td>
+                                            </tr>
+                                            <tr>
+                                                <th>홈페이지</th>
+                                                <td><div class="text">
+                                                    <a th:href="${br.waddr}" target="_blank" th:text="${br.waddr}">홈페이지주소</a>
+                                                </div></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </dd>   <!-- 양조장 정보 -->
+                                <dd class="item">
+                                    <div class="title w100">
+                                        <span>주요제품</span>
+                                    </div>
+                                    <div class="more">
+                                        <ul class="main-product">
+                                            <li th:each="s : ${#strings.arraySplit(br.sul.suls, ',')}">
+                                                <div class="item-wrap">
+                                                    <div class="img">
+                                                        <span>
+                                                            <img th:src="${#strings.arraySplit(s, ';')[2]}" alt=""/>
+                                                        </span>
+                                                    </div>
+                                                    <div class="product-info">
+                                                        <div class="name" th:text="${#strings.arraySplit(s, ';')[0]}">심술 7</div>
+                                                        <div class="num">
+                                                            <span th:text="${#strings.arraySplit(s, ';')[1]}">7%</span>
                                                         </div>
                                                     </div>
-                                                </li>
+                                                </div>
+                                            </li>
 
-                                                <li>
-                                                    <div class="item-wrap">
-                                                        <div class="img">
-                                                            <span>
-                                                                <img src="https://thesool.com/common/imageView.do?targetId=PR00001043&targetNm=PRODUCT" alt="">
-                                                            </span>
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <div class="name">홍시</div>
-                                                            <div class="num">
-                                                                <span>700ml</span>
-                                                                <span>12%</span>
-                                                            </div>
-                                                        </div>
+                                        </ul>
+                                    </div>
+
+                                </dd>   <!-- 양조장 대표 술 -->
+
+                                <dd class="item">
+                                    <div class="title w100">
+                                        <span>체험프로그램</span>
+                                    </div>
+                                    <div class="more">
+                                        <ul class="program-wrap">
+                                            <!--<li>
+                                                <div class="thumb">
+                                                    <div class="img">
+                                                        <span>
+                                                            <img th:src="${br.pr.photo}" alt=""/>
+                                                        </span>
                                                     </div>
-                                                </li>
+                                                </div>
+                                                <div class="program">
+                                                    <dl>
+                                                        <dt class="name" th:text="${br.pr.pname}">가양주 심화과정</dt>
+                                                        <dd>
+                                                            <ul class="text">
+                                                                <li><strong>장소</strong>[[${br.pr.place}]]</li>
+                                                                <li><strong>내용</strong>[[${br.pr.contents}]]</li>
+                                                                <li><strong>소요시간</strong>[[${br.pr.cost}]]</li>
+                                                                <li><strong>투어비용</strong>[[${br.pr.cost}]]</li>
+                                                            </ul>
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                            </li>-->
 
-                                            </ul>
-                                        </div>
-
-                                    </dd>
-                                    <dd class="item">
-                                        <div class="title w100">
-                                            <span>체험프로그램</span>
-                                        </div>
-                                        <div class="more">
-                                            <ul class="program-wrap">
-                                                <li>
-                                                    <div class="thumb">
-                                                        <div class="img">
-                                                            <span>
-                                                                <img src="https://thesool.com/common/imageView.do?targetId=BPR0000081&targetNm=BREWPROGRAM" alt="">
-                                                            </span>
-                                                        </div>
+                                            <li>
+                                                <div class="thumb">
+                                                    <div class="img">
+                                                        <span>
+                                                            <img th:src="${br.pr.photo}" alt=""/>
+                                                        </span>
                                                     </div>
-                                                    <div class="program">
-                                                        <dl>
-                                                            <dt class="name">가양주 심화과정</dt>
-                                                            <dd>
-                                                                <ul class="text">
-                                                                    <li><strong>장소</strong><span th:text="${br.pr.pname}">1층 가양주교실</span></li>
-                                                                    <li><strong>내용</strong>주차 - 전통술 이야기 및 술발효 이론 강의 / 탁,약주 담금 (증자 및 무증자 담금)실습</li>
-                                                                    <li><strong>소요시간</strong>1주 3시간씩 4주 교육</li>
-                                                                    <li><strong>투어비용</strong>개인당 160,000원</li>
-                                                                </ul>
-                                                            </dd>
-                                                        </dl>
-                                                    </div>
-                                                </li>
+                                                </div>
+                                                <div class="program">
+                                                    <dl>
+                                                        <dt class="name" th:text="${br.pr.pname}">가양주 심화과정</dt>
+                                                        <dd>
+                                                            <ul class="text">
+                                                                <li><strong>장소</strong>[[${br.pr.place}]]</li>
+                                                                <li><strong>내용</strong>[[${br.pr.contents}]]</li>
+                                                                <li><strong>소요시간</strong>[[${br.pr.time}]]</li>
+                                                                <li><strong>투어비용</strong>[[${br.pr.cost}]]</li>
+                                                            </ul>
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                            </li>
 
-                                            </ul>
-                                        </div>
-                                    </dd>
-                                </dl>
-                            </div>
-                            <!-- btn -->
-
-                            <div class="btn-area">
-                                <button type="button" class="btn-primary" onclick="move('mapList');">목록</button>
-                            </div>
+                                        </ul>
+                                    </div>
+                                </dd>
+                                <!-- 양조장 체험 프로그램 -->
+                            </dl>
                         </div>
-                        <!-- //tab cont2 -->
+                        <!-- btn -->
+
+                        <div class="btn-area">
+                            <button type="button" class="btn-list-primary" onclick="location.href='/brewery/list/1'">목록</button>
+                        </div>
                     </div>
-
-
+                    <!-- //tab cont2 -->
                 </div>
+
+
             </div>
         </div>
-        <!-- //container -->
-
-
-
     </div>
-    </body>
+    <!-- //container -->
+
 </th:block>
 </html>
