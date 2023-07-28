@@ -4,7 +4,6 @@
       layout:decorate="~{layout/template}">
 
 
-
 <th:block layout:fragment="content">
     <style>
         .badge-pink {
@@ -14,91 +13,102 @@
     </style>
 
 
-    <div id="main"
-        th:with="pglink=${(#strings.isEmpty(fkey)) ?
+    <div id="container"
+         th:with="pglink=${(#strings.isEmpty(fkey)) ?
         '/coc/list/' : '/coc/find/' + ftype + '/' + fkey + '/'}">
-        <div class="mt-5">
-            <i class="fa-solid fa-martini-glass-citrus fa-2xl">칵테일</i>
-            <hr>
-        </div>
+        <div id="content">
+            <div class="inner">
 
-        <div class="row mt-5 mb-3 ">
-            <div class="row offset-5 col-9">
-                <div class="col-3">
-                    <select class="form-select" id="findtype">
-                        <option>전</option>
-                        <option>통</option>
-                        <option>주</option>
-                        <option>칵</option>
-                        <option>테</option>
-                        <option>일</option>
-                    </select>
-                </div>
-                <div class="col-4">
-                    <input type="text" class="form-control col-2" id="findkey">
-                </div>
-                <div class="col-3">
-                    <button type="button" class="btn btn-light" id="findbtn">
-                        <i class="fa-solid fa-magnifying-glass"></i> 술 검색하기</button>
-                </div>
-            </div>
-        </div>
+                <h2 class="title">전통주 칵테일</h2>
 
-        <div class="row">
-            <div class="offset-1 col-10">
-                <table class="table table-striped">
-                        <div class="step_content_box_sub">
-                            <div>전통주 칵테일</div>
-                        </div>
-                </table>
-
-                <div class="row"> <!-- 사진 가운데 정렬 아래 4 띄움 -->
-                    <div th:each="coc : ${cocs}"
-                         class="col-md-4 mb-3">
-                        <div class="card">
-                             <a th:href="|/coc/view/${coc.cno}|">
-                                 <th:block th:each="img : ${#strings.arraySplit(coc.ca.fname,';')}">
-                               <img th:src="|http://localhost/cdn/${img}|" class="card-img-top" alt="...">
-                                 </th:block>
-                             </a>
-
-                        <div class="card-body">
-                            <p class="card-title">
-                                <span class="badge badge-pink p-2">칵테일</span>
-                                <span th:text="${coc.cname}">베이스</span>
-                            </p>
-                              <p>
-                                  <span class="badge bg-secondary p-2">베이스</span>
-                                  <span th:text="${coc.base}">레시피</span>
-                              </p>
+                <div class="board-btn">
+                    <div class="board-search info-search">
+                        <div class="total fs-4">Total <span th:text="${cntcoc}">0</span></div> <!-- 전체 글 개수-->
+                        <div class="radio-area">
+                            <!-- 검색 항목(라디오) -지움-->
+                            <div class="search-wrap">
+                                <div class="option"
+                                     style="display: flex; justify-content: flex-end; align-items: flex-start ;">
+                                    <div class="search-select col-4">
+                                        <select class="form-select fs-5" id="findtype">
+                                            <option value="cname">칵테일명</option>
+                                        </select>
+                                    </div>
+                                    <div class="search-input-br col-5">
+                                        <input type="text" class="form-control" id="findkey" value=""
+                                               onkeyup="return submitName(event);">
+                                        <button type="button" class="btn btn-light" id="findbtn"></button>
+                                    </div>
+                                </div>
+                            </div>  <!-- 도수별, 지역별 select -->
                         </div>
                     </div>
+                </div>
+                <hr>
+                <div class="row mt-5 mb-3 ">
+                    <div class="row offset-5 col-9">
+                        <div class="col-4">
+                        </div>
                     </div>
-                </div><!-- 칵테일 리스트 -->
-            </div>
-        </div>
+                </div>
+                <div class="row">
+                    <div class="offset-1 col-10">
+                        <table class="table table-striped">
+                        </table>
+                        <div class="row"> <!-- 사진 가운데 정렬 아래 4 띄움 -->
+                            <div th:each="coc : ${cocs}"
+                                 class="col-md-4 mb-3">
+                                <div class="card">
+                                    <a th:href="|/coc/view/${coc.cno}|">
+                                        <th:block th:each="img : ${#strings.arraySplit(coc.ca.fname,';')}">
+                                            <img th:src="|http://localhost/cdn/${img}|" class="card-img-top" alt="...">
+                                        </th:block>
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="card-title">
+                                            <span class="badge badge-pink p-2">칵테일</span>
+                                            <span th:text="${coc.cname}">베이스</span>
+                                        </p>
+                                        <p>
+                                            <span class="badge bg-secondary p-2">베이스</span>
+                                            <span th:text="${coc.base}">레시피</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- 칵테일 리스트 -->
+                    </div>
+                </div>
 
-        <div class="row mt-3 mb-5">
-            <div class="offset-1 col-10">
-                <nav>
+                <style>
+                    /* 비활성화된 링크 스타일 */
+                    .pagination a.prev.disabled {
+                        pointer-events: none; /* 링크 클릭 이벤트 비활성화 */
+                        opacity: 0.5; /* 투명도를 조정하여 비활성화된 모양 표시 */
+                        /* 필요에 따라 커서 모양 등의 스타일을 추가로 설정할 수 있습니다. */
+                    }
+                </style>
+
+                <div class="paging">
                     <ul class="pagination justify-content-center">
-                        <li th:class="${(cpg -1 gt 0) ? 'page-item' : 'page-item disabled'}">
-                            <a th:href="|${pglink}${cpg - 1}|" class="page-link">이전</a></li>
-
-                        <th:block th:each="i :${#numbers.sequence(stpg, stpg + 9)}">
-                            <th:block th:if="${(i le cntpg)}">
-                                <li th:class="${(i ne cpg) ? 'page-item' : 'page-item active'}">
-                                    <a th:href="|${pglink}${i}|"class="page-link"
-                                       th:text="${i}">1</a></li>
+                        <li th:class="${(cpg - 1 gt 0) ? 'prev' : 'prev disabled'}">
+                            <a th:href="|${pglink}${cpg - 1}|" class="page-link"><i class="fa-solid fa-chevron-left"
+                                                                                    style="color: #ff9f00;"></i></a>
+                        </li>
+                        <th:block th:each="i : ${#numbers.sequence(stpg, cntpg)}">
+                            <th:block th:if="${i le cntpg}">
+                                <li th:class="${(i ne cpg) ? '' : 'selected active'}">
+                                    <a th:href="|${pglink}${i}|" class="page-link" th:text="${i}">1</a></li>
                             </th:block>
                         </th:block>
-                        <li th:class="${(cpg + 1 le cntpg) ? 'page-item' : 'page-item disabled'}">
-                            <a th:href="|${pglink}${cpg + 1}|" class="page-link">다음</a></li>
+                        <li class="next" th:class="${(cpg lt cntpg) ? 'next': 'next disabled'}">
+                            <a th:href="|${pglink}${cpg + 1}|" class="page-link"><i class="fa-solid fa-chevron-right"
+                                                                                    style="color: #ff9f00;"></i></a>
+                        </li>
                     </ul>
-                </nav>
+                </div>    <!-- 게시판 페이지네이션 -->
             </div>
-        </div><!-- 게시판 페이지네이션 -->
-
+        </div>
     </div>
     <script src="/assets/js/cocktail.js" charset="utf-8"></script>
 </th:block>

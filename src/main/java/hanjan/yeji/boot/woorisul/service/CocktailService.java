@@ -16,9 +16,11 @@ public interface CocktailService {
 
     Cocktail readOneCocktail(String cno);
 
-    List<Cocktail> readFindCocktail(Integer cpg, String ftype, String fkey);
+    List<Cocktail> readFindCocktail( String ftype, String fkey,Integer cpg);
 
     int countFindCocktail(String ftype, String fkey);
 
+    int countPageFindCocktail(String ftype, String fkey);
 
+    int countAllCocktail();
 }

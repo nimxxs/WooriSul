@@ -1,4 +1,3 @@
-/*
 package hanjan.yeji.boot.woorisul.Cocktail;
 
 import org.junit.jupiter.api.DisplayName;
@@ -14,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.FileInputStream;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -47,4 +47,14 @@ public class CocktailControllerUnitTest {
                 .andDo(print());
     }
 
-}*/
+
+    @Test
+    @DisplayName("find Test")
+    void findCocktail() throws Exception {
+
+        mvc.perform(get("/coc/find/cname/고진감래/1"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
+
+}
