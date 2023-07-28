@@ -13,23 +13,6 @@
                 <!-- tab-wrap -->
                 <div class="tab-wrap2">
 
-                    <script type="text/javascript">
-                        function move(link){
-                            document.pagingForm.action=""+ link + ".do";
-                            document.pagingForm.submit();
-                        }
-                    </script>
-                    <form id="pagingForm" name="pagingForm" method="get">
-
-                        <input type="hidden" name="pageIndex" value="1"/>
-
-
-                        <input type="hidden" name="brewId" value="BR00000034"/>
-                        <input type="hidden" name="areaName" value=""/>
-                        <input type="hidden" name="searchKey" value=""/>
-                        <input type="hidden" name="searchArea" value=""/>
-                        <input type="hidden" name="searchString" value=""/>
-                    </form>
                     <div id="brewery">
                         <!-- board-view -->
                         <div class="board-view place-view">
@@ -37,8 +20,6 @@
                                 <dt class="subject" th:text="${br.brname}">배상면주가</dt>
                                 <dd class="info">
                                     <ul>
-                                        <li><strong>작성자</strong>관리자</li>
-                                        <li><strong>작성일</strong>2021-01-05</li>
                                         <li class="desktop"><strong>조회수</strong>2607</li>
                                     </ul>
                                 </dd>
@@ -168,7 +149,7 @@
                         <!-- btn -->
 
                         <div class="btn-area">
-                            <button type="button" class="btn-list-primary" onclick="location.href='/brewery/list/1'">목록</button>
+                            <button type="button" class="btn-list-primary" onclick="goBack()">목록</button>
                         </div>
                     </div>
                     <!-- //tab cont2 -->
@@ -179,6 +160,8 @@
         </div>
     </div>
     <!-- //container -->
+
+    <script src="/assets/js/brewery.js" charset="utf-8"></script>
 
 </th:block>
 </html>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hanjan.yeji.boot.woorisul.mybatis.OffStoreMapper"> <!--패키지이름.인터페이스이름-->
+
+
+<!--    <insert id="insertOffline" parameterType="Offline">
+        insert into offline(store, tel, opt, offphoto)
+        values (#{store}, #{tel}, #{opt}, #{offphoto})
+    </insert>-->
+
+    <!-- 판매처 모두 불러오기 -->
+    <select id="selectOffline" resultType="Offline">
+        select fno, store, tel, opt, offphoto from offline limit ${stnum}, 6
+    </select>
+
+    <!-- 판매처 하나 불러오기 -->
+    <select id="selectOneOffline" resultType="Offline">
+        select * from offline where fno = #{fno}
+    </select>
+
+    <!-- 판매처 리스트 페이지 수 -->
+    <select id="countPageOffline">
+        select ceil(count(fno)/6) cntpg from offline
+    </select>
+
+    <!-- 판매처 총개수 -->
+    <select id="countAllOffline">
+        select count(fno) cnton from offline
+    </select>
+
+<!-- 검색 기능 구현 -->
+    <!-- 검색한 판매처 불러오기 -->
+    <select id="selectFindOffline" parameterType="map" resultType="Offline">
+        select fno, store, tel, opt, offphoto from offline
+
+        <if test="findtype == 'store'">
+            where ${findtype} like concat('%', #{findkey}, '%')
+        </if>
+
+        limit #{stnum}, 6
+    </select>
+
+    <!-- 검색한 판매처 리스트 페이지 수 -->
+    <select id="countPageFindOffline" parameterType="map">
+        select ceil(count(fno) / 4) cntfpg from offline
+
+        <if test="findtype == 'store'">
+            where ${findtype} like concat('%', #{findkey}, '%')
+        </if>
+    </select>
+
+    <!-- 검색한 판매처 개수 -->
+    <select id="countFindOffline" parameterType="map">
+        select count(fno) cnton from offline
+
+        <if test="findtype == 'store'">
+            where ${findtype} like concat('%', #{findkey}, '%')
+        </if>
+    </select>
+<!-- //검색 기능 구현 -->
+
+
+</mapper>

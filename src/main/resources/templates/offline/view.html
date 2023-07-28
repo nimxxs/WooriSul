@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}"><!-- header/footer와 달리 content는 layout/template에 있는게 여기 들어옴 -->
+<th:block layout:fragment="content">
+
+  <!-- container -->
+  <div id="container" th:with="pglink=${'/store/offline/view/'}">
+    <div id="content">
+      <div class="inner">
+        <h2 class="title">오프라인 판매처</h2>
+        <!-- A board-view -->
+        <div class="board-view place-view">
+          <dl>
+            <dt class="subject" th:text="${off.store}">전통주갤러리</dt>
+
+            <dd class="info">
+              <ul>
+                <li class="desktop"><strong>조회수</strong> 1549</li>
+              </ul>
+            </dd>
+
+            <dd class="item">
+              <div class="title"><span>주소</span></div>
+              <div class="more">
+                <div class="text" th:text="${off.addr}">서울특별시 종로구 북촌로18</div>
+              </div>
+            </dd>
+            <dd class="item">
+              <div class="title"><span>운영시간</span></div>
+              <div class="more">
+                <div class="text" th:text="${off.opt}">화~일 10:00~20:00 (월요일 휴무)</div>
+              </div>
+            </dd>
+
+            <dd class="item">
+              <div class="title"><span>전화번호</span></div>
+              <div class="more">
+                <div class="text" th:text="${off.tel}">02-555-2283</div>
+              </div>
+            </dd>
+
+          </dl>
+        </div>
+
+        <div class="opencode nuri4">
+          <img src="https://thesool.com/images/front/cont/opencode4.png" alt="공공누리 공공저작물 자유이용허락">
+          <span>본 저작물은 공공누리 제4유형으로 “출처표시 + 상업적 이용금지 + 변경금지” 조건에 따라 이용할 수 있습니다.</span>
+        </div>
+
+        <!-- //board-view -->
+
+        <!-- paging -->
+        <div class="paging">
+          <ul class="pagination justify-content-between">
+            <li th:class="${(fno - 1 gt 0) ? 'prev' : 'prev disabled'}">
+              <a th:href="|${pglink}${fno - 1}|" class="page-link"><i class="fa-solid fa-chevron-left" th:style="${(fno - 1 gt 0) ? 'color: #ff9f00;' : 'color: #dee2e6;'}"></i></a></li>
+
+            <li th:class="${(fno lt cntoff) ? 'next': 'next disabled'}">
+              <a th:href="|${pglink}${fno + 1}|" class="page-link"><i class="fa-solid fa-chevron-right" th:style="${(fno lt cntoff) ? 'color: #ff9f00;' : 'color: #dee2e6;'}"></i></a></li>
+          </ul>
+        </div>
+        <!--//paging -->
+
+        <!-- btn -->
+        <div class="btn-area">
+          <button type="button" class="btn-list-primary" onclick="location.href='/store/offline/list/1'">목록</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- //container -->
+
+  <script src="/assets/js/offstore.js" charset="utf-8"></script>
+
+</th:block>
+</html>
