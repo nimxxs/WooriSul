@@ -1,0 +1,7 @@
+.place-view > dl > dd {
+    padding:40px 0;
+    display:table;
+    position:relative;
+    width:100%;
+    background:url(https://thesool.com/images/front/cont/detail-dash.png) repeat-x bottom;
+}

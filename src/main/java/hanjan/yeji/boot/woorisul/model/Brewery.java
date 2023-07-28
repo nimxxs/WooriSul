@@ -18,6 +18,7 @@ public class Brewery {
     private String pno;
     private String bphoto;
     private String district;
+    private String views;
 
     private Program pr;
     private SulBoard sul;

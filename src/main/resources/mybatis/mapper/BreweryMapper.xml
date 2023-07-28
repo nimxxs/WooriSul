@@ -30,6 +30,7 @@
         <result column="tel" property="tel"/>
         <result column="waddr" property="waddr"/>
         <result column="bphoto" property="bphoto"/>
+        <result column="views" property="views"/>
 
         <collection property="pr" resultMap="pr"/>
         <collection property="sul" resultMap="sul"/>
@@ -104,6 +105,11 @@
         </if>
     </select>
 <!-- //검색 기능 구현 -->
+
+    <!-- 조회수 기능 구현 -->
+    <update id="updateViewBrewery">
+        update brewery set views=views+1 where bno = #{bno}
+    </update>
 
 
 </mapper>

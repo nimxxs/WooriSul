@@ -87,7 +87,7 @@
                                     <div class="paging">
                                         <ul class="pagination justify-content-center">
                                             <li th:class="${(cpg - 1 gt 0) ? 'prev' : 'prev disabled'}">
-                                                <a th:href="|${pglink}${cpg - 1}|" class="page-link"><i class="fa-solid fa-chevron-left" style="color: #ff9f00;"></i></a></li>
+                                                <a th:href="|${pglink}${cpg - 1}|" class="page-link"><i class="fa-solid fa-chevron-left" th:style="${(cpg - 1 gt 0) ? 'color: #ff9f00;' : 'color: #dee2e6;'}"></i></a></li>
                                             <th:block th:each="i : ${#numbers.sequence(stpg, cntpg)}">
                                                 <th:block th:if="${i le cntpg}">
                                                     <li th:class="${(i ne cpg) ? '' : 'selected active'}">
@@ -95,7 +95,7 @@
                                                 </th:block>
                                             </th:block>
                                             <li th:class="${(cpg lt cntpg) ? 'next': 'next disabled'}">
-                                                <a th:href="|${pglink}${cpg + 1}|" class="page-link"><i class="fa-solid fa-chevron-right" style="color: #ff9f00;"></i></a></li>
+                                                <a th:href="|${pglink}${cpg + 1}|" class="page-link"><i class="fa-solid fa-chevron-right" th:style="${(cpg lt cntpg) ? 'color: #ff9f00;' : 'color: #dee2e6;'}"></i></a></li>
                                         </ul>
                                     </div>
                                     <!--//paging -->

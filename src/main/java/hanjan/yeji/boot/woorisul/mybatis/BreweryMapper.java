@@ -21,6 +21,9 @@ public interface BreweryMapper {
     List<Brewery> selectFindBrewery(Map<String, Object> params);
 
     int countPageFindBrewery(Map<String, Object> params);
+
     int countFindBrewery(Map<String, Object> params);
+
+    int updateViewBrewery(String bno);
 
 }
