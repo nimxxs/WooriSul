@@ -42,11 +42,6 @@ public class SulBoardController {
 
         m.addAttribute("kind", kind);
        // 술 개수
-       int totalSul = sbsrv.countAllSul();
-       m.addAttribute("totalSul", totalSul);
-
-       int kindSul = sbsrv.getCountByKind(kind);
-       m.addAttribute("kindSul", kindSul);
 
 
         return "drink/list";
