@@ -34,7 +34,7 @@
                             <a href="https://terms.naver.com/list.nhn?cid=58636&categoryId=58636" class="btn-wiki" target="_blank">네이버 전통주 지식백과</a>
                             <a href="#none" class="btn-keywords">키워드 사전</a>
                             <div class="board-search info-search">
-                                <div class="total">Total <span>24</span></div> <!-- 전체 글 개수-->
+                                <div class="total">Total <span th:text="${cntbr}">0</span></div> <!-- 전체 글 개수-->
                                 <div class="radio-area">
                                     <label for="radio-type2" class="radio-box">
                                         <input id="radio-type2" name="searchType" type="radio" value="2">
@@ -140,16 +140,16 @@
                                                 <li>
                                                     <div class="subject">제품특징</div>
                                                     <div class="info no-line">
-										<span class="el-3line" th:text="${sbd.intro}">
+										<div class="info" th:text="${sbd.intro}">
 											삼해 주는 고려 시대부터 이어져 온 서울지역의 전통주입니다. 원래 궁중에서 의식이나 행사 사용하거나 사대부 집안의 가양주로 애용되다가 조선시대에 큰 사랑을 받았습니다. 15도 도수가 느껴지지 않을 만큼 부드러우며 단맛, 신맛 등이 적당히 잘 어우러지고 뒷맛도 깔끔합니다.
-										</span>
+										</div>
                                                     </div>
                                                 </li>
                                             </ul>
                                         </dd>
                                     </dl>
-
                                 </li>
+
 
                                 <!-- 첫번째 술 항목 끝-->
 
@@ -164,7 +164,7 @@
                                         <a th:href="|${pglink}1|" class="page-link">처음</a></li>
                                 </th:block>
 
-                                <li th:class="${(cpg - 1 gt 0) ? 'prev' : 'prev disabled'}"><a th:href="|${pglink}${cpg - 1}|" class="page-link">이전</a></li>
+                                <li th:class="${(cpg - 1 gt 0) ? 'prev' : 'prev disabled'}"><a th:href="|${pglink}${cpg - 1}|" class="page-link"><i class="fa-solid fa-chevron-left" style="color: #ff9f00;"></i></a></li>
                                 <th:block th:each="i : ${#numbers.sequence(stpg, stpg + 2)}">
                                     <th:block th:if="${i le cntpg}">
                                         <li th:class="${(i ne cpg) ? '' : 'selected active'}">
@@ -174,7 +174,7 @@
 
                                 </th:block>
 
-                                <li th:class="${(cpg + 1 le cntpg) ? 'next' : 'next disabled'}"><a th:href="|${pglink}${cpg + 1}|" class="page-link">다음</a></li>
+                                <li th:class="${(cpg + 1 le cntpg) ? 'next' : 'next disabled'}"><a th:href="|${pglink}${cpg + 1}|" class="page-link"><i class="fa-solid fa-chevron-right" style="color: #ff9f00;"></i></a></li>
 
                                 <th:block th:if="${cpg lt cntpg}">
                                     <li class="last">

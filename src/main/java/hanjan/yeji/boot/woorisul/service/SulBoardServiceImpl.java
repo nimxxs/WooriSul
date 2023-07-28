@@ -34,8 +34,8 @@ public class SulBoardServiceImpl implements SulBoardService {
     }
 
     @Override
-    public int selectCountSulBoard() {
-        return sbdao.selectCountSulBoard();
+    public int selectCountSulBoard(String kind) {
+        return sbdao.selectCountSulBoard(kind);
     }
 
     @Override
@@ -67,5 +67,11 @@ public class SulBoardServiceImpl implements SulBoardService {
     public List<SulBoard> selectSul(String kind) {
         return sbdao.selectSul(kind);
     }
+
+    @Override
+    public int totalSulBoard(String kind) {
+        return sbdao.totalSulBoard(kind);
+    }
+
 
 }

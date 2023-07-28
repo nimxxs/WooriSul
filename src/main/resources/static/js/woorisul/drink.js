@@ -15,6 +15,10 @@ findbtn?.addEventListener('click', ()=> {
     }
 });
 
+// 목록 눌렀을 때 뒤로가기 구현
+function goBack() {
+    window.history.back();
+}
 
 
 

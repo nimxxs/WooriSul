@@ -60,6 +60,22 @@
     font-weight: bold;
     font-size: 30px;
 }
+/* 폰트 적용 */
+h2.title {
+    font-family: 'SangSangRock';
+    font-weight: bold;
+    font-size: 60px;
+}
+/* 페이지네이션 */
+.paging li a {
+    display: block;
+    width: 46px;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 13px;
+    color: #666;
+    padding: 9px 7px 0 7px;
+}
 
 /* 내비게이션 바의 높이 설정 */
 

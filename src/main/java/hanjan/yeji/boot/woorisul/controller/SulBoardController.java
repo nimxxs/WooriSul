@@ -32,8 +32,9 @@ public class SulBoardController {
         m.addAttribute("cpg", cpg);
         m.addAttribute("sbds", sbsrv.readSulBoard(kind, cpg));
 
-        int cntpg = sbsrv.selectCountSulBoard();
-        m.addAttribute("cntpg", sbsrv.selectCountSulBoard());
+        int cntpg = sbsrv.selectCountSulBoard(kind);
+        m.addAttribute("cntpg", sbsrv.selectCountSulBoard(kind));
+        m.addAttribute("cntbr", sbsrv.totalSulBoard(kind));
         m.addAttribute("stpg", ((cpg-1) / 3) * 3 +1);
 
        if ( cpg > cntpg ) {

@@ -19,15 +19,63 @@
     margin-right: 0px;
     margin-bottom: 5px;
 }
-
-
-
 .board-search button {
     width: 30px;
     background: url(https://thesool.com/images/front/common/board-search.png) no-repeat center;
     text-indent: -9999px;
     font-size: 0;
 }
+
+.product-list li.item {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+/* 상세페이지(detail) */
+.product-view dd.detail .info {
+    padding-left: 0px;
+    float: right;
+    width: 49%;
+    padding-left: 230px;
+    padding-top: 50px;
+}
+.product-view dd.detail .info-list {
+    padding-left: 50px;
+    padding-right: 50px;
+    min-height: 30px;
+    margin-left: -235px;
+    margin-right: 0px;
+    text-align: center;
+    margin-top: 45px;
+}
+.product-view dd.detail .info-list li {
+    padding-left: 120px;
+    min-height: 30px;
+    margin-top: 20px;
+    margin-left: -40px;
+    margin-right: 65px;
+}
+.product-view dd .text {
+    padding-top: 13px;
+}
+.product-view dd.detail .thumb .img span {
+     left: 160px;
+}
+.product-view dd .title span {
+    padding: 11px 0;
+    height: 50px;
+    font-size: 20px;
+    background: #ff9f00;
+    border-radius: 35px;
+}
+.product-view dd .title {
+    display: table-cell;
+    width: 150px;
+    vertical-align: top;
+}
+
+
 
 /* 페이지네이션 */
 .paging li a {
@@ -39,6 +87,9 @@
     color: #666;
     padding: 9px 7px 0 7px;
 }
+.page-link:hover {
+    color: #FF9F00FF;
+}
 
 /* 폰트 적용 */
 .inner h2 {
@@ -46,17 +97,20 @@
     font-weight: bold;
     font-size: 60px;
 }
+.product-list .detail dt {
+    padding: 0px;
+    left: 15px;
+}
 .product-list .detail dt .title-area .name {
-    font-family: 'SangSangRock';
-    font-size: 27px;
+    font-family: 'NanumSquareNeo-Variable';
+    font-size: 25px;
 }
 .product-view dt {
-    font-family: 'SangSangRock';
+    font-family: 'NanumSquareNeo-Variable';
     font-size: 30px;
-    border-bottom: 1px solid gray;
     background-color: white;
 }
 .product-view {
-    border-top: 1px solid gray;
+    border-top: 1px solid #bfbfbf;
 }
 
