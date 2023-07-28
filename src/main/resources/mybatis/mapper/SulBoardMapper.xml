@@ -32,10 +32,6 @@
         values (#{sname},#{kind},#{base}, #{ptg}, #{intro}, #{tag});
     </insert>
 
-<!--    <select id="selectSulBoard" resultType="SulBoard">-->
-<!--        select sno, sname, kind, base, ptg, intro, bno, tag from sul-->
-<!--        order by sno desc limit #{stnum}, 5-->
-<!--    </select>-->
 
     <select id="selectOneSulBoard" resultMap="sbj">
         select * from sbj where sno = #{sno}

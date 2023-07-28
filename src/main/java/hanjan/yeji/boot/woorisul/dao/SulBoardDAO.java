@@ -9,6 +9,8 @@ public interface SulBoardDAO {
 
   int insertSulBoard(SulBoard sb);
 
+  List<SulBoard> readSulBoard(String kind, Integer cpg);
+
   List<SulBoard> selectSulBoard(String kind, int stnum);
 
   int selectCountSulBoard(String kind);

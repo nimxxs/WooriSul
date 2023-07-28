@@ -1,4 +1,4 @@
-/*
+
 package hanjan.yeji.boot.woorisul.SulBoard;
 
 import hanjan.yeji.boot.woorisul.model.Brewery;
@@ -13,8 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 @MybatisTest
@@ -57,12 +56,11 @@ public class SulBoardMapperUnitTest {
     @DisplayName("sulBoardMapper select Test")
     void selectSulBoard() {
 
-        int cpg =1;
-        int stnum = (cpg - 1) * 5;
+       String kind = "all";
+       Integer stnum = 1;
+       List<SulBoard> result = sulBoardMapper.selectSulBoard(kind, stnum);
 
-        List<SulBoard> results = sulBoardMapper.selectSulBoard(stnum);
-        System.out.println(results);
-        assertNotNull(results);
+       assertNotNull(result);
 
 
     }
@@ -85,4 +83,3 @@ public class SulBoardMapperUnitTest {
 
 
 }
-*/
