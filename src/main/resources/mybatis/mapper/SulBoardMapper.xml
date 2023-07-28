@@ -32,10 +32,6 @@
         values (#{sname},#{kind},#{base}, #{ptg}, #{intro}, #{tag});
     </insert>
 
-<!--    <select id="selectSulBoard" resultType="SulBoard">-->
-<!--        select sno, sname, kind, base, ptg, intro, bno, tag from sul-->
-<!--        order by sno desc limit #{stnum}, 5-->
-<!--    </select>-->
 
     <select id="selectOneSulBoard" resultMap="sbj">
         select * from sbj where sno = #{sno}
@@ -63,6 +59,18 @@
 
     <select id="selectSul" resultType="SulBoard">
         select sno, sname, kind, base, ptg, bno, tag from sul where kind = #{kind}
+    </select>
+
+    <select id="readSulBoard" resultType="SulBoard">
+        select * from sbj where kind = ? order by sno desc limit #{cpg}, 5
+    </select>
+
+    <select id="countAllSul" resultType="int">
+        select count(*) from sul
+    </select>
+
+    <select id="countByKind" parameterType="string" resultType="int">
+        select count(*) from sul where kind = #{kind}
     </select>
 
 

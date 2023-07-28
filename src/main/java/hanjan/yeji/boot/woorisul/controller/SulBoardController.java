@@ -1,6 +1,5 @@
 package hanjan.yeji.boot.woorisul.controller;
 
-import hanjan.yeji.boot.woorisul.model.Anju;
 import hanjan.yeji.boot.woorisul.model.SulBoard;
 import hanjan.yeji.boot.woorisul.service.SulBoardService;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Arrays;
+
 import java.util.List;
 
 @Controller
@@ -41,6 +40,13 @@ public class SulBoardController {
         }
 
         m.addAttribute("kind", kind);
+       // 술 개수
+       int totalSul = sbsrv.countAllSul();
+       m.addAttribute("totalSul", totalSul);
+
+       int kindSul = sbsrv.getCountByKind(kind);
+       m.addAttribute("kindSul", kindSul);
+
 
         return "drink/list";
 
@@ -60,8 +66,9 @@ public class SulBoardController {
     }
 
     @GetMapping("/tag")
-    public String tag(){
+    public String tag(Model m){
         logger.info("drink/tag 호출!");
+
 
 
         return "drink/tag";

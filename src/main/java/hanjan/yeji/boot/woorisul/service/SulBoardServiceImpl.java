@@ -68,4 +68,16 @@ public class SulBoardServiceImpl implements SulBoardService {
         return sbdao.selectSul(kind);
     }
 
+    @Override
+    public int countAllSul() {
+        return sbdao.countAllSul();
+    }
+
+    // 문선 -
+    @Override
+    public int getCountByKind(String kind) {
+        return sbdao.countByKind(kind);
+    }
+
+
 }

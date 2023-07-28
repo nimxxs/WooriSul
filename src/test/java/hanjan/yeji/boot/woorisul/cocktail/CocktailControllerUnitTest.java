@@ -1,5 +1,5 @@
 /*
-package hanjan.yeji.boot.woorisul.Cocktail;
+package hanjan.yeji.boot.woorisul.cocktail;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

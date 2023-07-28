@@ -15,9 +15,15 @@ import java.util.Map;
 public class SulBoardDAOImpl implements SulBoardDAO{
 
   final SulBoardMapper sulBoardMapper;
+
   @Override
   public int insertSulBoard(SulBoard sb) {
     return sulBoardMapper.insertSulBoard(sb);
+  }
+
+  @Override
+  public List<SulBoard> readSulBoard(String kind, Integer cpg) {
+    return sulBoardMapper.readSulBoard(kind, cpg);
   }
 
   @Override
@@ -50,5 +56,15 @@ public class SulBoardDAOImpl implements SulBoardDAO{
   public List<SulBoard> selectSul(String kind) {
     return sulBoardMapper.selectSul(kind);
   }
+
+  @Override
+  public int countAllSul() {
+    return sulBoardMapper.countAllSul();
+  }
+
+  @Override
+  public int countByKind(String kind) {
+    return sulBoardMapper.selectOne("countByKind", kind);
+  } //한 종류의 술 개수 구하기
 
 }

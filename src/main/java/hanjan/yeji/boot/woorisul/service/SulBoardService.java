@@ -22,4 +22,11 @@ public interface SulBoardService {
 
     List<SulBoard> selectSul(String kind);
 
+    // list 페이지 - 술 총 개수
+    int countAllSul();
+
+    // list 페이지 - 술 별 총 개수
+    int getCountByKind(String kind);
+
+
 }
