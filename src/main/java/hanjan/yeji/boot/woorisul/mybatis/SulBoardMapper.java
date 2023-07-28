@@ -1,6 +1,5 @@
 package hanjan.yeji.boot.woorisul.mybatis;
 
-import hanjan.yeji.boot.woorisul.model.Brewery;
 import hanjan.yeji.boot.woorisul.model.SulBoard;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -15,7 +14,7 @@ public interface SulBoardMapper {
   List<SulBoard> selectSulBoard(String kind, int stnum);
 
 
-  int selectCountSulBoard();
+  int selectCountSulBoard(String kind);
 
   SulBoard selectOneSulBoard(String bno);
 
@@ -24,4 +23,7 @@ public interface SulBoardMapper {
   int countFindSulBoard(Map<String, Object> params);
 
   List<SulBoard> selectSul(String kind);
+
+    int totalSulBoard(String kind);
+
 }

@@ -17,3 +17,55 @@
 .place-list .p-body a {
     color: rgba(155,155,155,0.98);
 }
+
+/* 폰트 변경 */
+.place-list .subject {
+    font-size: 28px;
+    font-family: 'SangSangRock';
+}
+.board-view .subject {
+    font-size: 30px;
+    background-color: white;
+}
+
+/* 양조장 상세페이지 */
+.place-view dd.item .title span {
+    padding: 11px 0;
+    height: 50px;
+    font-size: 20px;
+    background: #ff9f00;
+    border-radius: 35px;
+}
+.place-view > dl > dd.no-line {
+    background: none;
+    padding: 0px 0 30px 42px;
+}
+.board-view .info {
+    padding: 15px 0 0;
+    border-top: 1px solid #bfbfbf;
+    background: none;
+    text-align: center;
+}
+.place-view .program-wrap li .program dt {
+    padding: 25px 30px 19px;
+    font-size: 25px;
+    color: #333;
+}
+.place-view .program-wrap li .program dd {
+    padding-top: 30px;
+}
+.place-table {
+    width: 1155px;
+}
+.main-product li .product-info {
+    border-bottom: 2px solid #FF9F00FF;
+}
+
+/* 이미지 비율 */
+.place-view dd.main .img img {
+    width: 93%;
+    height: 125%;
+}
+.place-view .program-wrap li .img {
+    height: 350px;
+}

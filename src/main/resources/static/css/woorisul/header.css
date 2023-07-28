@@ -5,13 +5,20 @@
     font-weight: normal;
     font-style: normal;
 }
-
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 /* a의 link 태그의 밑줄 없애기 => 폰트 밑줄 없애는 것 */
 a:link {
     text-decoration: none;
 }
 body {
+    font-family: 'NanumSquareNeo-Variable';
     overflow-x: hidden;
+
 }
 
 /* 이미지 슬라이더 */
@@ -30,7 +37,6 @@ body {
     width: 1000px;
     height: 700px;
 }
-
 
 /* header.css - 상위항목 */
 .gnb {
@@ -113,14 +119,16 @@ body {
 }
 .column > p{
     margin-top: 30px;
+    text-align: justify;
  }
 .column > h2 {
     font-family: 'SangSangRock';
     font-weight: bold;
-    font-size: 30px;
+    font-size: 35px;
     text-align: end;
     box-sizing: border-box;
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid #FF9F00FF;
+    color: #FF9F00FF;
 }
 
 /* footer.css */

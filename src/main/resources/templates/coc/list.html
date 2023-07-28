@@ -3,24 +3,28 @@
       xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/template}">
 
-
+<link rel="stylesheet" href="/assets/css/coc/coc.css">
 
 <th:block layout:fragment="content">
     <style>
         .badge-pink {
-            background-color: #ff0099;
+            background-color: #FF9F00FF;
             color: white;
         }
-    </style>
+    </style><!-- 칵테일, 베이스 아이콘? -->
 
-
-    <div id="main"
+    <div id="content">
+    <div id="inner"
         th:with="pglink=${(#strings.isEmpty(fkey)) ?
         '/coc/list/' : '/coc/find/' + ftype + '/' + fkey + '/'}">
-        <div class="mt-5">
-            <i class="fa-solid fa-martini-glass-citrus fa-2xl">칵테일</i>
-            <hr>
-        </div>
+        <h2 class="title">우아한 한잔</h2>
+
+        <div class="tab-wrap2">
+            <div class="tab-scroll">
+                <ul class="tab tab-depth"> <!-- 주종별 카테고리-->
+                    <li class="tab-menu selected"><a href="/coc/list/1" target="_self">전통주 칵테일</a></li>
+                </ul>
+            </div>
 
         <div class="row mt-5 mb-3 ">
             <div class="row offset-5 col-9">
@@ -46,11 +50,7 @@
 
         <div class="row">
             <div class="offset-1 col-10">
-                <table class="table table-striped">
-                        <div class="step_content_box_sub">
-                            <div>전통주 칵테일</div>
-                        </div>
-                </table>
+
 
                 <div class="row"> <!-- 사진 가운데 정렬 아래 4 띄움 -->
                     <div th:each="coc : ${cocs}"
@@ -78,10 +78,8 @@
             </div>
         </div>
 
-        <div class="row mt-3 mb-5">
-            <div class="offset-1 col-10">
-                <nav>
-                    <ul class="pagination justify-content-center">
+        <div class="paging">
+            <div class="pagination justify-content-center">
                         <li th:class="${(cpg -1 gt 0) ? 'page-item' : 'page-item disabled'}">
                             <a th:href="|${pglink}${cpg - 1}|" class="page-link">이전</a></li>
 
@@ -94,11 +92,9 @@
                         </th:block>
                         <li th:class="${(cpg + 1 le cntpg) ? 'page-item' : 'page-item disabled'}">
                             <a th:href="|${pglink}${cpg + 1}|" class="page-link">다음</a></li>
-                    </ul>
-                </nav>
             </div>
         </div><!-- 게시판 페이지네이션 -->
-
+    </div>
     </div>
     <script src="/assets/js/cocktail.js" charset="utf-8"></script>
 </th:block>

@@ -12,7 +12,7 @@ import java.util.Map;
 @Repository("sbdao")
 @RequiredArgsConstructor
 
-public class SulBoardDAOImpl implements SulBoardDAO{
+public class SulBoardDAOImpl implements SulBoardDAO {
 
   final SulBoardMapper sulBoardMapper;
   @Override
@@ -26,8 +26,8 @@ public class SulBoardDAOImpl implements SulBoardDAO{
   }
 
   @Override
-  public int selectCountSulBoard() {
-    return sulBoardMapper.selectCountSulBoard();
+  public int selectCountSulBoard(String kind) {
+    return sulBoardMapper.selectCountSulBoard(kind);
   }
 
   @Override
@@ -50,5 +50,11 @@ public class SulBoardDAOImpl implements SulBoardDAO{
   public List<SulBoard> selectSul(String kind) {
     return sulBoardMapper.selectSul(kind);
   }
+
+  @Override
+  public int totalSulBoard(String kind) {
+    return sulBoardMapper.totalSulBoard(kind);
+  }
+
 
 }

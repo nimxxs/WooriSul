@@ -53,6 +53,11 @@
 
     <select id="selectCountSulBoard">
         select ceil(count(sno) / 5) cntpg from sul
+
+        <if test="kind != 'All'">
+            where kind = #{kind}
+        </if>
+
     </select>
 
     <select id="selectFindSulBoard" parameterType="map" resultType="SulBoard">
@@ -63,6 +68,16 @@
 
     <select id="selectSul" resultType="SulBoard">
         select sno, sname, kind, base, ptg, bno, tag from sul where kind = #{kind}
+    </select>
+
+    <!-- 전통주 총개수 -->
+    <select id="totalSulBoard">
+        select count(sno) cntbr from sul
+
+        <if test="kind != 'All'">
+            where kind = #{kind}
+        </if>
+
     </select>
 
 

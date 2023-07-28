@@ -10,7 +10,7 @@ public interface SulBoardService {
 
     List<SulBoard> readSulBoard(String kind, Integer cpg);
 
-    int selectCountSulBoard();
+    int selectCountSulBoard(String kind);
 
 
     SulBoard readOneSulBoard(String sno);
@@ -21,5 +21,7 @@ public interface SulBoardService {
 
 
     List<SulBoard> selectSul(String kind);
+
+    int totalSulBoard(String kind);
 
 }
