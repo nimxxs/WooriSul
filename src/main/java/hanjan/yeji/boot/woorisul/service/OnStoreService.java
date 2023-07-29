@@ -14,9 +14,9 @@ public interface OnStoreService {
 
     int countAllOnline();
 
-    List<Online> readFindOnline(String ftype, String fkey, Integer cpg);
+    List<Online> readFindOnline(String fontype, String fonkey, Integer cpg);
 
-    int countPageFindOnline(String ftype, String fkey);
+    int countPageFindOnline(String fontype, String fonkey);
 
-    int countFindOnline(String ftype, String fkey);
+    int countFindOnline(String fontype, String fonkey);
 }

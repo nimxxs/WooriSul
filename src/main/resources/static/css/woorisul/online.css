@@ -1,3 +1,21 @@
+/* 온/오프라인 리스트 url, 전화번호, 시간 아이콘 */
 .photo-list ul li .sell li.site:before {background:url(https://thesool.com/images/front/icon/board-link.svg) no-repeat center;}
 .photo-list ul li .sell li.tel:before {background:url(https://thesool.com/images/front/icon/board-tel.svg) no-repeat center;}
 .photo-list ul li .sell li.time:before {background:url(https://thesool.com/images/front/icon/board-time.svg) no-repeat center;}
+
+/* 검색 기능 */
+.board-search .search-input-on {
+    min-width: 175px;
+    display:flex;
+    border-bottom:1px solid #b2b2b2;
+    vertical-align:middle;
+    margin-left:6px;
+    position: relative;
+}
+.board-search #findonkey {
+    min-width: 145px;
+}
+
+.board-search .search-input-on .form-control{
+    display: inline-block;
+}

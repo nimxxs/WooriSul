@@ -1,18 +1,20 @@
 /*  gnb-list(상위항목)
-    마우스 올렸을 때 하위항목이 뜨고 사라지는 것 구현
- */
+    마우스 올렸을 때 하위항목이 뜨고 사라지는 것 구현*/
+
+/* yeji 주석 처리함 */
+/*
 function showSubMenu(menuId) {
     const subMenu = document.getElementById(menuId);
     subMenu.style.display = 'block';
 }
 
-/*function hideSubMenu() {
+function hideSubMenu() {
     const subMenus = document.querySelectorAll('.snb-list');
 
     subMenus.forEach(function (subMenu) {
         subMenu.style.display = 'none';
     });
-}*/
+}
 
 function hideSubMenu() {
     const subMenu1 = document.getElementById('snb-menu3');
@@ -22,4 +24,5 @@ function hideSubMenu() {
     subMenu1.style.display = 'none';
     subMenu2.style.display = 'none';
     subMenu3.style.display = 'none';
-}
+}*/
+

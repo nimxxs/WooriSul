@@ -24,8 +24,11 @@ public class OffStoreDAOImpl implements OffStoreDAO{
     }
 
     @Override
-    public Offline selectOneOffline(String ono) {
-        return offlineMapper.selectOneOffline(ono);
+    public Offline selectOneOffline(String fno) {
+
+        offlineMapper.updateViewOffline(fno);
+
+        return offlineMapper.selectOneOffline(fno);
     }
 
     @Override

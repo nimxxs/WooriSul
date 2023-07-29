@@ -21,6 +21,11 @@
         select * from offline where fno = #{fno}
     </select>
 
+    <!-- 조회수 기능 구현 -->
+    <update id="updateViewOffline">
+        update offline set views=views+1 where fno = #{fno}
+    </update>
+
     <!-- 판매처 리스트 페이지 수 -->
     <select id="countPageOffline">
         select ceil(count(fno)/6) cntpg from offline
@@ -36,8 +41,8 @@
     <select id="selectFindOffline" parameterType="map" resultType="Offline">
         select fno, store, tel, opt, offphoto from offline
 
-        <if test="findtype == 'store'">
-            where ${findtype} like concat('%', #{findkey}, '%')
+        <if test="findofftype == 'store'">
+            where ${findofftype} like concat('%', #{findoffkey}, '%')
         </if>
 
         limit #{stnum}, 6
@@ -47,8 +52,8 @@
     <select id="countPageFindOffline" parameterType="map">
         select ceil(count(fno) / 4) cntfpg from offline
 
-        <if test="findtype == 'store'">
-            where ${findtype} like concat('%', #{findkey}, '%')
+        <if test="findofftype == 'store'">
+            where ${findofftype} like concat('%', #{findoffkey}, '%')
         </if>
     </select>
 
@@ -56,8 +61,8 @@
     <select id="countFindOffline" parameterType="map">
         select count(fno) cnton from offline
 
-        <if test="findtype == 'store'">
-            where ${findtype} like concat('%', #{findkey}, '%')
+        <if test="findofftype == 'store'">
+            where ${findofftype} like concat('%', #{findoffkey}, '%')
         </if>
     </select>
 <!-- //검색 기능 구현 -->

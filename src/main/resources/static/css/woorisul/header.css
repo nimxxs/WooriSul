@@ -1,4 +1,144 @@
 /* 폰트 css */
+
+/*@font-face {
+    font-family: 'SangSangRock';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/SangSangRockOTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+!* a의 link 태그의 밑줄 없애기 => 폰트 밑줄 없애는 것 *!
+a:link {
+    text-decoration: none;
+}
+body {
+    font-family: 'NanumSquareNeo-Variable';
+    overflow-x: hidden;
+
+}
+
+!* 이미지 슬라이더 *!
+.slider-container {
+    width: 1000px;
+    height: 700px;
+    overflow: hidden;
+    margin: 50px 0 -110px 115px;
+}
+.slider {
+    display: flex; !* 이미지들을 가로로 배치합니다. *!
+    transition: transform 0.3s ease; !* 슬라이드 애니메이션을 부드럽게 만듭니다. *!
+    width: 100%;
+}
+.slider img {
+    width: 1000px;
+    height: 700px;
+}
+
+!* header.css - 상위항목 *!
+.gnb {
+    margin-top: 30px;
+    left: 50px;
+}
+.gnb .gnb-list {
+    font-family: 'SangSangRock';
+}
+.gnb > ul > li > a {
+    font-size: 27px;
+}
+
+!* header.css - 하위항목 배경부분 일일히 위치 조정 ^^,,  *!
+#snb-menu3{
+    width: 14%;
+    height: 120px;
+    left: 500px;
+}
+#snb-menu4 {
+    width: 14%;
+    left: 692px;
+}
+#snb-menu5 {
+    width: 14%;
+    left: 881px;
+}
+.snb-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+!* header.css - 하위항목 정렬 *!
+.gnb .snb-list {
+    font-family: 'SangSangRock';
+    font-size: 18px;
+    top: 91px;
+    background-color: #ff9f00;
+    right: 48px;
+}
+.gnb .snb-list .inner {
+    display: table;
+    width: 880px;
+    text-align: center;
+    padding: 0 0 0 40px;
+    right: 388px;
+}
+.gnb .snb-list a {
+    color: black;
+    font-size: 20px;
+}
+.gnb .snb-list ul:hover {
+    background: none;
+}
+.gnb > ul > li a {
+    font-weight: bold;
+}
+
+!* intro.css *!
+.main {
+    display: flex;
+    align-items: center;
+}
+.contents {
+    justify-content: space-between;
+}
+.inner > h2 {
+    font-family: 'SangSangRock';
+    font-weight: bold;
+    font-size: 60px;
+}
+.column {
+    max-width: 600px;
+    margin: 10px;
+    padding: 10px;
+}
+.column > p{
+    margin-top: 30px;
+    text-align: justify;
+}
+.column > h2 {
+    font-family: 'SangSangRock';
+    font-weight: bold;
+    font-size: 35px;
+    text-align: end;
+    box-sizing: border-box;
+    border-bottom: 2px solid #FF9F00FF;
+    color: #FF9F00FF;
+}
+
+!* footer.css *!
+#footer {
+    margin-top: 80px;
+}*/
+
+/* 폰트 css */
+/*yeji 수정 부분*/
 @font-face {
     font-family: 'SangSangRock';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/SangSangRockOTF.woff') format('woff');
@@ -50,27 +190,46 @@ body {
     font-size: 27px;
 }
 
-/* header.css - 하위항목 배경부분 일일히 위치 조정 ^^,,  */
 #snb-menu3{
     width: 14%;
     height: 120px;
-    left: 500px;
+    left: -30px;
 }
 #snb-menu4 {
     width: 14%;
-    left: 692px;
+    height: 80px;
+    left: 355px;
 }
 #snb-menu5 {
     width: 14%;
-    left: 881px;
+    height: 190px;
+    left: 740px;
 }
 .snb-list {
-    display: none;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
     position: absolute;
     top: 100%;
     left: 0;
     padding: 10px;
     margin-top: 5px;
+}
+/*.gnb .gnb-list li ul{
+
+    text-align: center;
+    top: 25%;
+}*/
+.gnb .gnb-list li{
+
+    top: 25%;
+}
+.gnb .gnb-list li:hover ul{
+
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.5s ease;
+
 }
 
 /* header.css - 하위항목 정렬 */
@@ -80,6 +239,7 @@ body {
     top: 91px;
     background-color: #ff9f00;
     right: 48px;
+
 }
 .gnb .snb-list .inner {
     display: table;
@@ -91,6 +251,7 @@ body {
 .gnb .snb-list a {
     color: black;
     font-size: 20px;
+    font-weight: normal;
 }
 .gnb .snb-list ul:hover {
     background: none;

@@ -36,17 +36,17 @@ public class OnStoreController {
         return "online/list";
     }
 
-    @GetMapping("/find/{findtype}/{findkey}/{cpg}")
-    public String find(Model m, @PathVariable Integer cpg, @PathVariable String findtype, @PathVariable String findkey){
+    @GetMapping("/find/{findontype}/{findonkey}/{cpg}")
+    public String find(Model m, @PathVariable Integer cpg, @PathVariable String findontype, @PathVariable String findonkey){
         logger.info("online/find 호출!");
 
         m.addAttribute("cpg", cpg);
-        m.addAttribute("ftype", findtype);
-        m.addAttribute("fkey", findkey);
-        m.addAttribute("ons", osrv.readFindOnline(findtype, findkey, cpg));
+        m.addAttribute("fontype", findontype);
+        m.addAttribute("fonkey", findonkey);
+        m.addAttribute("ons", osrv.readFindOnline(findontype, findonkey, cpg));
         m.addAttribute("stpg", ((cpg-1)/10)*10+1);
-        m.addAttribute("cntpg", osrv.countPageFindOnline(findtype, findkey));
-        m.addAttribute("cnton", osrv.countFindOnline(findtype, findkey));
+        m.addAttribute("cntpg", osrv.countPageFindOnline(findontype, findonkey));
+        m.addAttribute("cnton", osrv.countFindOnline(findontype, findonkey));
 
 //        m.addAttribute("cntbr", osrv.countAllOnline());
 

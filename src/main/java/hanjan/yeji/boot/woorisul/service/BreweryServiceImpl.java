@@ -44,28 +44,28 @@ public class BreweryServiceImpl implements BreweryService{
     }
 
     @Override
-    public List<Brewery> readFindBrewery(String ftype, String fkey, Integer cpg) {
+    public List<Brewery> readFindBrewery(String fbrtype, String fbrkey, Integer cpg) {
         Map<String, Object> params = new HashMap<>();
-        params.put("findtype", ftype);
-        params.put("findkey", fkey);
+        params.put("findbrtype", fbrtype);
+        params.put("findbrkey", fbrkey);
         params.put("stnum", (cpg - 1) * 4);
         return bdao.selectFindBrewery(params);
     }
 
     @Override
-    public int countPageFindBrewery(String ftype, String fkey) {
+    public int countPageFindBrewery(String fbrtype, String fbrkey) {
         Map<String, Object> params = new HashMap<>();
-        params.put("findtype", ftype);
-        params.put("findkey", fkey);
+        params.put("findbrtype", fbrtype);
+        params.put("findbrkey", fbrkey);
 
         return bdao.countPageFindBrewery(params);
     }
 
     @Override
-    public int countFindBrewery(String ftype, String fkey) {
+    public int countFindBrewery(String fbrtype, String fbrkey) {
         Map<String, Object> params = new HashMap<>();
-        params.put("findtype", ftype);
-        params.put("findkey", fkey);
+        params.put("findbrtype", fbrtype);
+        params.put("findbrkey", fbrkey);
 
         return bdao.countFindBrewery(params);
     }

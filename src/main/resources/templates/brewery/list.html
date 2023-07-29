@@ -4,7 +4,7 @@
       layout:decorate="~{layout/template}"><!-- header/footer와 달리 content는 layout/template에 있는게 여기 들어옴 -->
 <th:block layout:fragment="content">
 
-    <div id="container" th:with="pglink=${(#strings.isEmpty(fkey)) ? '/brewery/list/' : '/brewery/find' + ftype + '/' + fkey + '/'}">
+    <div id="container" th:with="pglink=${(#strings.isEmpty(fbrkey)) ? '/brewery/list/' : '/brewery/find' + fbrtype + '/' + fbrkey + '/'}">
 
         <div id="content">
             <div class="inner">
@@ -22,13 +22,13 @@
                                         <div class="search-wrap">
                                             <div class="option" style="display: flex; justify-content: flex-end; align-items: flex-start ;">
                                                 <div class="search-select col-4">
-                                                    <select class="form-select fs-5" id="findtype">
+                                                    <select class="form-select fs-5" id="findbrtype">
                                                         <option value="brname">양조장명</option>
                                                     </select>
                                                 </div>
                                                 <div class="search-input-br col-5">
-                                                    <input type="text" class="form-control" id="findkey" value="" onkeyup="return submitName(event);"/>
-                                                    <button type="button" class="btn btn-light" id="findbtn"></button>
+                                                    <input type="text" class="form-control" id="findbrkey" value="" onkeyup="return submitName(event);"/>
+                                                    <button type="button" class="btn btn-light" id="findbrbtn"></button>
                                                 </div>
                                             </div>
                                         </div>  <!-- 도수별, 지역별 select -->

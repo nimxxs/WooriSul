@@ -1,19 +1,36 @@
 // drink list find
 
-// 검색하기 버튼
-let findbtn= document.querySelector("#findbtn");
-// 검색타입
-let searchKind = document.querySelector("#searchKind");
-// 검색창
-let findkey = document.querySelector("#findkey");
+document.getElementById('pagingForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // 기본 form 제출 동작을 중단
+    var sname = document.getElementById('findkey').value; // 'name' 값 받아오기
+    var region = document.getElementById('searchKind').value; // 'region' 값 받아오기
 
-findbtn?.addEventListener('click', ()=> {
-    if(findkey.value === '') alert('검색어를 입력하세요');
-    else {
-        location.href = `/drink/find/${searchKind.value}/${findkey.value}/1`;
-        // 검색창 내용: /pds/find/1/title/비가와
+    // 받아온 값을 사용해 원하는 작업 수행
+    // 예: 검색어와 지역이 채워져 있지 않으면 폼 제출 중단
+    if (!sname && !region) {
+        alert('검색어와 지역을 입력하세요.');
+    } else {
+        // form 데이터가 필요하면 FormData 인스턴스를 사용
+        var formData = new FormData(event.target);
+        // formData를 사용해 서버로 데이터 전송
     }
 });
+
+$(document).ready(function(){
+    $('#layer').click(function(event){
+        if(event.target.id == 'layer'){
+            $(this).hide();
+        }
+    });
+});
+
+$(document).ready(function(){
+    $('.layer-close').click(function(){
+        $('#layer').hide();
+    });
+});
+
+
 
 // 목록 눌렀을 때 뒤로가기 구현
 function goBack() {

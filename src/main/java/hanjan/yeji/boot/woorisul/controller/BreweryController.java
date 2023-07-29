@@ -45,17 +45,17 @@ public class BreweryController {
         return "brewery/view";
     }
 
-    @GetMapping("/find/{findtype}/{findkey}/{cpg}")
-    public String find(Model m, @PathVariable Integer cpg, @PathVariable String findtype, @PathVariable String findkey){
+    @GetMapping("/find/{findbrtype}/{findbrkey}/{cpg}")
+    public String find(Model m, @PathVariable Integer cpg, @PathVariable String findbrtype, @PathVariable String findbrkey){
         logger.info("brewery/find 호출!");
 
         m.addAttribute("cpg", cpg);
-        m.addAttribute("ftype", findtype);
-        m.addAttribute("fkey", findkey);
-        m.addAttribute("brs", bsrv.readFindBrewery(findtype, findkey, cpg));
+        m.addAttribute("fbrtype", findbrtype);
+        m.addAttribute("fbrkey", findbrkey);
+        m.addAttribute("brs", bsrv.readFindBrewery(findbrtype, findbrkey, cpg));
         m.addAttribute("stpg", ((cpg-1)/10)*10+1);
-        m.addAttribute("cntpg", bsrv.countPageFindBrewery(findtype, findkey));
-        m.addAttribute("cntbr", bsrv.countFindBrewery(findtype, findkey));
+        m.addAttribute("cntpg", bsrv.countPageFindBrewery(findbrtype, findbrkey));
+        m.addAttribute("cntbr", bsrv.countFindBrewery(findbrtype, findbrkey));
 
 //        m.addAttribute("cntbr", bsrv.countAllBrewery());
 

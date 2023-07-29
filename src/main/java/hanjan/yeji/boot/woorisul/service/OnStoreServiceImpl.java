@@ -40,28 +40,28 @@ public class OnStoreServiceImpl implements OnStoreService {
     }
 
     @Override
-    public List<Online> readFindOnline(String ftype, String fkey, Integer cpg) {
+    public List<Online> readFindOnline(String fontype, String fonkey, Integer cpg) {
         Map<String, Object> params = new HashMap<>();
-        params.put("findtype", ftype);
-        params.put("findkey", fkey);
+        params.put("findontype", fontype);
+        params.put("findonkey", fonkey);
         params.put("stnum", (cpg - 1) * 6);
         return odao.selectFindOnline(params);
     }
 
     @Override
-    public int countPageFindOnline(String ftype, String fkey) {
+    public int countPageFindOnline(String fontype, String fonkey) {
         Map<String, Object> params = new HashMap<>();
-        params.put("findtype", ftype);
-        params.put("findkey", fkey);
+        params.put("findontype", fontype);
+        params.put("findonkey", fonkey);
 
         return odao.countPageFindOnline(params);
     }
 
     @Override
-    public int countFindOnline(String ftype, String fkey) {
+    public int countFindOnline(String fontype, String fonkey) {
         Map<String, Object> params = new HashMap<>();
-        params.put("findtype", ftype);
-        params.put("findkey", fkey);
+        params.put("findontype", fontype);
+        params.put("findonkey", fonkey);
 
         return odao.countFindOnline(params);
     }

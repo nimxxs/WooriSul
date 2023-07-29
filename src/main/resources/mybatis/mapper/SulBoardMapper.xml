@@ -76,6 +76,43 @@
 
     </select>
 
+    <!--    지역별 술 검색하기-->
+    <select id="searchSul" resultType="SulBoard">
+            SELECT * FROM sul WHERE
+            <if test="sname != null">
+                sname LIKE CONCAT('%', #{sname}, '%') AND
+            </if>
+            <if test="region != null">
+                region = #{region}
+            </if>
+    </select>
+
+    <select id="selectList" parameterType="map" resultType="SulBoard">
+        SELECT * FROM sul
+        WHERE
+        <if test="sname != null">
+            sname LIKE CONCAT('%', #{sname}, '%') AND
+        </if>
+        <if test="region != null">
+            region = #{region} AND
+        </if>
+        1 = 1
+        LIMIT #{start}, #{size}
+    </select>
+
+    <select id="selectSulBoardByTag" resultType="SulBoard">
+        SELECT * FROM sul WHERE tag = #{tag} LIMIT #{cpg}, 3
+    </select>
+
+    <select id="selectCountSulBoardByTag" resultType="int">
+        SELECT COUNT(*) FROM sul WHERE tag = #{tag}
+    </select>
+
+    <select id="totalSulBoardByTag" resultType="int">
+        SELECT COUNT(*) FROM sul WHERE tag = #{tag}
+    </select>
+
+
 
 
 </mapper>

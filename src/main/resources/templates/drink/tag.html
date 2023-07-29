@@ -2,118 +2,216 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/template}">
+<head>
+    <!-- jQuery 라이브러리를 포함시킴 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
 <th:block layout:fragment="content">
-    <link rel="stylesheet" href="/assets/css/drink/tag_common.css">
-    <link rel="stylesheet" href="/assets/css/drink/tag.css">
+    <!-- 술 리스트 -->
+    <div id="content">
+        <div class="inner"
+             th:with="pglink=${ (#strings.isEmpty(skey)) ?
+         '/drink/list/' + kind + '/' : '/drink/find/' + sname + '/' + skey + '/'}">
 
-    <div class="swiper-container swiper-tabs-content" id="tab_slide" style="height: auto;">
-        <div class="swiper-wrapper" id="tab_wrapper" style="height: auto;">
-            <div class="swiper-slide type_ms tab_slide_li" style="min-height : 700px;">
-
-                <!-- contents -->
-                <div id="contents">
-                    <div class="tit_cont mt-5"><!-- 1021 내위치버튼 있을때 position 추가 -->
-                        <h2 class="tag">#해쉬태그로 나와 맞는 술 찾아보기</h2>
-                    </div>
-
-                    <div class="wrap_contView clfix">
-
-                        <!-- 썸네일 리스트 -->
-                        <div class="box_leftType1">
-                            <div class="total_check">
-                                <strong>총<span id="totalCnt">38,354</span>건</strong>
-                            </div>
-                            <div>
-                            <ul class="list_thumType place">
-                                <th:block th:each="sbd: ${sbds}">
-                                    <li class="bdr_nor">
-                                        <div class="photo">
-                                            <a th:href="@{'/drink/detail/' + ${sbd.sno}}">
-                                                <img th:src="${sbd.photo}" th:alt="${sbd.sname}">
-                                            </a>
-                                        </div>
-                                        <div class="area_txt catchphrase">
-                                            <div class="tit">
-                                                <a th:href="@{' /drink/detail/' + ${sbd.sno}}">[[${sbd.sname}]]</a>
-                                            </div>
-                                            <p th:text="${sbd.br.addr}">강원 철원군</p>
-                                            <p class="tag">
-                                                <span th:text="${sbd.tag}">#삼선쟁반짜장</span>
-                                            </p>
-                                        </div>
-
-                                    </li>
-                                </th:block>
-                            </ul>
-                            </div>
-
-                            <!-- paging -->
-                            <div class="page_box">
-                                <a class="on" title="선택됨" href="javascript:" id="1">1</a>
-                                <a href="javascript:" id="2">2</a>
-                                <a href="javascript:" id="3">3</a>
-                                <a href="javascript:" id="4">4</a>
-                                <a href="javascript:" id="5">5</a>
-                                <a href="javascript:" class="btn_next ico" id="6">다음</a>
-                                <a class="btn_last ico" href="javascript:" id="3836">끝</a>
-                            </div>
-                            <!-- //paging -->
-                        </div>
-                        <!-- //썸네일 리스트 -->
-
-                        <div class="box_rightType1">
-                            <div class="tit_mPop">
-                                <h2>태그선택</h2>
-                                <button class="btn_close">닫기</button>
-                            </div>
-                            <!-- 태그 리스트 -->
-                            <div class="area_tagList">
-                                <ul class="tag_list area_list js_one" id="arealist">
-                                    <li id="All"><button type="button" class="btn_all_active"><span>#전체</span></button></li>
-                                    <li id="1"><button type="button" class="btn"><span>#서울</span></button></li>
-                                    <li id="6"><button type="button" class="btn"><span>#부산</span></button></li>
-                                    <li id="4"><button type="button" class="btn"><span>#대구</span></button></li>
-                                    <li id="2"><button type="button" class="btn"><span>#인천</span></button></li>
-                                    <li id="5"><button type="button" class="btn"><span>#광주</span></button></li>
-                                    <li id="3"><button type="button" class="btn"><span>#대전</span></button></li>
-                                    <li id="7"><button type="button" class="btn"><span>#울산</span></button></li>
-                                    <li id="8"><button type="button" class="btn"><span>#세종</span></button></li>
-                                    <li id="31"><button type="button" class="btn"><span>#경기</span></button></li>
-                                    <li id="32"><button type="button" class="btn"><span>#강원</span></button></li>
-                                    <li id="33"><button type="button" class="btn"><span>#충북</span></button></li>
-                                    <li id="34"><button type="button" class="btn"><span>#충남</span></button></li>
-                                    <li id="35"><button type="button" class="btn"><span>#경북</span></button></li>
-                                    <li id="36"><button type="button" class="btn"><span>#경남</span></button></li>
-                                    <li id="37"><button type="button" class="btn"><span>#전북</span></button></li>
-                                    <li id="38"><button type="button" class="btn"><span>#전남</span></button></li>
-                                    <li id="39"><button type="button" class="btn"><span>#제주</span></button></li>
-                                </ul>
-                                <ul class="tag_list area_view_list js_multi" id="sigungulist">
-                                </ul>
-                                <ul class="tag_list cnt_list js_multi" id="taglist"><li id="e6875575-2cc2-43ba-9651-28d31a7b3e23" otdid="0a01eb7b-96de-11e8-8165-020027310001" maintype="2"><button type="button" class="btn"><span>#레포츠</span></button></li><li id="651c5b95-a5b3-11e8-8165-020027310001" otdid="0a01eb7b-96de-11e8-8165-020027310001" maintype="2"><button type="button" class="btn"><span>#문화시설</span></button></li><li id="d3fd4d9f-fbd4-430f-b5d5-291b4d9920be" otdid="0a01eb7b-96de-11e8-8165-020027310001" maintype="2"><button type="button" class="btn"><span>#역사</span></button></li><li id="c24d515f-3202-45e5-834e-1a091901aeff" otdid="0a01eb7b-96de-11e8-8165-020027310001" maintype="2"><button type="button" class="btn"><span>#자연</span></button></li><li id="23bc02b8-da01-41bf-8118-af882436cd3c" otdid="0a01eb7b-96de-11e8-8165-020027310001" maintype="2"><button type="button" class="btn"><span>#체험</span></button></li><li id="3f36ca4b-6f45-45cb-9042-265c96a4868c" otdid="0a01eb7b-96de-11e8-8165-020027310001" maintype="2"><button type="button" class="btn"><span>#관광지</span></button></li><li id="b7023aff-8138-4a00-ae7f-e4fe7b13a61b" otdid="0a01eb7b-96de-11e8-8165-020027310001" maintype="2"><button type="button" class="btn"><span>#숙박</span></button></li><li id="11751b64-5bf9-44fa-90cd-e0e1b092caf6" otdid="0a01eb7b-96de-11e8-8165-020027310001" maintype="2"><button type="button" class="btn"><span>#음식</span></button></li><li id="0f29b431-75ac-4ab4-a892-b247d516b31d" otdid="0a01eb7b-96de-11e8-8165-020027310001" maintype="2"><button type="button" class="btn"><span>#쇼핑</span></button></li><li id="2d4f4e06-2d37-4e54-ad5c-172add6e6680" otdid="0a01eb7b-96de-11e8-8165-020027310001" maintype="2"><button type="button" class="btn"><span>#실내여행지</span></button></li><li id="640d3489-8fc3-11e8-8165-020027310001" otdid="0a01eb7b-96de-11e8-8165-020027310001" maintype="2"><button type="button" class="btn"><span>#트레킹</span></button></li><li id="9668f0f1-8afe-4526-8007-503bd02fd6d8" otdid="0a01eb7b-96de-11e8-8165-020027310001" maintype="2"><button type="button" class="btn"><span>#이색체험</span></button></li><li id="1601b0a3-144e-40b7-95b4-b946e537a25b" otdid="0a01eb7b-96de-11e8-8165-020027310001" maintype="2"><button type="button" class="btn"><span>#드라이브코스</span></button></li><li id="1c981ad4-7834-11e8-82c8-020027310001" otdid="0a01eb7b-96de-11e8-8165-020027310001" maintype="2"><button type="button" class="btn"><span>#봄꽃나들이</span></button></li><li id="266bf7a0-cbab-4bb4-b800-d7edd5642180" otdid="0a01eb7b-96de-11e8-8165-020027310001" maintype="2"><button type="button" class="btn"><span>#봄나들이</span></button></li><li id="*7c118d89-d51e-11ea-b8bd-020027310001" otdid="7c118d89-d51e-11ea-b8bd-020027310001" maintype="2" tagtype="brand"><button type="button" class="btn"><span>#전통한옥</span></button></li><li id="*456a84d1-84c4-11e8-8165-020027310001" otdid="456a84d1-84c4-11e8-8165-020027310001" maintype="2" tagtype="brand"><button type="button" class="btn"><span>#한국관광품질인증</span></button></li><li id="*64e29192-8939-11e8-8165-020027310001" otdid="64e29192-8939-11e8-8165-020027310001" maintype="2" tagtype="brand"><button type="button" class="btn"><span>#한국관광의별</span></button></li><li id="*622bcd99-84fa-11e8-8165-020027310001" otdid="622bcd99-84fa-11e8-8165-020027310001" maintype="2" tagtype="brand"><button type="button" class="btn"><span>#한국관광100선</span></button></li><li id="*b55ffe10-84c3-11e8-8165-020027310001" otdid="b55ffe10-84c3-11e8-8165-020027310001" maintype="2" tagtype="brand"><button type="button" class="btn"><span>#'열린 관광' 모두의 여행</span></button></li><li id="*54ddd9f5-fbf0-4b1c-b90b-27f5ec2168a3" otdid="54ddd9f5-fbf0-4b1c-b90b-27f5ec2168a3" maintype="2" tagtype="brand"><button type="button" class="btn"><span>#관광두레</span></button></li><li id="*114b23a6-84c4-11e8-8165-020027310001" otdid="114b23a6-84c4-11e8-8165-020027310001" maintype="2" tagtype="brand"><button type="button" class="btn"><span>#산업관광</span></button></li><li id="*27f7a2ca-84c4-11e8-8165-020027310001" otdid="27f7a2ca-84c4-11e8-8165-020027310001" maintype="2" tagtype="brand"><button type="button" class="btn"><span>#생태녹색관광</span></button></li></ul>
-                                <div class="btn_area"><a onclick="javascript:$('.box_rightType1').removeClass('on');$('body').css('overflow','');">확인</a></div>
-                            </div>
-                            <!-- //태그 리스트 -->
-                        </div>
-
-
-                    </div>
-                </div>
-                <!-- //contents -->
-
-
+        <div class="tab-wrap2">
+            <div class="tab-scroll">
+                <ul class="tab tab-depth"> <!-- 주종별 카테고리-->
+                    <li th:class="${(kind eq 'All') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/All/1" target="_self">전체</a></li>
+                    <li th:class="${(kind eq '탁주') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/탁주/1" target="_self">탁주</a></li>
+                    <li th:class="${(kind eq '약주·청주') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/약주·청주/1" target="_self">약주·청주</a></li>
+                    <li th:class="${(kind eq '과실주') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/과실주/1" target="_self">과실주</a></li>
+                    <li th:class="${(kind eq '증류주') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/증류주/1" target="_self">증류주</a></li>
+                    <li th:class="${(kind eq '기타주류') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/기타주류/1" target="_self">리큐르/기타주류</a></li>
+                </ul>
             </div>
 
-            <div class="swiper-slide type_rem tab_slide_li" style="min-height: 700px; display: none;"></div>
-            <div class="swiper-slide type_cs tab_slide_li" style="min-height: 700px; display: none;"></div>
-            <div class="swiper-slide type_fes tab_slide_li" style="min-height: 700px; display: none;"></div>
-            <div class="swiper-slide type_show tab_slide_li" style="min-height: 700px; display: none;"></div>
-            <div class="swiper-slide type_event tab_slide_li" style="min-height: 700px; display: none;"></div>
-            <div class="swiper-slide type_trss tab_slide_li" style="min-height: 700px; display: none;"></div>
-            <div class="swiper-slide type_digt tab_slide_li" style="min-height: 700px; display: none;"></div>
+            <form method="get" id="pagingForm" name="pagingForm" th:action="@{/drink/list/{kind}/{cpg}(kind=${kind},cpg=${cpg})}">
+                <div class="board-top justify-content-">
+                    <div class="board-btn">
+                        <a href="https://terms.naver.com/list.nhn?cid=58636&categoryId=58636" class="btn-wiki" target="_blank">네이버 전통주 지식백과</a>
+                        <a href="" class="btn-keywords">키워드 사전</a>
+                        <div class="board-search info-search">
+                            <div class="total">Total <span th:text="${cntbr}">0</span></div> <!-- 전체 글 개수-->
+                            <div class="radio-area">
+                                <label for="radio-type2" class="radio-box">
+                                    <input id="radio-type2" name="searchType" type="radio" value="2">
+                                    <span>명칭 검색</span>
+                                </label>
+                                <!-- 검색 항목(라디오) -->
+
+                                <div class="search-wrap">
+                                    <div class="option" style="display: flex; justify-content: flex-end; align-items: center;">
+                                        <div class="search-select col-4" style="display: flex; align-items: center;">
+                                            <select class="form-select" id="searchKind" name="region">
+                                                <option value="">시/도</option>
+                                                <option value="CD94">서울특별시</option>
+                                                <option value="CD95">부산광역시</option>
+                                                <option value="CD96">대구광역시</option>
+                                                <option value="CD97">인천광역시</option>
+                                                <option value="CD98">광주광역시</option>
+                                                <option value="CD99">대전광역시</option>
+                                                <option value="CD100">울산광역시</option>
+                                                <option value="CD101">세종특별자치시</option>
+                                                <option value="CD102">경기도</option>
+                                                <option value="CD103">강원도</option>
+                                                <option value="CD104">충청북도</option>
+                                                <option value="CD105">충청남도</option>
+                                                <option value="CD106">전라북도</option>
+                                                <option value="CD107">전라남도</option>
+                                                <option value="CD108">경상북도</option>
+                                                <option value="CD109">경상남도</option>
+                                                <option value="CD110">제주특별자치도</option>
+                                            </select>
+                                        </div>
+                                        <div class="search-select col-5" style="display: flex; align-items: center;">
+                                            <input type="text" class="form-control" id="findkey" name="sname">
+                                            <button type="text" class="btn btn-light" id="findbtn"><i class="fa fa-solid fa-magnifying-glass"></i></button>
+                                        </div>
+
+                                    </div>
+                                </div>  <!-- 도수별, 지역별 select -->
+                            </div>
+                        </div>
+                    </div> <!-- 네이버백과 연결, 키워드 사전 -->
+
+                </div>
+
+            </form>
+
+            <div class="tab-content">
+                <div id="tab1">
+                    <div class="product-list">
+
+                        <ul>
+                            <!-- li 하나가 술 항목 하나 -->
+
+                            <li th:each="sbd: ${sbds}" class="item">
+                                <div class="thumb">
+                                    <div class="img">
+                                            <span>
+                                                <a th:href="|/drink/detail/${sbd.sno}|">
+                                                    <img th:src="${sbd.sphoto}" th:alt="${sbd.sname}"/>
+                                                </a>
+                                            </span>
+                                    </div>
+                                </div>
+
+                                <dl class="detail">
+                                    <dt>
+                                        <div class="title-area">
+                                            <div class="name" th:text="${sbd.sname}">삼해주</div>
+                                        </div>
+                                        <div class="label-list">
+                                            <ul>
+                                            </ul>
+                                        </div> <!-- 해당페이지에 회색 부분으로 만들어짐..-->
+                                    </dt>
+                                    <dd>
+                                        <ul>
+                                            <li>
+                                                <div class="subject">양조장 No.</div>
+                                                <div class="info" th:text="${sbd.bno}">선인양조</div>
+                                            </li>
+                                            <li>
+                                                <div class="subject">주원료</div>
+                                                <div class="info" th:text="${sbd.base}">양주쌀, 누룩, 정제수</div>
+                                            </li>
+                                            <li>
+                                                <div class="subject">도수</div>
+                                                <div class="info" th:text="${sbd.ptg}">15% &nbsp;
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="subject">제품특징</div>
+                                                <div class="info no-line">
+										<span class="el-3line" th:text="${sbd.intro}">
+											삼해 주는 고려 시대부터 이어져 온 서울지역의 전통주입니다. 원래 궁중에서 의식이나 행사 사용하거나 사대부 집안의 가양주로 애용되다가 조선시대에 큰 사랑을 받았습니다. 15도 도수가 느껴지지 않을 만큼 부드러우며 단맛, 신맛 등이 적당히 잘 어우러지고 뒷맛도 깔끔합니다.
+										</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+
+                            </li>
+
+                            <!-- 첫번째 술 항목 끝-->
+
+                        </ul>
+
+                    </div>
+                    <!-- paging -->
+                    <div class="paging">
+                        <ul class="pagination justify-content-center">
+                            <th:block th:if="${cpg gt 1}">
+                                <li class="first">
+                                    <a th:href="|${pglink}1|" class="page-link">처음</a></li>
+                            </th:block>
+
+                            <li th:class="${(cpg - 1 gt 0) ? 'prev' : 'prev disabled'}"><a th:href="|${pglink}${cpg - 1}|" class="page-link">이전</a></li>
+                            <th:block th:each="i : ${#numbers.sequence(stpg, stpg + 2)}">
+                                <th:block th:if="${i le cntpg}">
+                                    <li th:class="${(i ne cpg) ? '' : 'selected active'}">
+                                        <a th:href="|${pglink}${i}|" class="page-link" th:text="${i}" onclick="fn_egov_link_page(cpg)">1</a>
+                                    </li>
+                                </th:block>
+
+                            </th:block>
+
+                            <li th:class="${(cpg + 1 le cntpg) ? 'next' : 'next disabled'}"><a th:href="|${pglink}${cpg + 1}|" class="page-link">다음</a></li>
+
+                            <th:block th:if="${cpg lt cntpg}">
+                                <li class="last">
+                                    <a th:href="|${pglink}${cntpg}|" class="page-link">끝</a></li>
+                            </th:block>
+
+                        </ul>
+                    </div>
+                    <!--//paging -->
+                </div>
+            </div>
+                <div id="layer">
+                    <div class="layer-content layer-keywords">
+                        <div class="layer-header">
+                            <div class="layer-title"></i>키워드 사전</div>
+                            <button type="button" class="layer-close">닫기</button>
+                        </div>
+                        <div class="layer-body">
+                            <div class="tag">
+                                <span><a href="/drink/tag/가성비/1">가성비</a></span>
+                                <span><a href="/drink/tag/가을/1">가을</a></span>
+                                <span><a href="/drink/tag/고문헌/1">고문헌</a></span>
+                                <span><a href="/drink/tag/기념일/1">기념일</a></span>
+                                <span><a href="/drink/tag/달콤/1">달콤</a></span>
+                                <span><a href="/drink/tag/드라이/1">드라이</a></span>
+                                <span><a href="/drink/tag/무감미료/1">무감미료</a></span>
+                                <span><a href="/drink/tag/베리류/1">베리류</a></span>
+                                <span><a href="/drink/tag/봄/1">봄</a></span>
+                                <span><a href="/drink/tag/선물/1">선물</a></span>
+                                <span><a href="/drink/tag/소용량/1">소용량</a></span>
+                                <span><a href="/drink/tag/여름/1">여름</a></span>
+                                <span><a href="/drink/tag/예쁜술/1">예쁜술</a></span>
+                                <span><a href="/drink/tag/이색전통주/1">이색전통주</a></span>
+                                <span><a href="/drink/tag/저도수/1">저도수</a></span>
+                                <span><a href="/drink/tag/진한맛/1">진한맛</a></span>
+                                <span><a href="/drink/tag/집들이/1">집들이</a></span>
+                                <span><a href="/drink/tag/커플/1">커플</a></span>
+                                <span><a href="/drink/tag/탄산/1">탄산</a></span>
+                                <span><a href="/drink/tag/파티/1">파티</a></span>
+                                <span><a href="/drink/tag/혼술/1">혼술</a></span>
+                                <span><a href="/drink/tag/홈술/1">홈술</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/drink.js"></script>
+
+    <script src="/assets/js/drink.js" charset="utf-8"></script>
+    <script src="https://kit.fontawesome.com/eb07c6eb8a.js" crossorigin="anonymous"></script>
+    <!-- //container -->
+
 </th:block>
 </html>
