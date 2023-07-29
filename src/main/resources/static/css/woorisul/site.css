@@ -456,7 +456,7 @@ h4.title:after {position:absolute;left:4px;top:12px;content:"";display:block;wid
 .board-preview li .date {width:115px;font-size:16px;color:#666;font-weight:300;text-align:center;}
 
 /* 공통 - 이미지 갤러리 */
-.photo-list {padding:30px 0;border-top:2px solid #222;border-bottom:1px solid #bfbfbf;}
+.photo-list {padding:30px 0;border-top:2px solid #FF9F00FF;border-bottom:1px solid #bfbfbf;}
 .photo-list > ul {margin:0 0 0 -50px;font-size:0;}
 .photo-list > ul > li {padding:0 0 0 50px;margin-bottom:40px;width:33.33333%;display:inline-block;vertical-align:top;box-sizing:border-box;}
 .photo-list > ul > li .thumb {border:1px solid #eaeaea;overflow:hidden;box-sizing:border-box;position:relative;overflow:hidden;display:block;padding-top:74.4%}
@@ -673,7 +673,7 @@ h4.title:after {position:absolute;left:4px;top:12px;content:"";display:block;wid
 .place-view dd.item .more {padding-left:30px;display:table-cell;width:calc(100% - 160px);vertical-align:middle;}
 
 .place-view dd.item .text {position:relative;padding-left:15px;min-height:18px;font-size:16px;}
-.place-view dd.item .text:before {content:"";position:absolute;left:0;top:10px;display:block;width:6px;height:6px;border-radius:6px;background-color:#515c6f;}
+.place-view dd.item .text:before {content:"";position:absolute;left:0;top:10px;display:block;width:6px;height:6px;border-radius:6px;}
 .place-view dd.item .text > a {color: #981a4a;}
 .place-view dd.item .text li {position:relative;padding-left:110px;min-height:18px;box-sizing:border-box;}
 .place-view dd.item .text li strong {position:absolute;left:15px;display:inline-block;width:75px;font-weight:400;color: #acacac;border-right:1px solid #acacac;}
