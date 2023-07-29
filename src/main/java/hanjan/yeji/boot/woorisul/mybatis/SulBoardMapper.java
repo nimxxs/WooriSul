@@ -24,6 +24,16 @@ public interface SulBoardMapper {
 
   List<SulBoard> selectSul(String kind);
 
-    int totalSulBoard(String kind);
+  int totalSulBoard(String kind);
+
+  List<SulBoard> searchSul(Map<String, String> params);
+
+  List<SulBoard> selectSulBoardByTag(Map<String, Object> params);
+
+  int selectCountSulBoardByTag(String tag);
+
+  int totalSulBoardByTag(String tag);
+
+  //  술 검색 시 페이징
 
 }

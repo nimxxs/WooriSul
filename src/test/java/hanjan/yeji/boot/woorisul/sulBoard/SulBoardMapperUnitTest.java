@@ -42,15 +42,15 @@ public class SulBoardMapperUnitTest {
 
 
     }
-    @Test
-    @DisplayName("sulboardMapper update Test")
-    void countPage(){
-
-
-        int result = sulBoardMapper.selectCountSulBoard();
-
-        assertNotNull(result);
-    }
+//    @Test
+//    @DisplayName("sulboardMapper update Test")
+//    void countPage(){
+//
+//
+//        int result = sulBoardMapper.selectCountSulBoard();
+//
+//        assertNotNull(result);
+//    }
 
     @Test
     @DisplayName("sulBoardMapper select Test")

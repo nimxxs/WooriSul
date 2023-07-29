@@ -5,6 +5,8 @@
 <head>
     <!-- jQuery 라이브러리를 포함시킴 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 <th:block layout:fragment="content">
@@ -28,11 +30,11 @@
                     </ul>
                 </div>
 
-                <form method="get" id="pagingForm" name="pagingForm">
+                <form method="get" id="pagingForm" name="pagingForm" th:action="@{/drink/list/{kind}/{cpg}(kind=${kind},cpg=${cpg})}">
                     <div class="board-top justify-content-">
                         <div class="board-btn">
                             <a href="https://terms.naver.com/list.nhn?cid=58636&categoryId=58636" class="btn-wiki" target="_blank">네이버 전통주 지식백과</a>
-                            <a href="#none" class="btn-keywords">키워드 사전</a>
+                            <a href="" class="btn-keywords">키워드 사전</a>
                             <div class="board-search info-search">
                                 <div class="total">Total <span th:text="${cntbr}">0</span></div> <!-- 전체 글 개수-->
                                 <div class="radio-area">
@@ -42,43 +44,32 @@
                                     </label>
                                     <!-- 검색 항목(라디오) -->
                                     <div class="search-wrap">
-                                        <div class="option" style="display: flex; justify-content: flex-end; align-items: flex-start ;">
-                                            <div class="search-select col-4">
-                                                <select class="form-select" id="searchKind" name="searchKind">
+                                        <div class="option" style="display: flex; justify-content: flex-end; align-items: center;">
+                                            <div class="search-select col-4" style="display: flex; align-items: center;">
+                                                <select class="form-select" id="searchKind" name="region">
                                                     <option value="">시/도</option>
-                                                    <option value="CD00000094">서울특별시</option>
-                                                    <option value="CD00000095">부산광역시</option>
-                                                    <option value="CD00000096">대구광역시</option>
-                                                    <option value="CD00000097">인천광역시</option>
-                                                    <option value="CD00000098">광주광역시</option>
-                                                    <option value="CD00000099">대전광역시</option>
-                                                    <option value="CD00000100">울산광역시</option>
-                                                    <option value="CD00000101">세종특별자치시</option>
-                                                    <option value="CD00000102">경기도</option>
-                                                    <option value="CD00000103">강원도</option>
-                                                    <option value="CD00000104">충청북도</option>
-                                                    <option value="CD00000105">충청남도</option>
-                                                    <option value="CD00000106">전라북도</option>
-                                                    <option value="CD00000107">전라남도</option>
-                                                    <option value="CD00000108">경상북도</option>
-                                                    <option value="CD00000109">경상남도</option>
-                                                    <option value="CD00000110">제주특별자치도</option>
+                                                    <option value="CD94">서울특별시</option>
+                                                    <option value="CD95">부산광역시</option>
+                                                    <option value="CD96">대구광역시</option>
+                                                    <option value="CD97">인천광역시</option>
+                                                    <option value="CD98">광주광역시</option>
+                                                    <option value="CD99">대전광역시</option>
+                                                    <option value="CD100">울산광역시</option>
+                                                    <option value="CD101">세종특별자치시</option>
+                                                    <option value="CD102">경기도</option>
+                                                    <option value="CD103">강원도</option>
+                                                    <option value="CD104">충청북도</option>
+                                                    <option value="CD105">충청남도</option>
+                                                    <option value="CD106">전라북도</option>
+                                                    <option value="CD107">전라남도</option>
+                                                    <option value="CD108">경상북도</option>
+                                                    <option value="CD109">경상남도</option>
+                                                    <option value="CD110">제주특별자치도</option>
                                                 </select>
                                             </div>
-<!--                                            <div class="search-select col-3">-->
-<!--                                                <select class="form-select" id="levelType" name="levelType">-->
-<!--                                                    <option value="">전체</option>-->
-<!--                                                    <option value="10">10도미만</option>-->
-<!--                                                    <option value="20">10~20도</option>-->
-<!--                                                    <option value="30">20~30도</option>-->
-<!--                                                    <option value="40">30~40도</option>-->
-<!--                                                    <option value="50">40~50도</option>-->
-<!--                                                    <option value="60">50도 이상</option>-->
-<!--                                                </select>-->
-<!--                                            </div>-->
-                                            <div class="search-select col-5">
-                                                <input type="text" class="form-control" id="findkey">
-                                                <button type="button" class="btn btn-light" id="findbtn"><i class="fa fa-solid fa-magnifying-glass"></i> </button>
+                                            <div class="search-select col-5" style="display: flex; align-items: center;">
+                                                <input type="text" class="form-control" id="findkey" name="sname">
+                                                <button type="text" class="btn btn-light" id="findbtn"><i class="fa fa-solid fa-magnifying-glass"></i></button>
                                             </div>
 
                                         </div>
@@ -87,20 +78,15 @@
                             </div>
                         </div> <!-- 네이버백과 연결, 키워드 사전 -->
 
-                        <input type="hidden" id="productId" name="productId" value=""/>
-                        <input type="hidden" name="pageIndex" th:value="${cpg}"/>
-                        <input type="hidden" name="categoryNm"/>
-                        <input type="hidden" name="kind" value=""/>
                     </div>
+
                 </form>
 
                 <div class="tab-content">
                     <div id="tab1">
                         <div class="product-list">
-
                                 <ul>
                                 <!-- li 하나가 술 항목 하나 -->
-
                                 <li th:each="sbd: ${sbds}" class="item">
                                     <div class="thumb">
                                         <div class="img">
@@ -125,8 +111,8 @@
                                         <dd>
                                             <ul>
                                                 <li>
-                                                    <div class="subject">양조장</div>
-                                                    <div class="info" th:text="${sbd.br.brname}">선인양조</div>
+                                                    <div class="subject">양조장 No.</div>
+                                                    <div class="info" th:text="${sbd.bno}">선인양조</div>
                                                 </li>
                                                 <li>
                                                     <div class="subject">주원료</div>
@@ -189,70 +175,42 @@
                 <div id="layer">
                     <div class="layer-content layer-keywords">
                         <div class="layer-header">
-                            <div class="layer-title"><i class="i-keyword"></i>키워드 사전</div>
+                            <div class="layer-title"></i>키워드 사전</div>
                             <button type="button" class="layer-close">닫기</button>
                         </div>
                         <div class="layer-body">
                             <div class="tag">
-
-                                <span onclick="keywordClick('가성비','');">가성비</span>
-
-                                <span onclick="keywordClick('가을','');">가을</span>
-
-                                <span onclick="keywordClick('고문헌','');">고문헌</span>
-
-                                <span onclick="keywordClick('기념일','');">기념일</span>
-
-                                <span onclick="keywordClick('달콤','');">달콤</span>
-
-                                <span onclick="keywordClick('드라이','');">드라이</span>
-
-                                <span onclick="keywordClick('무감미료','');">무감미료</span>
-
-                                <span onclick="keywordClick('베리류','');">베리류</span>
-
-                                <span onclick="keywordClick('봄','');">봄</span>
-
-                                <span onclick="keywordClick('선물','');">선물</span>
-
-                                <span onclick="keywordClick('소용량','');">소용량</span>
-
-                                <span onclick="keywordClick('여름','');">여름</span>
-
-                                <span onclick="keywordClick('예쁜술','');">예쁜술</span>
-
-                                <span onclick="keywordClick('이색전통주','');">이색전통주</span>
-
-                                <span onclick="keywordClick('저도수','');">저도수</span>
-
-                                <span onclick="keywordClick('진한맛','');">진한맛</span>
-
-                                <span onclick="keywordClick('집들이','');">집들이</span>
-
-                                <span onclick="keywordClick('커플','');">커플</span>
-
-                                <span onclick="keywordClick('키워드선택','');">키워드선택</span>
-
-                                <span onclick="keywordClick('탄산','');">탄산</span>
-
-                                <span onclick="keywordClick('파티','');">파티</span>
-
-                                <span onclick="keywordClick('혼술','');">혼술</span>
-
-                                <span onclick="keywordClick('홈술','');">홈술</span>
+                                <span><a href="/drink/tag/가성비/1">가성비</a></span>
+                                <span><a href="/drink/tag/가을/1">가을</a></span>
+                                <span><a href="/drink/tag/고문헌/1">고문헌</a></span>
+                                <span><a href="/drink/tag/기념일/1">기념일</a></span>
+                                <span><a href="/drink/tag/달콤/1">달콤</a></span>
+                                <span><a href="/drink/tag/드라이/1">드라이</a></span>
+                                <span><a href="/drink/tag/무감미료/1">무감미료</a></span>
+                                <span><a href="/drink/tag/베리류/1">베리류</a></span>
+                                <span><a href="/drink/tag/봄/1">봄</a></span>
+                                <span><a href="/drink/tag/선물/1">선물</a></span>
+                                <span><a href="/drink/tag/소용량/1">소용량</a></span>
+                                <span><a href="/drink/tag/여름/1">여름</a></span>
+                                <span><a href="/drink/tag/예쁜술/1">예쁜술</a></span>
+                                <span><a href="/drink/tag/이색전통주/1">이색전통주</a></span>
+                                <span><a href="/drink/tag/저도수/1">저도수</a></span>
+                                <span><a href="/drink/tag/진한맛/1">진한맛</a></span>
+                                <span><a href="/drink/tag/집들이/1">집들이</a></span>
+                                <span><a href="/drink/tag/커플/1">커플</a></span>
+                                <span><a href="/drink/tag/탄산/1">탄산</a></span>
+                                <span><a href="/drink/tag/파티/1">파티</a></span>
+                                <span><a href="/drink/tag/혼술/1">혼술</a></span>
+                                <span><a href="/drink/tag/홈술/1">홈술</a></span>
 
 
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
 
-
-
         </div>
-    </div>
     </div>
     <script src="/assets/js/drink.js" charset="utf-8"></script>
     <script src="https://kit.fontawesome.com/eb07c6eb8a.js" crossorigin="anonymous"></script>

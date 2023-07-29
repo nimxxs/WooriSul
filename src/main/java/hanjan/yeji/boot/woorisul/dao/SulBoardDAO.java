@@ -25,4 +25,13 @@ public interface SulBoardDAO {
 
     int totalSulBoard(String kind);
 
+    // 술 검색
+    List<SulBoard> searchSul(String sname, String region);
+
+  // 태그별 리스트(아래 총 3개)
+  List<SulBoard> selectSulBoardByTag(String tag, Integer cpg);
+
+  int selectCountSulBoardByTag(String tag);
+
+  int totalSulBoardByTag(String tag);
 }

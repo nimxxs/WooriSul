@@ -43,25 +43,6 @@ public class SulBoardServiceImpl implements SulBoardService {
         return sbdao.selectOneSulBoard(sno);
     }
 
-    @Override
-    public List<SulBoard> readFindSulBoard(Integer cpg, String sname, String skey) {
-
-        Map<String, Object> params = new HashMap<>();
-        params.put("searchKind", sname);    // list.html에서 가져온 select의 id?
-        params.put("findkey", skey);
-        params.put("stnum", (cpg - 1) * 5);
-
-        return sbdao.selectFindSulBoard(params);
-    }
-
-    @Override
-    public int countFindSulBoard(String sname, String skey) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("searchKind", sname);    // list.html에서 가져온 select의 id?
-        params.put("findkey", skey);
-
-        return sbdao.countFindSulBoard(params);
-    }
 
     @Override
     public List<SulBoard> selectSul(String kind) {
@@ -71,6 +52,27 @@ public class SulBoardServiceImpl implements SulBoardService {
     @Override
     public int totalSulBoard(String kind) {
         return sbdao.totalSulBoard(kind);
+    }
+
+
+    @Override
+    public List<SulBoard> searchSul(String sname, String region) {
+        return sbdao.searchSul(sname, region);
+    }
+    // 태그별 리스트(아래 총 3개)
+    @Override
+    public List<SulBoard> readSulBoardByTag(String tag, Integer cpg) {
+        return sbdao.selectSulBoardByTag(tag, cpg);
+    }
+
+    @Override
+    public int selectCountSulBoardByTag(String tag) {
+        return sbdao.selectCountSulBoardByTag(tag);
+    }
+
+    @Override
+    public int totalSulBoardByTag(String tag) {
+        return sbdao.totalSulBoardByTag(tag);
     }
 
 

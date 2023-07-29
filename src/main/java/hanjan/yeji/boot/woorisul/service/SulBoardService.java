@@ -12,16 +12,18 @@ public interface SulBoardService {
 
     int selectCountSulBoard(String kind);
 
-
     SulBoard readOneSulBoard(String sno);
-
-    List<SulBoard> readFindSulBoard(Integer cpg, String sname, String skey);
-
-    int countFindSulBoard(String sname, String skey);
-
 
     List<SulBoard> selectSul(String kind);
 
     int totalSulBoard(String kind);
 
+    List<SulBoard> searchSul(String sname, String region);
+
+    //태그별 리스트
+    List<SulBoard> readSulBoardByTag(String tag, Integer cpg);
+
+    int selectCountSulBoardByTag(String tag);
+
+    int totalSulBoardByTag(String tag);
 }
