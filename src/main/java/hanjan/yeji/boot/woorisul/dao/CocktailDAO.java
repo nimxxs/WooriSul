@@ -15,9 +15,9 @@ public interface CocktailDAO {
 
     Cocktail selectOneCocktail(String cno);
 
-    List<Cocktail> selectFindCocktail(Map<String, Object> params);
-
     int selectCountCocktail();
+
+    List<Cocktail> selectFindCocktail(Map<String, Object> params);
 
     int countPageFindCocktail(Map<String, Object> params);
 

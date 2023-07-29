@@ -25,7 +25,8 @@
                     <div class="board-search info-search">
                         <div class="total fs-4">Total <span th:text="${cntcoc}">0</span></div> <!-- 전체 글 개수-->
                         <div class="radio-area">
-                            <!-- 검색 항목(라디오) -지움-->
+
+
                             <div class="search-wrap">
                                 <div class="option"
                                      style="display: flex; justify-content: flex-end; align-items: flex-start ;">
@@ -40,7 +41,8 @@
                                         <button type="button" class="btn btn-light" id="findbtn"></button>
                                     </div>
                                 </div>
-                            </div>  <!-- 도수별, 지역별 select -->
+                            </div>  <!--검색 -->
+
                         </div>
                     </div>
                 </div>
@@ -51,11 +53,43 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 칵테일 리스트 -->
                 <div class="row">
                     <div class="offset-1 col-10">
                         <table class="table table-striped">
                         </table>
-                        <div class="row"> <!-- 사진 가운데 정렬 아래 4 띄움 -->
+                        <div class="row">
+                            <div th:each="coc : ${cocs}" class="col-md-4 mb-3">
+                                <div class="card">
+                                    <a th:href="|/coc/view/${coc.cno}|">
+                                        <div th:if="${coc.ca}">
+                                            <div th:each="img : ${#strings.arraySplit(coc.ca.fname,';')}">
+                                                <img th:src="|http://localhost/cdn/${img}|" class="card-img-top" alt="...">
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="card-title">
+                                            <span class="badge badge-pink p-2">칵테일</span>
+                                            <span th:text="${coc.cname}">베이스</span>
+                                        </p>
+                                        <p>
+                                            <span class="badge bg-secondary p-2">베이스</span>
+                                            <span th:text="${coc.base}">레시피</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- 칵테일 리스트 -->
+                    </div>
+                </div>
+
+                <!--<div class="row">
+                    <div class="offset-1 col-10">
+                        <table class="table table-striped">
+                        </table>
+                        <div class="row"> &lt;!&ndash; 사진 가운데 정렬 아래 4 띄움 &ndash;&gt;
                             <div th:each="coc : ${cocs}"
                                  class="col-md-4 mb-3">
                                 <div class="card">
@@ -76,9 +110,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div><!-- 칵테일 리스트 -->
+                        </div>&lt;!&ndash; 칵테일 리스트 &ndash;&gt;
                     </div>
-                </div>
+                </div> --><!-- 리스트 (구)-->
 
                 <style>
                     /* 비활성화된 링크 스타일 */

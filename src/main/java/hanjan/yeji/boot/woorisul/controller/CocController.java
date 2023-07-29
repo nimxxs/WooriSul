@@ -86,15 +86,14 @@ public class CocController {
         return "coc/view";
     }
 
-    @GetMapping("/find/{findtype}/{findkey}/{cpg}") /*순서 바꿈*/
-    public String find(Model m, @PathVariable Integer cpg, @PathVariable String findtype, @PathVariable String findkey
-    ) {
+    @GetMapping("/find/{findtype}/{findkey}/{cpg}")
+    public String find(Model m, @PathVariable Integer cpg, @PathVariable String findtype, @PathVariable String findkey) {
         logger.info("coc/find 호출!!");
 
         m.addAttribute("cpg", cpg);
         m.addAttribute("ftype", findtype);
         m.addAttribute("fkey", findkey);
-        m.addAttribute("csrv", cocsrv.readFindCocktail(findtype, findkey,cpg));
+        m.addAttribute("cocs", cocsrv.readFindCocktail(findtype, findkey, cpg)); // 수정된 부분
         m.addAttribute("stpg", ((cpg - 1) / 10) * 10 + 1);
         m.addAttribute("cntpg", cocsrv.countPageFindCocktail(findtype, findkey));
         m.addAttribute("cntcoc", cocsrv.countFindCocktail(findtype, findkey));
@@ -104,7 +103,6 @@ public class CocController {
 
         return "coc/list";
     }
-
 
 
 }
