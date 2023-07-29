@@ -1,3 +1,59 @@
+<!--<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org">
+<th:block th:fragment="header">
+
+
+    &lt;!&ndash; 메뉴 부분 &ndash;&gt;
+    <div id="header">
+        <div class="inner">
+            <div class="logo">
+                <a href="/"><img src="https://www.kocis.go.kr/CONTENTS/editImage/1665642481599.jpg" alt="우리술 로고" style="width:260px; margin-top:17px;"></a>
+            </div>&lt;!&ndash; 로고 &ndash;&gt;
+            <div class="gnb desktop" onmouseenter="hideSubMenu()">
+                <ul class="gnb-list" onmouseenter="hideSubMenu()">
+                    <li class="gnb-menu1" onmouseenter="hideSubMenu()" onmouseleave="hideSubMenu()">
+                        <a href="/intro" target="_self">우리술 소개</a></li>
+                    <li class="gnb-menu2" onmouseenter="hideSubMenu()" onmouseleave="hideSubMenu()">
+                        <a href="/drink/list/All/1" target="_self">우리술 종류</a></li>
+                    <li class="gnb-menu3" onmouseenter="showSubMenu('snb-menu3')">
+                        <a href="/store/online/list/1" target="_self" >우리술 구매처</a></li>
+                    <li class="gnb-menu4" onmouseenter="showSubMenu('snb-menu4')">
+                        <a href="/brewery/list/1" target="_self">찾아가는 양조장</a></li>
+                    <li class="gnb-menu5" onmouseenter="showSubMenu('snb-menu5')">
+                        <a href="" target="_self">우리들의 추천</a></li>
+                </ul>&lt;!&ndash; 메뉴 상위 항목 &ndash;&gt;
+
+                <div class="snb-list" id="snb-menu3" onmouseenter="showSubMenu('snb-menu3')">
+                    <div class="inner">
+                        <ul class="snb-menu3">
+                            <li><a href="/store/online/list/1" target="_self">온라인/오프라인<p>판매처</p></a></li>
+                        </ul>
+                    </div>
+                </div>&lt;!&ndash; 메뉴 하위 항목 3 &ndash;&gt;
+                <div class="snb-list" id="snb-menu4"  onmouseenter="showSubMenu('snb-menu4')">
+                    <div class="inner">
+                        <ul class="snb-menu4">
+                            <li><a href="/brewery/list/1" target="_self">양조장 둘러보기</a></li>
+                        </ul>
+                    </div>
+                </div>&lt;!&ndash; 메뉴 하위 항목 4 &ndash;&gt;
+                <div class="snb-list" id="snb-menu5"  onmouseenter="showSubMenu('snb-menu5')">
+                    <div class="inner">
+                        <ul class="snb-menu5">
+                            <li><a href="/drink/tag" target="_self">해시태그로 알아보기</a></li>
+                            <li><a href="/anju/list/All" target="_self">안주와 함께하기</a></li>
+                            <li><a href="/coc/list/1" target="_self">우아한 한잔</a></li>
+                        </ul>
+                    </div>
+                </div>&lt;!&ndash; 메뉴 하위 항목 5 &ndash;&gt;
+            </div>
+        </div>
+    </div>
+
+</th:block>
+</html>-->
+
+<!-- yeji 수정 부분 -->
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="https://www.thymeleaf.org">
 <th:block th:fragment="header">
@@ -16,36 +72,27 @@
                     <li class="gnb-menu2" onmouseenter="hideSubMenu()" onmouseleave="hideSubMenu()">
                         <a href="/drink/list/All/1" target="_self">우리술 종류</a></li>
                     <li class="gnb-menu3" onmouseenter="showSubMenu('snb-menu3')">
-                        <a href="/store/online/list/1" target="_self" >우리술 구매처</a></li>
+                        <a href="/store/online/list/1" target="_self" >우리술 구매처</a>
+                        <ul class="snb-list inner" id="snb-menu3">
+                            <li class="snb-menu3"><a href="/store/online/list/1" target="_self">온라인/오프라인<p>판매처</p></a></li>
+                        </ul>
+                    </li>
                     <li class="gnb-menu4" onmouseenter="showSubMenu('snb-menu4')">
-                        <a href="/brewery/list/1" target="_self">찾아가는 양조장</a></li>
+                        <a href="/brewery/list/1" target="_self">찾아가는 양조장</a>
+                        <ul class="snb-list inner" id="snb-menu4">
+                            <li class="snb-menu4"><a href="/brewery/list/1" target="_self">양조장 둘러보기</a></li>
+                        </ul>
+                    </li>
                     <li class="gnb-menu5" onmouseenter="showSubMenu('snb-menu5')">
-                        <a href="" target="_self">우리들의 추천</a></li>
+                        <a href="" target="_self">우리들의 추천</a>
+                        <ul class="snb-list inner" id="snb-menu5">
+                            <li class="snb-menu5"><a href="/drink/tag" target="_self">해시태그로 알아보기</a></li>
+                            <li class="snb-menu5"><a href="/anju/list/All" target="_self">안주와 함께하기</a></li>
+                            <li class="snb-menu5"><a href="/coc/list/1" target="_self">우아한 한잔</a></li>
+                        </ul>
+                    </li>
                 </ul><!-- 메뉴 상위 항목 -->
 
-                <div class="snb-list" id="snb-menu3" onmouseenter="showSubMenu('snb-menu3')">
-                    <div class="inner">
-                        <ul class="snb-menu3">
-                            <li><a href="/store/online/list/1" target="_self">온라인/오프라인<p>판매처</p></a></li>
-                        </ul>
-                    </div>
-                </div><!-- 메뉴 하위 항목 3 -->
-                <div class="snb-list" id="snb-menu4"  onmouseenter="showSubMenu('snb-menu4')">
-                    <div class="inner">
-                        <ul class="snb-menu4">
-                            <li><a href="/brewery/list/1" target="_self">양조장 둘러보기</a></li>
-                        </ul>
-                    </div>
-                </div><!-- 메뉴 하위 항목 4 -->
-                <div class="snb-list" id="snb-menu5"  onmouseenter="showSubMenu('snb-menu5')">
-                    <div class="inner">
-                        <ul class="snb-menu5">
-                            <li><a href="/drink/tag" target="_self">해시태그로 알아보기</a></li>
-                            <li><a href="/anju/list/All" target="_self">안주와 함께하기</a></li>
-                            <li><a href="/coc/list/1" target="_self">우아한 한잔</a></li>
-                        </ul>
-                    </div>
-                </div><!-- 메뉴 하위 항목 5 -->
             </div>
         </div>
     </div>

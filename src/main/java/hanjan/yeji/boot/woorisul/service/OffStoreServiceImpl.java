@@ -30,8 +30,8 @@ public class OffStoreServiceImpl implements OffStoreService {
     }
 
     @Override
-    public Offline readOneOffline(String ono) {
-        return offdao.selectOneOffline(ono);
+    public Offline readOneOffline(String fno) {
+        return offdao.selectOneOffline(fno);
     }
 
     @Override
@@ -45,28 +45,28 @@ public class OffStoreServiceImpl implements OffStoreService {
     }
 
     @Override
-    public List<Offline> readFindOffline(String ftype, String fkey, Integer cpg) {
+    public List<Offline> readFindOffline(String fofftype, String foffkey, Integer cpg) {
         Map<String, Object> params = new HashMap<>();
-        params.put("findtype", ftype);
-        params.put("findkey", fkey);
+        params.put("findofftype", fofftype);
+        params.put("findoffkey", foffkey);
         params.put("stnum", (cpg - 1) * 6);
         return offdao.selectFindOffline(params);
     }
 
     @Override
-    public int countPageFindOffline(String ftype, String fkey) {
+    public int countPageFindOffline(String fofftype, String foffkey) {
         Map<String, Object> params = new HashMap<>();
-        params.put("findtype", ftype);
-        params.put("findkey", fkey);
+        params.put("findofftype", fofftype);
+        params.put("findoffkey", foffkey);
 
         return offdao.countPageFindOffline(params);
     }
 
     @Override
-    public int countFindOffline(String ftype, String fkey) {
+    public int countFindOffline(String fofftype, String foffkey) {
         Map<String, Object> params = new HashMap<>();
-        params.put("findtype", ftype);
-        params.put("findkey", fkey);
+        params.put("findofftype", fofftype);
+        params.put("findoffkey", foffkey);
 
         return offdao.countFindOffline(params);
     }

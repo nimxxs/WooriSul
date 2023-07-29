@@ -5,7 +5,7 @@
 <th:block layout:fragment="content">
 
   <!-- container -->
-  <div id="container" th:with="pglink=${(#strings.isEmpty(fkey)) ? '/store/online/list/' : '/store/online/find' + ftype + '/' + fkey + '/'}">
+  <div id="container" th:with="pglink=${(#strings.isEmpty(fonkey)) ? '/store/online/list/' : '/store/online/find' + fontype + '/' + fonkey + '/'}">
     <div id="content">
       <div class="inner">
         <h2 class="title">우리술 구매처</h2>
@@ -28,13 +28,13 @@
                   <div class="search-wrap">
                     <div class="" style="display: flex; justify-content: flex-end; align-items: flex-start ;">
                       <div class="search-select col-4">
-                        <select class="form-select fs-5" id="findtype">
+                        <select class="form-select fs-5" id="findontype">
                           <option value="store">판매처명</option>
                         </select>
                       </div>
-                      <div class="search-input-br col-5">
-                        <input type="text" class="form-control" id="findkey" value="" onkeyup="return submitName(event);"/>
-                        <button type="button" class="btn btn-light" id="findbtn"></button>
+                      <div class="search-input-on col-5">
+                        <input type="text" class="form-control" id="findonkey" value="" onkeyup="return submitName(event);"/>
+                        <button type="button" class="btn btn-light" id="findonbtn"></button>
                       </div>
                     </div>
                   </div>  <!-- 도수별, 지역별 select -->
@@ -82,7 +82,7 @@
           <div class="paging">
             <ul class="pagination justify-content-center">
               <li th:class="${(cpg - 1 gt 0) ? 'prev' : 'prev disabled'}">
-                <a th:href="|${pglink}${cpg - 1}|" class="page-link"><i class="fa-solid fa-chevron-left" style="color: #ff9f00;"></i></a></li>
+                <a th:href="|${pglink}${cpg - 1}|" class="page-link"><i class="fa-solid fa-chevron-left" th:style="${(cpg - 1 gt 0) ? 'color: #ff9f00;' : 'color: #dee2e6;'}"></i></a></li>
               <th:block th:each="i : ${#numbers.sequence(stpg, cntpg)}">
                 <th:block th:if="${i le cntpg}">
                   <li th:class="${(i ne cpg) ? '' : 'selected active'}">
@@ -90,7 +90,7 @@
                 </th:block>
               </th:block>
               <li th:class="${(cpg lt cntpg) ? 'next': 'next disabled'}">
-                <a th:href="|${pglink}${cpg + 1}|" class="page-link"><i class="fa-solid fa-chevron-right" style="color: #ff9f00;"></i></a></li>
+                <a th:href="|${pglink}${cpg + 1}|" class="page-link"><i class="fa-solid fa-chevron-right" th:style="${(cpg lt cntpg) ? 'color: #ff9f00;' : 'color: #dee2e6;'}"></i></a></li>
             </ul>
           </div>
           <!--//paging -->
