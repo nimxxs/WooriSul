@@ -63,12 +63,11 @@ public class CocktailServiceImpl implements CocktailService {
         return cdao.selectOneCocktail(cno);
     }
 
-    @Override
-    public List<Cocktail> readFindCocktail(String ftype, String fkey,Integer cpg) {
+    public List<Cocktail> readFindCocktail(String ftype, String fkey, Integer cpg) {
         Map<String, Object> params = new HashMap<>();
-        params.put("findtype",ftype);
-        params.put("findkey",fkey);
-        params.put("stnum",(cpg - 1) * 6);
+        params.put("findtype", ftype);
+        params.put("findkey", fkey);
+        params.put("stnum", (cpg - 1) * 6);
         return cdao.selectFindCocktail(params);
     }
 

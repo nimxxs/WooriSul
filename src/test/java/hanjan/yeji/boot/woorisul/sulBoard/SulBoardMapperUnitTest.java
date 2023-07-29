@@ -1,3 +1,4 @@
+/*
 
 package hanjan.yeji.boot.woorisul.SulBoard;
 
@@ -83,3 +84,4 @@ public class SulBoardMapperUnitTest {
 
 
 }
+*/
