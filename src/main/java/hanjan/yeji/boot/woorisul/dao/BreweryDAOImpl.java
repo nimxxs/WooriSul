@@ -25,6 +25,9 @@ public class BreweryDAOImpl implements BreweryDAO{
 
     @Override
     public Brewery selectOneBrewery(String bno) {
+
+        breweryMapper.updateViewBrewery(bno);
+
         return breweryMapper.selectOneBrewery(bno);
     }
 

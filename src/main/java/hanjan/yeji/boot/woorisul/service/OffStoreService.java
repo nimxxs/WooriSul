@@ -10,15 +10,15 @@ public interface OffStoreService {
 
     List<Offline> readOffline(Integer cpg);
 
-    Offline readOneOffline(String ono);
+    Offline readOneOffline(String fno);
 
     int countPageOffline();
 
     int countAllOffline();
 
-    List<Offline> readFindOffline(String ftype, String fkey, Integer cpg);
+    List<Offline> readFindOffline(String fofftype, String foffkey, Integer cpg);
 
-    int countPageFindOffline(String ftype, String fkey);
+    int countPageFindOffline(String fofftype, String foffkey);
 
-    int countFindOffline(String ftype, String fkey);
+    int countFindOffline(String fofftype, String foffkey);
 }

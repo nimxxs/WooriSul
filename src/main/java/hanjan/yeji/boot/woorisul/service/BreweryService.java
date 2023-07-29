@@ -17,9 +17,9 @@ public interface BreweryService {
 
     int countAllBrewery();
 
-    List<Brewery> readFindBrewery(String ftype, String fkey, Integer cpg);
+    List<Brewery> readFindBrewery(String fbrtype, String fbrkey, Integer cpg);
 
-    int countPageFindBrewery(String ftype, String fkey);
+    int countPageFindBrewery(String fbrtype, String fbrkey);
 
-    int countFindBrewery(String ftype, String fkey);
+    int countFindBrewery(String fbrtype, String fbrkey);
 }

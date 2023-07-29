@@ -1,7 +1,24 @@
+/* 오프라인 판매처 상세보기 나누기 줄 이미지 */
 .place-view > dl > dd {
     padding:40px 0;
     display:table;
     position:relative;
     width:100%;
     background:url(https://thesool.com/images/front/cont/detail-dash.png) repeat-x bottom;
+}
+/* 검색 기능 */
+.board-search .search-input-off {
+    min-width: 175px;
+    display:flex;
+    border-bottom:1px solid #b2b2b2;
+    vertical-align:middle;
+    margin-left:6px;
+    position: relative;
+}
+.board-search #findoffkey {
+    min-width: 145px;
+}
+
+.board-search .search-input-off .form-control{
+    display: inline-block;
 }

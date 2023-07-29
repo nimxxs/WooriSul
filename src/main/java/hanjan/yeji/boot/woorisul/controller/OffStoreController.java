@@ -46,17 +46,17 @@ public class OffStoreController {
         return "offline/view";
     }
 
-    @GetMapping("/find/{findtype}/{findkey}/{cpg}")
-    public String find(Model m, @PathVariable Integer cpg, @PathVariable String findtype, @PathVariable String findkey){
+    @GetMapping("/find/{findofftype}/{findoffkey}/{cpg}")
+    public String find(Model m, @PathVariable Integer cpg, @PathVariable String findofftype, @PathVariable String findoffkey){
         logger.info("offline/find 호출!");
 
         m.addAttribute("cpg", cpg);
-        m.addAttribute("ftype", findtype);
-        m.addAttribute("fkey", findkey);
-        m.addAttribute("offs", offsrv.readFindOffline(findtype, findkey, cpg));
+        m.addAttribute("fofftype", findofftype);
+        m.addAttribute("foffkey", findoffkey);
+        m.addAttribute("offs", offsrv.readFindOffline(findofftype, findoffkey, cpg));
         m.addAttribute("stpg", ((cpg-1)/10)*10+1);
-        m.addAttribute("cntpg", offsrv.countPageFindOffline(findtype, findkey));
-        m.addAttribute("cntoff", offsrv.countFindOffline(findtype, findkey));
+        m.addAttribute("cntpg", offsrv.countPageFindOffline(findofftype, findoffkey));
+        m.addAttribute("cntoff", offsrv.countFindOffline(findofftype, findoffkey));
 
 //        m.addAttribute("cntbr", offsrv.countAllOffline());
 

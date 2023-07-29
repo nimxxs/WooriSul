@@ -1,3 +1,4 @@
+/* 검색 기능 */
 .board-search .search-input-br {
     min-width: 175px;
     display:flex;
@@ -6,7 +7,7 @@
     margin-left:6px;
     position: relative;
 }
-.board-search #findkey {
+.board-search #findbrkey {
     min-width: 145px;
 }
 
@@ -14,16 +15,18 @@
     display: inline-block;
 }
 
-.place-list .p-body a {
-    color: rgba(155,155,155,0.98);
-}
-
-.num.gyeonggi {background-color: rgb(124, 199, 158);}
+/* 양조장 리스트 번호 색 - 지역별 */
 .num.gangwon {background-color: #82c0d7;}
 .num.chungcheong {background-color: #c6e093;}
 .num.gyeongsang {background-color: #9fc578;}
 .num.jeolla {background-color: #eea459;}
 .num.jeju {background-color: #e09787;}
+.num.gyeonggi {background-color: rgb(124, 199, 158);}
+
+/* 양조장 리스트 상세보기 버튼 색 */
+.place-list .p-body a {
+    color: rgba(155,155,155,0.98);
+}
 
 /* 폰트 변경 */
 .place-list .subject {

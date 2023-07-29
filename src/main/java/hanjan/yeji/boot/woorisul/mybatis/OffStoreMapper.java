@@ -14,6 +14,8 @@ public interface OffStoreMapper {
 
     Offline selectOneOffline(String fno);
 
+    int updateViewOffline(String fno);
+
     int countPageOffline();
 
     int countAllOffline();

@@ -15,5 +15,7 @@ public class Offline {
     private String opt;
     private String offphoto;
     private String addr;
+    private String views;
+
 
 }
