@@ -19,8 +19,15 @@
 /*    margin-right: 10px; !* 버튼과의 간격을 조정합니다 *!*/
 /*}*/
 
+/* 검색 부분 위치 조정 */
 .info-search .radio-area {
     display: inline-block;
+}
+.info-search .option {
+    justify-content: end;
+}
+.info-search .search-wrap {
+    margin-left: -67px;
 }
 
 .radio-box {
@@ -83,8 +90,6 @@
     width: 150px;
     vertical-align: top;
 }
-
-
 
 /* 페이지네이션 */
 .paging li a {

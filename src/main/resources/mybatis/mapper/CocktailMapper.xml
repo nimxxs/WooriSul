@@ -21,6 +21,7 @@
         <result column="method" property="method"/>
         <result column="decoration" property="decoration"/>
         <result column="cbphoto" property="cbphoto"/>
+        <result column="mainphoto" property="mainphoto"/>
 
 
         <collection property="ca" resultMap="ca"/>
@@ -28,10 +29,10 @@
 
     <insert id="insertCocktail" parameterType="Cocktail">
         insert into cocktail (cname,mix,comment,recipe,base,
-        cphoto,glass,method,decoration,cbphoto)
+        cphoto,glass,method,decoration,cbphoto,mainphoto)
 
         value (#{cname},#{mix},#{comment},#{recipe},#{base},
-        #{cphoto},#{glass},#{method},#{decoration},#{cbphoto})
+        #{cphoto},#{glass},#{method},#{decoration},#{cbphoto},#{mainphoto})
     </insert>
 
     <select id="lastCocCno">
@@ -58,15 +59,15 @@
     </select>
 
     <!-- 페이지 검색-->
-<!--    <select id="selectFindCocktail" parameterType="map" resultType="Cocktail">-->
-<!--        select cno, cname, mix, comment, recipe, base,cphoto,glass,method,decoration,cbphoto from cocktail-->
+    <!--    <select id="selectFindCocktail" parameterType="map" resultType="Cocktail">-->
+    <!--        select cno, cname, mix, comment, recipe, base,cphoto,glass,method,decoration,cbphoto from cocktail-->
 
-<!--        <if test="findtype == 'cname'">-->
-<!--            where ${findtype} like concat('%', #{findkey}, '%')-->
-<!--        </if>-->
+    <!--        <if test="findtype == 'cname'">-->
+    <!--            where ${findtype} like concat('%', #{findkey}, '%')-->
+    <!--        </if>-->
 
-<!--        limit #{stnum}, 6-->
-<!--    </select>-->
+    <!--        limit #{stnum}, 6-->
+    <!--    </select>-->
 
     <select id="countPageFindCocktail" parameterType="map">
         select ceil(count(cno) / 6)  cntfpg from cocktail
@@ -76,13 +77,13 @@
         </if>
     </select>
 
-<!--    <select id="countFindCocktail" parameterType="map">-->
-<!--        select count(cno) cntcn from cocktail-->
+    <!--    <select id="countFindCocktail" parameterType="map">-->
+    <!--        select count(cno) cntcn from cocktail-->
 
-<!--        <if test="findtype == 'cname'">-->
-<!--            where ${findtype} like concat('%', #{findkey}, '%')-->
-<!--        </if>-->
-<!--    </select>-->
+    <!--        <if test="findtype == 'cname'">-->
+    <!--            where ${findtype} like concat('%', #{findkey}, '%')-->
+    <!--        </if>-->
+    <!--    </select>-->
 
     <!-- 칵테일 총개수 -->
     <select id="countAllCocktail">
@@ -94,10 +95,10 @@
 
     <!-- selectFindCocktail -->
     <select id="selectFindCocktail" parameterType="map" resultType="Cocktail">
-        SELECT cno, cname,mix, comment, recipe, base FROM cocktail
+        SELECT cno, cname, base,mainphoto FROM cocktail
         <where>
             <if test="findtype == 'cname'">
-                cname LIKE CONCAT('%', #{findkey}, '%') OR mix LIKE CONCAT('%', #{findkey}, '%')
+                cname LIKE CONCAT('%', #{findkey}, '%') OR base LIKE CONCAT('%', #{findkey}, '%')
             </if>
             <if test="findtype != 'cname'">
                 AND ${findtype} LIKE CONCAT('%', #{findkey}, '%')
@@ -106,12 +107,11 @@
         ORDER BY cno DESC LIMIT #{stnum}, 6
     </select>
 
-    <!-- countFindCocktail -->
     <select id="countFindCocktail" parameterType="map" resultType="int">
-        SELECT CEIL(COUNT(cno) / 6) AS cntpg FROM cocktail
+        SELECT COUNT(cno) AS cntcoc FROM cocktail
         <where>
             <if test="findtype == 'cname'">
-                cname LIKE CONCAT('%', #{findkey}, '%') OR mix LIKE CONCAT('%', #{findkey}, '%')
+                cname LIKE CONCAT('%', #{findkey}, '%') OR base LIKE CONCAT('%', #{findkey}, '%')
             </if>
             <if test="findtype != 'cname'">
                 AND ${findtype} LIKE CONCAT('%', #{findkey}, '%')
