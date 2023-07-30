@@ -70,7 +70,7 @@
                     <div class="text">
                         <ul>
                             <li><strong>양조장명</strong> <span th:text="${sbd.br.brname}">선인양조</span></li>
-                            <li><strong>주소</strong> <span th:text="${sbd.br.brname}">경기도 양주시 가래비9길 12-29</span></li>
+                            <li><strong>주소</strong> <span th:text="${sbd.br.addr}">경기도 양주시 가래비9길 12-29</span></li>
                             <li><strong>홈페이지</strong><span><a th:href="${sbd.br.waddr}" target="_blank">[[${sbd.br.waddr}]]</a></span>
                             </li><li><strong>문의</strong>[[${sbd.br.tel}]]</li>
                         </ul>
@@ -83,6 +83,6 @@
         </div>
     </div>
 </div>
-
+    <script src="/assets/js/woorisul/drink.js"></script>
 </th:block>
 </html>

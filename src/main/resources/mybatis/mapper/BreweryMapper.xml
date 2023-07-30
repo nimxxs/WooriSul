@@ -38,10 +38,10 @@
 
 
 
-    <insert id="insertBrewery" parameterType="Brewery">
+<!--    <insert id="insertBrewery" parameterType="Brewery">
         insert into brewery(brname, addr, bkind, tel, waddr, bphoto, district)
         values (#{brname}, #{addr}, #{bkind}, #{tel}, #{waddr}, #{bphoto}, #{district})
-    </insert>
+    </insert>-->
 
     <!-- 양조장 모두 불러오기 -->
     <select id="selectBrewery" resultType="Brewery">

@@ -15,13 +15,13 @@ public class BreweryServiceImpl implements BreweryService{
 
     final BreweryDAO bdao;
 
-    @Override
+/*    @Override
     public boolean saveBrewery(Brewery b) {
         boolean isSaved = false;
         if(bdao.insertBrewery(b) > 0)
             isSaved = true;
         return isSaved;
-    }
+    }*/
 
     @Override
     public List<Brewery> readBrewery(Integer cpg) {

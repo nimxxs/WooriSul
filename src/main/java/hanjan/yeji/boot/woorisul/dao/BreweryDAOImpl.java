@@ -13,10 +13,10 @@ import java.util.Map;
 public class BreweryDAOImpl implements BreweryDAO{
 
     final BreweryMapper breweryMapper;
-    @Override
+/*    @Override
     public int insertBrewery(Brewery b) {
         return breweryMapper.insertBrewery(b);
-    }
+    }*/
 
     @Override
     public List<Brewery> selectBrewery(int stnum) {

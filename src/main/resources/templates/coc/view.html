@@ -15,11 +15,9 @@
                 <dd class="detail">
                     <div class="thumb">
                         <div class="img justify-content-center">
-                            <th:block th:each="img : ${#strings.arraySplit(c.ca.fname,';')}">
-                                <img th:src="|http://localhost/cdn/${img}|"
 
-                                />
-                            </th:block>
+                            <img th:src="${c.mainphoto}"/>
+
                         </div>
                     </div>
 
@@ -30,7 +28,7 @@
                         </div>
                         <ul class="info-list">
                             <li><strong>조합 </strong>
-                                <span th:text="${c.mix}"> 감흥로 + 프란젤리코 + 우유 </span>
+                                <span th:utext="${c.mix}"> 감흥로 + 프란젤리코 + 우유 </span>
                             </li>
                             <li><strong>글라스 </strong>
                                 <span th:text="${c.glass}">CocktaiI Glass</span>
@@ -100,78 +98,82 @@
                 <hr>
 
                 <div id="base">
-                <div class="sulbase">
-                    <dt class="subject" id="subname" th:text="| Base : ${c.base}|" style="font-weight: 200;">백의민족</dt>
+                    <div class="sulbase">
+                        <dt class="subject" id="subname" th:text="| Base : ${c.base}|" style="font-weight: 200;">백의민족
+                        </dt>
 
-                    <div class="mt-5">
+                        <div class="mt-5">
 
-                    </div>
-                    <div class="img-container">
-                        <img th:src="${c.cbphoto}"
-                             width="500px;" height="350px;" class="img-fluid img-thumbnail"/>
-                    </div>
-
-                </div>
-                <div class="mb-5">
-
-                </div><!-- base 이미지 -->
-
-                <div class="cocpaging">
-                    <ul class="pagination justify-content-center">
-                        <li class="nav-item">
-                            <a th:href="@{|/coc/view/${prevCno}|}" class="page-link"><i class="fa-solid fa-chevron-left" style="color: #ff9f00;" alt="이전페이지"></i></a>
-                        </li>
-
-                        <div class="footer-top">
-                            <div class="link">
-                                <div class="select" onclick="toggleList()">전통주 칵테일</div>
-                                <ul class="list" id="clickcoctail">
-                                    <li><a href="/coc/view/1">1.고진감래</a></li>
-                                    <li><a href="/coc/view/2">2.백의민족</a></li>
-                                    <li><a href="/coc/view/3">3.스위트 듀</a></li>
-                                    <li><a href="/coc/view/4">4.시나몬 키스</a></li>
-                                    <li><a href="/coc/view/5">5.고소리 콕</a></li>
-                                    <li><a href="/coc/view/6">6.설도</a></li>
-                                    <li><a href="/coc/view/7">7.성산 일출봉</a></li>
-                                    <li><a href="/coc/view/8">8.유채꽃</a></li>
-                                    <li><a href="/coc/view/9">9.골든에이지</a></li>
-                                    <li><a href="/coc/view/10">10.문배술 모히토</a></li>
-                                    <li><a href="/coc/view/11">11.문배술 칵테일</a></li>
-                                    <li><a href="/coc/view/12">12.제이제이</a></li>
-                                    <li><a href="/coc/view/13">13.백일몽</a></li>
-                                    <li><a href="/coc/view/14">14.선비</a></li>
-                                    <li><a href="/coc/view/15">15.안동</a></li>
-                                    <li><a href="/coc/view/16">16.풍류랑</a></li>
-                                    <li><a href="/coc/view/17">17.마리아주</a></li>
-                                    <li><a href="/coc/view/18">18.조선 플라워</a></li>
-                                    <li><a href="/coc/view/19">19.광복</a></li>
-                                    <li><a href="/coc/view/20">20.그린나래</a></li>
-                                    <li><a href="/coc/view/21">21.카페루이</a></li>
-                                    <li><a href="/coc/view/22">22.화요</a></li>
-                                    <li><a href="/coc/view/23">23.화요 마티니</a></li>
-                                </ul>
-                            </div>
+                        </div>
+                        <div class="img-container">
+                            <img th:src="${c.cbphoto}"
+                                 width="500px;" height="350px;" class="img-fluid img-thumbnail"/>
                         </div>
 
-                        <li class="nav-item">
-                            <a th:href="@{|/coc/view/${nextCno}|}" class="page-link"><i class="fa-solid fa-chevron-right" style="color: #ff9f00;" alt="다음페이지"></i></a>
-                        </li>
-                    </ul>
-                </div></div>
+                    </div>
+                    <div class="mb-5">
+
+                    </div><!-- base 이미지 -->
+
+                    <div class="cocpaging">
+                        <ul class="pagination justify-content-center">
+                            <li class="nav-item">
+                                <a th:href="@{|/coc/view/${prevCno}|}" class="page-link"><i
+                                        class="fa-solid fa-chevron-left" style="color: #ff9f00;" alt="이전페이지"></i></a>
+                            </li>
+
+                            <script>
+                                function toggleList() {
+                                    var list = document.querySelector('.list');
+                                    list.classList.toggle('active');
+                                }
+                            </script>
+
+                            <div class="footer-top">
+                                <div class="link">
+                                    <div class="select" onclick="toggleList()">클릭해주세요</div>
+                                    <ul class="list">
+                                        <li><a href="/coc/view/1">1.고진감래</a></li>
+                                        <li><a href="/coc/view/2">2.백의민족</a></li>
+                                        <li><a href="/coc/view/3">3.스위트 듀</a></li>
+                                        <li><a href="/coc/view/4">4.시나몬 키스</a></li>
+                                        <li><a href="/coc/view/5">5.고소리 콕</a></li>
+                                        <li><a href="/coc/view/6">6.설도</a></li>
+                                        <li><a href="/coc/view/7">7.성산 일출봉</a></li>
+                                        <li><a href="/coc/view/8">8.유채꽃</a></li>
+                                        <li><a href="/coc/view/9">9.골든에이지</a></li>
+                                        <li><a href="/coc/view/10">10.문배술 모히토</a></li>
+                                        <li><a href="/coc/view/11">11.문배술 칵테일</a></li>
+                                        <li><a href="/coc/view/12">12.제이제이</a></li>
+                                        <li><a href="/coc/view/13">13.백일몽</a></li>
+                                        <li><a href="/coc/view/14">14.선비</a></li>
+                                        <li><a href="/coc/view/15">15.안동</a></li>
+                                        <li><a href="/coc/view/16">16.풍류랑</a></li>
+                                        <li><a href="/coc/view/17">17.마리아주</a></li>
+                                        <li><a href="/coc/view/18">18.조선 플라워</a></li>
+                                        <li><a href="/coc/view/19">19.광복</a></li>
+                                        <li><a href="/coc/view/20">20.그린나래</a></li>
+                                        <li><a href="/coc/view/21">21.카페루이</a></li>
+                                        <li><a href="/coc/view/22">22.화요</a></li>
+                                        <li><a href="/coc/view/23">23.화요 마티니</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <li class="nav-item">
+                                <a th:href="@{|/coc/view/${nextCno}|}" class="page-link"><i
+                                        class="fa-solid fa-chevron-right" style="color: #ff9f00;" alt="다음페이지"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </dl>
         </div>
 
-<!-- 내비게이션 js -->
-        <script>
-            function toggleList() {
-                var list = document.querySelector('.list');
-                list.classList.toggle('active');
-            }
-        </script>
 
-    <div class="btn-area">
-        <button type="button" class="btn-primary" id="backbtn" onclick="move();">목록</button>
-    </div>
+        <div class="btn-area">
+            <button type="button" class="btn-primary" id="backbtn" onclick="move();">목록</button>
+        </div>
 
 
     </div>

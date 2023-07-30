@@ -4,52 +4,46 @@
       layout:decorate="~{layout/template}"><!-- header/footer와 달리 content는 layout/template에 있는게 여기 들어옴 -->
 <th:block layout:fragment="content">
 
-    <div id="container" th:with="pglink=${(#strings.isEmpty(fbrkey)) ? '/brewery/list/' : '/brewery/find' + fbrtype + '/' + fbrkey + '/'}">
+    <div id="container" th:with="pglink=${(#strings.isEmpty(fbrkey)) ? '/brewery/list/' : '/brewery/find/' + fbrtype + '/' + fbrkey + '/'}">
 
         <div id="content">
             <div class="inner">
                 <h2 class="title">양조장 둘러보기</h2>
 
                 <div class="tab-wrap2">
-
-<!--                    <form method="get" id="pagingForm" name="pagingForm">-->
-                        <div class="board-top justify-content-">
-                            <div class="board-btn">
-                                <div class="board-search info-search">
-                                    <div class="total fs-4">Total <span th:text="${cntbr}">0</span></div> <!-- 전체 글 개수-->
-                                    <div class="radio-area">
-                                        <!-- 검색 항목(라디오) -지움-->
-                                        <div class="search-wrap">
-                                            <div class="option" style="display: flex; justify-content: flex-end; align-items: flex-start ;">
-                                                <div class="search-select col-4">
-                                                    <select class="form-select fs-5" id="findbrtype">
-                                                        <option value="brname">양조장명</option>
-                                                    </select>
-                                                </div>
-                                                <div class="search-input-br col-5">
-                                                    <input type="text" class="form-control" id="findbrkey" value="" onkeyup="return submitName(event);"/>
-                                                    <button type="button" class="btn btn-light" id="findbrbtn"></button>
-                                                </div>
+                    <div class="board-top justify-content-">
+                        <div class="board-btn">
+                            <div class="board-search info-search">
+                                <div class="total fs-4">Total <span th:text="${cntbr}">0</span></div> <!-- 전체 글 개수-->
+                                <div class="radio-area">
+                                    <div class="search-wrap">
+                                        <div class="option" style="display: flex; justify-content: flex-end; align-items: flex-start ;">
+                                            <div class="search-select col-4">
+                                                <select class="form-select fs-5" id="findbrtype">
+                                                    <option value="brname">양조장명</option>
+                                                </select>
                                             </div>
-                                        </div>  <!-- 도수별, 지역별 select -->
+                                            <div class="search-input-br col-5">
+                                                <!-- 검색어 입력 -->
+                                                <input type="text" class="form-control" id="findbrkey" value=""
+                                                       onkeyup="return submitName(event);"/>
+                                                <button type="button" class="btn btn-light" id="findbrbtn"></button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <!--<input type="hidden" id="productId" name="productId" value=""/>
-                            <input type="hidden" name="pageIndex" th:value="${cpg}"/>
-                            <input type="hidden" name="categoryNm"/>
-                            <input type="hidden" name="kind" value=""/>-->
                         </div>
-<!--                    </form> &lt;!&ndash; 검색 기능 &ndash;&gt;-->
+                    </div>
 
                     <div class="tab-content">
-                        <!-- tab cont1 -->
                         <div id="place">
 
                             <div class="place-wrap">
                                 <div class="img">
                                     <span>
-                                        <img src="https://thesool.com/common/imageView.do?targetId=MAPIMG0001&targetNm=BREWERYMAP" alt="" usemap="#Map">
+                                        <img src="https://thesool.com/common/imageView.do?targetId=MAPIMG0001&targetNm=BREWERYMAP"
+                                             alt="" usemap="#Map">
                                     </span>
                                 </div>
                                 <div class="place-list">
@@ -77,7 +71,8 @@
                                                         <dd>[[${br.tel}]]</dd>
                                                     </dl>
                                                 </div>
-                                                <a th:href="|/brewery/view/${br.bno}|" class="link"><i class="fa-solid fa-circle-chevron-right fa-2xl"></i></a>
+                                                <a th:href="|/brewery/view/${br.bno}|" class="link">
+                                                    <i class="fa-solid fa-circle-chevron-right fa-2xl"></i></a>
                                                 <!--상세보기-->
                                             </div>
                                         </li>
@@ -87,7 +82,9 @@
                                     <div class="paging">
                                         <ul class="pagination justify-content-center">
                                             <li th:class="${(cpg - 1 gt 0) ? 'prev' : 'prev disabled'}">
-                                                <a th:href="|${pglink}${cpg - 1}|" class="page-link"><i class="fa-solid fa-chevron-left" th:style="${(cpg - 1 gt 0) ? 'color: #ff9f00;' : 'color: #dee2e6;'}"></i></a></li>
+                                                <a th:href="|${pglink}${cpg - 1}|" class="page-link">
+                                                    <i class="fa-solid fa-chevron-left"
+                                                       th:style="${(cpg - 1 gt 0) ? 'color: #ff9f00;' : 'color: #dee2e6;'}"></i></a></li>
                                             <th:block th:each="i : ${#numbers.sequence(stpg, cntpg)}">
                                                 <th:block th:if="${i le cntpg}">
                                                     <li th:class="${(i ne cpg) ? '' : 'selected active'}">
@@ -95,7 +92,9 @@
                                                 </th:block>
                                             </th:block>
                                             <li th:class="${(cpg lt cntpg) ? 'next': 'next disabled'}">
-                                                <a th:href="|${pglink}${cpg + 1}|" class="page-link"><i class="fa-solid fa-chevron-right" th:style="${(cpg lt cntpg) ? 'color: #ff9f00;' : 'color: #dee2e6;'}"></i></a></li>
+                                                <a th:href="|${pglink}${cpg + 1}|" class="page-link">
+                                                    <i class="fa-solid fa-chevron-right"
+                                                       th:style="${(cpg lt cntpg) ? 'color: #ff9f00;' : 'color: #dee2e6;'}"></i></a></li>
                                         </ul>
                                     </div>
                                     <!--//paging -->
