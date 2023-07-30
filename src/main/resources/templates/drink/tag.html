@@ -18,64 +18,18 @@
              th:with="pglink=${ (#strings.isEmpty(skey)) ?
          '/drink/list/' + kind + '/' : '/drink/find/' + sname + '/' + skey + '/'}">
 
+            <h2 class="title">우리술 종류</h2>
+
         <div class="tab-wrap2">
-            <div class="tab-scroll">
-                <ul class="tab tab-depth"> <!-- 주종별 카테고리-->
-                    <li th:class="${(kind eq 'All') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/All/1" target="_self">전체</a></li>
-                    <li th:class="${(kind eq '탁주') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/탁주/1" target="_self">탁주</a></li>
-                    <li th:class="${(kind eq '약주·청주') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/약주·청주/1" target="_self">약주·청주</a></li>
-                    <li th:class="${(kind eq '과실주') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/과실주/1" target="_self">과실주</a></li>
-                    <li th:class="${(kind eq '증류주') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/증류주/1" target="_self">증류주</a></li>
-                    <li th:class="${(kind eq '기타주류') ? 'tab-menu selected' : 'tab-menu'}"><a href="/drink/list/기타주류/1" target="_self">리큐르/기타주류</a></li>
-                </ul>
-            </div>
 
             <form method="get" id="pagingForm" name="pagingForm" th:action="@{/drink/list/{kind}/{cpg}(kind=${kind},cpg=${cpg})}">
                 <div class="board-top justify-content-">
                     <div class="board-btn">
                         <a href="https://terms.naver.com/list.nhn?cid=58636&categoryId=58636" class="btn-wiki" target="_blank">네이버 전통주 지식백과</a>
                         <a href="" class="btn-keywords">키워드 사전</a>
-                        <div class="board-search info-search">
-                            <div class="total">Total <span th:text="${cntbr}">0</span></div> <!-- 전체 글 개수-->
-                            <div class="radio-area">
-                                <label for="radio-type2" class="radio-box">
-                                    <input id="radio-type2" name="searchType" type="radio" value="2">
-                                    <span>명칭 검색</span>
-                                </label>
-                                <!-- 검색 항목(라디오) -->
+                        <div class="board-search info-search" style="height: 30px">
+                            <div class="total" >Total <span th:text="${cntbr}">0</span></div> <!-- 전체 글 개수-->
 
-                                <div class="search-wrap">
-                                    <div class="option" style="display: flex; justify-content: flex-end; align-items: center;">
-                                        <div class="search-select col-4" style="display: flex; align-items: center;">
-                                            <select class="form-select" id="searchKind" name="region">
-                                                <option value="">시/도</option>
-                                                <option value="CD94">서울특별시</option>
-                                                <option value="CD95">부산광역시</option>
-                                                <option value="CD96">대구광역시</option>
-                                                <option value="CD97">인천광역시</option>
-                                                <option value="CD98">광주광역시</option>
-                                                <option value="CD99">대전광역시</option>
-                                                <option value="CD100">울산광역시</option>
-                                                <option value="CD101">세종특별자치시</option>
-                                                <option value="CD102">경기도</option>
-                                                <option value="CD103">강원도</option>
-                                                <option value="CD104">충청북도</option>
-                                                <option value="CD105">충청남도</option>
-                                                <option value="CD106">전라북도</option>
-                                                <option value="CD107">전라남도</option>
-                                                <option value="CD108">경상북도</option>
-                                                <option value="CD109">경상남도</option>
-                                                <option value="CD110">제주특별자치도</option>
-                                            </select>
-                                        </div>
-                                        <div class="search-select col-5" style="display: flex; align-items: center;">
-                                            <input type="text" class="form-control" id="findkey" name="sname">
-                                            <button type="text" class="btn btn-light" id="findbtn"><i class="fa fa-solid fa-magnifying-glass"></i></button>
-                                        </div>
-
-                                    </div>
-                                </div>  <!-- 도수별, 지역별 select -->
-                            </div>
                         </div>
                     </div> <!-- 네이버백과 연결, 키워드 사전 -->
 
