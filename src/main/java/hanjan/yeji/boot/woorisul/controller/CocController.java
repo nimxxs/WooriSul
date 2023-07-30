@@ -15,8 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-
-
 @Controller
 @RequestMapping("/coc")
 @RequiredArgsConstructor
@@ -41,13 +39,13 @@ public class CocController {
             return "redirect:/coc/list/1";
 
         return "coc/list";
-    }
+    } /* list */
 
     @GetMapping("/write")
     public String write() {
         logger.info("coc/write 호출!!");
         return "coc/write";
-    }
+    } /* write */
 
     @PostMapping("/write")
     public String writeok(Cocktail c, List<MultipartFile> attachs) { /* 이름명칭이 같아야함 */
@@ -59,7 +57,7 @@ public class CocController {
 
 
         return returnPage;
-    }
+    } /* write */
 
     @GetMapping("/view/{cno}")
     public String view(Model m, @PathVariable String cno) {
@@ -84,7 +82,7 @@ public class CocController {
         m.addAttribute("nextCno", nextCno);
 
         return "coc/view";
-    }
+    } /* view */
 
     @GetMapping("/find/{findtype}/{findkey}/{cpg}")
     public String find(Model m, @PathVariable Integer cpg, @PathVariable String findtype, @PathVariable String findkey) {
@@ -102,7 +100,5 @@ public class CocController {
             return "redirect:/coc/list/1";
 
         return "coc/list";
-    }
-
-
+    } /* 검색용도 */
 }

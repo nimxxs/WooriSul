@@ -16,7 +16,7 @@ lstcocbtn?.addEventListener('click', ()=>{
 let wrtcocbtn = document.querySelector("#wrtcocbtn");
 
 wrtcocbtn?.addEventListener('click', () => {
-    let frm = document.forms.cocfrm;
+   /* let frm = document.forms.cocfrm;
 
     if (frm.cname.value === '') alert('이름을 작성하세요!!');
     else if (frm.mix.value === '') alert('믹스을 작성하세요!!');
@@ -26,9 +26,12 @@ wrtcocbtn?.addEventListener('click', () => {
     else {
         frm.method = 'post';
         frm.enctype = 'multipart/form-data'; // 첨부기능을 위해 추가
-        frm.submit();
-    }
-});
+        frm.submit();*/
+
+        if (confirm("등록 하시겠어요?")) {
+            alert('서버 점검및 DB백업시간입니다!!');
+        }
+    });
 
 // coc find
 let findbtn = document.querySelector("#findbtn");
@@ -55,3 +58,8 @@ function submitName(e) {
 backbtn?.addEventListener('click',()=>{
     location.href = '/coc/list/1';
 });
+
+function toggleList() {
+    var list = document.querySelector('.list');
+    list.classList.toggle('active');
+}
