@@ -37,15 +37,6 @@ public class SulBoardDAOImpl implements SulBoardDAO {
     return sulBoardMapper.selectOneSulBoard(sno);
   }
 
-  @Override
-  public List<SulBoard> selectFindSulBoard(Map<String, Object> params) {
-      return sulBoardMapper.selectFindSulBoard(params);
-  }
-
-  @Override
-  public int countFindSulBoard(Map<String, Object> params) {
-    return sulBoardMapper.countFindSulBoard(params);
-  }
 
   @Override
   public List<SulBoard> selectSul(String kind) {
@@ -58,7 +49,7 @@ public class SulBoardDAOImpl implements SulBoardDAO {
   }
 
   @Override
-  public List<SulBoard> searchSul(String sname, String region) {
+  public List<SulBoard> searchSul(String sname, String region, Integer cpg) {
     Map<String, String> params = new HashMap<>();
     params.put("sname", sname);
     params.put("region", region);
@@ -84,5 +75,11 @@ public class SulBoardDAOImpl implements SulBoardDAO {
     return sulBoardMapper.totalSulBoardByTag(tag);
   }
 
-
+  @Override
+  public int countSearchSul(String sname, String region) {
+    Map<String, Object> params = new HashMap<>();
+    params.put("sname", sname);
+    params.put("region", region);
+    return sulBoardMapper.countSearchSul(sname, region);
+  }
 }

@@ -6,6 +6,8 @@
     <!-- jQuery 라이브러리를 포함시킴 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -37,17 +39,12 @@
                             <a href="" class="btn-keywords">키워드 사전</a>
                             <div class="board-search info-search">
                                 <div class="total">Total <span th:text="${cntbr}">0</span></div> <!-- 전체 글 개수-->
-                                <div class="radio-area">
-                                    <label for="radio-type2" class="radio-box">
-                                        <input id="radio-type2" name="searchType" type="radio" value="2">
-                                        <span>명칭 검색</span>
-                                    </label>
-                                    <!-- 검색 항목(라디오) -->
+
                                     <div class="search-wrap">
                                         <div class="option" style="display: flex; justify-content: flex-end; align-items: center;">
                                             <div class="search-select col-4" style="display: flex; align-items: center;">
                                                 <select class="form-select" id="searchKind" name="region">
-                                                    <option value="">시/도</option>
+                                                    <option value=""> 지역별 술 </option>
                                                     <option value="CD94">서울특별시</option>
                                                     <option value="CD95">부산광역시</option>
                                                     <option value="CD96">대구광역시</option>
@@ -68,13 +65,12 @@
                                                 </select>
                                             </div>
                                             <div class="search-select col-5" style="display: flex; align-items: center;">
-                                                <input type="text" class="form-control" id="findkey" name="sname">
+                                                <input type="text" class="form-control" id="findkey" name="sname" placeholder="검색하기">
                                                 <button type="text" class="btn btn-light" id="findbtn"><i class="fa fa-solid fa-magnifying-glass"></i></button>
                                             </div>
 
                                         </div>
                                     </div>  <!-- 도수별, 지역별 select -->
-                                </div>
                             </div>
                         </div> <!-- 네이버백과 연결, 키워드 사전 -->
 
@@ -175,7 +171,7 @@
                 <div id="layer">
                     <div class="layer-content layer-keywords">
                         <div class="layer-header">
-                            <div class="layer-title"></i>키워드 사전</div>
+                            <div class="layer-title">키워드 사전</div>
                             <button type="button" class="layer-close">닫기</button>
                         </div>
                         <div class="layer-body">

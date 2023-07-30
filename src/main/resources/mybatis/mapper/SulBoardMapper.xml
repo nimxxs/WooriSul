@@ -47,6 +47,7 @@
         order by sno desc limit #{stnum}, 5
     </select>
 
+
     <select id="selectCountSulBoard">
         select ceil(count(sno) / 5) cntpg from sul
 
@@ -112,7 +113,12 @@
         SELECT COUNT(*) FROM sul WHERE tag = #{tag}
     </select>
 
-
+    <select id="countSearchSul" resultType="int">
+        SELECT COUNT(*)
+        FROM sul
+        WHERE sname LIKE CONCAT('%', #{sname}, '%')
+        AND region LIKE CONCAT('%', #{region}, '%')
+    </select>
 
 
 </mapper>
