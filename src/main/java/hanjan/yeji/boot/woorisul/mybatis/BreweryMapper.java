@@ -8,7 +8,7 @@ import java.util.Map;
 
 @Mapper
 public interface BreweryMapper {
-    int insertBrewery(Brewery b);
+//    int insertBrewery(Brewery b);
 
     List<Brewery> selectBrewery(int stnum);
 

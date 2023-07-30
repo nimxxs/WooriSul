@@ -7,7 +7,7 @@ import java.util.Map;
 
 public interface BreweryDAO {
 
-    int insertBrewery(Brewery b);
+//    int insertBrewery(Brewery b);
 
     List<Brewery> selectBrewery(int stnum);
 

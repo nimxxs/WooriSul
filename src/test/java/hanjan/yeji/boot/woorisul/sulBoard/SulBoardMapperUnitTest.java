@@ -1,6 +1,6 @@
 /*
 
-package hanjan.yeji.boot.woorisul.SulBoard;
+package hanjan.yeji.boot.woorisul.sulBoard;
 
 import hanjan.yeji.boot.woorisul.model.Brewery;
 import hanjan.yeji.boot.woorisul.model.SulBoard;

@@ -9,7 +9,7 @@
     <div id="content">
       <div class="inner">
         <h2 class="title">오프라인 판매처</h2>
-        <!-- A board-view -->
+        <!-- board-view -->
         <div class="board-view place-view">
           <dl>
             <dt class="subject" th:text="${off.store}">전통주갤러리</dt>
@@ -54,15 +54,17 @@
         <div class="paging">
           <ul class="pagination justify-content-between">
             <li th:class="${(fno - 1 gt 0) ? 'prev' : 'prev disabled'}">
-              <a th:href="|${pglink}${fno - 1}|" class="page-link"><i class="fa-solid fa-chevron-left" th:style="${(fno - 1 gt 0) ? 'color: #ff9f00;' : 'color: #dee2e6;'}"></i></a></li>
+              <a th:href="|${pglink}${fno - 1}|" class="page-link">
+                <i class="fa-solid fa-chevron-left" th:style="${(fno - 1 gt 0) ? 'color: #ff9f00;' : 'color: #dee2e6;'}"></i></a></li>
 
             <li th:class="${(fno lt cntoff) ? 'next': 'next disabled'}">
-              <a th:href="|${pglink}${fno + 1}|" class="page-link"><i class="fa-solid fa-chevron-right" th:style="${(fno lt cntoff) ? 'color: #ff9f00;' : 'color: #dee2e6;'}"></i></a></li>
+              <a th:href="|${pglink}${fno + 1}|" class="page-link">
+                <i class="fa-solid fa-chevron-right" th:style="${(fno lt cntoff) ? 'color: #ff9f00;' : 'color: #dee2e6;'}"></i></a></li>
           </ul>
         </div>
         <!--//paging -->
 
-        <!-- btn -->
+        <!-- 목록 btn -->
         <div class="btn-area">
           <button type="button" class="btn-list-primary" onclick="location.href='/store/offline/list/1'">목록</button>
         </div>

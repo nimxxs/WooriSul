@@ -51,11 +51,20 @@
     padding: 0px 0 30px 42px;
 }
 .board-view .info {
-    padding: 15px 0 0;
+    padding: 15px 0;
     border-top: 1px solid #bfbfbf;
     background: none;
     text-align: center;
 }
+.board-view .info li {
+    position: relative;
+    padding: 0 25px;
+    display: inline-block;
+    font-size: 16px;
+    color: #666;
+    background: whitesmoke;
+}
+
 .place-view .program-wrap li .program dt {
     padding: 25px 30px 19px;
     font-size: 25px;
@@ -68,7 +77,8 @@
     width: 1155px;
 }
 .main-product li .product-info {
-    border-bottom: 2px solid #FF9F00FF;
+    /*border-bottom: 2px solid #FF9F00FF;*/
+    background: lemonchiffon;
 }
 
 /* 이미지 비율 */
