@@ -11,21 +11,30 @@
     vertical-align: initial;
 }
 
-/* 칵테일 view.html 부분 css
-#recipe1{
-    padding-top: 45px;
+/* 칵테일 상세페이지 사진 위치 조정 */
+.product-view dd.detail .thumb {
+    margin: 0 72px;
 }
-#recipe2{
-    padding-top: 3px;
-    padding-left: 24px;
+
+/* 칵테일 상세페이지 항목 위치 조정 */
+#recipe{
+    vertical-align: middle;
 }
-#comment1{
-    padding-top: 10px;
+#comment {
+    vertical-align: middle;
 }
-#comment2 {
-    padding: 12px 0 0 24px;
+.container2 .intro {
+    display: flex;
+    align-items: center;
 }
-*/
+.product-view dd .text {
+    padding-top: 0px;
+}
+#detail {
+    display: flex;
+    align-items: center;
+}
+
 
 #miximg{
     margin-left: -133px;
@@ -37,7 +46,6 @@
     min-height: 27px;
     font-size: 18px;
 }
-
 
 /*.product-view dd .title {*/
 /*    display: table-cell;*/
@@ -164,5 +172,12 @@ h2.title {
     width: auto;
 }
 
+.title {
+    vertical-align: baseline; /* 가운데로 안감 */
+}
 
+.img {
+    display: flex;
+    justify-content: center;
+}
 

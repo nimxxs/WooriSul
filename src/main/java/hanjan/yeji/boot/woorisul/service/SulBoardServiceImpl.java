@@ -33,10 +33,7 @@ public class SulBoardServiceImpl implements SulBoardService {
         return sbdao.selectSulBoard(kind, stnum);
     }
 
-    @Override
-    public int selectCountSulBoard(String kind) {
-        return sbdao.selectCountSulBoard(kind);
-    }
+
 
     @Override
     public SulBoard readOneSulBoard(String sno) {
@@ -45,24 +42,20 @@ public class SulBoardServiceImpl implements SulBoardService {
 
 
     @Override
-    public List<SulBoard> selectSul(String kind) {
-        return sbdao.selectSul(kind);
-    }
-
-    @Override
     public int totalSulBoard(String kind) {
         return sbdao.totalSulBoard(kind);
     }
 
 
     @Override
-    public List<SulBoard> searchSul(String sname, String region) {
-        return sbdao.searchSul(sname, region);
+    public List<SulBoard> searchSul(String sname, String region, Integer cpg) {
+        return sbdao.searchSul(sname, region, cpg);
     }
     // 태그별 리스트(아래 총 3개)
     @Override
     public List<SulBoard> readSulBoardByTag(String tag, Integer cpg) {
-        return sbdao.selectSulBoardByTag(tag, cpg);
+        int stnum = (cpg - 1) * 3;
+        return sbdao.selectSulBoardByTag(tag, stnum);
     }
 
     @Override
@@ -75,5 +68,10 @@ public class SulBoardServiceImpl implements SulBoardService {
         return sbdao.totalSulBoardByTag(tag);
     }
 
+
+    @Override
+    public int countSearchSul(String sname, String region) {
+        return sbdao.countSearchSul(sname, region);
+    }
 
 }

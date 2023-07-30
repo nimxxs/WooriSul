@@ -7,9 +7,13 @@
         insert into Anju (ano, aname, sno, photo, kind)
         values (#{ano}, #{aname}, #{sno}, #{photo}, #{kind})
     </insert>
+
+    <!-- 종류별 안주 리스트 -->
     <select id="selectAnju" resultType="Anju">
         select ano, aname, sno, photo, kind from anju where kind = #{kind}
     </select>
+
+    <!-- 모든 안주 리스트 -->
     <select id="getAllAnju" resultType="Anju">
         select ano, aname, sno, photo, kind from anju
     </select>

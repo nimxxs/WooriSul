@@ -19,7 +19,8 @@ public class Cocktail {
     private String method;
     private String decoration;
     private String cbphoto;
-
+    private String mainphoto;
 
     private CocAttach ca;
+
 }

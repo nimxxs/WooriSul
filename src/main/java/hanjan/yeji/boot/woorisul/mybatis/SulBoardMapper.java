@@ -2,6 +2,7 @@ package hanjan.yeji.boot.woorisul.mybatis;
 
 import hanjan.yeji.boot.woorisul.model.SulBoard;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -18,10 +19,6 @@ public interface SulBoardMapper {
 
   SulBoard selectOneSulBoard(String bno);
 
-  List<SulBoard> selectFindSulBoard(Map<String, Object> params);
-
-  int countFindSulBoard(Map<String, Object> params);
-
   List<SulBoard> selectSul(String kind);
 
   int totalSulBoard(String kind);
@@ -33,6 +30,8 @@ public interface SulBoardMapper {
   int selectCountSulBoardByTag(String tag);
 
   int totalSulBoardByTag(String tag);
+
+  int countSearchSul(String sname, String region);
 
   //  술 검색 시 페이징
 

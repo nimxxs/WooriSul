@@ -103,7 +103,7 @@ create view sbj as
 select * from sul s join brewery br using(bno);
 
 -- view (가상테이블)
-create view cca
+create view cca0
 as
 select * from cocktail c join cocattach ca using(cno);
 
