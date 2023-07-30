@@ -12,75 +12,78 @@
 </head>
 
 <th:block layout:fragment="content">
-<!-- 술 상세페이지 -->
-<div id="content">
-    <div class="inner">
-        <h2 class="title">우리술 종류</h2>
-        <!-- tab-wrap -->
+    <!-- 술 상세페이지 -->
+    <div id="content">
+        <div class="inner">
+            <h2 class="title">우리술 종류</h2>
+            <!-- tab-wrap -->
 
-        <div class="product-view">
-            <dl>
-                <dt class="subject" th:text="${sbd.sname}">삼해주</dt>
-                <dd class="detail">
-                    <div class="thumb">
-                        <div class="img">
+            <div class="product-view">
+                <dl>
+                    <dt class="subject" th:text="${sbd.sname}">삼해주</dt>
+                    <dd class="detail">
+                        <div class="thumb">
+                            <div class="img">
                             <span>
                                 <img th:src="${sbd.sphoto}"/>
                             </span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="info" style=" display: flex; /* Flexbox를 사용하여 요소들을 가로로 정렬 */
-    flex-direction: column; /* 요소들을 세로 방향으로 정렬 */
-    align-items: center; /* 요소들을 수직 방향으로 가운데 정렬 */
-    text-align: center; /* 텍스트를 수평 방향으로 가운데 정렬 */">
+                        <div class="info"
+                             style=" display: flex; /* Flexbox를 사용하여 요소들을 가로로 정렬 */
+                                    flex-direction: column; /* 요소들을 세로 방향으로 정렬 */
+                                    align-items: center; /* 요소들을 수직 방향으로 가운데 정렬 */
+                                    text-align: center; /* 텍스트를 수평 방향으로 가운데 정렬 */">
+                            <div class="title">
+                                <span>상세 정보</span>
+                            </div>
+                            <ul class="info-list">
+                                <li><strong>종류</strong>
+                                    <span th:text="${sbd.kind}">탁주</span>
+                                </li>
+                                <li><strong>원재료</strong>
+                                    <span th:text="${sbd.base}">양주쌀, 누룩, 정제수</span>
+                                </li>
+                                <li><strong>알콜도수</strong>
+                                    <span th:text="${sbd.ptg}">15%</span>
+                                </li>
+                            </ul>
+                            <div class="tag" style="margin-top: 10px; /* 원하는 간격으로 저도수 요소를 상세정보에서 분리 */">
+                                <span th:text="${sbd.tag}"></span>
+                            </div>
+                        </div>
+                    </dd>
+                    <dd class="intro">
                         <div class="title">
-                            <span>상세 정보</span>
+                            <span>제품 소개</span>
                         </div>
-                        <ul class="info-list">
-                            <li><strong>종류</strong>
-                                <span th:text="${sbd.kind}">탁주</span>
-                            </li>
-                            <li><strong>원재료</strong>
-                                <span th:text="${sbd.base}">양주쌀, 누룩, 정제수</span>
-                            </li>
-                            <li><strong>알콜도수</strong>
-                                <span th:text="${sbd.ptg}">15%</span>
-                            </li>
-                        </ul>
-                        <div class="tag" style="  margin-top: 10px; /* 원하는 간격으로 저도수 요소를 상세정보에서 분리 */">
-                            <span th:text="${sbd.tag}"></span>
+                        <div class="text" th:text="${sbd.intro}">
+                            삼해 주는 고려 시대부터 이어져 온 서울지역의 전통주입니다. 원래 궁중에서 의식이나 행사 사용하거나 사대부 집안의 가양주로 애용되다가 조선시대에 큰 사랑을
+                            받았습니다. 15도 도수가 느껴지지 않을 만큼 부드러우며 단맛, 신맛 등이 적당히 잘 어우러지고 뒷맛도 깔끔합니다.
                         </div>
-                    </div>
-                </dd>
-                <dd class="intro">
-                    <div class="title">
-                        <span>제품 소개</span>
-                    </div>
-                    <div class="text" th:text="${sbd.intro}">
-                        삼해 주는 고려 시대부터 이어져 온 서울지역의 전통주입니다. 원래 궁중에서 의식이나 행사 사용하거나 사대부 집안의 가양주로 애용되다가 조선시대에 큰 사랑을 받았습니다. 15도 도수가 느껴지지 않을 만큼 부드러우며 단맛, 신맛 등이 적당히 잘 어우러지고 뒷맛도 깔끔합니다.
-                    </div>
-                </dd>
-                <hr>
-                <dd class="place">
-                    <div class="title">
-                        <span>양조장</span>
-                    </div>
-                    <div class="text">
-                        <ul>
-                            <li><strong>양조장명</strong> <span th:text="${sbd.br.brname}">선인양조</span></li>
-                            <li><strong>주소</strong> <span th:text="${sbd.br.addr}">경기도 양주시 가래비9길 12-29</span></li>
-                            <li><strong>홈페이지</strong><span><a th:href="${sbd.br.waddr}" target="_blank">[[${sbd.br.waddr}]]</a></span>
-                            </li><li><strong>문의</strong>[[${sbd.br.tel}]]</li>
-                        </ul>
-                    </div>
-                </dd>
-            </dl>
-        </div>
-        <div class="btn-area">
-            <button type="button" class="btn-primary" onclick="goBack()">목록</button>
+                    </dd>
+                    <hr>
+                    <dd class="place">
+                        <div class="title">
+                            <span>양조장</span>
+                        </div>
+                        <div class="text">
+                            <ul>
+                                <li><strong>양조장명</strong> <span th:text="${sbd.br.brname}">선인양조</span></li>
+                                <li><strong>주소</strong> <span th:text="${sbd.br.addr}">경기도 양주시 가래비9길 12-29</span></li>
+                                <li><strong>홈페이지</strong><span><a th:href="${sbd.br.waddr}" target="_blank">[[${sbd.br.waddr}]]</a></span>
+                                </li>
+                                <li><strong>문의</strong>[[${sbd.br.tel}]]</li>
+                            </ul>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="btn-area">
+                <button type="button" class="btn-primary" onclick="goBack()">목록</button>
+            </div>
         </div>
     </div>
-</div>
     <div id="layer">
         <div class="layer-content layer-keywords">
             <div class="layer-header">
@@ -113,7 +116,7 @@
                     <span><a href="/drink/tag/홈술/1">홈술</a></span>
 
 
-    <script src="/assets/js/woorisul/drink.js" charset="utf-8"></script>
+                    <script src="/assets/js/woorisul/drink.js" charset="utf-8"></script>
 
 
                 </div>

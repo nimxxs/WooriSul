@@ -27,50 +27,61 @@
                         </div>--> <!-- nginx 사용해 이미지 보이기 -->
 
                     </div>
-                    <div class="info">
+                    <div class="info"
+                         style=" display: flex; /* Flexbox를 사용하여 요소들을 가로로 정렬 */
+                                    flex-direction: column; /* 요소들을 세로 방향으로 정렬 */
+                                    align-items: center; /* 요소들을 수직 방향으로 가운데 정렬 */
+                                    text-align: center; /* 텍스트를 수평 방향으로 가운데 정렬 */">
                         <div class="title">
                             <span>상세 정보</span>
                         </div>
-                        <ul class="info-list">
-                            <li><strong>조합 </strong>
+                        <ul class="info-list"
+                            style="margin-right: 35px;">
+                            <li style="padding-left: 190px;"><strong>조합 </strong>
                                 <span th:utext="${c.mix}"> 감흥로 + 프란젤리코 + 우유 </span>
                             </li>
-                            <li><strong>글라스 </strong>
+                            <li style="padding-left: 190px;"><strong>글라스 </strong>
                                 <span th:text="${c.glass}">CocktaiI Glass</span>
                             </li>
-                            <li><strong>기법 </strong>
+                            <li style="padding-left: 190px;"><strong>기법 </strong>
                                 <span th:text="${c.method}">shake</span>
                             </li>
-                            <li><strong>장식 </strong>
+                            <li style="padding-left: 190px;"><strong>장식 </strong>
                                 <span th:text="${c.decoration}">Cinnamon powder</span>
                             </li>
                         </ul>
-                        <div class="tag">
+                    </div>
+                </dd>
+                <div class="container2">
+                    <dd class="intro">
+                        <div class="title" id="comment">
+                            <span>제품 소개</span>
                         </div>
-                    </div>
-                </dd>
-                <dd class="intro">
-                    <div class="title" id="comment">
-                        <span>제품 소개</span>
-                    </div>
-                    <div class="text" th:text="${c.comment}">
-                        조선 3대 명주인 감홍로를 사용하여 조선시대 선비의 청렴함과 흰옷을 즐겨 입은 우리 민족을 표현하였다.
-                    </div>
-                </dd>
-                <hr>
-                <dd class="food">
-                    <div class="title" id="recipe">
-                        <span>레시피</span>
-                    </div>
-                    <div class="text" th:utext="${c.recipe}">
-                        ❶ 셰이커에 재료와 적당량의 얼음을 넣은 후 잘 흔든다.<br>
+                        <div class="text" th:text="${c.comment}">
+                            조선 3대 명주인 감홍로를 사용하여 조선시대 선비의 청렴함과 흰옷을 즐겨 입은 우리 민족을 표현하였다.
+                        </div>
+                    </dd>
+                </div>
 
-                        ❷ 셰이커의 캡만 열고 얼음을 걸리 내용물만 미리 차게 준비한 칵테일 글라스에 따른다.<br>
-
-                        ❸ 계피가루로 장식한다.<br>
-                    </div>
-                </dd>
                 <hr>
+
+                <div class="container2">
+                    <dd class="food">
+                        <div class="title" id="recipe">
+                            <span>레시피</span>
+                        </div>
+                        <div class="text" th:utext="${c.recipe}">
+                            ❶ 셰이커에 재료와 적당량의 얼음을 넣은 후 잘 흔든다.<br>
+
+                            ❷ 셰이커의 캡만 열고 얼음을 걸리 내용물만 미리 차게 준비한 칵테일 글라스에 따른다.<br>
+
+                            ❸ 계피가루로 장식한다.<br>
+                        </div>
+                    </dd>
+                </div>
+
+                <hr>
+
                 <dd class="place">
                     <div class="title" id="photo">
                         <span>조합 사진</span>
