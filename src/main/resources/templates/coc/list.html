@@ -18,15 +18,11 @@
         '/coc/list/' : '/coc/find/' + ftype + '/' + fkey + '/'}">
         <div id="content">
             <div class="inner">
-
                 <h2 class="title">우아한 한잔</h2>
-
                 <div class="board-btn">
                     <div class="board-search info-search">
                         <div class="total fs-4">Total <span th:text="${cntcoc}">0</span></div> <!-- 전체 글 개수-->
                         <div class="radio-area">
-
-
                             <div class="search-wrap">
                                 <div class="option"
                                      style="display: flex; justify-content: flex-end; align-items: flex-start ;">
@@ -42,7 +38,6 @@
                                     </div>
                                 </div>
                             </div>  <!--검색 -->
-
                         </div>
                     </div>
                 </div>
@@ -51,6 +46,10 @@
                     <div class="row offset-5 col-9">
                         <div class="col-4">
                         </div>
+                    </div>
+                    <div class="col-12 text-end">
+                        <button type="button" class="btn btn-light" id="newcocbtn">
+                            <i class="fa fa-plus-circle"></i>칵테일 추가</button>
                     </div>
                 </div>
 
@@ -63,27 +62,23 @@
                             <div th:each="coc : ${cocs}" class="col-md-4 mb-3">
                                 <div class="card">
                                     <a th:href="|/coc/view/${coc.cno}|">
-                                        <div th:if="${coc.ca}">
-                                            <div th:each="img : ${#strings.arraySplit(coc.ca.fname,';')}">
-                                                <img th:src="|http://localhost/cdn/${img}|" class="card-img-top" alt="...">
-                                            </div>
-                                        </div>
+                                                <img th:src="${coc.mainphoto}" class="card-img-top" alt="...">
                                     </a>
                                     <div class="card-body">
-                                        <p class="card-title">
+                                        <p class="card-title" style="font-size:18px;">
                                             <span class="badge badge-pink p-2">칵테일</span>
                                             <span th:text="${coc.cname}">베이스</span>
                                         </p>
-                                        <p>
+                                        <p style="font-size:18px;">
                                             <span class="badge bg-secondary p-2">베이스</span>
                                             <span th:text="${coc.base}">레시피</span>
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                        </div><!-- 칵테일 리스트 -->
+                        </div>
                     </div>
-                </div>
+                </div><!-- 칵테일 리스트 -->
 
                 <!--<div class="row">
                     <div class="offset-1 col-10">
@@ -122,6 +117,8 @@
                         /* 필요에 따라 커서 모양 등의 스타일을 추가로 설정할 수 있습니다. */
                     }
                 </style>
+
+                <hr>
 
                 <div class="paging">
                     <ul class="pagination justify-content-center">

@@ -7,7 +7,7 @@
     <resultMap id="ca" type="CocAttach">
         <result column="fname" property="fname" />
         <result column="fsize" property="fsize" />
-    </resultMap>
+    </resultMap> <!-- SQL 매핑 설정 -->
 
     <resultMap id="cca" type="Cocktail">
         <result column="cno" property="cno"/>
@@ -21,52 +21,70 @@
         <result column="method" property="method"/>
         <result column="decoration" property="decoration"/>
         <result column="cbphoto" property="cbphoto"/>
+        <result column="mainphoto" property="mainphoto"/>
 
 
         <collection property="ca" resultMap="ca"/>
-    </resultMap>
+    </resultMap> <!-- SQL 매핑 설정 -->
 
     <insert id="insertCocktail" parameterType="Cocktail">
         insert into cocktail (cname,mix,comment,recipe,base,
-        cphoto,glass,method,decoration,cbphoto)
+        cphoto,glass,method,decoration,cbphoto,mainphoto)
 
         value (#{cname},#{mix},#{comment},#{recipe},#{base},
-        #{cphoto},#{glass},#{method},#{decoration},#{cbphoto})
-    </insert>
-
-    <select id="lastCocCno">
-        select AUTO_INCREMENT -1 cno
-        from information_schema.TABLES where TABLE_NAME = 'cocktail'
-    </select>
+        #{cphoto},#{glass},#{method},#{decoration},#{cbphoto},#{mainphoto})
+    </insert> <!-- 매핑 설정 -->
 
     <insert id="insertCocAttach" parameterType="CocAttach">
         insert into cocattach (cno,fname,fsize)
         value (#{cno},#{fname},#{fsize})
-    </insert>
+    </insert> <!-- 매핑 설정 -->
+
+    <select id="lastCocCno">
+        select AUTO_INCREMENT -1 cno
+        from information_schema.TABLES where TABLE_NAME = 'cocktail'
+    </select> <!-- cno 조회 -->
 
     <select id="selectCocktail" resultMap="cca">
         select * from cca0
         order by cno ASC limit #{stnum}, 6
-    </select>
+    </select> <!-- 가상뷰cca0 cno기준으로 오름차순 6개씩 가져와 조회 -->
 
-    <select id="selectOneCocktail" resultMap="cca"> <!-- rsultMap을 만들어-->
+    <select id="selectOneCocktail" resultMap="cca">
         select * from cca where cno = #{cno}
-    </select>
+    </select> <!-- cno값 각테일 정보 조회 -->
 
     <select id="selectCountCocktail">
         select ceil(count(cno) / 6) cntpg from cocktail
-    </select>
+    </select> <!-- cocktail테이블 총개수로 페이지수 계산 -->
+
+    <!-- 칵테일 총개수 -->
+    <select id="countAllCocktail">
+        select count(cno) cntcoc from cocktail
+    </select> <!-- 테이블의 cno 컬럼 개수를 세어 총칵테일 개수 구함 -->
+
+    <select id="countFindCocktail" parameterType="map" resultType="int">
+        SELECT COUNT(cno) AS cntcoc FROM cocktail
+        <where>
+            <if test="findtype == 'cname'">
+                cname LIKE CONCAT('%', #{findkey}, '%') OR base LIKE CONCAT('%', #{findkey}, '%')
+            </if>
+            <if test="findtype != 'cname'">
+                AND ${findtype} LIKE CONCAT('%', #{findkey}, '%')
+            </if>
+        </where>
+    </select> <!-- 검색결과에 총 개수 -->
 
     <!-- 페이지 검색-->
-<!--    <select id="selectFindCocktail" parameterType="map" resultType="Cocktail">-->
-<!--        select cno, cname, mix, comment, recipe, base,cphoto,glass,method,decoration,cbphoto from cocktail-->
+    <!--<select id="selectFindCocktail" parameterType="map" resultType="Cocktail">
+        select cno, cname, mix, comment, recipe, base,cphoto,glass,method,decoration,cbphoto from cocktail
 
-<!--        <if test="findtype == 'cname'">-->
-<!--            where ${findtype} like concat('%', #{findkey}, '%')-->
-<!--        </if>-->
+        <if test="findtype == 'cname'">
+            where ${findtype} like concat('%', #{findkey}, '%')
+        </if>
 
-<!--        limit #{stnum}, 6-->
-<!--    </select>-->
+        limit #{stnum}, 6
+    </select>--> <!-- 수정전 -->
 
     <select id="countPageFindCocktail" parameterType="map">
         select ceil(count(cno) / 6)  cntfpg from cocktail
@@ -74,49 +92,27 @@
         <if test="findtype == 'cname'">
             where ${findtype} like concat('%', #{findkey}, '%')
         </if>
-    </select>
+    </select> <!-- 총페이지 수를 구하여 반환하는 기능 페이징 처리된 검색 결과를 보여줌 -->
 
-<!--    <select id="countFindCocktail" parameterType="map">-->
-<!--        select count(cno) cntcn from cocktail-->
+    <!--<select id="countFindCocktail" parameterType="map">
+        select count(cno) cntcn from cocktail
 
-<!--        <if test="findtype == 'cname'">-->
-<!--            where ${findtype} like concat('%', #{findkey}, '%')-->
-<!--        </if>-->
-<!--    </select>-->
+        <if test="findtype == 'cname'">
+            where ${findtype} like concat('%', #{findkey}, '%')
+        </if>
+    </select>--> <!-- 수정전 -->
 
-    <!-- 칵테일 총개수 -->
-    <select id="countAllCocktail">
-        select count(cno) cntcoc from cocktail
-    </select>
-
-
-
-
-    <!-- selectFindCocktail -->
     <select id="selectFindCocktail" parameterType="map" resultType="Cocktail">
-        SELECT cno, cname,mix, comment, recipe, base FROM cocktail
+        SELECT cno, cname, base,mainphoto FROM cocktail
         <where>
             <if test="findtype == 'cname'">
-                cname LIKE CONCAT('%', #{findkey}, '%') OR mix LIKE CONCAT('%', #{findkey}, '%')
+                cname LIKE CONCAT('%', #{findkey}, '%') OR base LIKE CONCAT('%', #{findkey}, '%')
             </if>
             <if test="findtype != 'cname'">
                 AND ${findtype} LIKE CONCAT('%', #{findkey}, '%')
             </if>
         </where>
         ORDER BY cno DESC LIMIT #{stnum}, 6
-    </select>
-
-    <!-- countFindCocktail -->
-    <select id="countFindCocktail" parameterType="map" resultType="int">
-        SELECT CEIL(COUNT(cno) / 6) AS cntpg FROM cocktail
-        <where>
-            <if test="findtype == 'cname'">
-                cname LIKE CONCAT('%', #{findkey}, '%') OR mix LIKE CONCAT('%', #{findkey}, '%')
-            </if>
-            <if test="findtype != 'cname'">
-                AND ${findtype} LIKE CONCAT('%', #{findkey}, '%')
-            </if>
-        </where>
     </select>
 
     <!--<select id="searchSul" resultType="SulBoard">
@@ -128,7 +124,6 @@
             region = #{region}
         </if>
     </select>
--->
-
+--> <!-- 수정전 -->
 
 </mapper>

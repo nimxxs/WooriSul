@@ -164,5 +164,12 @@ h2.title {
     width: auto;
 }
 
+.title {
+    vertical-align: baseline; /* 가운데로 안감 */
+}
 
+.img {
+    display: flex;
+    justify-content: center;
+}
 
