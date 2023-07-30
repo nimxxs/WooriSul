@@ -602,7 +602,7 @@ h4.title:after {position:absolute;left:4px;top:12px;content:"";display:block;wid
 .product-view dd.detail .info-list li + li {margin-top:15px;}
 .product-view dd.detail .info-list li:before {content:"";position:absolute;left:0;top:10px;display:block;width:6px;height:6px;border-radius:6px;}
 .product-view dd.detail .info-list li strong {position:absolute;left:15px;display:inline-block;width:100px;font-weight:400;border-right:1px solid #acacac;padding-right:20px;}
-.product-view dd.detail .tag {margin-top:20px;}
+.product-view dd.detail .tag {width: 150px;margin: 20px 33px;}
 .product-view dd.detail .tag span {padding:7px 20px;display:inline-block;height:40px;font-size:18px;color:#313a46;border-radius:20px;background-color:#eceff4;box-sizing:border-box;cursor:pointer;}
 .product-view dd.detail .tag span:before {content:"#";}
 .product-view dd.place {background:none;}
