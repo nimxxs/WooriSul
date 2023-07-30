@@ -48,24 +48,24 @@
     padding-left: 0px;
     float: right;
     width: 49%;
-    padding-left: 230px;
+    padding-left: 45px;
     padding-top: 50px;
 }
 .product-view dd.detail .info-list {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 118px;
+    padding-right: 0px;
     min-height: 30px;
-    margin-left: -235px;
+    margin-left: -138px;
     margin-right: 0px;
     text-align: center;
     margin-top: 45px;
 }
 .product-view dd.detail .info-list li {
-    padding-left: 120px;
+    padding-left: 160px;
     min-height: 30px;
-    margin-top: 20px;
+    margin-top: -9px;
     margin-left: -40px;
-    margin-right: 65px;
+    margin-right: 100px;
 }
 .product-view dd .text {
     padding-top: 13px;

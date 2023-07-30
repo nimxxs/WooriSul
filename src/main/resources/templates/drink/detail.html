@@ -29,7 +29,10 @@
                             </span>
                         </div>
                     </div>
-                    <div class="info">
+                    <div class="info" style=" display: flex; /* Flexbox를 사용하여 요소들을 가로로 정렬 */
+    flex-direction: column; /* 요소들을 세로 방향으로 정렬 */
+    align-items: center; /* 요소들을 수직 방향으로 가운데 정렬 */
+    text-align: center; /* 텍스트를 수평 방향으로 가운데 정렬 */">
                         <div class="title">
                             <span>상세 정보</span>
                         </div>
@@ -44,7 +47,7 @@
                                 <span th:text="${sbd.ptg}">15%</span>
                             </li>
                         </ul>
-                        <div class="tag">
+                        <div class="tag" style="  margin-top: 10px; /* 원하는 간격으로 저도수 요소를 상세정보에서 분리 */">
                             <span th:text="${sbd.tag}"></span>
                         </div>
                     </div>
@@ -85,7 +88,7 @@
                 <button type="button" class="layer-close">닫기</button>
             </div>
             <div class="layer-body">
-                <div class="tag">
+                <div class="tag" style="">
                     <span><a href="/drink/tag/가성비/1">가성비</a></span>
                     <span><a href="/drink/tag/가을/1">가을</a></span>
                     <span><a href="/drink/tag/고문헌/1">고문헌</a></span>
@@ -108,11 +111,19 @@
                     <span><a href="/drink/tag/파티/1">파티</a></span>
                     <span><a href="/drink/tag/혼술/1">혼술</a></span>
                     <span><a href="/drink/tag/홈술/1">홈술</a></span>
+
+
+    <script src="/assets/js/woorisul/drink.js" charset="utf-8"></script>
+
+
                 </div>
             </div>
         </div>
     </div>
+
+
     <script src="/assets/js/woorisul/drink.js" charset="utf-8"></script>
     <script src="https://kit.fontawesome.com/eb07c6eb8a.js" crossorigin="anonymous"></script>
+
 </th:block>
 </html>
