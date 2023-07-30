@@ -151,6 +151,7 @@ body {
     font-weight: normal;
     font-style: normal;
 }
+
 /* a의 link 태그의 밑줄 없애기 => 폰트 밑줄 없애는 것 */
 a:link {
     text-decoration: none;
@@ -169,8 +170,8 @@ body {
     margin: 50px 0 -110px 115px;
 }
 .slider {
-    display: flex; /* 이미지들을 가로로 배치합니다. */
-    transition: transform 0.3s ease; /* 슬라이드 애니메이션을 부드럽게 만듭니다. */
+    display: flex;
+    transition: transform 0.3s ease;
     width: 100%;
 }
 .slider img {
@@ -192,18 +193,21 @@ body {
 
 #snb-menu3{
     width: 14%;
-    height: 120px;
+    height: 110px;
     left: -30px;
+    padding-top: 3px;
 }
 #snb-menu4 {
     width: 14%;
-    height: 80px;
+    height: 110px;
     left: 355px;
+    padding-top: 15px;
 }
 #snb-menu5 {
     width: 14%;
-    height: 190px;
+    height: 110px;
     left: 740px;
+    padding-top: 3px;
 }
 .snb-list {
     display: block;
@@ -221,15 +225,12 @@ body {
     top: 25%;
 }*/
 .gnb .gnb-list li{
-
     top: 25%;
 }
 .gnb .gnb-list li:hover ul{
-
     visibility: visible;
     opacity: 1;
     transition: visibility 0s, opacity 0.5s ease;
-
 }
 
 /* header.css - 하위항목 정렬 */
@@ -239,7 +240,6 @@ body {
     top: 91px;
     background-color: #ff9f00;
     right: 48px;
-
 }
 .gnb .snb-list .inner {
     display: table;

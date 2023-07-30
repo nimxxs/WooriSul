@@ -2,25 +2,27 @@
 .paging li.last {padding-left:15px;}
 
 
-/*.option {*/
-/*    display: flex;*/
-/*    justify-content: flex-end;*/
-/*    align-items: center;*/
-/*}*/
+#layer {
+    display: none;  /* 처음에는 레이어를 숨깁니다 */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: rgba(0,0,0,0.5);  /* 레이어가 표시될 때 뒷 배경을 어둡게 합니다 */
+}
 
-/*.search-select.col-4,*/
-/*.search-select.col-5 {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*}*/
 
-/*.search-select.col-5 .form-control {*/
-/*    flex-grow: 1; !* 텍스트 박스를 가능한 넓게 만듭니다 *!*/
-/*    margin-right: 10px; !* 버튼과의 간격을 조정합니다 *!*/
-/*}*/
-
+/* 검색 부분 위치 조정 */
 .info-search .radio-area {
     display: inline-block;
+}
+.info-search .option {
+    justify-content: end;
+}
+.info-search .search-wrap {
+    margin-left: -67px;
 }
 
 .radio-box {
@@ -83,8 +85,6 @@
     width: 150px;
     vertical-align: top;
 }
-
-
 
 /* 페이지네이션 */
 .paging li a {

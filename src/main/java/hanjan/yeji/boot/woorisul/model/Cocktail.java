@@ -22,4 +22,5 @@ public class Cocktail {
     private String mainphoto;
 
     private CocAttach ca;
+
 }

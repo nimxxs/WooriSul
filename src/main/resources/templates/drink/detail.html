@@ -2,6 +2,15 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/template}">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+</head>
+
 <th:block layout:fragment="content">
 <!-- 술 상세페이지 -->
 <div id="content">
@@ -36,12 +45,7 @@
                             </li>
                         </ul>
                         <div class="tag">
-
-
-
-
-
-
+                            <span th:text="${sbd.tag}"></span>
                         </div>
                     </div>
                 </dd>
@@ -83,6 +87,49 @@
         </div>
     </div>
 </div>
+    <div id="layer">
+        <div class="layer-content layer-keywords">
+            <div class="layer-header">
+                <div class="layer-title">키워드 사전</div>
+                <button type="button" class="layer-close">닫기</button>
+            </div>
+            <div class="layer-body">
+                <div class="tag">
+                    <span><a href="/drink/tag/가성비/1">가성비</a></span>
+                    <span><a href="/drink/tag/가을/1">가을</a></span>
+                    <span><a href="/drink/tag/고문헌/1">고문헌</a></span>
+                    <span><a href="/drink/tag/기념일/1">기념일</a></span>
+                    <span><a href="/drink/tag/달콤/1">달콤</a></span>
+                    <span><a href="/drink/tag/드라이/1">드라이</a></span>
+                    <span><a href="/drink/tag/무감미료/1">무감미료</a></span>
+                    <span><a href="/drink/tag/베리류/1">베리류</a></span>
+                    <span><a href="/drink/tag/봄/1">봄</a></span>
+                    <span><a href="/drink/tag/선물/1">선물</a></span>
+                    <span><a href="/drink/tag/소용량/1">소용량</a></span>
+                    <span><a href="/drink/tag/여름/1">여름</a></span>
+                    <span><a href="/drink/tag/예쁜술/1">예쁜술</a></span>
+                    <span><a href="/drink/tag/이색전통주/1">이색전통주</a></span>
+                    <span><a href="/drink/tag/저도수/1">저도수</a></span>
+                    <span><a href="/drink/tag/진한맛/1">진한맛</a></span>
+                    <span><a href="/drink/tag/집들이/1">집들이</a></span>
+                    <span><a href="/drink/tag/커플/1">커플</a></span>
+                    <span><a href="/drink/tag/탄산/1">탄산</a></span>
+                    <span><a href="/drink/tag/파티/1">파티</a></span>
+                    <span><a href="/drink/tag/혼술/1">혼술</a></span>
+                    <span><a href="/drink/tag/홈술/1">홈술</a></span>
 
+<<<<<<< Updated upstream
+    <script src="/assets/js/woorisul/drink.js" charset="utf-8"></script>
+=======
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="/assets/js/woorisul/drink.js" charset="utf-8"></script>
+    <script src="https://kit.fontawesome.com/eb07c6eb8a.js" crossorigin="anonymous"></script>
+>>>>>>> Stashed changes
 </th:block>
 </html>
