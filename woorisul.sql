@@ -7,6 +7,8 @@ create table sul(
                     intro         text               not null,
                     bno               int    not null,
                     tag           varchar(15)    not null,
+                    sphoto      text,
+                    region      varchar(10)
                     primary key (sno)
 );
 

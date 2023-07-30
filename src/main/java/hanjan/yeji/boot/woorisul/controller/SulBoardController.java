@@ -45,7 +45,7 @@ public class SulBoardController {
         m.addAttribute("cpg", cpg);
         m.addAttribute("sbds", sulList);
 
-        int cntpg = total > 1 ? (total + 2) / 3 : 1;
+        int cntpg = total > 1 ? (total + 2) / 5 : 1;
         // cntpg의 계산을 수정하여 total이 0 또는 1인 경우 페이지 수(cntpg)가 1이 되도록 했습니다.
         // total이 1보다 큰 경우에만 (total + 9) / 10 계산을 수행합니다.
         // 이렇게 하면, 게시물이 1개 또는 없는 경우에도 페이징 처리가 잘 동작
